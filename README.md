@@ -166,13 +166,137 @@ Now jump to **Step C** below to point your GoDaddy domain at it.
 4. On Vercel, set the environment variable `REACT_APP_BACKEND_URL` to your Railway backend URL.
 5. Done.
 
-#### Option 3 (paid but powerful) — Render, DigitalOcean, AWS
+#### Option 3 — Upload to GoDaddy hosting (cPanel) 📤
 
-Same idea — ask your developer. These cost \$5–\$20/month and scale forever.
+> ⚠️ **Important first:** GoDaddy's basic shared hosting (the cheap one) can serve your **frontend** (the pretty pages) but **cannot run the brain (Python backend) or the notebook (MongoDB)**. You have **two sub-options:**
+>
+> - **3a. Frontend on GoDaddy + brain hosted elsewhere** (cheapest, recommended) → see steps below
+> - **3b. Everything on GoDaddy VPS hosting** (more expensive, needs technical know-how) → notes at the end
+
+---
+
+##### 🅓🅐 Option 3a — Upload the frontend to GoDaddy cPanel
+
+###### Step 1 — Park the brain (backend) somewhere it can live
+
+The Python backend + MongoDB **must** live elsewhere. Use Railway, Render, or Emergent (any of them, takes ~5 minutes). You'll get a URL like:
+
+```
+https://nua-backend.up.railway.app
+```
+
+Keep this URL handy. We need it in step 2.
+
+###### Step 2 — Build the frontend on your computer
+
+Open a terminal inside the `frontend` folder and run these commands one by one:
+
+```bash
+cd frontend
+
+# Tell the build where the brain lives
+echo "REACT_APP_BACKEND_URL=https://nua-backend.up.railway.app" > .env
+
+# Install ingredients (only first time, takes a few minutes)
+yarn install
+
+# Bake the website
+yarn build
+```
+
+When it finishes, you'll have a brand new folder called `frontend/build/`.
+Inside `build/` there's an `index.html`, a `static/` folder, some pictures, etc. **That whole folder is your website.**
+
+###### Step 3 — Log in to GoDaddy cPanel
+
+1. Go to **[godaddy.com](https://godaddy.com)** and log in.
+2. Top-right → **My Products**.
+3. Find your **Web Hosting** plan → click **Manage**.
+4. Click **cPanel Admin** (a big button).
+
+You're now in cPanel. It looks like a wall of icons. Don't be scared — we only need two.
+
+###### Step 4 — Open File Manager and find `public_html`
+
+1. In cPanel, click the **File Manager** icon.
+2. On the left, click the folder named `public_html`.
+3. This is the **front door** of your website. Anything you put here shows up on `yourdomain.com`.
+
+> 💡 If `public_html` already has files like `index.html` or a `cgi-bin`, those are GoDaddy defaults. Select them all → right-click → **Delete** (move to trash). You want this folder empty before the next step.
+
+###### Step 5 — Upload the build folder
+
+1. Click the **Upload** button at the top.
+2. A new tab opens. Click **Select File** and pick **EVERYTHING inside** the `frontend/build/` folder (not the folder itself — the contents).
+   - On Mac/Windows, open `frontend/build/`, press `Cmd+A` / `Ctrl+A`, then drag everything into the upload window.
+3. Wait until each file shows "Complete".
+4. Close the upload tab.
+
+###### Step 6 — Add the React routing fix
+
+React websites have a quirk: if a visitor types `yourdomain.com/somepage` directly, the server says "404 — that page doesn't exist." We fix this with a tiny file.
+
+1. In File Manager, still inside `public_html`, click **+ File** at the top.
+2. Name it exactly: `.htaccess` (yes, with the dot at the front).
+3. Click **Create New File**.
+4. Right-click `.htaccess` → **Edit** → click **Edit** again on the popup.
+5. Paste **exactly** this:
+
+```apache
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+```
+
+6. Click **Save Changes** (top-right). Close the editor.
+
+###### Step 7 — Set up HTTPS (free, takes 2 clicks)
+
+1. Back in cPanel home, search for **SSL/TLS Status** or **Let's Encrypt SSL**.
+2. Click it → check your domain → click **Run AutoSSL** (or **Issue**).
+3. Wait 5–10 minutes. Your site is now `https://`. 🔒
+
+###### Step 8 — Visit your site!
+
+Open a new tab and type your domain (e.g. `https://mynua.app`). Tadaa! 🎉
+The form, the video, everything should work — because the brain is talking to your Railway/Render backend.
+
+###### How to update later
+
+Whenever you change something:
+
+1. On your computer: `yarn build` again.
+2. In cPanel File Manager: delete everything in `public_html` (except `.htaccess`).
+3. Re-upload the new `build/` contents.
+
+Or use FTP for a faster workflow — ask your developer.
+
+---
+
+##### 🅓🅑 Option 3b — Everything on GoDaddy VPS (advanced)
+
+GoDaddy also sells **VPS hosting** (about \$10–\$25/month). It's a tiny Linux computer in the cloud where you can install **anything**, including Node, Python, and MongoDB.
+
+If you really want everything on GoDaddy, you'd:
+
+1. Buy a **VPS** plan (not "Web Hosting").
+2. SSH into it (a developer thing — like remote-controlling the server from your laptop).
+3. Install Node 18+, Python 3.11+, MongoDB 6+.
+4. Copy the `frontend/` and `backend/` folders onto the server.
+5. Use **PM2** to keep the backend running, **nginx** to serve the frontend build, and **Let's Encrypt** for free HTTPS.
+
+This is doable but quite techy. We strongly recommend **Option 3a** (frontend on GoDaddy + brain on Railway/Render) or **Option 1** (Emergent deploy). Same result, way less pain.
 
 ---
 
 ### 🅲 Step C — Point your GoDaddy domain at your live app
+
+> 👉 **Skip this step if you chose Option 3 (GoDaddy hosting).** Your domain is already connected. This step is only for Emergent / Vercel+Railway / Render deployments.
 
 Wherever you deployed (Emergent / Vercel / Railway), they'll give you **either**:
 

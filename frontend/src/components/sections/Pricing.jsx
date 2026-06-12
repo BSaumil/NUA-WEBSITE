@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, Sparkles, ArrowRight } from "lucide-react";
+import { Check, Sparkles, ArrowRight, Infinity as InfinityIcon, Zap } from "lucide-react";
 import { useModals } from "@/components/ModalProvider";
 
 const plans = [
   {
     name: "Starter",
-    price: "$129",
+    price: "$59",
     period: "per venue / mo",
     desc: "For single-venue operators ready to switch on intelligence.",
     accent: "#a1a1aa",
@@ -23,7 +23,7 @@ const plans = [
   },
   {
     name: "Growth",
-    price: "$329",
+    price: "$99",
     period: "per venue / mo",
     desc: "Multi-venue brands scaling with autonomous ops.",
     accent: "#8b5cf6",
@@ -40,8 +40,8 @@ const plans = [
   },
   {
     name: "Enterprise",
-    price: "Custom",
-    period: "global pricing",
+    price: "$149",
+    period: "per venue / mo",
     desc: "Hospitality groups, franchises and chains.",
     accent: "#f58c14",
     cta: "Talk to sales",
@@ -149,6 +149,107 @@ export default function Pricing() {
         <p className="mt-10 text-center font-mono text-[11px] uppercase tracking-widest text-[#666670]">
           All plans · 14-day free trial · no card required · cancel anytime
         </p>
+
+        {/* Lifetime offer */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          data-testid="pricing-lifetime-card"
+          className="relative mt-14 max-w-5xl mx-auto"
+        >
+          <div className="absolute -inset-px rounded-3xl bg-gradient-to-r from-[#f58c14] via-[#ec4899] to-[#8b5cf6] opacity-80 blur-xl" />
+          <div className="relative rounded-3xl bg-gradient-to-br from-[#0b0b0f] via-[#15151d] to-[#0b0b0f] border border-white/10 overflow-hidden">
+            {/* ambient glows */}
+            <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#f58c14]/30 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-[#8b5cf6]/30 blur-3xl pointer-events-none" />
+            <div className="absolute inset-0 bg-grid-dark opacity-10 pointer-events-none" />
+
+            <div className="relative grid lg:grid-cols-[1.3fr_1fr] gap-8 p-8 sm:p-10">
+              {/* Left */}
+              <div className="text-white">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#f58c14]/40 bg-[#f58c14]/10">
+                  <Zap className="w-3 h-3 text-[#f58c14]" />
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#fbbf24]">
+                    Founding members · limited
+                  </span>
+                </div>
+
+                <h3 className="font-display mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.02]">
+                  Pay once.
+                  <br />
+                  <span className="text-shimmer">Use NUA forever.</span>
+                </h3>
+
+                <p className="mt-4 text-[#a1a1aa] max-w-md leading-relaxed">
+                  One-time payment, lifetime access. Lock in the full NUA platform — AI Agent,
+                  Voice POS, Loyalty, every future update — with no monthly fee, ever.
+                </p>
+
+                <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
+                  {[
+                    "All Enterprise features",
+                    "Unlimited locations",
+                    "Lifetime free updates",
+                    "Priority onboarding",
+                    "Founding-member badge",
+                    "Direct line to product team",
+                  ].map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-[#eaeaea]">
+                      <div className="w-4 h-4 rounded-full bg-[#f58c14]/20 flex items-center justify-center flex-shrink-0">
+                        <Check className="w-2.5 h-2.5 text-[#f58c14]" />
+                      </div>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Right — price card */}
+              <div className="flex flex-col justify-center">
+                <div className="rounded-2xl bg-white/[0.04] border border-white/10 p-6 backdrop-blur">
+                  <div className="flex items-center gap-2 mb-3">
+                    <InfinityIcon className="w-4 h-4 text-[#ec4899]" />
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-[#fbcfe8]">
+                      Lifetime · one-time
+                    </span>
+                  </div>
+
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-display text-6xl font-bold text-white tracking-tight">
+                      $2,499
+                    </span>
+                  </div>
+                  <div className="mt-1 font-mono text-[11px] text-[#a1a1aa] uppercase tracking-wider">
+                    + GST · paid once
+                  </div>
+
+                  <div className="mt-4 p-3 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20">
+                    <div className="text-[11px] text-[#c4b5fd] leading-relaxed">
+                      Equivalent to <span className="font-mono">~21 months</span> of Enterprise.
+                      Break-even in under 2 years — free forever after.
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => openLead({ type: "demo", plan: "Lifetime ($2,499 + GST)" })}
+                    data-testid="pricing-lifetime-cta"
+                    className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-semibold shadow-lg shadow-[#f58c14]/30 transition-all hover:-translate-y-0.5"
+                  >
+                    Claim lifetime access
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-[#666670]">
+                    30-day money-back guarantee
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
