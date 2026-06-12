@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Sparkles } from "lucide-react";
+import { useModals } from "@/components/ModalProvider";
 
 const navItems = [
   { label: "Features", href: "#modules" },
@@ -15,6 +16,7 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { openLead } = useModals();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -57,20 +59,22 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a
-            href="#pricing"
+          <button
+            type="button"
+            onClick={() => openLead({ type: "trial" })}
             data-testid="navbar-trial-btn"
             className="text-sm px-4 py-2 rounded-full border border-[#8b5cf6]/60 text-[#c4b5fd] hover:bg-[#8b5cf6]/10 transition-all duration-200"
           >
             Start Free Trial
-          </a>
-          <a
-            href="#final-cta"
+          </button>
+          <button
+            type="button"
+            onClick={() => openLead({ type: "demo" })}
             data-testid="navbar-demo-btn"
             className="text-sm px-4 py-2 rounded-full bg-[#f58c14] text-white hover:bg-[#d87b10] transition-all duration-200 font-medium shadow-lg shadow-[#f58c14]/20"
           >
             Book Demo
-          </a>
+          </button>
         </div>
 
         <button
@@ -96,7 +100,7 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
-            <a href="#final-cta" className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-white font-medium">
+            <a href="#final-cta" className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-white font-medium" onClick={(e) => { e.preventDefault(); setOpen(false); openLead({ type: "demo" }); }}>
               Book Demo
             </a>
           </div>

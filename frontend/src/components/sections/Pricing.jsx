@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check, Sparkles, ArrowRight } from "lucide-react";
+import { useModals } from "@/components/ModalProvider";
 
 const plans = [
   {
@@ -57,6 +58,7 @@ const plans = [
 ];
 
 export default function Pricing() {
+  const { openLead } = useModals();
   return (
     <section id="pricing" data-testid="pricing-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
@@ -125,8 +127,9 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href="#final-cta"
+              <button
+                type="button"
+                onClick={() => openLead({ type: p.name === "Starter" ? "trial" : "demo", plan: p.name })}
                 data-testid={`pricing-${p.name.toLowerCase()}-cta`}
                 className={`mt-7 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all ${
                   p.featured
@@ -138,7 +141,7 @@ export default function Pricing() {
               >
                 {p.cta}
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </button>
             </motion.div>
           ))}
         </div>

@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useModals } from "@/components/ModalProvider";
 
 export default function FinalCta() {
+  const { openLead } = useModals();
   return (
     <section id="final-cta" data-testid="final-cta-section" className="relative py-28 lg:py-40 bg-nua-bg overflow-hidden">
       {/* Ambient glow */}
@@ -38,21 +40,23 @@ export default function FinalCta() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => openLead({ type: "demo" })}
             data-testid="final-book-demo-btn"
             className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-base shadow-2xl shadow-[#f58c14]/30 transition-all duration-200 hover:-translate-y-0.5"
           >
             Book a Demo
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#"
+          </button>
+          <button
+            type="button"
+            onClick={() => openLead({ type: "trial" })}
             data-testid="final-start-trial-btn"
             className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-[#8b5cf6]/50 text-[#c4b5fd] hover:bg-[#8b5cf6]/10 hover:text-white font-medium text-base transition-all duration-200"
           >
             Start Free Trial
-          </a>
+          </button>
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">

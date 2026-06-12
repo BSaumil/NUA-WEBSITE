@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, Mic } from "lucide-react";
+import { useModals } from "@/components/ModalProvider";
 
 const StatPill = ({ icon: Icon, label, value, color }) => (
   <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5">
@@ -15,6 +16,7 @@ const StatPill = ({ icon: Icon, label, value, color }) => (
 );
 
 export default function Hero() {
+  const { openLead, openVideo } = useModals();
   return (
     <section id="hero" data-testid="hero-section" className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-radial">
       {/* Grid overlay */}
@@ -67,22 +69,24 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <a
-            href="#final-cta"
+          <button
+            type="button"
+            onClick={() => openLead({ type: "demo" })}
             data-testid="hero-book-demo-btn"
             className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
           >
             Book a Demo
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
-          <a
-            href="#voice"
+          </button>
+          <button
+            type="button"
+            onClick={openVideo}
             data-testid="hero-watch-tour-btn"
             className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium text-sm backdrop-blur-sm transition-all duration-200"
           >
             <Play className="w-3.5 h-3.5 fill-white" />
             Watch Product Tour
-          </a>
+          </button>
         </motion.div>
 
         {/* Mock dashboard */}

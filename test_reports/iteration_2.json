@@ -1,0 +1,42 @@
+{
+  "summary": "Iteration 2 testing of NUA lead-capture (POST/GET /api/leads) and Watch-Product-Tour video modal. Backend: 10/10 pytest tests pass (CRUD + GET filtering + sort desc + no _id leakage). Frontend: lead dialog opens from all 7 wired triggers (hero, navbar demo/trial, pricing starter/growth/enterprise with correct plan label, final book-demo/start-trial). Video dialog opens, iframe loads YouTube embed, iframe is removed from DOM on close, done-btn works. HOWEVER two critical frontend bugs found: (1) any backend 422 (FastAPI returns detail as a list of objects) CRASHES the entire React page with 'Objects are not valid as a React child' because LeadDialog passes the raw detail array into toast.error; (2) after successful submit, clicking the success 'Done' (lead-success-close) closes the dialog WITHOUT resetting the success state, so reopening shows the stuck success UI instead of a fresh empty form.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "POST /api/leads", "issue": "EmailStr (email-validator) rejects reserved TLDs like '.test' (RFC 2606) with 422 — the review spec literally uses qa@nua.test which would fail. Either relax validation (validate_email check_deliverability=False) or document that only deliverable domains are accepted."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "LeadDialog", "issue": "After successful submit, clicking the 'Done' button (data-testid=lead-success-close) calls onOpenChange(false) directly, bypassing handleOpenChange which would reset success=false. Reopening the dialog shows the stuck 'You're on the list' success card instead of a fresh empty form. Fix: call handleOpenChange(false) from lead-success-close, OR reset success state in a useEffect when `open` flips to false.", "selector": "[data-testid=lead-success-close]", "priority": "HIGH"}
+    ],
+    "integration_issues": [
+      {"flow": "Lead form submit with server-side validation error", "issue": "Backend returns 422 with detail=[{type,loc,msg,input,ctx},...] (FastAPI default). LeadDialog passes that array directly to toast.error(msg), but msg is an array of objects so Sonner tries to render it as a React child → Uncaught error 'Objects are not valid as a React child' → whole page crashes to dev error overlay. Fix: normalize err.response.data.detail: if Array.isArray(detail) → detail.map(d=>d.msg).join('; ') else String(detail).", "affected_selectors": ["[data-testid=lead-submit-btn]", "[data-sonner-toast]"]}
+    ],
+    "design_issues": [
+      {"screen": "VideoDialog", "issues": ["Console warning: 'DialogContent requires a DialogTitle for accessibility'. VideoDialog has no DialogTitle (or VisuallyHidden one). Add a visually-hidden DialogTitle for a11y."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/test_leads_api.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "FIX (CRITICAL) LeadDialog error handling: when err.response.data.detail is an array (FastAPI 422), join the .msg fields before toast.error to avoid crashing React.",
+    "FIX (HIGH) LeadDialog success reset: clicking lead-success-close should either call handleOpenChange(false) (so setSuccess(false) runs) or success should reset via useEffect on `open` becoming false. Currently the dialog gets stuck on success on next open.",
+    "Add VisuallyHidden DialogTitle to VideoDialog (a11y warning in console).",
+    "Decide handling for reserved TLD emails (.test): either relax EmailStr validation or surface a clearer client-side hint."
+  ],
+  "critical_code_review_comments": [
+    "server.py: `logger` is defined AFTER the route that uses it (line 101 references logger; logger declared at line 133). It works at request time because module is fully loaded by then, but it is brittle — move logger init to top of file.",
+    "LeadDialog.jsx: `err?.response?.data?.detail` can be a string OR a list of validation objects. Always normalize before passing to toast.error. This is the root cause of the page crash.",
+    "ModalProvider.jsx: `onOpenChange={(v) => (v ? null : closeLead())}` means LeadDialog's internal `handleOpenChange` only sees v=false through Radix' own close paths (Esc / X / overlay), not through the success-Done button which calls onOpenChange directly. Either reset success on close in ModalProvider or in a useEffect.",
+    "VideoDialog.jsx: missing DialogTitle (a11y).",
+    "server.py LeadCreate: `venues` is capped at 40 chars but the UI emits chips like '11–49 venues' (with en-dash) — OK now but worth widening to 80."
+  ],
+  "updated_files": ["/app/backend/tests/test_leads_api.py", "/app/backend/tests/__init__.py"],
+  "success_rate": {"backend": "100% (10/10 pytest)", "frontend": "13/15 UI flows pass; 2 critical bugs in error handling + success-state reset"},
+  "test_credentials": "none required",
+  "seed_data_creation": "2 leads inserted via pytest with TEST_ / qa_demo_<uuid>@example.com and qa_trial_<uuid>@example.com (collection: leads). Safe to leave; can be purged by next run.",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend pytest suite at /app/backend/tests/test_leads_api.py covers POST + GET filter + sort + _id leak. Use REACT_APP_BACKEND_URL env var. EmailStr rejects '.test' TLD so test emails must use real domain (example.com). The two frontend bugs are easy to reproduce: (a) submit any invalid email that bypasses HTML5 (e.g. qa@nua.test) → page crashes; (b) submit valid lead, click Done, reopen dialog → still on success card.",
+  "rca of the issue": "Bug A (page crash on 422): FastAPI returns 422 body {detail: [ValidationError, ...]} where each entry is an object. LeadDialog.jsx line 62 sets msg = err?.response?.data?.detail and passes msg to toast.error. Sonner renders the toast description as a React child; React refuses to render plain objects → 'Objects are not valid as a React child'. Reproduction: open lead dialog, enter email 'qa@nua.test' (or any reserved-TLD address), submit. Mitigation: const detail = err?.response?.data?.detail; const msg = Array.isArray(detail) ? detail.map(d=>d.msg||d.message||JSON.stringify(d)).join('; ') : (typeof detail==='string' ? detail : 'Something went wrong. Please try again.'); toast.error(msg). Bug B (stuck success): success state is local to LeadDialog and only reset inside handleOpenChange (the Radix onOpenChange handler). The success 'Done' button calls onOpenChange(false) prop (from ModalProvider) directly, so handleOpenChange never runs → success stays true. Mitigation: change Done button to call handleOpenChange(false), or add useEffect(()=>{ if(!open) setSuccess(false); }, [open])."
+}
