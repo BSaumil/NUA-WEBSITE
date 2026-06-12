@@ -1,0 +1,176 @@
+{
+  "theme": {
+    "archetype": "Electric Swiss (Hybrid of Archetypes 4 & 7)",
+    "description": "High-contrast precision mixed with vibrant neon signals. Dark UI represents the 'system/engine' (performance, analytics), while light UI sections represent 'management/operations' (staff, inventory, floor plans).",
+    "colors": {
+      "primary_orange": "#f58c14",
+      "secondary_purple": "#8b5cf6",
+      "accent_pink": "#ec4899",
+      "dark": {
+        "bg": "#0b0b0f",
+        "surface": "#15151d",
+        "card": "#1c1c26",
+        "border": "rgba(255, 255, 255, 0.05)"
+      },
+      "light": {
+        "bg": "#f6f7fb",
+        "surface": "#ffffff",
+        "card": "#ffffff",
+        "border": "rgba(0, 0, 0, 0.08)"
+      },
+      "text": {
+        "primary": "#eaeaea",
+        "muted": "#a1a1aa",
+        "light_mode_primary": "#0f0f14",
+        "light_mode_muted": "#666670"
+      }
+    },
+    "typography": {
+      "headings": {
+        "fontFamily": "Bricolage Grotesque",
+        "weights": ["600", "800"],
+        "strategy": "Tracking tight, high impact, assertive. Do not use generic sans for headings."
+      },
+      "body": {
+        "fontFamily": "Manrope",
+        "weights": ["400", "500", "600"],
+        "strategy": "High legibility, clean geometric forms, loose line-height."
+      },
+      "mono": {
+        "fontFamily": "JetBrains Mono",
+        "weights": ["400"],
+        "strategy": "Used for AI decisions, code snippets, timestamps, data tables, and badges."
+      }
+    },
+    "spacing_and_layout": {
+      "strategy": "Generous Spacing Philosophy. Use p-8 to p-16 internally for cards, py-24 to py-32 for sections. Ensure visual breathing room.",
+      "grid": "Bento Grid Protocol. Strict column structures (12-col for marketing grids, 3/4-col for dashboards). Asymmetry creates tension."
+    }
+  },
+  "motion_and_interaction": {
+    "hover_states": "Cards must elevate slightly (-translate-y-1) and gain an ambient border glow matching their primary context color.",
+    "scroll_reveals": "Use framer-motion for staggered fade-up on text and bento items.",
+    "active_elements": "data-testid mandatory for all buttons, inputs, tabs, and interactive elements. Format: kebab-case, role-based."
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "theme_mode": "dark",
+      "layout": "Sticky nav with backdrop-blur-xl bg-[#0b0b0f]/70. Centralized H1 'AI-Powered Operating System for Modern Hospitality'.",
+      "visuals": "Animated radial background gradient blending #8b5cf6, #0b0b0f, and #f58c14. Overlaid with a CSS-built mock dashboard (glassy panels, AI stat cards, floating charts).",
+      "ctas": "Book Demo (Primary Orange #f58c14) + Watch Product Tour (Purple outline)."
+    },
+    {
+      "id": "modules-grid",
+      "theme_mode": "dark",
+      "layout": "10-module Bento Grid ('Tetris' mode). Diverse col-spans to avoid boring equal squares.",
+      "content": "Cards for POS, Reservations, KDS, Loyalty Engine, Inventory & Purchasing, Staff Management, AI Command Center, Analytics Dashboard, Marketing Automation, Voice POS.",
+      "visuals": "bg-[#1c1c26] cards with 1px border. On hover: shadow-[0_0_30px_rgba(139,92,246,0.15)]."
+    },
+    {
+      "id": "meet-ash",
+      "theme_mode": "light",
+      "layout": "Side-by-side or asymmetrical layout.",
+      "content": "Headline: 'Meet Ash. Your Autonomous Restaurant Manager.'",
+      "visuals": "Live decision feed UI built with HTML/CSS. Stream of events: 'Ash -> Action -> Outcome -> Status'. Use JetBrains Mono for the logs. Accents in #8b5cf6."
+    },
+    {
+      "id": "voice-first",
+      "theme_mode": "dark",
+      "layout": "Centered storytelling with large typography.",
+      "visuals": "Framer Motion audio waveform animation. Real-time transcription typing effect ('Ash, 86 the sea bass and comp table 4')."
+    },
+    {
+      "id": "reservations",
+      "theme_mode": "light",
+      "layout": "Split section: Text on left, UI mockup on right.",
+      "visuals": "Interactive floor plan UI built with CSS grid. Tables as geometric shapes turning colors based on AI prediction (e.g., Purple for VIP arriving, Orange for overdue)."
+    },
+    {
+      "id": "loyalty-revenue",
+      "theme_mode": "dark",
+      "layout": "Feature highlight with Pink (#ec4899) as the dominant accent.",
+      "visuals": "Points/tiers/redemption CSS mockups. Progress bars, VIP cards with neon pink glows."
+    },
+    {
+      "id": "inventory",
+      "theme_mode": "light",
+      "layout": "Grid of actionable insights.",
+      "visuals": "AI recommendation cards ('Buy now', 'Wait 3 days', 'Price increasing alert'). Clean white cards with sharp contrasting text and subtle drop shadows."
+    },
+    {
+      "id": "staff-operations",
+      "theme_mode": "dark",
+      "layout": "Dashboard-style 'Control Room' grid.",
+      "visuals": "Weekly roster grid. AI suggestions highlighted in Purple (#8b5cf6) indicating optimized scheduling to reduce labor costs."
+    },
+    {
+      "id": "multi-location",
+      "theme_mode": "light",
+      "layout": "Full-width visual centerpiece.",
+      "visuals": "Map-based UI. Use a CSS dotted grid with glowing pulse points representing restaurant locations. Sidebar showing consolidated cross-location metrics."
+    },
+    {
+      "id": "analytics",
+      "theme_mode": "dark",
+      "layout": "High density metric grid.",
+      "visuals": "Executive dashboard. KPI cards with Recharts or CSS-based bar/line charts. Use JetBrains Mono for numbers. Strict alignment."
+    },
+    {
+      "id": "integrations",
+      "theme_mode": "light",
+      "layout": "Marquee banner section.",
+      "content": "'18+ Integrations'",
+      "visuals": "Use react-fast-marquee. Ecosystem badges via react-icons/si (Stripe, Twilio, UberEats, QuickBooks, etc). Low contrast grayscale logos that light up on hover."
+    },
+    {
+      "id": "why-nua",
+      "theme_mode": "dark",
+      "layout": "Centered comparison table.",
+      "visuals": "NUA vs Traditional POS. Use high contrast borders, checkmarks in Purple/Orange, X marks in muted gray. Rows for 'AI Automation', 'Unified Data', 'Setup Time'."
+    },
+    {
+      "id": "pricing",
+      "theme_mode": "light",
+      "layout": "3-column grid.",
+      "content": "Starter / Growth / Enterprise tiers.",
+      "visuals": "Highlight 'AI Agent included' in all tiers. Middle card elevated with Purple border and subtle glow."
+    },
+    {
+      "id": "final-cta",
+      "theme_mode": "dark",
+      "layout": "Massive text, highly emotional.",
+      "content": "H2: 'Stop Running Systems. Start Running Intelligence.'",
+      "visuals": "Ambient glow (Purple + Orange) behind text. Dual CTAs matching hero. Use the provided abstract background texture."
+    }
+  ],
+  "components": {
+    "buttons": "Shadcn based. Add custom brand colors. Primary CTA: bg-[#f58c14] text-white hover:bg-[#d87b10]. Secondary CTA: border-[#8b5cf6] text-[#8b5cf6] hover:bg-[#8b5cf6]/10.",
+    "cards": "Remove default shadcn borders for dark mode, use border-white/5. For light mode, use clean solid white with shadow-sm.",
+    "badges": "Rounded-full, text-xs, font-mono. E.g., bg-[#8b5cf6]/10 text-[#8b5cf6]."
+  },
+  "media": {
+    "images_to_use": [
+      {
+        "url": "https://images.pexels.com/photos/6485524/pexels-photo-6485524.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Dark abstract texture with shimmering highlights. Use as a low-opacity background overlay in the Final CTA or Hero section.",
+        "category": "background_texture"
+      }
+    ],
+    "icons": "Use react-icons/si for specific brand logos (SiStripe, SiTwilio). Use lucide-react for all general UI icons (Chart, Users, Map, Mic).",
+    "mockups": "CRITICAL: Do not use stock images of restaurants or real POS screenshots. Construct all UI elements, charts, and dashboard snippets using raw HTML/Tailwind CSS and Shadcn primitives to maintain the high-end Stripe/Linear SaaS aesthetic."
+  },
+  "testing": {
+    "requirements": "Add data-testid attributes to ALL interactive and key informational elements. Use kebab-case and role-based naming (e.g., data-testid='hero-book-demo-btn', data-testid='pricing-starter-card', data-testid='module-pos-card')."
+  },
+  "instructions_to_main_agent": [
+    "Install required fonts from Google Fonts in index.css: @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400&family=Manrope:wght@400;500;600&display=swap');",
+    "Update tailwind.config.js to include font families: sans: ['Manrope', 'sans-serif'], display: ['Bricolage Grotesque', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'].",
+    "Use framer-motion heavily but subtly. Rely on scroll-triggered fade-ins and scale-ups.",
+    "All components must be written in .js files, NOT .tsx. Strip typescript types from any shadcn code.",
+    "Construct the dashboard hero visual purely out of CSS grids, absolutely positioned glassy cards, and lucide-react icons.",
+    "Alternate background sections exactly as specified (Dark -> Light -> Dark) to match the nomni.ai pacing constraint.",
+    "Ensure the sticky header has z-50 and a backdrop blur, avoiding content overlap.",
+    "Never use raw 'inter' font anywhere. Enforce the provided typography strategy."
+  ]
+}
