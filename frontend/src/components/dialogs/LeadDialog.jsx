@@ -59,7 +59,13 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
       });
       setForm({ name: "", email: "", business: "", phone: "", venues: "", message: "" });
     } catch (err) {
-      const msg = err?.response?.data?.detail || "Something went wrong. Please try again.";
+      const detail = err?.response?.data?.detail;
+      let msg = "Something went wrong. Please try again.";
+      if (Array.isArray(detail)) {
+        msg = detail.map((d) => d?.msg || d?.message || "Invalid input").join("; ");
+      } else if (typeof detail === "string") {
+        msg = detail;
+      }
       toast.error(msg);
     } finally {
       setSubmitting(false);
@@ -108,7 +114,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
             </p>
             <button
               data-testid="lead-success-close"
-              onClick={() => onOpenChange(false)}
+              onClick={() => handleOpenChange(false)}
               className="mt-6 px-5 py-2.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-colors"
             >
               Done

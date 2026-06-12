@@ -16,6 +16,7 @@ Build a high-end SaaS marketing landing page for **NUA**, an AI-powered Restaura
 - Brand tokens defined in `tailwind.config.js` (`nua.orange`, `nua.purple`, `nua.pink`, `nua.bg`, `nua.surface`, `nua.card`)
 
 ## What's Been Implemented (2025-12)
+### Iteration 1 — Landing
 - Sticky navbar with scroll-blur + mobile drawer
 - Hero with CSS-built mock command-center dashboard, animated stat pills, voice waveform, reservations grid, Ash AI card
 - 10-module bento grid with hover glows
@@ -32,6 +33,17 @@ Build a high-end SaaS marketing landing page for **NUA**, an AI-powered Restaura
 - 3-tier pricing (Starter / Growth elevated / Enterprise) with full feature lists
 - Final CTA with ambient orange+purple glow and dual buttons
 - Footer with brand + 4 column groups + 3 social icons
+
+### Iteration 2 — Lead capture + video modal
+- Backend: `POST /api/leads`, `GET /api/leads` (FastAPI + MongoDB collection `leads`) with Pydantic + EmailStr validation
+- Global `ModalProvider` context — any button can call `openLead({type, plan})` or `openVideo()`
+- `LeadDialog` component (Shadcn Dialog) — full form (name, email, business, phone, venue chips, notes) with loading + success states + sonner toasts; submits to `/api/leads`
+- Wired every CTA: hero Book Demo, hero Watch Tour, navbar Demo/Trial, pricing tier CTAs (passes plan name), final CTA buttons
+- `VideoDialog` — Shadcn Dialog with YouTube iframe embed; iframe mounted only while open; VisuallyHidden a11y title; X + Done close
+- Bug fixes from testing agent: 422 detail array normalisation; success-state reset on close (Done now calls handleOpenChange); a11y title on video; logger init order; venue field width
+
+### Iteration 2 — Documentation
+- `/app/README.md` — 5-year-old friendly guide covering: file map, how to edit text/colors/video, how to deploy on Emergent / Vercel+Railway / Render, and how to point a GoDaddy domain at the live app (DNS A / CNAME records explained)
 
 ## Testing
 - testing_agent_v3 iteration_1: **37/37 frontend checks passed**, 0 issues

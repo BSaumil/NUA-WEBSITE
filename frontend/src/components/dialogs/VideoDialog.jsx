@@ -1,6 +1,7 @@
 import React from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { X } from "lucide-react";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 // 60-second hospitality / restaurant ambient loop (royalty-free placeholder).
 // Replace VIDEO_URL with your own Loom / YouTube / Vimeo embed when ready.
@@ -13,6 +14,10 @@ export default function VideoDialog({ open, onOpenChange }) {
         data-testid="video-dialog"
         className="max-w-4xl w-[92vw] p-0 bg-[#0b0b0f] border-white/10 overflow-hidden"
       >
+        <VisuallyHidden>
+          <DialogTitle>NUA Product Tour</DialogTitle>
+          <DialogDescription>A 60-second walkthrough of the NUA platform</DialogDescription>
+        </VisuallyHidden>
         <div className="relative aspect-video bg-black">
           {open && (
             <iframe

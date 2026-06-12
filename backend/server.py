@@ -14,6 +14,12 @@ from datetime import datetime, timezone
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
@@ -43,7 +49,7 @@ class LeadCreate(BaseModel):
     email: EmailStr
     business: Optional[str] = Field(default=None, max_length=160)
     phone: Optional[str] = Field(default=None, max_length=40)
-    venues: Optional[str] = Field(default=None, max_length=40)
+    venues: Optional[str] = Field(default=None, max_length=80)
     plan: Optional[str] = Field(default=None, max_length=40)
     message: Optional[str] = Field(default=None, max_length=1000)
     type: LeadType = "demo"
@@ -125,12 +131,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
 
 
 @app.on_event("shutdown")
