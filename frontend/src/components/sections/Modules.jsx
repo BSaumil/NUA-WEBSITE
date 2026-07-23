@@ -1,21 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Calculator, CalendarRange, ChefHat, Gift, Boxes, Users,
-  BrainCircuit, BarChart3, Megaphone, Mic, ArrowUpRight
+  BrainCircuit, BarChart3, Megaphone, Mic, ArrowUpRight, ArrowRight
 } from "lucide-react";
 
+const MotionLink = motion(Link);
+
 const modules = [
-  { icon: Calculator, title: "Point of Sale", desc: "Lightning-fast checkout that works offline. iOS, Android, kiosks.", color: "#f58c14", span: "md:col-span-2" },
-  { icon: CalendarRange, title: "Reservations", desc: "Table management, waitlist & booking portal in one flow.", color: "#8b5cf6", span: "md:col-span-1" },
-  { icon: ChefHat, title: "Kitchen Display", desc: "Smart routing across stations with live ticket aging.", color: "#ec4899", span: "md:col-span-1" },
-  { icon: Gift, title: "Loyalty Engine", desc: "Points, tiers, multipliers, gift cards & referrals.", color: "#ec4899", span: "md:col-span-2" },
-  { icon: Boxes, title: "Inventory & Purchasing", desc: "Smart Pantry AI, recipe costing, auto purchase orders.", color: "#8b5cf6", span: "md:col-span-2" },
-  { icon: Users, title: "Staff Management", desc: "AI rostering, shift swaps, payroll & tip distribution.", color: "#f58c14", span: "md:col-span-1" },
-  { icon: BrainCircuit, title: "AI Command Center", desc: "Ash runs ops autonomously — review, approve, automate.", color: "#8b5cf6", span: "md:col-span-1" },
-  { icon: BarChart3, title: "Analytics Dashboard", desc: "Menu engineering, retention, profit & forecasting.", color: "#f58c14", span: "md:col-span-2" },
-  { icon: Megaphone, title: "Marketing Automation", desc: "Segmented campaigns triggered by guest behaviour.", color: "#ec4899", span: "md:col-span-1" },
-  { icon: Mic, title: "Voice POS", desc: "Run your venue by voice — orders, discounts, reports.", color: "#f58c14", span: "md:col-span-1" },
+  { id: "pos", icon: Calculator, title: "Point of Sale", desc: "Lightning-fast checkout that works offline. iOS, Android, kiosks.", color: "#f58c14", span: "md:col-span-2" },
+  { id: "reservations", icon: CalendarRange, title: "Reservations", desc: "Table management, waitlist & booking portal in one flow.", color: "#8b5cf6", span: "md:col-span-1" },
+  { id: "kds", icon: ChefHat, title: "Kitchen Display", desc: "Smart routing across stations with live ticket aging.", color: "#ec4899", span: "md:col-span-1" },
+  { id: "loyalty", icon: Gift, title: "Loyalty Engine", desc: "Points, tiers, multipliers, gift cards & referrals.", color: "#ec4899", span: "md:col-span-2" },
+  { id: "inventory", icon: Boxes, title: "Inventory & Purchasing", desc: "Smart Pantry AI, recipe costing, auto purchase orders.", color: "#8b5cf6", span: "md:col-span-2" },
+  { id: "staff", icon: Users, title: "Staff Management", desc: "AI rostering, shift swaps, payroll & tip distribution.", color: "#f58c14", span: "md:col-span-1" },
+  { id: "ash", icon: BrainCircuit, title: "AI Command Center", desc: "Ash runs ops autonomously — review, approve, automate.", color: "#8b5cf6", span: "md:col-span-1" },
+  { id: "analytics", icon: BarChart3, title: "Analytics Dashboard", desc: "Menu engineering, retention, profit & forecasting.", color: "#f58c14", span: "md:col-span-2" },
+  { id: "marketing", icon: Megaphone, title: "Marketing Automation", desc: "Segmented campaigns triggered by guest behaviour.", color: "#ec4899", span: "md:col-span-1" },
+  { id: "voice", icon: Mic, title: "Voice POS", desc: "Run your venue by voice — orders, discounts, reports.", color: "#f58c14", span: "md:col-span-1" },
 ];
 
 export default function Modules() {
@@ -45,14 +48,15 @@ export default function Modules() {
           {modules.map((m, i) => {
             const Icon = m.icon;
             return (
-              <motion.div
+              <MotionLink
                 key={m.title}
+                to={`/features#${m.id}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.04 }}
                 data-testid={`module-${m.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-card`}
-                className={`group relative ${m.span} rounded-2xl bg-[#15151d] border border-white/5 p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/10`}
+                className={`group relative block ${m.span} rounded-2xl bg-[#15151d] border border-white/5 p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/10`}
                 style={{ boxShadow: "0 1px 0 0 rgba(255,255,255,0.02) inset" }}
               >
                 <div
@@ -74,9 +78,20 @@ export default function Modules() {
                     <p className="mt-1.5 text-sm text-[#a1a1aa] leading-relaxed">{m.desc}</p>
                   </div>
                 </div>
-              </motion.div>
+              </MotionLink>
             );
           })}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/features"
+            data-testid="modules-see-how-it-works-link"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-colors"
+          >
+            See how every feature works, graphically
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
