@@ -1,13 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, DollarSign, Users, Target, ArrowUpRight } from "lucide-react";
+import LiveNumber from "@/components/graphics/LiveNumber";
 
 const kpis = [
-  { icon: DollarSign, label: "Revenue today", value: "$32,418", delta: "+18.4%", color: "#f58c14" },
-  { icon: Users, label: "Covers", value: "248", delta: "+6.2%", color: "#8b5cf6" },
-  { icon: TrendingUp, label: "AOV", value: "$48.20", delta: "+3.1%", color: "#ec4899" },
-  { icon: Target, label: "Margin", value: "63%", delta: "+1.2pp", color: "#22c55e" },
+  { icon: DollarSign, label: "Revenue today", value: 32418, prefix: "$", delta: "+18.4%", color: "#f58c14" },
+  { icon: Users, label: "Covers", value: 248, delta: "+6.2%", color: "#8b5cf6" },
+  { icon: TrendingUp, label: "AOV", value: 48.2, prefix: "$", decimals: 2, delta: "+3.1%", color: "#ec4899" },
+  { icon: Target, label: "Margin", value: 63, suffix: "%", delta: "+1.2pp", color: "#22c55e" },
 ];
+
+const todayPath = "M0,120 C40,100 60,90 90,75 C120,65 140,55 170,50 C200,40 220,55 250,35 C280,25 300,40 330,28 C360,20 380,30 400,18";
 
 const matrix = [
   { name: "Truffle pasta", category: "Star", x: 88, y: 92 },
@@ -68,7 +71,9 @@ export default function Analytics() {
                 </div>
                 <span className="font-mono text-[10px] text-emerald-400">{k.delta}</span>
               </div>
-              <div className="mt-4 font-display text-3xl font-bold text-white">{k.value}</div>
+              <div className="mt-4 font-display text-3xl font-bold text-white">
+                <LiveNumber value={k.value} prefix={k.prefix} suffix={k.suffix} decimals={k.decimals} />
+              </div>
               <div className="font-mono text-[10px] uppercase tracking-wider text-[#a1a1aa] mt-1">{k.label}</div>
             </motion.div>
           ))}
@@ -106,15 +111,33 @@ export default function Analytics() {
                 strokeDasharray="3 3"
               />
               {/* Today */}
-              <path
-                d="M0,120 C40,100 60,90 90,75 C120,65 140,55 170,50 C200,40 220,55 250,35 C280,25 300,40 330,28 C360,20 380,30 400,18 L400,140 L0,140 Z"
+              <motion.path
+                d={`${todayPath} L400,140 L0,140 Z`}
                 fill="url(#todayGrad)"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
               />
-              <path
-                d="M0,120 C40,100 60,90 90,75 C120,65 140,55 170,50 C200,40 220,55 250,35 C280,25 300,40 330,28 C360,20 380,30 400,18"
+              <motion.path
+                d={todayPath}
                 stroke="#f58c14"
                 strokeWidth="2"
                 fill="none"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.4, ease: "easeInOut" }}
+              />
+              <motion.circle
+                cx="400"
+                cy="18"
+                r="4"
+                fill="#f58c14"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: [0, 1, 0.4, 1] }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.6, delay: 1.4, repeat: Infinity, repeatDelay: 0.4 }}
               />
             </svg>
           </div>
@@ -134,8 +157,8 @@ export default function Analytics() {
                   </div>
                 ))}
               </div>
-              {matrix.map((d) => (
-                <div
+              {matrix.map((d, i) => (
+                <motion.div
                   key={d.name}
                   className="absolute rounded-full ring-2 ring-[#0b0b0f]"
                   style={{
@@ -143,9 +166,14 @@ export default function Analytics() {
                     bottom: `${d.y}%`,
                     width: "10px",
                     height: "10px",
-                    transform: "translate(-50%, 50%)",
+                    translateX: "-50%",
+                    translateY: "50%",
                     background: catColor[d.category],
                   }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: 0.3 + i * 0.06 }}
                   title={d.name}
                 />
               ))}

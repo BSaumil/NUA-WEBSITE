@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Gift, Sparkles, Star, ArrowRight, Trophy, Repeat, Wallet, QrCode, RotateCcw, CheckCircle2 } from "lucide-react";
+import LiveNumber from "@/components/graphics/LiveNumber";
 
 const tiers = [
   { name: "Bronze", from: "0 pts", color: "#a16207", glow: "#a16207" },
@@ -97,7 +98,7 @@ export default function Loyalty() {
                 </div>
 
                 <div className="mt-6 flex items-baseline gap-2">
-                  <span className="font-display text-5xl font-bold text-white">12,840</span>
+                  <span className="font-display text-5xl font-bold text-white"><LiveNumber value={12840} /></span>
                   <span className="font-mono text-xs text-[#fbcfe8]">points</span>
                 </div>
                 <div className="mt-1 font-mono text-[11px] text-[#a1a1aa]">+1,240 this month · 12th visit</div>
@@ -198,7 +199,7 @@ export default function Loyalty() {
                     <span className="font-mono text-[9px] uppercase tracking-widest text-[#a1a1aa]">Apple Wallet</span>
                     <Wallet className="w-3.5 h-3.5 text-white" />
                   </div>
-                  <div className="mt-2 font-display text-xl font-bold text-white">12,840 pts</div>
+                  <div className="mt-2 font-display text-xl font-bold text-white"><LiveNumber value={12840} duration={1.2} suffix=" pts" /></div>
                   <div className="mt-2 flex items-center justify-between">
                     <span className="font-mono text-[9px] text-[#a1a1aa]">Anaïs Laurent · Black tier</span>
                     <QrCode className="w-6 h-6 text-white/80" />
@@ -210,7 +211,7 @@ export default function Loyalty() {
                     <span className="font-mono text-[9px] uppercase tracking-widest text-[#666670]">Google Wallet</span>
                     <Wallet className="w-3.5 h-3.5 text-[#0f0f14]" />
                   </div>
-                  <div className="mt-2 font-display text-xl font-bold text-[#0f0f14]">12,840 pts</div>
+                  <div className="mt-2 font-display text-xl font-bold text-[#0f0f14]"><LiveNumber value={12840} duration={1.2} suffix=" pts" /></div>
                   <div className="mt-2 flex items-center justify-between">
                     <span className="font-mono text-[9px] text-[#666670]">Anaïs Laurent · Black tier</span>
                     <QrCode className="w-6 h-6 text-[#0f0f14]/70" />

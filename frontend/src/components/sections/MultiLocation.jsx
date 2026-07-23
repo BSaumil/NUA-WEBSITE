@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, DollarSign, Globe2 } from "lucide-react";
+import LiveNumber from "@/components/graphics/LiveNumber";
 
 const locations = [
   { city: "Sydney", x: 78, y: 78, status: "vip", revenue: "$48.2k" },
@@ -93,14 +94,14 @@ export default function MultiLocation() {
             <div className="p-5 space-y-4">
               <div>
                 <div className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">Global today</div>
-                <div className="font-display text-3xl font-bold mt-1">$1.42M</div>
+                <div className="font-display text-3xl font-bold mt-1"><LiveNumber value={1.42} prefix="$" decimals={2} suffix="M" /></div>
                 <div className="font-mono text-[11px] text-emerald-600">▲ 14.6% vs LW</div>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-[#f6f7fb] border border-black/5 p-3">
                   <Globe2 className="w-4 h-4 text-[#8b5cf6]" />
-                  <div className="mt-2 font-display text-lg font-bold">42</div>
+                  <div className="mt-2 font-display text-lg font-bold"><LiveNumber value={42} /></div>
                   <div className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">Venues live</div>
                 </div>
                 <div className="rounded-xl bg-[#f6f7fb] border border-black/5 p-3">

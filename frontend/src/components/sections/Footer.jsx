@@ -75,6 +75,7 @@ export default function Footer() {
             <a href="#" className="hover:text-white transition-colors">Terms</a>
             <a href="#" className="hover:text-white transition-colors">Security</a>
             <a href="#" className="hover:text-white transition-colors">Status</a>
+            <span data-testid="footer-heart-nua">❤️ NUA</span>
           </div>
         </div>
       </div>

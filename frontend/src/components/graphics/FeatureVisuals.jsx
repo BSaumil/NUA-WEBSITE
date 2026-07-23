@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   Coffee, UtensilsCrossed, Fish, GlassWater, CreditCard, ShoppingCart,
   Zap, Users, Megaphone, ArrowRight, Mic, Receipt, Star, Wallet,
 } from "lucide-react";
+import LiveNumber from "@/components/graphics/LiveNumber";
+
+function parseMinSec(label) {
+  const [m, s] = label.split(":").map(Number);
+  return m * 60 + s;
+}
+
+function formatMinSec(totalSeconds) {
+  const m = Math.floor(totalSeconds / 60);
+  const s = totalSeconds % 60;
+  return `${m}:${String(s).padStart(2, "0")}`;
+}
+
+function useLiveSeconds(initialLabel) {
+  const [seconds, setSeconds] = useState(() => parseMinSec(initialLabel));
+  useEffect(() => {
+    const id = setInterval(() => setSeconds((s) => s + 1), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return seconds;
+}
 
 /* ---------- Point of Sale ---------- */
 export function POSVisual() {
@@ -21,7 +43,7 @@ export function POSVisual() {
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/[0.02]">
         <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Order #348 · Table 7</span>
         <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 font-mono text-[10px] text-emerald-400">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />Synced
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />Synced
         </span>
       </div>
       <div className="grid grid-cols-5">
@@ -58,6 +80,22 @@ export function POSVisual() {
 }
 
 /* ---------- Kitchen Display System ---------- */
+function LiveTicket({ table, items, time, color }) {
+  const seconds = useLiveSeconds(time);
+  const aging = seconds >= 600 ? "#ef4444" : seconds >= 300 ? "#f58c14" : color;
+  return (
+    <div className="rounded-lg bg-white/[0.03] border border-white/5 p-2.5">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-semibold text-white">{table}</span>
+        <span className="font-mono text-[10px] tabular-nums" style={{ color: aging }}>{formatMinSec(seconds)}</span>
+      </div>
+      <div className="mt-1 space-y-0.5">
+        {items.map((it) => <div key={it} className="text-[10px] text-[#a1a1aa]">{it}</div>)}
+      </div>
+    </div>
+  );
+}
+
 export function KDSVisual() {
   const cols = [
     { label: "New", color: "#8b5cf6", tickets: [{ table: "T4", items: ["2× Wagyu", "1× Sea bass"], time: "0:42" }] },
@@ -74,15 +112,7 @@ export function KDSVisual() {
           </div>
           <div className="space-y-2">
             {col.tickets.map((t) => (
-              <div key={t.table} className="rounded-lg bg-white/[0.03] border border-white/5 p-2.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-semibold text-white">{t.table}</span>
-                  <span className="font-mono text-[10px]" style={{ color: col.color }}>{t.time}</span>
-                </div>
-                <div className="mt-1 space-y-0.5">
-                  {t.items.map((it) => <div key={it} className="text-[10px] text-[#a1a1aa]">{it}</div>)}
-                </div>
-              </div>
+              <LiveTicket key={t.table} table={t.table} items={t.items} time={t.time} color={col.color} />
             ))}
           </div>
         </div>
@@ -137,7 +167,7 @@ export function LoyaltyVisual() {
           <Wallet className="w-3.5 h-3.5 text-[#fbcfe8]" />
           <span className="font-mono text-[10px] text-[#fbcfe8] uppercase tracking-wider">NUA Wallet</span>
         </div>
-        <span className="font-mono text-[10px] text-white">12,840 pts total</span>
+        <span className="font-mono text-[10px] text-white"><LiveNumber value={12840} duration={1.2} /> pts total</span>
       </div>
     </div>
   );
@@ -205,9 +235,18 @@ export function AnalyticsVisual() {
         <div className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Revenue today</div>
         <span className="font-mono text-[10px] text-emerald-400">+18.4%</span>
       </div>
-      <div className="font-display text-2xl font-bold text-white mt-1">$32,418</div>
+      <div className="font-display text-2xl font-bold text-white mt-1"><LiveNumber value={32418} prefix="$" /></div>
       <svg viewBox="0 0 200 60" className="w-full h-14 mt-2">
-        <path d="M0,50 C30,40 50,45 70,30 C90,20 110,35 130,22 C150,12 170,25 200,10" stroke="#f58c14" strokeWidth="2" fill="none" />
+        <motion.path
+          d="M0,50 C30,40 50,45 70,30 C90,20 110,35 130,22 C150,12 170,25 200,10"
+          stroke="#f58c14"
+          strokeWidth="2"
+          fill="none"
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+        />
       </svg>
     </div>
   );
