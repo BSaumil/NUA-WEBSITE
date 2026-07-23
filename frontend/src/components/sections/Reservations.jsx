@@ -54,7 +54,7 @@ export default function Reservations() {
               <span className="text-[#666670]">visible & alive.</span>
             </motion.h2>
             <p className="mt-5 text-[#444450] leading-relaxed">
-              See every table, every guest, every signal. Ash flags VIPs, predicts turn-times, and steers bookings to maximise covers.
+              See every table, every guest, every signal. NUA flags VIPs, predicts turn-times, and steers bookings to maximise covers.
             </p>
 
             <ul className="mt-7 space-y-3">
@@ -122,7 +122,7 @@ export default function Reservations() {
                   <Crown className="w-4 h-4 text-[#8b5cf6]" />
                   <span className="text-sm">VIP Anaïs · party of 4 · arriving in <span className="font-mono text-[#8b5cf6]">12m</span></span>
                 </div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">Ash recommends T7 (south corner)</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">NUA recommends T7 (south corner)</span>
               </div>
             </div>
           </div>

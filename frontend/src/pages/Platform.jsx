@@ -1,9 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Database, ShieldCheck, Cpu, Layers } from "lucide-react";
+import { Sparkles, Database, ShieldCheck, Cpu, Layers, Zap, Radio, Share2, Eye } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
-import CodeWindow from "@/components/graphics/CodeWindow";
 
 const nodes = [
   { label: "POS", color: "#f58c14" },
@@ -25,19 +24,15 @@ const pillars = [
   { icon: Database, title: "Unified data layer", body: "One customer, one menu, one truth — every module reads and writes the same graph." },
   { icon: Cpu, title: "Real-time event bus", body: "Every order, booking, and shift change emits an event the AI layer observes instantly." },
   { icon: ShieldCheck, title: "Role-based access", body: "Owners, managers, and staff see exactly what they need — nothing more." },
-  { icon: Layers, title: "Edge API for AI", body: "Ash's inference runs at the edge for sub-second suggestions, even mid-service." },
+  { icon: Layers, title: "Edge API for AI", body: "NUA's inference runs at the edge for sub-second suggestions, even mid-service." },
 ];
 
-const eventBusCode = `function emitEvent(event) {
-  bus.publish(event)                 // e.g. "order.completed"
-
-  for (module of subscribers(event.type)) {
-    module.handle(event)             // loyalty, inventory, analytics...
-  }
-
-  ash.observe(event)                 // every event feeds the decision loop
-  auditLog.record(event)
-}`;
+const eventFlow = [
+  { icon: Radio, label: "Event fires", body: "e.g. a bill closes" },
+  { icon: Share2, label: "Bus publishes", body: "broadcast to modules" },
+  { icon: Zap, label: "Modules react", body: "loyalty, inventory..." },
+  { icon: Eye, label: "NUA observes", body: "feeds the decision loop" },
+];
 
 export default function Platform() {
   return (
@@ -45,7 +40,7 @@ export default function Platform() {
       <PageHero
         eyebrow="— Platform architecture"
         title="One intelligence layer. Every module wired in."
-        subtitle="NUA isn't ten disconnected apps duct-taped together — it's a single data graph and event bus that every module reads from and writes to, with Ash sitting at the center of it all."
+        subtitle="NUA isn't ten disconnected apps duct-taped together — it's a single data graph and event bus that every module reads from and writes to, with NUA sitting at the center of it all."
         accent="#8b5cf6"
         crumb="Platform"
       />
@@ -66,7 +61,7 @@ export default function Platform() {
               style={{ left: "50%", top: "50%" }}
             >
               <Sparkles className="w-4 h-4 text-white" />
-              <span className="font-display text-xs font-semibold text-white whitespace-nowrap">Ash · Core</span>
+              <span className="font-display text-xs font-semibold text-white whitespace-nowrap">NUA · Core</span>
             </div>
 
             {positioned.map((n, i) => (
@@ -84,16 +79,29 @@ export default function Platform() {
             ))}
           </div>
 
-          {/* Explanation + code */}
+          {/* Explanation + graphical flow */}
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Every action is an event. Every event feeds the loop.
             </h2>
             <p className="mt-4 text-[#a1a1aa] leading-relaxed">
-              When a table closes, a shift ends, or stock dips below par — that's an event on the bus. Modules subscribe to what they need, and Ash observes everything, building the context it uses to forecast, suggest, and act.
+              When a table closes, a shift ends, or stock dips below par — that's an event on the bus. Modules subscribe to what they need, and NUA observes everything, building the context it uses to forecast, suggest, and act.
             </p>
-            <div className="mt-6">
-              <CodeWindow filename="event-bus.pseudo" code={eventBusCode} accent="#8b5cf6" />
+            <div className="mt-6 rounded-2xl bg-[#15151d] border border-white/5 p-5" data-testid="event-flow-graphic">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {eventFlow.map((s, i) => (
+                  <div key={s.label} className="relative rounded-xl bg-white/[0.03] border border-white/5 p-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center">
+                      <s.icon className="w-4 h-4 text-[#8b5cf6]" />
+                    </div>
+                    <div className="mt-2 text-[12px] font-semibold text-white leading-tight">{s.label}</div>
+                    <div className="text-[10px] text-[#a1a1aa] mt-0.5">{s.body}</div>
+                    {i < eventFlow.length - 1 && (
+                      <span className="hidden sm:block absolute top-1/2 -right-[13px] -translate-y-1/2 text-[#71717a] text-xs">→</span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

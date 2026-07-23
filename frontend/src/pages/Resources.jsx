@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 import WhyNua from "@/components/sections/WhyNua";
 
 const resources = [
-  { icon: BookOpen, title: "Documentation", body: "Setup guides for every module — POS, KDS, Loyalty, Ash and beyond." },
+  { icon: BookOpen, title: "Documentation", body: "Setup guides for every module — POS, KDS, Loyalty, NUA and beyond." },
   { icon: FileText, title: "Case studies", body: "How hospitality groups cut labour cost and food waste with NUA." },
   { icon: Calculator, title: "ROI calculator", body: "Estimate your margin and labour savings before you switch." },
   { icon: LifeBuoy, title: "Help center", body: "Answers to setup, billing and integration questions." },

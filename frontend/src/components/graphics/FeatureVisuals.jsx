@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Coffee, UtensilsCrossed, Fish, GlassWater, CreditCard, ShoppingCart,
-  Zap, Users, Megaphone, ArrowRight, Mic,
+  Zap, Users, Megaphone, ArrowRight, Mic, Receipt, Star, Wallet,
 } from "lucide-react";
 
 /* ---------- Point of Sale ---------- */
@@ -111,7 +111,7 @@ export function ReservationsVisual() {
           </div>
         ))}
       </div>
-      <div className="mt-3 font-mono text-[10px] text-[#a1a1aa]">Ash recommends T5 · VIP arriving in 12m</div>
+      <div className="mt-3 font-mono text-[10px] text-[#a1a1aa]">NUA recommends T5 · VIP arriving in 12m</div>
     </div>
   );
 }
@@ -120,12 +120,25 @@ export function ReservationsVisual() {
 export function LoyaltyVisual() {
   return (
     <div data-testid="visual-loyalty" className="rounded-2xl bg-gradient-to-br from-[#1c1c26] to-[#0b0b0f] border border-[#ec4899]/30 p-5">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-[#fbcfe8]">Black tier</div>
-      <div className="mt-1 font-display text-3xl font-bold text-white">12,840 <span className="text-sm font-mono text-[#a1a1aa]">pts</span></div>
-      <div className="mt-3 h-1.5 rounded-full bg-white/5 overflow-hidden">
-        <div className="h-full rounded-full" style={{ width: "86%", background: "linear-gradient(90deg,#f58c14,#ec4899,#8b5cf6)" }} />
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center gap-1.5">
+          <Receipt className="w-4 h-4 text-[#a1a1aa]" />
+          <span className="font-display text-xl font-bold text-white">$19.00</span>
+        </div>
+        <ArrowRight className="w-4 h-4 text-[#71717a] flex-shrink-0" />
+        <div className="flex items-center gap-1.5">
+          <Star className="w-4 h-4 text-[#ec4899]" />
+          <span className="font-display text-xl font-bold text-[#ec4899]">+19 pts</span>
+        </div>
       </div>
-      <div className="mt-2 font-mono text-[10px] text-[#a1a1aa]">Spend $100 → Earn 100 pts</div>
+      <div className="mt-2 font-mono text-[10px] text-[#a1a1aa]">$1 spent = 1 point, credited instantly</div>
+      <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
+        <div className="flex items-center gap-1.5">
+          <Wallet className="w-3.5 h-3.5 text-[#fbcfe8]" />
+          <span className="font-mono text-[10px] text-[#fbcfe8] uppercase tracking-wider">NUA Wallet</span>
+        </div>
+        <span className="font-mono text-[10px] text-white">12,840 pts total</span>
+      </div>
     </div>
   );
 }
@@ -171,9 +184,9 @@ export function StaffVisual() {
 }
 
 /* ---------- AI Command Center ---------- */
-export function AshVisual() {
+export function NuaVisual() {
   return (
-    <div data-testid="visual-ash" className="rounded-2xl bg-[#15151d] border border-white/5 p-5">
+    <div data-testid="visual-nua" className="rounded-2xl bg-[#15151d] border border-white/5 p-5">
       <div className="flex items-center gap-2 font-mono text-[10px] text-[#a1a1aa]">
         <Zap className="w-3.5 h-3.5 text-[#8b5cf6]" />09:38:55
       </div>
@@ -253,7 +266,7 @@ export const VISUAL_REGISTRY = {
   loyalty: LoyaltyVisual,
   inventory: InventoryVisual,
   staff: StaffVisual,
-  ash: AshVisual,
+  nua: NuaVisual,
   analytics: AnalyticsVisual,
   marketing: MarketingVisual,
   voice: VoiceVisual,

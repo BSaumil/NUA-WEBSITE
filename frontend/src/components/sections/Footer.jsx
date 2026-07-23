@@ -8,7 +8,7 @@ const cols = [
   },
   {
     title: "AI Agent",
-    items: ["Meet Ash", "Decision feed", "Voice control", "Forecasting", "Automation library", "Audit trail"],
+    items: ["Meet NUA", "Decision feed", "Voice control", "Forecasting", "Automation library", "Audit trail"],
   },
   {
     title: "Solutions",

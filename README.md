@@ -37,7 +37,7 @@ Each part of the page is one file:
 | The very top menu | `Navbar.jsx` |
 | The big headline "AI-Powered Operating System…" | `Hero.jsx` |
 | The 10 little cards (POS, Reservations, etc.) | `Modules.jsx` |
-| "Meet Ash" — the AI agent | `MeetAsh.jsx` |
+| "Meet NUA" — the AI agent | `MeetNua.jsx` |
 | The voice-typing animation | `Voice.jsx` |
 | The floor plan with tables | `Reservations.jsx` |
 | The pink loyalty card | `Loyalty.jsx` |

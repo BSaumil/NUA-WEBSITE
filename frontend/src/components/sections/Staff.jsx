@@ -109,7 +109,7 @@ export default function Staff() {
                 <div className="flex items-start gap-3">
                   <Sparkles className="w-4 h-4 text-[#8b5cf6] mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="text-sm text-white">Ash suggests adding Jules for Friday dinner — forecast +18% covers, save $284 vs split shift.</div>
+                    <div className="text-sm text-white">NUA suggests adding Jules for Friday dinner — forecast +18% covers, save $284 vs split shift.</div>
                     <div className="mt-2 flex gap-2">
                       <button data-testid="staff-approve-suggestion" className="px-3 py-1.5 rounded-full bg-[#8b5cf6] text-white text-[11px] font-medium hover:bg-[#7c3aed] transition-colors">
                         Approve

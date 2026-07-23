@@ -42,7 +42,7 @@ export default function Voice() {
         </motion.h2>
 
         <p className="mt-6 max-w-xl mx-auto text-[#a1a1aa]">
-          Hands full at the pass? Just speak. Ash understands intent, context, and your menu — instantly.
+          Hands full at the pass? Just speak. NUA understands intent, context, and your menu — instantly.
         </p>
 
         <div className="mt-14 max-w-3xl mx-auto rounded-2xl glass-card-dark p-8 sm:p-10">

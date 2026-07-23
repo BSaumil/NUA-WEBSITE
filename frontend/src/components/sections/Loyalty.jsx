@@ -1,12 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Gift, Sparkles, Star, ArrowRight, Trophy, Repeat } from "lucide-react";
+import { Gift, Sparkles, Star, ArrowRight, Trophy, Repeat, Wallet, QrCode, RotateCcw, CheckCircle2 } from "lucide-react";
 
 const tiers = [
   { name: "Bronze", from: "0 pts", color: "#a16207", glow: "#a16207" },
   { name: "Silver", from: "500 pts", color: "#94a3b8", glow: "#94a3b8" },
   { name: "Gold", from: "2,000 pts", color: "#facc15", glow: "#facc15" },
   { name: "Black", from: "10,000 pts", color: "#ec4899", glow: "#ec4899" },
+];
+
+const earnExamples = [19, 42, 100];
+
+const reorderSteps = [
+  { icon: QrCode, label: "Scan your wallet pass", body: "At the counter, or on the online ordering page" },
+  { icon: RotateCcw, label: "Your usual order is recalled", body: "NUA remembers what you ordered last time" },
+  { icon: CheckCircle2, label: "Confirm & pay", body: "One tap and it's on its way" },
 ];
 
 export default function Loyalty() {
@@ -32,7 +40,7 @@ export default function Loyalty() {
               into a <span className="text-[#ec4899]">repeat guest.</span>
             </motion.h2>
             <p className="mt-5 text-[#a1a1aa] leading-relaxed max-w-md">
-              Points, multipliers, tiers, gift cards, referrals — wired into POS, app, and Ash&apos;s marketing brain. Every dollar feeds the next visit.
+              Points, multipliers, tiers, gift cards, referrals — wired into POS, app, and NUA&apos;s marketing brain. Every dollar feeds the next visit.
             </p>
 
             <div className="mt-8 space-y-3">
@@ -125,6 +133,120 @@ export default function Loyalty() {
               <div className="absolute -bottom-6 -left-6 rounded-xl px-4 py-3 bg-[#15151d] border border-[#ec4899]/30 glow-pink animate-float">
                 <div className="font-mono text-[10px] uppercase tracking-wider text-[#fbcfe8]">Unlocked</div>
                 <div className="font-display text-sm text-white">Free dessert tonight 🎉</div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Wallet & instant reorder */}
+        <div className="mt-24 lg:mt-28">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#ec4899]">— NUA Wallet</span>
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-display mt-3 text-3xl sm:text-4xl font-bold text-white tracking-tight leading-[1.05]"
+            >
+              Spend. Earn. Scan. Reorder.
+            </motion.h3>
+            <p className="mt-4 text-[#a1a1aa] leading-relaxed">
+              Every purchase earns points automatically, stored in a wallet pass guests already carry — no app to download, no card to lose.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-5">
+            {/* Points math example */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              data-testid="loyalty-points-math"
+              className="rounded-2xl bg-[#15151d] border border-white/5 p-6"
+            >
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">How points are earned</span>
+              <div className="mt-4 space-y-2.5">
+                {earnExamples.map((amount) => (
+                  <div key={amount} className="flex items-center justify-between rounded-xl bg-white/[0.03] border border-white/5 px-4 py-3">
+                    <span className="font-display text-lg font-bold text-white">${amount}</span>
+                    <ArrowRight className="w-4 h-4 text-[#71717a] flex-shrink-0" />
+                    <span className="font-display text-lg font-bold text-[#ec4899]">+{amount} pts</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 font-mono text-[11px] text-[#a1a1aa] leading-relaxed">
+                $1 spent = 1 point. Credited the instant the bill closes — no waiting, no app required.
+              </div>
+            </motion.div>
+
+            {/* Wallet passes */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              data-testid="loyalty-wallet-passes"
+              className="rounded-2xl bg-[#15151d] border border-white/5 p-6"
+            >
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Carry it in your pocket</span>
+              <div className="mt-4 space-y-3">
+                {/* Apple Wallet pass */}
+                <div className="rounded-xl bg-gradient-to-br from-[#1c1c26] to-black border border-white/10 p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[9px] uppercase tracking-widest text-[#a1a1aa]">Apple Wallet</span>
+                    <Wallet className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <div className="mt-2 font-display text-xl font-bold text-white">12,840 pts</div>
+                  <div className="mt-2 flex items-center justify-between">
+                    <span className="font-mono text-[9px] text-[#a1a1aa]">Anaïs Laurent · Black tier</span>
+                    <QrCode className="w-6 h-6 text-white/80" />
+                  </div>
+                </div>
+                {/* Google Wallet pass */}
+                <div className="rounded-xl bg-white border border-black/10 p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[9px] uppercase tracking-widest text-[#666670]">Google Wallet</span>
+                    <Wallet className="w-3.5 h-3.5 text-[#0f0f14]" />
+                  </div>
+                  <div className="mt-2 font-display text-xl font-bold text-[#0f0f14]">12,840 pts</div>
+                  <div className="mt-2 flex items-center justify-between">
+                    <span className="font-mono text-[9px] text-[#666670]">Anaïs Laurent · Black tier</span>
+                    <QrCode className="w-6 h-6 text-[#0f0f14]/70" />
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 font-mono text-[11px] text-[#a1a1aa] leading-relaxed">
+                Added in one tap from any receipt or confirmation email — balance updates itself, everywhere.
+              </div>
+            </motion.div>
+
+            {/* Scan to reorder */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              data-testid="loyalty-scan-reorder"
+              className="rounded-2xl bg-[#15151d] border border-white/5 p-6"
+            >
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Scan to reorder</span>
+              <div className="mt-4 space-y-3.5">
+                {reorderSteps.map((s) => (
+                  <div key={s.label} className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#ec4899]/15 flex items-center justify-center flex-shrink-0">
+                      <s.icon className="w-4 h-4 text-[#ec4899]" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-white font-medium leading-tight">{s.label}</div>
+                      <div className="text-[11px] text-[#a1a1aa] mt-0.5 leading-relaxed">{s.body}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/5 font-mono text-[11px] text-[#a1a1aa] leading-relaxed">
+                Works the same in-venue at the POS and for online ordering — scan once, reorder instantly.
               </div>
             </motion.div>
           </div>

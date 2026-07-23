@@ -33,7 +33,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#f58c14] animate-pulse-dot" />
-            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">Introducing Ash — Your AI Restaurant Manager</span>
+            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">Introducing NUA — Your AI Restaurant Manager</span>
           </div>
         </motion.div>
 
@@ -124,7 +124,7 @@ export default function Hero() {
             <div className="grid grid-cols-12 gap-3 p-4 sm:p-5">
               {/* Sidebar */}
               <div className="hidden md:flex col-span-2 flex-col gap-2">
-                {["POS", "Reservations", "Kitchen", "Loyalty", "Inventory", "Staff", "Ash AI"].map((m, i) => (
+                {["POS", "Reservations", "Kitchen", "Loyalty", "Inventory", "Staff", "NUA AI"].map((m, i) => (
                   <div
                     key={m}
                     className={`px-3 py-2 rounded-md text-xs font-medium ${
@@ -168,13 +168,13 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Ash card */}
+                {/* NUA card */}
                 <div className="rounded-xl bg-gradient-to-br from-[#8b5cf6]/20 to-[#1c1c26] border border-[#8b5cf6]/30 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-6 h-6 rounded-md bg-[#8b5cf6] flex items-center justify-center">
                       <Sparkles className="w-3 h-3 text-white" />
                     </div>
-                    <span className="font-display text-sm font-semibold text-white">Ash</span>
+                    <span className="font-display text-sm font-semibold text-white">NUA</span>
                     <span className="ml-auto font-mono text-[9px] text-[#a1a1aa]">THINKING</span>
                   </div>
                   <p className="font-mono text-[11px] leading-relaxed text-[#c4b5fd]">

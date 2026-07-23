@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
 const rows = [
-  { label: "AI automation", nua: true, them: false, note: "Ash runs ops end-to-end" },
+  { label: "AI automation", nua: true, them: false, note: "NUA runs ops end-to-end" },
   { label: "Demand forecasting", nua: true, them: false, note: "Predicts covers, stock, labour" },
   { label: "Voice control", nua: true, them: false, note: "Natural language POS" },
   { label: "Loyalty intelligence", nua: true, them: "limited", note: "Tiers, perks, behaviour-triggered" },

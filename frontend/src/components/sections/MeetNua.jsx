@@ -51,9 +51,9 @@ const capabilities = [
   "Smart reorder suggestions",
 ];
 
-export default function MeetAsh() {
+export default function MeetNua() {
   return (
-    <section id="ash" data-testid="ash-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
+    <section id="nua" data-testid="nua-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
       <div className="absolute inset-0 bg-grid-light opacity-50 [mask-image:radial-gradient(ellipse_at_top,black_10%,transparent_60%)]" />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
@@ -63,7 +63,7 @@ export default function MeetAsh() {
               <div className="w-6 h-6 rounded-md bg-[#8b5cf6] flex items-center justify-center">
                 <Sparkles className="w-3 h-3 text-white" />
               </div>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#666670]">Meet Ash · the AI agent</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#666670]">Meet NUA · the AI agent</span>
             </div>
 
             <motion.h2
@@ -79,7 +79,7 @@ export default function MeetAsh() {
             </motion.h2>
 
             <p className="mt-5 text-[15px] text-[#444450] leading-relaxed max-w-md">
-              Ash watches every signal — guests, stock, staff, margins — and acts. Suggests, approves, or auto-executes. Always with an audit trail.
+              NUA watches every signal — guests, stock, staff, margins — and acts. Suggests, approves, or auto-executes. Always with an audit trail.
             </p>
 
             <ul className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -93,7 +93,7 @@ export default function MeetAsh() {
 
             <a
               href="#voice"
-              data-testid="ash-explore-btn"
+              data-testid="nua-explore-btn"
               className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#0b0b0f] text-white text-sm font-medium hover:bg-[#1c1c26] transition-colors"
             >
               Explore AI Agent
@@ -107,7 +107,7 @@ export default function MeetAsh() {
               <div className="flex items-center justify-between px-5 py-3 border-b border-black/5 bg-[#fafafb]">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-[#8b5cf6]" />
-                  <span className="font-display text-sm font-semibold">Ash · live decision feed</span>
+                  <span className="font-display text-sm font-semibold">NUA · live decision feed</span>
                 </div>
                 <div className="flex items-center gap-2 font-mono text-[10px] text-[#666670] uppercase">
                   <Clock className="w-3 h-3" />

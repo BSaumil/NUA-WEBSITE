@@ -62,7 +62,7 @@ export default function Inventory() {
               <span className="text-[#666670]">orders for you.</span>
             </motion.h2>
             <p className="mt-5 text-[#444450] max-w-lg leading-relaxed">
-              Recipe-level costing, supplier comparison, demand forecasting and waste tracking — Ash recommends the exact buy at the exact time.
+              Recipe-level costing, supplier comparison, demand forecasting and waste tracking — NUA recommends the exact buy at the exact time.
             </p>
           </div>
 

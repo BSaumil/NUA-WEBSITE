@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
-import CodeWindow from "@/components/graphics/CodeWindow";
 import { VISUAL_REGISTRY } from "@/components/graphics/FeatureVisuals";
 import featuresData from "@/data/featuresData";
 
@@ -13,7 +12,7 @@ export default function Features() {
       <PageHero
         eyebrow="— How it works"
         title="Every feature, graphically explained."
-        subtitle="NUA isn't a black box. Below is the working logic behind each module — the pseudocode Ash actually runs, paired with the interface your team sees."
+        subtitle="NUA isn't a black box. Here's exactly how each module works — plainly explained, side-by-side with the interface your team sees. No code, just how it plays out."
         accent="#f58c14"
         crumb="Features"
       />
@@ -68,10 +67,24 @@ export default function Features() {
                     {Visual && <Visual />}
                   </div>
 
-                  {/* Pseudocode */}
+                  {/* How it works — plain-language steps, no code */}
                   <div className="lg:col-span-4 flex flex-col justify-center">
                     <span className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#71717a]">How it works</span>
-                    <CodeWindow filename={`${f.id}.pseudo`} code={f.pseudocode} accent={f.color} />
+                    <div className="rounded-2xl bg-white/[0.03] border border-white/5 p-5">
+                      <ol className="space-y-4">
+                        {f.howItWorks.map((step, idx) => (
+                          <li key={step} className="flex items-start gap-3">
+                            <span
+                              className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-mono font-semibold flex-shrink-0"
+                              style={{ background: `${f.color}20`, color: f.color }}
+                            >
+                              {idx + 1}
+                            </span>
+                            <span className="text-[13px] text-[#eaeaea] leading-relaxed pt-0.5">{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
                   </div>
                 </div>
               </motion.section>
