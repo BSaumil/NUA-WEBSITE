@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, Mic } from "lucide-react";
 import { useModals } from "@/components/ModalProvider";
 import LiveNumber from "@/components/graphics/LiveNumber";
+import SaltPepperSprinkle from "@/components/graphics/SaltPepperSprinkle";
 
 const barHeights = [35, 48, 32, 58, 44, 70, 62, 80, 55, 88, 72, 95];
 
@@ -240,6 +241,8 @@ export default function Hero() {
               </div>
             </div>
           </div>
+
+          <SaltPepperSprinkle />
         </motion.div>
 
         {/* Trust strip */}
