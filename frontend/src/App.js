@@ -9,6 +9,8 @@ import Solutions from "@/pages/Solutions";
 import PricingPage from "@/pages/PricingPage";
 import IntegrationsPage from "@/pages/IntegrationsPage";
 import Resources from "@/pages/Resources";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsConditions from "@/pages/TermsConditions";
 import ModalProvider from "@/components/ModalProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -27,6 +29,8 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/integrations" element={<IntegrationsPage />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsConditions />} />
           </Routes>
         </ModalProvider>
       </BrowserRouter>

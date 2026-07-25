@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Sparkles, Twitter, Linkedin, Github } from "lucide-react";
 
 const cols = [
@@ -71,8 +72,8 @@ export default function Footer() {
             © {new Date().getFullYear()} NUA Hospitality OS. All rights reserved.
           </p>
           <div className="flex items-center gap-5 font-mono text-[11px] text-[#a1a1aa]">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
             <a href="#" className="hover:text-white transition-colors">Security</a>
             <a href="#" className="hover:text-white transition-colors">Status</a>
             <span data-testid="footer-heart-nua">❤️ NUA</span>
