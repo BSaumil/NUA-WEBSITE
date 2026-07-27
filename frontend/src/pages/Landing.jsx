@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import Modules from "@/components/sections/Modules";
-import MeetAsh from "@/components/sections/MeetAsh";
+import MeetNua from "@/components/sections/MeetNua";
 import Voice from "@/components/sections/Voice";
 import Reservations from "@/components/sections/Reservations";
 import Loyalty from "@/components/sections/Loyalty";
@@ -22,7 +22,7 @@ export default function Landing() {
       <Navbar />
       <Hero />
       <Modules />
-      <MeetAsh />
+      <MeetNua />
       <Voice />
       <Reservations />
       <Loyalty />

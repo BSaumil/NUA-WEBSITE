@@ -2,6 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, Mic } from "lucide-react";
 import { useModals } from "@/components/ModalProvider";
+import LiveNumber from "@/components/graphics/LiveNumber";
+import SaltPepperSprinkle from "@/components/graphics/SaltPepperSprinkle";
+
+const barHeights = [35, 48, 32, 58, 44, 70, 62, 80, 55, 88, 72, 95];
 
 const StatPill = ({ icon: Icon, label, value, color }) => (
   <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5">
@@ -33,7 +37,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#f58c14] animate-pulse-dot" />
-            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">Introducing Ash — Your AI Restaurant Manager</span>
+            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">Introducing NUA — Your AI Restaurant Manager</span>
           </div>
         </motion.div>
 
@@ -124,7 +128,7 @@ export default function Hero() {
             <div className="grid grid-cols-12 gap-3 p-4 sm:p-5">
               {/* Sidebar */}
               <div className="hidden md:flex col-span-2 flex-col gap-2">
-                {["POS", "Reservations", "Kitchen", "Loyalty", "Inventory", "Staff", "Ash AI"].map((m, i) => (
+                {["POS", "Reservations", "Kitchen", "Loyalty", "Inventory", "Staff", "NUA AI"].map((m, i) => (
                   <div
                     key={m}
                     className={`px-3 py-2 rounded-md text-xs font-medium ${
@@ -138,9 +142,9 @@ export default function Hero() {
 
               {/* Main */}
               <div className="col-span-12 md:col-span-10 grid grid-cols-1 sm:grid-cols-4 gap-3">
-                <StatPill icon={DollarSign} label="Revenue" value="$32,418" color="bg-[#f58c14]" />
-                <StatPill icon={Users} label="Covers" value="248" color="bg-[#8b5cf6]" />
-                <StatPill icon={TrendingUp} label="AOV" value="$48.20" color="bg-[#ec4899]" />
+                <StatPill icon={DollarSign} label="Revenue" value={<LiveNumber value={32418} prefix="$" />} color="bg-[#f58c14]" />
+                <StatPill icon={Users} label="Covers" value={<LiveNumber value={248} />} color="bg-[#8b5cf6]" />
+                <StatPill icon={TrendingUp} label="AOV" value={<LiveNumber value={48.2} prefix="$" decimals={2} />} color="bg-[#ec4899]" />
                 <StatPill icon={Clock} label="Avg. wait" value="6m 12s" color="bg-emerald-500/80" />
 
                 {/* Chart card */}
@@ -148,33 +152,36 @@ export default function Hero() {
                   <div className="flex items-center justify-between mb-3">
                     <div>
                       <div className="font-mono text-[10px] text-[#a1a1aa] uppercase tracking-wider">Today vs last week</div>
-                      <div className="font-display text-2xl font-semibold text-white">+18.4%</div>
+                      <div className="font-display text-2xl font-semibold text-white"><LiveNumber value={18.4} suffix="%" decimals={1} prefix="+" /></div>
                     </div>
                     <div className="font-mono text-[11px] text-emerald-400">▲ trending</div>
                   </div>
                   <div className="flex items-end gap-1.5 h-24">
-                    {[35, 48, 32, 58, 44, 70, 62, 80, 55, 88, 72, 95].map((h, i) => (
-                      <div key={i} className="flex-1 flex flex-col gap-0.5 justify-end">
-                        <div
+                    {barHeights.map((h, i) => (
+                      <div key={i} className="flex-1 flex flex-col gap-0.5 justify-end h-full">
+                        <motion.div
                           className="w-full rounded-sm"
                           style={{
-                            height: `${h}%`,
                             background: `linear-gradient(180deg, #f58c14 0%, #ec4899 100%)`,
                             opacity: 0.85,
+                            transformOrigin: "bottom",
                           }}
+                          initial={{ scaleY: 0, height: `${h}%` }}
+                          animate={{ scaleY: 1 }}
+                          transition={{ duration: 0.6, delay: 0.6 + i * 0.05, ease: "easeOut" }}
                         />
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Ash card */}
+                {/* NUA card */}
                 <div className="rounded-xl bg-gradient-to-br from-[#8b5cf6]/20 to-[#1c1c26] border border-[#8b5cf6]/30 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-6 h-6 rounded-md bg-[#8b5cf6] flex items-center justify-center">
                       <Sparkles className="w-3 h-3 text-white" />
                     </div>
-                    <span className="font-display text-sm font-semibold text-white">Ash</span>
+                    <span className="font-display text-sm font-semibold text-white">NUA</span>
                     <span className="ml-auto font-mono text-[9px] text-[#a1a1aa]">THINKING</span>
                   </div>
                   <p className="font-mono text-[11px] leading-relaxed text-[#c4b5fd]">
@@ -234,6 +241,8 @@ export default function Hero() {
               </div>
             </div>
           </div>
+
+          <SaltPepperSprinkle />
         </motion.div>
 
         {/* Trust strip */}

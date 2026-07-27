@@ -1,22 +1,53 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Sparkles, Twitter, Linkedin, Github } from "lucide-react";
 
 const cols = [
   {
     title: "Platform",
-    items: ["Point of Sale", "Reservations", "Kitchen Display", "Loyalty", "Inventory", "Staff", "Analytics", "Voice POS"],
+    items: [
+      { label: "Point of Sale", to: "/features#pos" },
+      { label: "Reservations", to: "/features#reservations" },
+      { label: "Kitchen Display", to: "/features#kds" },
+      { label: "Loyalty", to: "/features#loyalty" },
+      { label: "Inventory", to: "/features#inventory" },
+      { label: "Staff", to: "/features#staff" },
+      { label: "Analytics", to: "/features#analytics" },
+      { label: "Voice POS", to: "/features#voice" },
+    ],
   },
   {
     title: "AI Agent",
-    items: ["Meet Ash", "Decision feed", "Voice control", "Forecasting", "Automation library", "Audit trail"],
+    items: [
+      { label: "Meet NUA", to: "/ai-agent" },
+      { label: "Decision feed", to: "/ai-agent#nua" },
+      { label: "Voice control", to: "/ai-agent#voice" },
+      { label: "Forecasting", to: "/ai-agent#forecasting" },
+      { label: "Automation library", to: "/ai-agent#automation-library" },
+      { label: "Audit trail", to: "/ai-agent#audit-trail" },
+    ],
   },
   {
     title: "Solutions",
-    items: ["Quick service", "Casual dining", "Cafes", "Fine dining", "Bars", "Hospitality groups"],
+    items: [
+      { label: "Quick service", to: "/solutions/quick-service" },
+      { label: "Casual dining", to: "/solutions/casual-dining" },
+      { label: "Cafes", to: "/solutions/cafes" },
+      { label: "Fine dining", to: "/solutions/fine-dining" },
+      { label: "Bars", to: "/solutions/bars" },
+      { label: "Hospitality groups", to: "/solutions/hospitality-groups" },
+    ],
   },
   {
     title: "Company",
-    items: ["About", "Customers", "Careers", "Blog", "Press", "Contact"],
+    items: [
+      { label: "About", to: "/about" },
+      { label: "Customers", to: "/customers" },
+      { label: "Careers", to: "/careers" },
+      { label: "Blog", to: "/blog" },
+      { label: "Press", to: "/press" },
+      { label: "Contact", to: "/contact" },
+    ],
   },
 ];
 
@@ -55,10 +86,14 @@ export default function Footer() {
               <div className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">{c.title}</div>
               <ul className="mt-4 space-y-2.5">
                 {c.items.map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-sm text-[#eaeaea] hover:text-[#f58c14] transition-colors">
-                      {item}
-                    </a>
+                  <li key={item.label}>
+                    <Link
+                      to={item.to}
+                      data-testid={`footer-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="text-sm text-[#eaeaea] hover:text-[#f58c14] transition-colors"
+                    >
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -71,10 +106,11 @@ export default function Footer() {
             © {new Date().getFullYear()} NUA Hospitality OS. All rights reserved.
           </p>
           <div className="flex items-center gap-5 font-mono text-[11px] text-[#a1a1aa]">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
             <a href="#" className="hover:text-white transition-colors">Security</a>
             <a href="#" className="hover:text-white transition-colors">Status</a>
+            <span data-testid="footer-heart-nua">❤️ NUA</span>
           </div>
         </div>
       </div>

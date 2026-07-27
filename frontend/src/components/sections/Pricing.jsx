@@ -13,7 +13,7 @@ const plans = [
     cta: "Start free trial",
     features: [
       "POS + Reservations + KDS",
-      "AI Agent — Ash (basic)",
+      "AI Agent — NUA (basic)",
       "Voice POS included",
       "Loyalty engine included",
       "1 location, up to 5 users",
@@ -30,7 +30,7 @@ const plans = [
     cta: "Book a demo",
     features: [
       "Everything in Starter",
-      "Ash AI — full autonomous mode",
+      "NUA AI — full autonomous mode",
       "Marketing automation",
       "Smart Pantry + supplier compare",
       "Up to 10 locations",

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Menu, X, Sparkles } from "lucide-react";
 import { useModals } from "@/components/ModalProvider";
 
 const navItems = [
-  { label: "Features", href: "#modules" },
-  { label: "Solutions", href: "#reservations" },
-  { label: "Platform", href: "#analytics" },
-  { label: "AI Agent", href: "#ash" },
-  { label: "Integrations", href: "#integrations" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Resources", href: "#why-nua" },
+  { label: "Features", to: "/features" },
+  { label: "Solutions", to: "/solutions" },
+  { label: "Platform", to: "/platform" },
+  { label: "AI Agent", to: "/ai-agent" },
+  { label: "Integrations", to: "/integrations" },
+  { label: "Pricing", to: "/pricing" },
+  { label: "Resources", to: "/resources" },
 ];
 
 export default function Navbar() {
@@ -37,24 +38,24 @@ export default function Navbar() {
       data-testid="navbar"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
-        <a href="#hero" data-testid="navbar-logo" className="flex items-center gap-2 group">
+        <Link to="/" data-testid="navbar-logo" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f58c14] via-[#ec4899] to-[#8b5cf6] flex items-center justify-center shadow-lg shadow-[#8b5cf6]/30">
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <span className="font-display text-xl font-bold text-white tracking-tight">NUA</span>
           <span className="hidden sm:inline-block font-mono text-[10px] text-[#a1a1aa] uppercase tracking-widest border border-white/10 rounded-full px-2 py-0.5 ml-1">Restaurant OS</span>
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.to}
               data-testid={`nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
               className="px-3 py-2 text-sm text-[#a1a1aa] hover:text-white transition-colors duration-200 rounded-md hover:bg-white/5"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -91,18 +92,22 @@ export default function Navbar() {
         <div className="lg:hidden border-t border-white/5 bg-[#0b0b0f]/95 backdrop-blur-xl">
           <div className="px-6 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.to}
                 onClick={() => setOpen(false)}
                 className="text-sm text-[#a1a1aa] hover:text-white py-2"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <a href="#final-cta" className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-white font-medium" onClick={(e) => { e.preventDefault(); setOpen(false); openLead({ type: "demo" }); }}>
+            <button
+              type="button"
+              className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-white font-medium"
+              onClick={() => { setOpen(false); openLead({ type: "demo" }); }}
+            >
               Book Demo
-            </a>
+            </button>
           </div>
         </div>
       )}
