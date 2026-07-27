@@ -11,6 +11,7 @@ import IntegrationsPage from "@/pages/IntegrationsPage";
 import Resources from "@/pages/Resources";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsConditions from "@/pages/TermsConditions";
+import Savings from "@/pages/Savings";
 import ModalProvider from "@/components/ModalProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsConditions />} />
+            <Route path="/savings" element={<Savings />} />
           </Routes>
         </ModalProvider>
       </BrowserRouter>

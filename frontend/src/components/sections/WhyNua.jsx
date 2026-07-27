@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Check, X, ArrowRight } from "lucide-react";
 
 const rows = [
   { label: "AI automation", nua: true, them: false, note: "NUA runs ops end-to-end" },
@@ -81,6 +82,17 @@ export default function WhyNua() {
               <span className="font-mono text-[11px] text-[#a1a1aa] hidden md:block">{r.note}</span>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Link
+            to="/savings"
+            data-testid="why-nua-see-cost-breakdown-link"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-colors"
+          >
+            See the full cost breakdown, dollar for dollar
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
