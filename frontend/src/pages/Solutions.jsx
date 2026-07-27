@@ -1,18 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Coffee, UtensilsCrossed, Wine, Building2, Soup } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import Reservations from "@/components/sections/Reservations";
 import MultiLocation from "@/components/sections/MultiLocation";
+import solutionsData from "@/data/solutionsData";
 
-const venues = [
-  { icon: Coffee, title: "Cafés & quick service", body: "Fast checkout, voice ordering, and loyalty that turns walk-ins into regulars." },
-  { icon: UtensilsCrossed, title: "Casual dining", body: "Table management, KDS routing, and AI rostering tuned for high-turn service." },
-  { icon: Soup, title: "Fine dining", body: "VIP guest intelligence, experiences & events, and margin-aware menu engineering." },
-  { icon: Wine, title: "Bars & lounges", body: "Tab management, upsell prompts, and busy-time staffing forecasts." },
-  { icon: Building2, title: "Hospitality groups", body: "Franchise dashboards, central pricing, and cross-venue benchmarking." },
-];
+const MotionLink = motion(Link);
 
 export default function Solutions() {
   return (
@@ -26,23 +22,27 @@ export default function Solutions() {
       />
 
       <section className="relative max-w-7xl mx-auto px-6 lg:px-10 pb-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {venues.map((v, i) => (
-            <motion.div
-              key={v.title}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {solutionsData.map((v, i) => (
+            <MotionLink
+              key={v.slug}
+              to={`/solutions/${v.slug}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              data-testid={`solution-card-${v.title.split(" ")[0].toLowerCase()}`}
-              className="rounded-2xl bg-[#15151d] border border-white/5 p-5 hover:-translate-y-1 hover:border-white/10 transition-all duration-300"
+              data-testid={`solution-card-${v.slug}`}
+              className="group block rounded-2xl bg-[#15151d] border border-white/5 p-5 hover:-translate-y-1 hover:border-white/10 transition-all duration-300"
             >
-              <div className="w-9 h-9 rounded-lg bg-[#ec4899]/15 flex items-center justify-center">
-                <v.icon className="w-4 h-4 text-[#ec4899]" />
+              <div className="flex items-start justify-between">
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: `${v.color}20` }}>
+                  <v.icon className="w-4 h-4" style={{ color: v.color }} />
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-[#a1a1aa] opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <h3 className="mt-4 font-display font-semibold text-white text-sm">{v.title}</h3>
-              <p className="mt-1.5 text-[13px] text-[#a1a1aa] leading-relaxed">{v.body}</p>
-            </motion.div>
+              <p className="mt-1.5 text-[13px] text-[#a1a1aa] leading-relaxed">{v.tagline}</p>
+            </MotionLink>
           ))}
         </div>
       </section>
