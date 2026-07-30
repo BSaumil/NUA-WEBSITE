@@ -19,6 +19,7 @@ import Careers from "@/pages/Careers";
 import Blog from "@/pages/Blog";
 import Press from "@/pages/Press";
 import Contact from "@/pages/Contact";
+import Gallery from "@/pages/Gallery";
 import ModalProvider from "@/components/ModalProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -47,6 +48,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/press" element={<Press />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
           </Routes>
         </ModalProvider>
       </BrowserRouter>

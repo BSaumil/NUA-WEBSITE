@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import { VISUAL_REGISTRY } from "@/components/graphics/FeatureVisuals";
@@ -16,6 +17,17 @@ export default function Features() {
         accent="#f58c14"
         crumb="Features"
       />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 -mt-8 mb-12 flex justify-center">
+        <Link
+          to="/gallery"
+          data-testid="features-see-gallery-link"
+          className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-colors"
+        >
+          See these as real interface renders, in the Product Gallery
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
         <div className="space-y-6">
