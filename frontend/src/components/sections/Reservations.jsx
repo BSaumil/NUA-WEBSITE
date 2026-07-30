@@ -140,7 +140,7 @@ export default function Reservations() {
           <div className="overflow-x-auto max-w-full py-1">
             <BookingWaitlistShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA — Booking OS. Zero double-bookings — the waitlist converts itself.</p>
+          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA — Booking OS. Zero double-bookings, ever.</p>
         </motion.div>
       </div>
     </section>
