@@ -10,6 +10,7 @@ import Inventory from "@/components/sections/Inventory";
 import Staff from "@/components/sections/Staff";
 import MultiLocation from "@/components/sections/MultiLocation";
 import Analytics from "@/components/sections/Analytics";
+import LiveGallery from "@/components/sections/LiveGallery";
 import Integrations from "@/components/sections/Integrations";
 import WhyNua from "@/components/sections/WhyNua";
 import Pricing from "@/components/sections/Pricing";
@@ -30,6 +31,7 @@ export default function Landing() {
       <Staff />
       <MultiLocation />
       <Analytics />
+      <LiveGallery />
       <Integrations />
       <WhyNua />
       <Pricing />
