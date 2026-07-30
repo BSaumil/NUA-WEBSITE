@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, DollarSign, Users, Target, ArrowUpRight } from "lucide-react";
 import LiveNumber from "@/components/graphics/LiveNumber";
+import { InsightsCopilotShowcase } from "@/components/graphics/ShowcaseGraphics";
 
 const kpis = [
   { icon: DollarSign, label: "Revenue today", value: 32418, prefix: "$", delta: "+18.4%", color: "#f58c14" },
@@ -183,6 +184,20 @@ export default function Analytics() {
             </div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 flex flex-col items-center text-center"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">— See it live</span>
+          <div className="overflow-x-auto max-w-full py-4">
+            <InsightsCopilotShowcase />
+          </div>
+          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA — Insights OS. Ask a real question, get a real answer, in dollars.</p>
+        </motion.div>
       </div>
     </section>
   );

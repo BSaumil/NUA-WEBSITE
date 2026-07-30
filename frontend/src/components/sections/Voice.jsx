@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Mic } from "lucide-react";
+import { VoiceShowcase } from "@/components/graphics/ShowcaseGraphics";
 
 const phrases = [
   "Add two cappuccinos to table 7",
@@ -102,6 +103,20 @@ export default function Voice() {
             </span>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 flex flex-col items-center"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">— See it live</span>
+          <div className="overflow-x-auto max-w-full py-1">
+            <VoiceShowcase />
+          </div>
+          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA — Voice OS. Zero clicks — hands stay on the pass.</p>
+        </motion.div>
       </div>
     </section>
   );
