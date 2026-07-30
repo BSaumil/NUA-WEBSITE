@@ -1,17 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { BookOpen, FileText, Calculator, LifeBuoy, Newspaper, Code2, ArrowRight } from "lucide-react";
+import { BookOpen, FileText, Calculator, LifeBuoy, Newspaper, Code2, ArrowRight, Image } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import WhyNua from "@/components/sections/WhyNua";
 
 const resources = [
+  { icon: Image, title: "Product Gallery", body: "Real interface renders of every module — POS, AI copilot, wallet and more.", to: "/gallery" },
   { icon: BookOpen, title: "Documentation", body: "Setup guides for every module — POS, KDS, Loyalty, NUA and beyond." },
   { icon: FileText, title: "Case studies", body: "How hospitality groups cut labour cost and food waste with NUA." },
   { icon: Calculator, title: "ROI calculator", body: "See exactly how much a stitched-together POS stack costs vs NUA.", to: "/savings" },
   { icon: LifeBuoy, title: "Help center", body: "Answers to setup, billing and integration questions." },
-  { icon: Newspaper, title: "Blog", body: "Product updates, AI research notes, and operator playbooks." },
+  { icon: Newspaper, title: "Blog", body: "Product updates, AI research notes, and operator playbooks.", to: "/blog" },
   { icon: Code2, title: "API reference", body: "Build custom integrations on top of the NUA data layer." },
 ];
 
