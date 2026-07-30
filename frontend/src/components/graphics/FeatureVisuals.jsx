@@ -291,7 +291,8 @@ export function VoiceVisual() {
         ))}
       </div>
       <div className="font-mono text-[11px] text-center text-white flex items-center justify-center gap-1.5">
-        <Mic className="w-3 h-3 text-[#f58c14]" />"Apply 10% discount to table 7"
+        <Mic className="w-3 h-3 flex-shrink-0 text-[#f58c14]" />
+        <span className="min-w-0">"Apply 10% discount to table 7"</span>
       </div>
       <div className="mt-2 text-center font-mono text-[10px] text-[#8b5cf6]">intent: apply_discount(table=7, pct=10)</div>
     </div>

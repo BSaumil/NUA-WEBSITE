@@ -41,7 +41,7 @@ export function TabletStandFrame({ children, width = 380, height = 250, screenBg
 }
 
 /* ---------- Phone outline ---------- */
-export function PhoneFrame({ children, width = 190, height = 380, className = "" }) {
+export function PhoneFrame({ children, width = 190, height = 380, screenBg = "#ffffff", className = "" }) {
   return (
     <div
       className={`relative rounded-[2rem] border-[7px] border-[#0f0f14] bg-[#0f0f14] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden ${className}`}
@@ -49,7 +49,7 @@ export function PhoneFrame({ children, width = 190, height = 380, className = ""
       data-testid="phone-frame"
     >
       <div className="absolute left-1/2 -translate-x-1/2 top-1.5 w-16 h-4 rounded-full bg-[#0f0f14] z-10" />
-      <div className="w-full h-full bg-white overflow-hidden">{children}</div>
+      <div className="w-full h-full overflow-hidden" style={{ background: screenBg }}>{children}</div>
     </div>
   );
 }
