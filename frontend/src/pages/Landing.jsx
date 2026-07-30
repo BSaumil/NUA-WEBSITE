@@ -9,7 +9,9 @@ import Loyalty from "@/components/sections/Loyalty";
 import Inventory from "@/components/sections/Inventory";
 import Staff from "@/components/sections/Staff";
 import MultiLocation from "@/components/sections/MultiLocation";
+import MoreModules from "@/components/sections/MoreModules";
 import Analytics from "@/components/sections/Analytics";
+import LiveGallery from "@/components/sections/LiveGallery";
 import Integrations from "@/components/sections/Integrations";
 import WhyNua from "@/components/sections/WhyNua";
 import Pricing from "@/components/sections/Pricing";
@@ -29,7 +31,9 @@ export default function Landing() {
       <Inventory />
       <Staff />
       <MultiLocation />
+      <MoreModules />
       <Analytics />
+      <LiveGallery />
       <Integrations />
       <WhyNua />
       <Pricing />

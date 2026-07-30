@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Gift, Sparkles, Star, ArrowRight, Trophy, Repeat, Wallet, QrCode, RotateCcw, CheckCircle2 } from "lucide-react";
 import LiveNumber from "@/components/graphics/LiveNumber";
+import { LoyaltyWalletLiveShowcase } from "@/components/graphics/ShowcaseGraphics";
 
 const tiers = [
   { name: "Bronze", from: "0 pts", color: "#a16207", glow: "#a16207" },
@@ -252,6 +253,20 @@ export default function Loyalty() {
             </motion.div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 flex flex-col items-center text-center"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">— See it live</span>
+          <div className="overflow-x-auto max-w-full py-1">
+            <LoyaltyWalletLiveShowcase />
+          </div>
+          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA — Loyalty OS. $1 spent = 1 point, credited instantly.</p>
+        </motion.div>
       </div>
     </section>
   );

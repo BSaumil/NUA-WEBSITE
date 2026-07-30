@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ShoppingCart, Clock, AlertTriangle, TrendingDown, Sparkles } from "lucide-react";
+import { InventoryShowcase } from "@/components/graphics/ShowcaseGraphics";
 
 const cards = [
   {
@@ -117,6 +118,20 @@ export default function Inventory() {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 flex flex-col items-center text-center"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">— See it live</span>
+          <div className="overflow-x-auto max-w-full py-1">
+            <InventoryShowcase />
+          </div>
+          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA — Inventory OS. Stockouts prevented before they happen.</p>
+        </motion.div>
       </div>
     </section>
   );

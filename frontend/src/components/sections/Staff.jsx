@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, DollarSign, TrendingUp, Users } from "lucide-react";
+import { StaffShowcase } from "@/components/graphics/ShowcaseGraphics";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const staff = [
@@ -124,6 +125,20 @@ export default function Staff() {
             </div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 flex flex-col items-center text-center"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">— See it live</span>
+          <div className="overflow-x-auto max-w-full py-1">
+            <StaffShowcase />
+          </div>
+          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA — Staff OS. Hours saved every week on rostering.</p>
+        </motion.div>
       </div>
     </section>
   );

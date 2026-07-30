@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, DollarSign, Globe2 } from "lucide-react";
 import LiveNumber from "@/components/graphics/LiveNumber";
+import { MultiVenueLiveShowcase } from "@/components/graphics/ShowcaseGraphics";
 
 const locations = [
   { city: "Sydney", x: 78, y: 78, status: "vip", revenue: "$48.2k" },
@@ -125,6 +126,20 @@ export default function MultiLocation() {
             </div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 flex flex-col items-center text-center"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">— See it live</span>
+          <div className="overflow-x-auto max-w-full py-1">
+            <MultiVenueLiveShowcase />
+          </div>
+          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA — Growth OS. Every venue's revenue, live, on one screen.</p>
+        </motion.div>
       </div>
     </section>
   );

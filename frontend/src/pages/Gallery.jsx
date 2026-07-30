@@ -4,18 +4,48 @@ import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import {
   InsightsCopilotShowcase, AnalyticsMonitorShowcase, ScanToPayShowcase,
-  POSShowcase, KDSShowcase, ReservationsShowcase, StaffShowcase,
-  InventoryShowcase, MarketingShowcase, VoiceShowcase,
+  POSShowcase, KDSShowcase, StaffShowcase, InventoryShowcase, MarketingShowcase, VoiceShowcase,
+  LoyaltyWalletLiveShowcase, AICommandCenterShowcase, MultiVenueLiveShowcase,
+  TemperatureMonitoringShowcase, PaymentsShowcase, DeliveryHubShowcase,
+  BookingWaitlistShowcase, ForecastingShowcase,
 } from "@/components/graphics/ShowcaseGraphics";
 
-const grid = [
-  { Component: POSShowcase, title: "Point of Sale", body: "Fast checkout that keeps working offline." },
-  { Component: KDSShowcase, title: "Kitchen Display", body: "Tickets route to the right station, aging tracked live." },
-  { Component: ReservationsShowcase, title: "Reservations", body: "Every table's status, VIPs flagged automatically." },
-  { Component: StaffShowcase, title: "Staff Management", body: "AI-optimised rosters, one tap to approve." },
-  { Component: InventoryShowcase, title: "Inventory & Purchasing", body: "Buy, wait, or reorder — decided for you." },
-  { Component: MarketingShowcase, title: "Marketing Automation", body: "Segments and campaigns that trigger themselves." },
-  { Component: VoiceShowcase, title: "Voice POS", body: "Hands-free ordering, discounts and reports." },
+const groups = [
+  {
+    label: "— Front of House",
+    title: "Every guest touchpoint, live.",
+    color: "#f58c14",
+    items: [
+      { Component: POSShowcase, title: "Point of Sale", stat: "Zero downtime, ever", body: "Charges cards, splits bills and keeps ringing up sales even when the internet drops." },
+      { Component: VoiceShowcase, title: "Voice POS", stat: "Zero clicks", body: "Apply discounts, fire reports, all without your hands leaving the pass." },
+      { Component: KDSShowcase, title: "Kitchen Display", stat: "Zero paper tickets", body: "Orders route to the right station instantly, aging tracked to the second." },
+      { Component: BookingWaitlistShowcase, title: "Reservations & Waitlist", stat: "Zero double-bookings", body: "The waitlist converts to a table automatically the second one turns over." },
+    ],
+  },
+  {
+    label: "— Back of House Intelligence",
+    title: "The work that runs itself.",
+    color: "#22c55e",
+    items: [
+      { Component: InventoryShowcase, title: "Inventory & Purchasing", stat: "Stockouts prevented", body: "Buy, wait, or reorder — decided for you before you ever run out." },
+      { Component: TemperatureMonitoringShowcase, title: "Temperature Monitoring", stat: "Zero manual logs, zero fines", body: "Fridges and freezers logged automatically — alerts sent the instant something drifts." },
+      { Component: StaffShowcase, title: "Staff Management", stat: "Hours saved every week on rostering", body: "AI drafts the roster and balances labour cost — one tap to approve." },
+      { Component: ForecastingShowcase, title: "Demand Forecasting", stat: "Know tomorrow's rush, today", body: "NUA predicts next week's demand and adjusts purchase orders before you even ask." },
+    ],
+  },
+  {
+    label: "— Growth, Loyalty & Payments",
+    title: "Revenue that compounds.",
+    color: "#8b5cf6",
+    items: [
+      { Component: LoyaltyWalletLiveShowcase, title: "Loyalty & Wallet", stat: "$1 spent = 1 point, instantly", body: "Every sale earns loyalty automatically — no separate terminal, no manual entry." },
+      { Component: MarketingShowcase, title: "Marketing Automation", stat: "Campaigns that trigger themselves", body: "Segments and win-back offers fire on their own — 24 hours a day." },
+      { Component: PaymentsShowcase, title: "Payments & EFTPOS", stat: "$0 markup on bank rates", body: "Tap, insert or scan — any method, settled instantly, no bundled markup." },
+      { Component: DeliveryHubShowcase, title: "Delivery Hub", stat: "Every platform, one queue", body: "Orders from every delivery partner land in a single ticket queue — no tablet farm." },
+      { Component: MultiVenueLiveShowcase, title: "Multi-Venue Command", stat: "5 venues, 1 login", body: "Every location's revenue, live, on one screen — no consolidating spreadsheets." },
+      { Component: AICommandCenterShowcase, title: "AI Autonomous Actions", stat: "Decisions made while you sleep", body: "NUA watches every venue and acts — forecasts, reorders, roster fixes — with no manual required." },
+    ],
+  },
 ];
 
 const FadeIn = ({ children, delay = 0 }) => (
@@ -35,7 +65,7 @@ export default function Gallery() {
       <PageHero
         eyebrow="— Product Gallery"
         title="See NUA, running."
-        subtitle="Every screen below is a constructed render of the real NUA interface — not a stock photo, not a competitor's screenshot. This is what your team actually sees."
+        subtitle="Every screen below is a constructed, live-animated render of the real NUA interface — not a stock photo, not a competitor's screenshot. This is what your team actually sees, updating in real time."
         accent="#8b5cf6"
         crumb="Gallery"
       />
@@ -83,28 +113,34 @@ export default function Gallery() {
           </div>
         </FadeIn>
 
-        {/* Grid of the rest */}
-        <div>
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">— Every other module</span>
-            <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              The rest of the platform.
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-x-6 gap-y-14">
-            {grid.map(({ Component, title, body }, i) => (
-              <FadeIn key={title} delay={(i % 2) * 0.08}>
-                <div className="flex flex-col items-center text-center">
-                  <div className="overflow-x-auto max-w-full py-2">
-                    <Component />
+        {/* Grouped grid — every other module, categorised */}
+        {groups.map((group) => (
+          <div key={group.label}>
+            <div className="text-center max-w-xl mx-auto mb-10">
+              <span className="font-mono text-[11px] uppercase tracking-widest" style={{ color: group.color }}>{group.label}</span>
+              <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-white tracking-tight">{group.title}</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-x-6 gap-y-14">
+              {group.items.map(({ Component, title, stat, body }, i) => (
+                <FadeIn key={title} delay={(i % 2) * 0.08}>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="overflow-x-auto max-w-full py-2">
+                      <Component />
+                    </div>
+                    <h3 className="mt-5 font-display font-semibold text-white">{title}</h3>
+                    <span
+                      className="mt-1.5 inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-wider"
+                      style={{ background: `${group.color}18`, color: group.color }}
+                    >
+                      {stat}
+                    </span>
+                    <p className="mt-2.5 text-sm text-[#a1a1aa] max-w-xs">{body}</p>
                   </div>
-                  <h3 className="mt-5 font-display font-semibold text-white">{title}</h3>
-                  <p className="mt-1 text-sm text-[#a1a1aa] max-w-xs">{body}</p>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              ))}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </PageShell>
   );
