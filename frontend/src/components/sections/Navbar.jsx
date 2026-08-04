@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useModals } from "@/components/ModalProvider";
+import BrandIcon from "@/components/BrandIcon";
 
 const navItems = [
   { label: "Features", to: "/features" },
@@ -39,9 +40,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
         <Link to="/" data-testid="navbar-logo" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f58c14] via-[#ec4899] to-[#8b5cf6] flex items-center justify-center shadow-lg shadow-[#8b5cf6]/30">
-            <Sparkles className="w-4 h-4 text-white" />
-          </div>
+          <BrandIcon size={32} className="drop-shadow-[0_4px_12px_rgba(139,92,246,0.3)]" />
           <span className="font-display text-xl font-bold text-white tracking-tight">NUA</span>
           <span className="hidden sm:inline-block font-mono text-[10px] text-[#a1a1aa] uppercase tracking-widest border border-white/10 rounded-full px-2 py-0.5 ml-1">Restaurant OS</span>
         </Link>

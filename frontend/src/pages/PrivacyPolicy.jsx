@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
 
       <div className="relative max-w-3xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
         <p className="text-[15px] text-[#a1a1aa] leading-relaxed">
-          NUA Australia Pty Ltd (ABN <span className="font-mono text-[#eaeaea]">[Insert ABN]</span>) ("<strong>NUA</strong>", "<strong>we</strong>", "<strong>us</strong>" or "<strong>our</strong>")
+          NUA AUS PTY LTD (ABN <span className="font-mono text-[#eaeaea]">54 299 131 653</span>) ("<strong>NUA</strong>", "<strong>we</strong>", "<strong>us</strong>" or "<strong>our</strong>")
           provides an AI-powered hospitality operating system, including point of sale ("<strong>POS</strong>"), reservations,
           kitchen display, loyalty and wallet, inventory and purchasing, staff management, analytics, marketing automation, voice
           ordering, and related AI agent features (together, the "<strong>Services</strong>" or the "<strong>Platform</strong>").
@@ -177,8 +177,8 @@ export default function PrivacyPolicy() {
             about how we've handled your personal information, please contact our Privacy Officer at:
           </p>
           <p>
-            NUA Australia Pty Ltd<br />
-            ABN: <span className="font-mono">[Insert ABN]</span><br />
+            NUA AUS PTY LTD<br />
+            ABN: <span className="font-mono">54 299 131 653</span><br />
             Attn: Privacy Officer<br />
             Email: <a href="mailto:privacy@nua.app">privacy@nua.app</a><br />
             Address: <span className="font-mono">[Insert registered business address]</span>
