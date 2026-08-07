@@ -18,7 +18,7 @@ export default function Press() {
         <div className="rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7">
           <h2 className="font-display text-xl font-bold text-white">About NUA</h2>
           <p className="mt-3 text-[15px] text-[#a1a1aa] leading-relaxed">
-            NUA Australia Pty Ltd builds NUA, an AI-powered operating system for hospitality venues, unifying point
+            NUA AUS PTY LTD (ABN 54 299 131 653) builds NUA, an AI-powered operating system for hospitality venues, unifying point
             of sale, reservations, kitchen display, loyalty, inventory, staff management, analytics, marketing
             automation and voice ordering under a single AI agent. NUA is built for cafés, restaurants, bars and
             multi-venue hospitality groups.

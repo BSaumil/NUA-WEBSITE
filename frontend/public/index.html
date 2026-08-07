@@ -3,25 +3,50 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
 
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
-        <title>Emergent | Fullstack App</title>
+        <!-- Favicons / app icons -->
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+        <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+        <meta name="theme-color" content="#f58c14" />
+
+        <!-- Primary meta -->
+        <title>NUA — Restaurant OS</title>
+        <meta name="description" content="Point of sale built for independent hospitality venues. Payments, bookings, loyalty and forecasting in one system." />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="NUA" />
+        <meta property="og:title" content="NUA — Restaurant OS" />
+        <meta property="og:description" content="Point of sale built for independent hospitality venues." />
+        <meta property="og:image" content="%PUBLIC_URL%/og-card.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <!-- Twitter / X -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="NUA — Restaurant OS" />
+        <meta name="twitter:description" content="Point of sale built for independent hospitality venues." />
+        <meta name="twitter:image" content="%PUBLIC_URL%/og-card.png" />
+
+        <!-- Organisation structured data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "NUA AUS PTY LTD",
+                "alternateName": "NUA",
+                "logo": "%PUBLIC_URL%/nua-icon-512.png",
+                "identifier": "ABN 54 299 131 653",
+                "address": { "@type": "PostalAddress", "addressCountry": "AU" }
+            }
+        </script>
+
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
     </head>
     <body>

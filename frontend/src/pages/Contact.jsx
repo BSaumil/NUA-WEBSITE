@@ -63,7 +63,7 @@ export default function Contact() {
             <div>
               <div className="font-mono text-[10px] uppercase tracking-wider text-[#a1a1aa]">Registered office</div>
               <div className="mt-1 text-sm text-white">
-                NUA Australia Pty Ltd<br />
+                NUA AUS PTY LTD · ABN 54 299 131 653<br />
                 <span className="font-mono text-[#a1a1aa]">[Insert registered business address]</span>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Sparkles, Twitter, Linkedin, Github } from "lucide-react";
+import { Twitter, Linkedin, Github } from "lucide-react";
+import BrandIcon from "@/components/BrandIcon";
 
 const cols = [
   {
@@ -59,9 +60,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-2">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f58c14] via-[#ec4899] to-[#8b5cf6] flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-white" />
-              </div>
+              <BrandIcon size={32} />
               <span className="font-display text-xl font-bold text-white tracking-tight">NUA</span>
             </div>
             <p className="mt-4 text-sm text-[#a1a1aa] max-w-xs">
@@ -103,7 +102,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="font-mono text-[11px] text-[#a1a1aa]">
-            © {new Date().getFullYear()} NUA Hospitality OS. All rights reserved.
+            © {new Date().getFullYear()} NUA AUS PTY LTD. All rights reserved.
           </p>
           <div className="flex items-center gap-5 font-mono text-[11px] text-[#a1a1aa]">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>

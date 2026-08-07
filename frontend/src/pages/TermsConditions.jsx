@@ -18,8 +18,8 @@ export default function TermsConditions() {
 
       <div className="relative max-w-3xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
         <p className="text-[15px] text-[#a1a1aa] leading-relaxed">
-          These Terms and Conditions ("<strong>Terms</strong>") are entered into between NUA Australia Pty Ltd
-          (ABN <span className="font-mono text-[#eaeaea]">[Insert ABN]</span>) ("<strong>NUA</strong>", "<strong>we</strong>", "<strong>us</strong>" or "<strong>our</strong>")
+          These Terms and Conditions ("<strong>Terms</strong>") are entered into between NUA AUS PTY LTD
+          (ABN <span className="font-mono text-[#eaeaea]">54 299 131 653</span>) ("<strong>NUA</strong>", "<strong>we</strong>", "<strong>us</strong>" or "<strong>our</strong>")
           and the person or entity that registers for, accesses, or uses the Services ("<strong>you</strong>", "<strong>your</strong>" or
           "<strong>Merchant</strong>"). By creating an account, starting a free trial, or otherwise accessing or using the Services, you agree
           to be bound by these Terms. If you do not agree, you must not access or use the Services.
@@ -233,8 +233,8 @@ export default function TermsConditions() {
             If you have any questions about these Terms, please contact us at:
           </p>
           <p>
-            NUA Australia Pty Ltd<br />
-            ABN: <span className="font-mono">[Insert ABN]</span><br />
+            NUA AUS PTY LTD<br />
+            ABN: <span className="font-mono">54 299 131 653</span><br />
             Email: <a href="mailto:legal@nua.app">legal@nua.app</a><br />
             Address: <span className="font-mono">[Insert registered business address]</span>
           </p>
