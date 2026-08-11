@@ -1,4 +1,5 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Security
+from fastapi.security import APIKeyHeader
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -26,6 +27,16 @@ db = client[os.environ['DB_NAME']]
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
+
+# Protects read access to captured lead PII (name/email/phone/business).
+# Submitting a lead (POST) stays public — that's the site's contact form.
+_admin_api_key_header = APIKeyHeader(name="X-Admin-Api-Key", auto_error=False)
+
+
+async def require_admin_key(key: str = Security(_admin_api_key_header)):
+    expected = os.environ.get("ADMIN_API_KEY")
+    if not expected or key != expected:
+        raise HTTPException(status_code=401, detail="Missing or invalid admin API key")
 
 
 # ---------- Status (kept) ----------
@@ -109,7 +120,7 @@ async def create_lead(payload: LeadCreate):
     return lead
 
 
-@api_router.get("/leads", response_model=List[Lead])
+@api_router.get("/leads", response_model=List[Lead], dependencies=[Security(require_admin_key)])
 async def list_leads(limit: int = 100, type: Optional[LeadType] = None):
     query = {}
     if type:
@@ -124,10 +135,15 @@ async def list_leads(limit: int = 100, type: Optional[LeadType] = None):
 
 app.include_router(api_router)
 
+_cors_origins = os.environ.get('CORS_ORIGINS', '*').split(',')
 app.add_middleware(
     CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    # allow_credentials + a wildcard origin is invalid per the CORS spec (browsers
+    # reject it outright), and nothing in this API relies on cookies — every
+    # protected route uses an explicit X-Admin-Api-Key header instead. Only turn
+    # credentials on if CORS_ORIGINS is set to specific, non-wildcard origins.
+    allow_credentials=_cors_origins != ['*'],
+    allow_origins=_cors_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )

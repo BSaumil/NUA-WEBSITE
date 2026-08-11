@@ -24,6 +24,7 @@ import Security from "@/pages/Security";
 import Status from "@/pages/Status";
 import Compare from "@/pages/Compare";
 import CompareDetail from "@/pages/CompareDetail";
+import NotFound from "@/pages/NotFound";
 import ModalProvider from "@/components/ModalProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -57,6 +58,7 @@ function App() {
             <Route path="/status" element={<Status />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/compare/:slug" element={<CompareDetail />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </ModalProvider>
       </BrowserRouter>
