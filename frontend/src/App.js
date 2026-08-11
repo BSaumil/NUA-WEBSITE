@@ -17,6 +17,7 @@ import About from "@/pages/About";
 import Customers from "@/pages/Customers";
 import Careers from "@/pages/Careers";
 import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import Press from "@/pages/Press";
 import Contact from "@/pages/Contact";
 import Gallery from "@/pages/Gallery";
@@ -51,6 +52,7 @@ function App() {
             <Route path="/customers" element={<Customers />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/press" element={<Press />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
