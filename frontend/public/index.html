@@ -3,6 +3,27 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--
+          GitHub Pages has no server-side rewrites, so a direct load of a deep
+          route (e.g. /security) 404s. 404.html redirects here with the real
+          path encoded in the query string; this decodes it back via
+          history.replaceState before React Router mounts. Pattern:
+          https://github.com/rafgraph/spa-github-pages
+        -->
+        <script>
+          (function (l) {
+            if (l.search[1] === "/") {
+              var decoded = l.search
+                .slice(1)
+                .split("&")
+                .map(function (s) {
+                  return s.replace(/~and~/g, "&");
+                })
+                .join("?");
+              window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+            }
+          })(window.location);
+        </script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />

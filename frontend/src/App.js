@@ -30,7 +30,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 function App() {
   return (
     <div className="App font-body">
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <ModalProvider>
           <ScrollToTop />
           <Routes>
