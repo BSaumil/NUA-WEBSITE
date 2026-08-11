@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, MapPin, Twitter, Linkedin, Github, ArrowRight } from "lucide-react";
+import { Mail, MapPin, ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import { useModals } from "@/components/ModalProvider";
@@ -67,18 +67,6 @@ export default function Contact() {
                 <span className="font-mono text-[#a1a1aa]">[Insert registered business address]</span>
               </div>
             </div>
-          </div>
-          <div className="mt-5 flex items-center gap-2">
-            {[Twitter, Linkedin, Github].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                data-testid={`contact-social-${i}`}
-                className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-[#a1a1aa] hover:text-white hover:border-white/20 transition-colors"
-              >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
           </div>
         </div>
       </div>

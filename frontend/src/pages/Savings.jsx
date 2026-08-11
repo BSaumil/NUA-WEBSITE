@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight, Info } from "lucide-react";
+import { CheckCircle2, ArrowRight, Info, Minus, Plus, RotateCcw } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import LiveNumber from "@/components/graphics/LiveNumber";
 import { useModals } from "@/components/ModalProvider";
 import {
   costRows, bonusItems, COMPETITOR_TOTAL, NUA_PLAN_COST, NUA_OPTIONAL_TERMINAL,
-  NUA_TOTAL, MONTHLY_SAVING, ANNUAL_SAVING,
+  NUA_TOTAL,
 } from "@/data/savingsData";
 
 export default function Savings() {
   const { openLead } = useModals();
-  const nuaBarPct = Math.max(4, Math.round((NUA_TOTAL / COMPETITOR_TOTAL) * 100));
+  const [venues, setVenues] = useState(1);
+  const [stackSpend, setStackSpend] = useState(COMPETITOR_TOTAL);
+
+  const competitorTotal = stackSpend * venues;
+  const nuaTotal = NUA_TOTAL * venues;
+  const monthlySaving = Math.max(0, competitorTotal - nuaTotal);
+  const annualSaving = monthlySaving * 12;
+  const nuaBarPct = Math.max(4, Math.round((nuaTotal / Math.max(competitorTotal, 1)) * 100));
+
+  const resetCalculator = () => {
+    setVenues(1);
+    setStackSpend(COMPETITOR_TOTAL);
+  };
+  const isCustomized = venues !== 1 || stackSpend !== COMPETITOR_TOTAL;
 
   return (
     <PageShell testId="savings-page">
@@ -35,8 +48,84 @@ export default function Savings() {
           </p>
         </div>
 
+        {/* Interactive calculator controls */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-10 rounded-2xl bg-[#15151d] border border-white/5 p-6"
+          data-testid="savings-calculator"
+        >
+          <div className="flex items-center justify-between">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Your numbers</span>
+            {isCustomized && (
+              <button
+                type="button"
+                onClick={resetCalculator}
+                data-testid="savings-calculator-reset"
+                className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#71717a] hover:text-white transition-colors"
+              >
+                <RotateCcw className="w-3 h-3" /> Reset
+              </button>
+            )}
+          </div>
+          <div className="mt-4 grid sm:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="venues-input" className="text-[13px] text-[#a1a1aa]">Number of venues</label>
+              <div className="mt-2 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setVenues((v) => Math.max(1, v - 1))}
+                  data-testid="savings-venues-minus"
+                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white hover:bg-white/5 transition-colors flex-shrink-0"
+                  aria-label="Decrease venues"
+                >
+                  <Minus className="w-4 h-4" />
+                </button>
+                <input
+                  id="venues-input"
+                  data-testid="savings-venues-input"
+                  type="number"
+                  min={1}
+                  max={200}
+                  value={venues}
+                  onChange={(e) => setVenues(Math.min(200, Math.max(1, Number(e.target.value) || 1)))}
+                  className="w-20 text-center bg-white/[0.04] border border-white/10 rounded-lg py-2 font-display text-lg font-bold text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => setVenues((v) => Math.min(200, v + 1))}
+                  data-testid="savings-venues-plus"
+                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white hover:bg-white/5 transition-colors flex-shrink-0"
+                  aria-label="Increase venues"
+                >
+                  <Plus className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+            <div>
+              <label htmlFor="stack-spend-input" className="text-[13px] text-[#a1a1aa]">Current monthly spend, per venue</label>
+              <div className="mt-2 relative">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#a1a1aa] font-display font-bold">$</span>
+                <input
+                  id="stack-spend-input"
+                  data-testid="savings-stack-spend-input"
+                  type="number"
+                  min={0}
+                  step={10}
+                  value={stackSpend}
+                  onChange={(e) => setStackSpend(Math.max(0, Number(e.target.value) || 0))}
+                  className="w-full pl-7 pr-3 bg-white/[0.04] border border-white/10 rounded-lg py-2 font-display text-lg font-bold text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                />
+              </div>
+              <div className="mt-1.5 font-mono text-[11px] text-[#71717a]">Defaults to our {costRows.length}-tool estimate below — edit to use your own invoices.</div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Headline comparison */}
-        <div className="mt-10 grid lg:grid-cols-2 gap-5">
+        <div className="mt-5 grid lg:grid-cols-2 gap-5">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,11 +134,13 @@ export default function Savings() {
             className="rounded-2xl bg-[#15151d] border border-white/5 p-6"
             data-testid="savings-competitor-total"
           >
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Your current stack (est.)</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Your current stack{venues > 1 ? `, ${venues} venues` : ""}</span>
             <div className="mt-2 font-display text-4xl sm:text-5xl font-bold text-white">
-              <LiveNumber value={COMPETITOR_TOTAL} prefix="$" suffix="/mo" />
+              <LiveNumber value={competitorTotal} prefix="$" suffix="/mo" />
             </div>
-            <div className="mt-1 font-mono text-[11px] text-[#a1a1aa]">across {costRows.length} separate tools & invoices</div>
+            <div className="mt-1 font-mono text-[11px] text-[#a1a1aa]">
+              {venues > 1 ? `$${stackSpend}/mo × ${venues} venues` : `across ${costRows.length} separate tools & invoices`}
+            </div>
             <div className="mt-4 h-2.5 rounded-full bg-white/5 overflow-hidden">
               <div className="h-full rounded-full bg-gradient-to-r from-[#f58c14] to-[#ec4899]" style={{ width: "100%" }} />
             </div>
@@ -63,12 +154,12 @@ export default function Savings() {
             className="rounded-2xl bg-[#0b0b0f] border-2 border-[#22c55e]/30 p-6"
             data-testid="savings-nua-total"
           >
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">NUA Growth plan</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">NUA Growth plan{venues > 1 ? `, ${venues} venues` : ""}</span>
             <div className="mt-2 font-display text-4xl sm:text-5xl font-bold text-white">
-              <LiveNumber value={NUA_TOTAL} prefix="$" suffix="/mo" />
+              <LiveNumber value={nuaTotal} prefix="$" suffix="/mo" />
             </div>
             <div className="mt-1 font-mono text-[11px] text-[#a1a1aa]">
-              ${NUA_PLAN_COST}/mo platform + ${NUA_OPTIONAL_TERMINAL}/mo optional terminal
+              ${NUA_PLAN_COST}/mo platform + ${NUA_OPTIONAL_TERMINAL}/mo optional terminal, per venue
             </div>
             <div className="mt-4 h-2.5 rounded-full bg-white/5 overflow-hidden">
               <div className="h-full rounded-full bg-emerald-500" style={{ width: `${nuaBarPct}%` }} />
@@ -87,14 +178,16 @@ export default function Savings() {
         >
           <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-400">You save</span>
           <div className="mt-2 font-display text-4xl sm:text-6xl font-bold text-white">
-            <LiveNumber value={MONTHLY_SAVING} prefix="$" suffix="/mo" />
+            <LiveNumber value={monthlySaving} prefix="$" suffix="/mo" />
           </div>
           <div className="mt-2 font-mono text-sm text-emerald-400">
-            <LiveNumber value={ANNUAL_SAVING} prefix="$" suffix="/year" duration={1.8} />
+            <LiveNumber value={annualSaving} prefix="$" suffix="/year" duration={1.8} />
           </div>
           <p className="mt-3 text-sm text-[#a1a1aa] max-w-lg mx-auto">
-            Per venue. Running five venues on the old stack? That's roughly{" "}
-            <LiveNumber value={MONTHLY_SAVING * 5} prefix="$" suffix="/mo" duration={1.2} /> back, every month.
+            {venues > 1
+              ? `Across all ${venues} venues, on your numbers above.`
+              : "Per venue. Running five venues on the old stack? That's roughly"}
+            {venues === 1 && <> <LiveNumber value={monthlySaving * 5} prefix="$" suffix="/mo" duration={1.2} /> back, every month.</>}
           </p>
         </motion.div>
 

@@ -20,6 +20,10 @@ import Blog from "@/pages/Blog";
 import Press from "@/pages/Press";
 import Contact from "@/pages/Contact";
 import Gallery from "@/pages/Gallery";
+import Security from "@/pages/Security";
+import Status from "@/pages/Status";
+import Compare from "@/pages/Compare";
+import CompareDetail from "@/pages/CompareDetail";
 import ModalProvider from "@/components/ModalProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -49,6 +53,10 @@ function App() {
             <Route path="/press" element={<Press />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/status" element={<Status />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/compare/:slug" element={<CompareDetail />} />
           </Routes>
         </ModalProvider>
       </BrowserRouter>
