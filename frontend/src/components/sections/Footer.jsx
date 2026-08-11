@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Twitter, Linkedin, Github } from "lucide-react";
 import BrandIcon from "@/components/BrandIcon";
 
 const cols = [
@@ -50,13 +49,23 @@ const cols = [
       { label: "Contact", to: "/contact" },
     ],
   },
+  {
+    title: "Resources",
+    items: [
+      { label: "Compare", to: "/compare" },
+      { label: "Savings calculator", to: "/savings" },
+      { label: "Security", to: "/security" },
+      { label: "Status", to: "/status" },
+      { label: "Gallery", to: "/gallery" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
     <footer data-testid="footer" className="relative border-t border-white/5 bg-nua-bg">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-7 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-2">
             <div className="flex items-center gap-2">
@@ -66,18 +75,6 @@ export default function Footer() {
             <p className="mt-4 text-sm text-[#a1a1aa] max-w-xs">
               The AI operating system for hospitality. Built by operators, for operators who refuse to be ordinary.
             </p>
-            <div className="mt-6 flex gap-2">
-              {[Twitter, Linkedin, Github].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  data-testid={`footer-social-${i}`}
-                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-[#a1a1aa] hover:text-white hover:border-white/20 transition-colors"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {cols.map((c) => (
@@ -107,8 +104,8 @@ export default function Footer() {
           <div className="flex items-center gap-5 font-mono text-[11px] text-[#a1a1aa]">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-            <a href="#" className="hover:text-white transition-colors">Security</a>
-            <a href="#" className="hover:text-white transition-colors">Status</a>
+            <Link to="/security" className="hover:text-white transition-colors">Security</Link>
+            <Link to="/status" className="hover:text-white transition-colors">Status</Link>
             <span data-testid="footer-heart-nua">❤️ NUA</span>
           </div>
         </div>
