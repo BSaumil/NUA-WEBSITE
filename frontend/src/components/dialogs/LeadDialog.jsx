@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Sparkles, Loader2, CheckCircle2 } from "lucide-react";
+import { TRIAL_DAYS } from "@/config/siteConfig";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -95,7 +96,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
               <DialogDescription className="text-[#a1a1aa]">
                 {isDemo
                   ? "30-min call, your tech stack reviewed live, custom rollout plan within 24 hours."
-                  : "14-day free trial · no card required · migrate from any POS."}
+                  : `${TRIAL_DAYS}-day free trial · no card required · migrate from any POS.`}
                 {plan ? <span className="block mt-1 text-[#c4b5fd]">Selected plan: <span className="font-mono">{plan}</span></span> : null}
               </DialogDescription>
             </DialogHeader>

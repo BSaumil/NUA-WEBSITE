@@ -4,6 +4,7 @@ import { ArrowRight, Play, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, 
 import { useModals } from "@/components/ModalProvider";
 import LiveNumber from "@/components/graphics/LiveNumber";
 import SaltPepperSprinkle from "@/components/graphics/SaltPepperSprinkle";
+import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
 const barHeights = [35, 48, 32, 58, 44, 70, 62, 80, 55, 88, 72, 95];
 
@@ -73,15 +74,17 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <button
-            type="button"
-            onClick={() => openLead({ type: "demo" })}
-            data-testid="hero-book-demo-btn"
-            className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
-          >
-            Book a Demo
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-          </button>
+          {LEAD_CAPTURE_ENABLED && (
+            <button
+              type="button"
+              onClick={() => openLead({ type: "demo" })}
+              data-testid="hero-book-demo-btn"
+              className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Book a Demo
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
+          )}
           <button
             type="button"
             onClick={openVideo}

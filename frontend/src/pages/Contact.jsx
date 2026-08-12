@@ -3,6 +3,7 @@ import { Mail, MapPin, ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import { useModals } from "@/components/ModalProvider";
+import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
 const channels = [
   { icon: Mail, label: "General enquiries", value: "hello@nua.app", href: "mailto:hello@nua.app" },
@@ -24,21 +25,23 @@ export default function Contact() {
       />
 
       <div className="relative max-w-3xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
-        <div className="rounded-2xl bg-gradient-to-br from-[#f58c14]/15 to-[#15151d] border border-[#f58c14]/30 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
-          <div>
-            <div className="font-display text-lg font-semibold text-white">Prefer to just see it running?</div>
-            <div className="text-sm text-[#a1a1aa] mt-1">Book a 30-minute demo: no pressure, no scripted pitch.</div>
+        {LEAD_CAPTURE_ENABLED && (
+          <div className="rounded-2xl bg-gradient-to-br from-[#f58c14]/15 to-[#15151d] border border-[#f58c14]/30 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div>
+              <div className="font-display text-lg font-semibold text-white">Prefer to just see it running?</div>
+              <div className="text-sm text-[#a1a1aa] mt-1">Book a 30-minute demo: no pressure, no scripted pitch.</div>
+            </div>
+            <button
+              type="button"
+              onClick={() => openLead({ type: "demo" })}
+              data-testid="contact-book-demo-btn"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
+            >
+              Book a Demo
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={() => openLead({ type: "demo" })}
-            data-testid="contact-book-demo-btn"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
-          >
-            Book a Demo
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+        )}
 
         <div className="mt-6 grid sm:grid-cols-3 gap-4">
           {channels.map((c) => (

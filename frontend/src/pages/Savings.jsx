@@ -5,6 +5,7 @@ import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import LiveNumber from "@/components/graphics/LiveNumber";
 import { useModals } from "@/components/ModalProvider";
+import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 import {
   costRows, bonusItems, COMPETITOR_TOTAL, NUA_PLAN_COST, NUA_OPTIONAL_TERMINAL,
   NUA_TOTAL,
@@ -44,7 +45,11 @@ export default function Savings() {
           <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
             Figures below are indicative monthly averages for a single, mid-size Australian venue, compiled from
             publicly listed pricing as at July 2026. Actual costs vary by provider, plan, region, transaction volume
-            and negotiated rate, treat this as a guide, then <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#f58c14] hover:underline">book a demo</button> for a number based on your actual stack.
+            and negotiated rate{LEAD_CAPTURE_ENABLED ? (
+              <>, treat this as a guide, then <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#f58c14] hover:underline">book a demo</button> for a number based on your actual stack.</>
+            ) : (
+              ", so treat this as a guide."
+            )}
           </p>
         </div>
 
@@ -255,34 +260,36 @@ export default function Savings() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 rounded-2xl bg-gradient-to-br from-[#f58c14]/15 to-[#15151d] border border-[#f58c14]/30 p-8 sm:p-10 text-center">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Want your actual number, not an estimate?
-          </h2>
-          <p className="mt-3 text-[#a1a1aa] max-w-lg mx-auto">
-            Bring us your current invoices: POS, EFTPOS, rostering, booking, delivery, whatever you're juggling, and
-            we'll build a savings breakdown specific to your venue.
-          </p>
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
-              type="button"
-              onClick={() => openLead({ type: "demo" })}
-              data-testid="savings-book-demo-btn"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Get my savings breakdown
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => openLead({ type: "trial" })}
-              data-testid="savings-start-trial-btn"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium text-sm transition-all duration-200"
-            >
-              Start Free Trial
-            </button>
+        {LEAD_CAPTURE_ENABLED && (
+          <div className="mt-16 rounded-2xl bg-gradient-to-br from-[#f58c14]/15 to-[#15151d] border border-[#f58c14]/30 p-8 sm:p-10 text-center">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              Want your actual number, not an estimate?
+            </h2>
+            <p className="mt-3 text-[#a1a1aa] max-w-lg mx-auto">
+              Bring us your current invoices: POS, EFTPOS, rostering, booking, delivery, whatever you're juggling, and
+              we'll build a savings breakdown specific to your venue.
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => openLead({ type: "demo" })}
+                data-testid="savings-book-demo-btn"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
+              >
+                Get my savings breakdown
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => openLead({ type: "trial" })}
+                data-testid="savings-start-trial-btn"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium text-sm transition-all duration-200"
+              >
+                Start Free Trial
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </PageShell>
   );

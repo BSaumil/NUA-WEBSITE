@@ -234,7 +234,7 @@ const posts = [
       ]),
       stat("35%", "faster average order time reported for quick-service venues on NUA"),
       h2("Getting started"),
-      p("Most single-venue restaurants are fully onboarded within days, menu, staff and guest data imported through a guided setup flow, with a 14-day free trial and no card required to start."),
+      p("Most single-venue restaurants are fully onboarded within days, menu, staff and guest data imported through a guided setup flow, with a 7-day free trial and no card required to start."),
       callout("Related reading", "If your venue is a café, bar, or part of a multi-venue group, the next three articles in this series cover venue-specific workflows in more depth."),
     ],
   },
@@ -374,7 +374,7 @@ const posts = [
       p("For an owner running several venues, the same exception-based model scales across sites: a benchmark dashboard surfaces which venue needs attention this week, rather than requiring a personal visit to each one to find out."),
       callout("The honest framing", "This isn't about removing the owner from decisions. It's about making sure the decisions that reach you are the ones that actually need you, with everything else handled and logged."),
       h2("Getting started"),
-      p("If running your business with less day-to-day presence is the goal, the AI Command Center and Multi-Location dashboard are the two modules worth looking at first. Both are included from the Growth plan up, with a 14-day free trial to see it running against your own numbers before committing."),
+      p("If running your business with less day-to-day presence is the goal, the AI Command Center and Multi-Location dashboard are the two modules worth looking at first. Both are included from the Growth plan up, with a 7-day free trial to see it running against your own numbers before committing."),
     ],
   },
   // ============ 11 ============
@@ -527,7 +527,7 @@ const posts = [
     publishDate: "2026-08-07",
     relatedSlugs: ["choosing-a-pos-system-questions", "why-traditional-pos-not-enough", "what-is-nua-pos"],
     faqs: [
-      { q: "Is there a free trial?", a: "Yes. 14 days, no card required, on your own venue's data." },
+      { q: "Is there a free trial?", a: "Yes. 7 days, no card required, on your own venue's data." },
       { q: "Does the price change as I add venues?", a: "Pricing scales per venue, and the Multi-Location dashboard is designed for exactly that. See our Compare pages for a like-for-like breakdown against other platforms." },
     ],
     content: [
@@ -541,7 +541,7 @@ const posts = [
       p("A typical venue running separate tools for POS, bookings, loyalty and rostering pays roughly $1,968 a month once every subscription is added up. Not because any single tool is priced unreasonably, but because ten separate vendors each need their own margin."),
       h2("No hidden line items"),
       p("There's no separate charge for the AI features, for kitchen display, or for basic reporting. The things that show up as \"Pro tier\" or \"add-on\" upsells elsewhere are included from Growth up."),
-      callout("Try it before deciding", "The 14-day free trial runs on your own venue's numbers, no card required. The fastest way to see whether the math holds for your specific operation is to run it, not to take a pricing page's word for it."),
+      callout("Try it before deciding", "The 7-day free trial runs on your own venue's numbers, no card required. The fastest way to see whether the math holds for your specific operation is to run it, not to take a pricing page's word for it."),
       h2("Multi-venue and enterprise pricing"),
       p("Groups running several venues get per-venue pricing with the Multi-Location dashboard included, worth a direct conversation, since the math changes meaningfully at scale. Book a demo for a number specific to your venue count."),
     ],
@@ -1638,7 +1638,7 @@ const posts = [
       stat("day one", "unified data, instead of years of retrofitting later"),
       callout("The honest trade-off", "A brand-new venue also has zero historical sales data, so early forecasts are less precise than they'll become after a few months, an honest limitation, and one that resolves itself quickly simply by operating."),
       h2("Getting started"),
-      p("The 14-day free trial works the same way for a pre-launch venue as an established one. A practical way to get comfortable with the system before opening night, not just after."),
+      p("The 7-day free trial works the same way for a pre-launch venue as an established one. A practical way to get comfortable with the system before opening night, not just after."),
     ],
   },
 ];

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Check, Sparkles, ArrowRight, Infinity as InfinityIcon, Zap } from "lucide-react";
 import { useModals } from "@/components/ModalProvider";
+import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
 
 const plans = [
   {
@@ -127,27 +128,29 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <button
-                type="button"
-                onClick={() => openLead({ type: p.name === "Starter" ? "trial" : "demo", plan: p.name })}
-                data-testid={`pricing-${p.name.toLowerCase()}-cta`}
-                className={`mt-7 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all ${
-                  p.featured
-                    ? "bg-[#f58c14] text-white hover:bg-[#d87b10] shadow-lg shadow-[#f58c14]/30"
-                    : p.name === "Enterprise"
-                    ? "bg-[#0b0b0f] text-white hover:bg-[#1c1c26]"
-                    : "border border-black/10 hover:bg-[#f6f7fb]"
-                }`}
-              >
-                {p.cta}
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              {LEAD_CAPTURE_ENABLED && (
+                <button
+                  type="button"
+                  onClick={() => openLead({ type: p.name === "Starter" ? "trial" : "demo", plan: p.name })}
+                  data-testid={`pricing-${p.name.toLowerCase()}-cta`}
+                  className={`mt-7 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all ${
+                    p.featured
+                      ? "bg-[#f58c14] text-white hover:bg-[#d87b10] shadow-lg shadow-[#f58c14]/30"
+                      : p.name === "Enterprise"
+                      ? "bg-[#0b0b0f] text-white hover:bg-[#1c1c26]"
+                      : "border border-black/10 hover:bg-[#f6f7fb]"
+                  }`}
+                >
+                  {p.cta}
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              )}
             </motion.div>
           ))}
         </div>
 
         <p className="mt-10 text-center font-mono text-[11px] uppercase tracking-widest text-[#666670]">
-          All plans · 14-day free trial · no card required · cancel anytime
+          All plans · {TRIAL_DAYS}-day free trial · no card required · cancel anytime
         </p>
 
         {/* Lifetime offer */}
@@ -232,15 +235,17 @@ export default function Pricing() {
                     </div>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => openLead({ type: "demo", plan: "Lifetime ($2,499 + GST)" })}
-                    data-testid="pricing-lifetime-cta"
-                    className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-semibold shadow-lg shadow-[#f58c14]/30 transition-all hover:-translate-y-0.5"
-                  >
-                    Claim lifetime access
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  {LEAD_CAPTURE_ENABLED && (
+                    <button
+                      type="button"
+                      onClick={() => openLead({ type: "demo", plan: "Lifetime ($2,499 + GST)" })}
+                      data-testid="pricing-lifetime-cta"
+                      className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-semibold shadow-lg shadow-[#f58c14]/30 transition-all hover:-translate-y-0.5"
+                    >
+                      Claim lifetime access
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  )}
 
                   <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-[#666670]">
                     30-day money-back guarantee
