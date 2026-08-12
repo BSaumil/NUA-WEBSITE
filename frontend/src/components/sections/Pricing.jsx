@@ -13,7 +13,7 @@ const plans = [
     cta: "Start free trial",
     features: [
       "POS + Reservations + KDS",
-      "AI Agent — NUA (basic)",
+      "AI Agent: NUA (basic)",
       "Voice POS included",
       "Loyalty engine included",
       "1 location, up to 5 users",
@@ -30,7 +30,7 @@ const plans = [
     cta: "Book a demo",
     features: [
       "Everything in Starter",
-      "NUA AI — full autonomous mode",
+      "NUA AI: full autonomous mode",
       "Marketing automation",
       "Smart Pantry + supplier compare",
       "Up to 10 locations",
@@ -63,7 +63,7 @@ export default function Pricing() {
     <section id="pricing" data-testid="pricing-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">— Pricing</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">Pricing</span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -183,8 +183,8 @@ export default function Pricing() {
                 </h3>
 
                 <p className="mt-4 text-[#a1a1aa] max-w-md leading-relaxed">
-                  One-time payment, lifetime access. Lock in the full NUA platform — AI Agent,
-                  Voice POS, Loyalty, every future update — with no monthly fee, ever.
+                  One-time payment, lifetime access. Lock in the full NUA platform (AI Agent,
+                  Voice POS, Loyalty, every future update) with no monthly fee, ever.
                 </p>
 
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
@@ -206,7 +206,7 @@ export default function Pricing() {
                 </ul>
               </div>
 
-              {/* Right — price card */}
+              {/* Right: price card */}
               <div className="flex flex-col justify-center">
                 <div className="rounded-2xl bg-white/[0.04] border border-white/10 p-6 backdrop-blur">
                   <div className="flex items-center gap-2 mb-3">
@@ -228,7 +228,7 @@ export default function Pricing() {
                   <div className="mt-4 p-3 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20">
                     <div className="text-[11px] text-[#c4b5fd] leading-relaxed">
                       Equivalent to <span className="font-mono">~21 months</span> of Enterprise.
-                      Break-even in under 2 years — free forever after.
+                      Break-even in under 2 years: free forever after.
                     </div>
                   </div>
 

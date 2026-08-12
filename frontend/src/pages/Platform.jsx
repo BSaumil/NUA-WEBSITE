@@ -21,9 +21,9 @@ const positioned = nodes.map((n, i) => {
 });
 
 const pillars = [
-  { icon: Database, title: "Unified data layer", body: "One customer, one menu, one truth — every module reads and writes the same graph." },
+  { icon: Database, title: "Unified data layer", body: "One customer, one menu, one truth: every module reads and writes the same graph." },
   { icon: Cpu, title: "Real-time event bus", body: "Every order, booking, and shift change emits an event the AI layer observes instantly." },
-  { icon: ShieldCheck, title: "Role-based access", body: "Owners, managers, and staff see exactly what they need — nothing more." },
+  { icon: ShieldCheck, title: "Role-based access", body: "Owners, managers, and staff see exactly what they need, nothing more." },
   { icon: Layers, title: "Edge API for AI", body: "NUA's inference runs at the edge for sub-second suggestions, even mid-service." },
 ];
 
@@ -38,9 +38,9 @@ export default function Platform() {
   return (
     <PageShell testId="platform-page">
       <PageHero
-        eyebrow="— Platform architecture"
+        eyebrow="Platform architecture"
         title="One intelligence layer. Every module wired in."
-        subtitle="NUA isn't ten disconnected apps duct-taped together — it's a single data graph and event bus that every module reads from and writes to, with NUA sitting at the center of it all."
+        subtitle="NUA isn't ten disconnected apps duct-taped together. It's a single data graph and event bus that every module reads from and writes to, with NUA sitting at the center of it all."
         accent="#8b5cf6"
         crumb="Platform"
       />
@@ -85,7 +85,7 @@ export default function Platform() {
               Every action is an event. Every event feeds the loop.
             </h2>
             <p className="mt-4 text-[#a1a1aa] leading-relaxed">
-              When a table closes, a shift ends, or stock dips below par — that's an event on the bus. Modules subscribe to what they need, and NUA observes everything, building the context it uses to forecast, suggest, and act.
+              When a table closes, a shift ends, or stock dips below par: that's an event on the bus. Modules subscribe to what they need, and NUA observes everything, building the context it uses to forecast, suggest, and act.
             </p>
             <div className="mt-6 rounded-2xl bg-[#15151d] border border-white/5 p-5" data-testid="event-flow-graphic">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">

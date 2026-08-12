@@ -9,9 +9,9 @@ export default function Customers() {
   return (
     <PageShell testId="customers-page">
       <PageHero
-        eyebrow="— Customers"
+        eyebrow="Customers"
         title="Operators who run on NUA."
-        subtitle="From single-site cafés to multi-venue groups — here's who trusts NUA to run the floor."
+        subtitle="From single-site cafés to multi-venue groups: here's who trusts NUA to run the floor."
         accent="#ec4899"
         crumb="Customers"
       />

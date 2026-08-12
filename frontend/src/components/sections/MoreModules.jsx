@@ -8,13 +8,13 @@ import {
 } from "@/components/graphics/ShowcaseGraphics";
 
 const items = [
-  { Component: POSShowcase, impact: "NUA — Checkout OS", color: "#f58c14", title: "Point of Sale", body: "Fast checkout that keeps working offline — charges cards, splits bills, never goes down." },
-  { Component: KDSShowcase, impact: "NUA — Kitchen OS", color: "#ec4899", title: "Kitchen Display", body: "Tickets route to the right station instantly, aging tracked to the second." },
-  { Component: MarketingShowcase, impact: "NUA — Marketing OS", color: "#ec4899", title: "Marketing Automation", body: "Segments and win-back offers that trigger themselves — 24 hours a day." },
-  { Component: TemperatureMonitoringShowcase, impact: "NUA — Compliance OS", color: "#f58c14", title: "Temperature Monitoring", body: "Fridges and freezers logged automatically — alerts sent the instant something drifts." },
-  { Component: PaymentsShowcase, impact: "NUA — Payments OS", color: "#8b5cf6", title: "Payments & EFTPOS", body: "Tap, insert or scan — any method, settled instantly, no bundled markup." },
-  { Component: DeliveryHubShowcase, impact: "NUA — Delivery OS", color: "#f58c14", title: "Delivery Hub", body: "Every delivery partner's orders land in one queue — no tablet farm at the pass." },
-  { Component: ForecastingShowcase, impact: "NUA — Forecast OS", color: "#22c55e", title: "Demand Forecasting", body: "NUA predicts next week's rush and adjusts purchase orders before you even ask." },
+  { Component: POSShowcase, impact: "NUA: Checkout OS", color: "#f58c14", title: "Point of Sale", body: "Fast checkout that keeps working offline. Charges cards, splits bills, never goes down." },
+  { Component: KDSShowcase, impact: "NUA: Kitchen OS", color: "#ec4899", title: "Kitchen Display", body: "Tickets route to the right station instantly, aging tracked to the second." },
+  { Component: MarketingShowcase, impact: "NUA: Marketing OS", color: "#ec4899", title: "Marketing Automation", body: "Segments and win-back offers that trigger themselves: 24 hours a day." },
+  { Component: TemperatureMonitoringShowcase, impact: "NUA: Compliance OS", color: "#f58c14", title: "Temperature Monitoring", body: "Fridges and freezers logged automatically: alerts sent the instant something drifts." },
+  { Component: PaymentsShowcase, impact: "NUA: Payments OS", color: "#8b5cf6", title: "Payments & EFTPOS", body: "Tap, insert or scan: any method, settled instantly, no bundled markup." },
+  { Component: DeliveryHubShowcase, impact: "NUA: Delivery OS", color: "#f58c14", title: "Delivery Hub", body: "Every delivery partner's orders land in one queue: no tablet farm at the pass." },
+  { Component: ForecastingShowcase, impact: "NUA: Forecast OS", color: "#22c55e", title: "Demand Forecasting", body: "NUA predicts next week's rush and adjusts purchase orders before you even ask." },
 ];
 
 export default function MoreModules() {
@@ -29,12 +29,12 @@ export default function MoreModules() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">— The rest of the platform</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">The rest of the platform</span>
           <h2 className="font-display mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.05]">
             Everything else NUA replaces.
           </h2>
           <p className="mt-4 text-[#a1a1aa] text-lg">
-            Checkout, kitchen routing, marketing, compliance, payments, delivery and forecasting — all built in, all live, all included.
+            Checkout, kitchen routing, marketing, compliance, payments, delivery and forecasting: all built in, all live, all included.
           </p>
         </motion.div>
 

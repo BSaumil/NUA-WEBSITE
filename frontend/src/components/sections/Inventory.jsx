@@ -8,7 +8,7 @@ const cards = [
     icon: ShoppingCart,
     accent: "#22c55e",
     label: "Buy now",
-    title: "Heirloom tomatoes — 8kg",
+    title: "Heirloom tomatoes: 8kg",
     body: "Demand forecast +24% next 7 days. Supplier A holding inventory; price stable.",
     meta: "Supplier A · $4.20/kg · ETA 6h",
   },
@@ -16,7 +16,7 @@ const cards = [
     icon: Clock,
     accent: "#8b5cf6",
     label: "Wait 3 days",
-    title: "Yellowfin tuna — 3kg",
+    title: "Yellowfin tuna: 3kg",
     body: "Price drops 11% projected. Current stock covers Mon–Wed service. Hold for Thursday delivery.",
     meta: "Confidence 92% · auto-monitor",
   },
@@ -24,7 +24,7 @@ const cards = [
     icon: AlertTriangle,
     accent: "#f58c14",
     label: "Price increasing",
-    title: "Olive oil — 20L",
+    title: "Olive oil: 20L",
     body: "Bulk pricing rising 8% from supplier B next week. Lock 4-week stock today.",
     meta: "Supplier B · save $186 this month",
   },
@@ -32,7 +32,7 @@ const cards = [
     icon: TrendingDown,
     accent: "#ec4899",
     label: "Waste alert",
-    title: "Burrata — 2.1kg",
+    title: "Burrata: 2.1kg",
     body: "Usage trending 31% under forecast. Suggest 86 from Friday menu or run staff special.",
     meta: "Expires in 2 days · cost $94",
   },
@@ -50,7 +50,7 @@ export default function Inventory() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
           <div className="max-w-2xl">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">— Inventory & smart purchasing</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">Inventory & smart purchasing</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export default function Inventory() {
               <span className="text-[#666670]">orders for you.</span>
             </motion.h2>
             <p className="mt-5 text-[#444450] max-w-lg leading-relaxed">
-              Recipe-level costing, supplier comparison, demand forecasting and waste tracking — NUA recommends the exact buy at the exact time.
+              Recipe-level costing, supplier comparison, demand forecasting and waste tracking: NUA recommends the exact buy at the exact time.
             </p>
           </div>
 
@@ -126,11 +126,11 @@ export default function Inventory() {
           transition={{ duration: 0.6 }}
           className="mt-16 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">— See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <InventoryShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA — Inventory OS. Stockouts prevented before they happen.</p>
+          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA: Inventory OS. Stockouts prevented before they happen.</p>
         </motion.div>
       </div>
     </section>

@@ -181,7 +181,7 @@ export function InventoryVisual() {
         <span className="px-2 py-0.5 rounded-full bg-[#22c55e]/15 text-[#22c55e] font-mono text-[10px] uppercase">Buy now</span>
         <ShoppingCart className="w-4 h-4 text-[#22c55e]" />
       </div>
-      <div className="mt-3 text-sm text-white font-medium">Heirloom tomatoes — 8kg</div>
+      <div className="mt-3 text-sm text-white font-medium">Heirloom tomatoes: 8kg</div>
       <div className="mt-1 text-[11px] text-[#a1a1aa] leading-relaxed">Demand forecast +24% next 7 days. Supplier A holding price.</div>
     </div>
   );

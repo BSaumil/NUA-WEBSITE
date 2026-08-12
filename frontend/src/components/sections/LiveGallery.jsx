@@ -9,14 +9,14 @@ import {
 } from "@/components/graphics/ShowcaseGraphics";
 
 const cards = [
-  { Component: AICommandCenterShowcase, impact: "NUA — Autopilot OS", body: "Decisions made while you sleep." },
-  { Component: MultiVenueLiveShowcase, impact: "NUA — Growth OS", body: "Every venue's revenue, live, on one screen." },
-  { Component: LoyaltyWalletLiveShowcase, impact: "NUA — Loyalty OS", body: "$1 spent = 1 point, credited instantly." },
-  { Component: TemperatureMonitoringShowcase, impact: "NUA — Compliance OS", body: "Zero manual logs. Zero fines." },
-  { Component: PaymentsShowcase, impact: "NUA — Payments OS", body: "$0 markup on top of bank rates." },
-  { Component: DeliveryHubShowcase, impact: "NUA — Delivery OS", body: "Every platform's orders, one queue." },
-  { Component: BookingWaitlistShowcase, impact: "NUA — Booking OS", body: "Zero double-bookings, ever." },
-  { Component: ForecastingShowcase, impact: "NUA — Forecast OS", body: "Know tomorrow's rush, today." },
+  { Component: AICommandCenterShowcase, impact: "NUA: Autopilot OS", body: "Decisions made while you sleep." },
+  { Component: MultiVenueLiveShowcase, impact: "NUA: Growth OS", body: "Every venue's revenue, live, on one screen." },
+  { Component: LoyaltyWalletLiveShowcase, impact: "NUA: Loyalty OS", body: "$1 spent = 1 point, credited instantly." },
+  { Component: TemperatureMonitoringShowcase, impact: "NUA: Compliance OS", body: "Zero manual logs. Zero fines." },
+  { Component: PaymentsShowcase, impact: "NUA: Payments OS", body: "$0 markup on top of bank rates." },
+  { Component: DeliveryHubShowcase, impact: "NUA: Delivery OS", body: "Every platform's orders, one queue." },
+  { Component: BookingWaitlistShowcase, impact: "NUA: Booking OS", body: "Zero double-bookings, ever." },
+  { Component: ForecastingShowcase, impact: "NUA: Forecast OS", body: "Know tomorrow's rush, today." },
 ];
 
 export default function LiveGallery() {
@@ -33,13 +33,13 @@ export default function LiveGallery() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">
             <Sparkles className="w-3.5 h-3.5 text-[#8b5cf6]" />
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">— Live, right now</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Live, right now</span>
           </div>
           <h2 className="font-display mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.05]">
             Every module. Live. All the time.
           </h2>
           <p className="mt-4 text-[#a1a1aa] text-lg">
-            Not mockups. Not screenshots. The exact screens your team sees — updating in real time, right now, on this page.
+            Not mockups. Not screenshots. The exact screens your team sees, updating in real time, right now, on this page.
           </p>
         </motion.div>
 

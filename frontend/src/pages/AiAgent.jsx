@@ -11,7 +11,7 @@ import MeetNua from "@/components/sections/MeetNua";
 import Voice from "@/components/sections/Voice";
 
 const steps = [
-  { icon: Radio, title: "Signal received", body: "A closed table, a stock dip, a roster gap — every event streams in." },
+  { icon: Radio, title: "Signal received", body: "A closed table, a stock dip, a roster gap: every event streams in." },
   { icon: Layers, title: "Context enriched", body: "NUA cross-references history, benchmarks, and live conditions." },
   { icon: Gauge, title: "Confidence scored", body: "Every possible action gets a confidence score before anything happens." },
 ];
@@ -23,7 +23,7 @@ const outcomes = [
 ];
 
 const principles = [
-  { icon: Eye, title: "Always watching", body: "NUA consumes every signal across guests, stock, staff and margins in real time — no manual reporting required." },
+  { icon: Eye, title: "Always watching", body: "NUA consumes every signal across guests, stock, staff and margins in real time: no manual reporting required." },
   { icon: Gauge, title: "Confidence-scored", body: "Every action carries a confidence score. High-confidence moves auto-execute; the rest wait for a human tap." },
   { icon: ShieldCheck, title: "Fully auditable", body: "Nothing happens silently. Every suggestion, approval and execution is logged with the reasoning behind it." },
 ];
@@ -39,7 +39,7 @@ const automations = [
 
 const auditLog = [
   { time: "09:42:12", module: "Loyalty", action: "VIP guest re-detected, comp assigned", status: "executed" },
-  { time: "09:38:55", module: "Inventory", action: "Purchase qty increased 14kg — Supplier A", status: "approved" },
+  { time: "09:38:55", module: "Inventory", action: "Purchase qty increased 14kg: Supplier A", status: "approved" },
   { time: "09:31:08", module: "Analytics", action: "Wagyu sirloin usage anomaly flagged", status: "suggested" },
   { time: "09:24:41", module: "Analytics", action: "Set Menu B repriced +$2 to restore margin", status: "executed" },
   { time: "09:18:02", module: "Staff", action: "Shift swap drafted for Saturday brunch", status: "suggested" },
@@ -51,9 +51,9 @@ export default function AiAgent() {
   return (
     <PageShell testId="ai-agent-page">
       <PageHero
-        eyebrow="— AI Agent"
+        eyebrow="AI Agent"
         title="Meet NUA. The engine behind every module."
-        subtitle="NUA isn't a chatbot bolted onto the side — it's the decision loop that every module reports into. Here's exactly how it decides what to suggest, approve, or execute."
+        subtitle="NUA isn't a chatbot bolted onto the side. It's the decision loop that every module reports into. Here's exactly how it decides what to suggest, approve, or execute."
         accent="#8b5cf6"
         crumb="AI Agent"
       />
@@ -63,7 +63,7 @@ export default function AiAgent() {
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">The decision loop.</h2>
             <p className="mt-3 text-[#a1a1aa] leading-relaxed">
-              Every signal — a closed table, a stock dip, a roster gap — passes through the same evaluation loop. NUA scores its own confidence and decides how much autonomy to take.
+              Every signal (a closed table, a stock dip, a roster gap) passes through the same evaluation loop. NUA scores its own confidence and decides how much autonomy to take.
             </p>
             <div className="mt-6 space-y-4">
               {principles.map((p) => (
@@ -80,7 +80,7 @@ export default function AiAgent() {
             </div>
           </div>
 
-          {/* Graphical decision flow — replaces raw code */}
+          {/* Graphical decision flow: replaces raw code */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -128,7 +128,7 @@ export default function AiAgent() {
         <div className="relative max-w-6xl mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">— Forecasting</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Forecasting</span>
               <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05]">
                 Demand forecasting,
                 <br />
@@ -136,14 +136,14 @@ export default function AiAgent() {
               </h2>
               <p className="mt-4 text-[#444450] leading-relaxed max-w-md">
                 NUA cross-references historical sales, bookings and day-of-week patterns to predict covers, stock
-                needs and staffing demand up to 30 days out — with an honest confidence band, not false precision.
+                needs and staffing demand up to 30 days out, with an honest confidence band, not false precision.
               </p>
               <ul className="mt-6 space-y-2.5">
                 {[
                   "Predicts covers per hour, per day, per section",
                   "Feeds automatic reorder points in Inventory",
                   "Feeds AI rostering in Staff Management",
-                  "Shows its confidence — never overstates certainty",
+                  "Shows its confidence, never overstates certainty",
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2.5 text-sm text-[#1a1a22]">
                     <CheckCircle2 className="w-4 h-4 text-[#8b5cf6] flex-shrink-0" />
@@ -198,13 +198,13 @@ export default function AiAgent() {
         <div className="absolute inset-0 bg-grid-dark opacity-20 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
         <div className="relative max-w-6xl mx-auto px-6 lg:px-10">
           <div className="max-w-2xl">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">— Automation library</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">Automation library</span>
             <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold text-white tracking-tight leading-[1.05]">
               A library of automations, ready on day one.
             </h2>
             <p className="mt-4 text-[#a1a1aa] leading-relaxed">
               Most AI tools make you build your own workflows from scratch. NUA ships with dozens of pre-built
-              automations covering the scenarios every venue hits — turn them on, tune the thresholds, done.
+              automations covering the scenarios every venue hits. Turn them on, tune the thresholds, done.
             </p>
           </div>
 
@@ -237,19 +237,19 @@ export default function AiAgent() {
         <div className="relative max-w-6xl mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-5">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">— Audit trail</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Audit trail</span>
               <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05]">
                 Every decision, fully logged.
               </h2>
               <p className="mt-4 text-[#444450] leading-relaxed max-w-md">
                 Nothing NUA does is a black box. Every suggestion, approval and auto-executed action is captured in
-                an immutable log — who approved it, when, and why NUA scored it the way it did.
+                an immutable log, who approved it, when, and why NUA scored it the way it did.
               </p>
               <ul className="mt-6 space-y-2.5">
                 {[
                   "Exportable for compliance & franchise reporting",
                   "Filter by module, staff member or confidence level",
-                  "Immutable — entries can't be edited after the fact",
+                  "Immutable: entries can't be edited after the fact",
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2.5 text-sm text-[#1a1a22]">
                     <ShieldCheck className="w-4 h-4 text-[#8b5cf6] flex-shrink-0" />

@@ -21,7 +21,7 @@ const initialFeed = [
   {
     id: "f3",
     time: "09:31:08",
-    action: "Inventory anomaly — wagyu sirloin trending 2.3σ above usage",
+    action: "Inventory anomaly: wagyu sirloin trending 2.3σ above usage",
     outcome: "Flagged for FOH manager. Suggested 86 menu item.",
     status: "suggested",
   },
@@ -35,7 +35,7 @@ const initialFeed = [
   {
     id: "f5",
     time: "09:18:02",
-    action: "Roster mismatch — Saturday brunch understaffed by 1.5 FTE",
+    action: "Roster mismatch: Saturday brunch understaffed by 1.5 FTE",
     outcome: "Drafted shift swap with 2 candidates. Awaiting confirmation.",
     status: "suggested",
   },
@@ -44,7 +44,7 @@ const initialFeed = [
 const incomingPool = [
   { action: "Table 9 lingering 22min past predicted turn-time", outcome: "Nudged FOH to prep the table for the 7:45 walk-in.", status: "suggested" },
   { action: "Burrata usage trending 31% under forecast", outcome: "Suggested tonight's staff special to clear stock.", status: "approved" },
-  { action: "Lapsed-guest segment crossed 400 members", outcome: "Winback campaign queued — 15% offer, sends at 4pm.", status: "executed" },
+  { action: "Lapsed-guest segment crossed 400 members", outcome: "Winback campaign queued: 15% offer, sends at 4pm.", status: "executed" },
   { action: "Friday dinner forecast +18% vs last week", outcome: "Drafted an extra bar shift. Awaiting manager approval.", status: "suggested" },
   { action: "Olive oil bulk price rising 8% from Supplier B", outcome: "Locked in 4-week stock before the increase.", status: "executed" },
   { action: "New 5-star review flagged 'best tiramisu in town'", outcome: "Shared with kitchen team. Featured on tonight's specials board.", status: "approved" },
@@ -115,7 +115,7 @@ export default function MeetNua() {
             </motion.h2>
 
             <p className="mt-5 text-[15px] text-[#444450] leading-relaxed max-w-md">
-              NUA watches every signal — guests, stock, staff, margins — and acts. Suggests, approves, or auto-executes. Always with an audit trail.
+              NUA watches every signal (guests, stock, staff, margins) and acts. Suggests, approves, or auto-executes. Always with an audit trail.
             </p>
 
             <ul className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -137,7 +137,7 @@ export default function MeetNua() {
             </a>
           </div>
 
-          {/* Right — decision feed */}
+          {/* Right: decision feed */}
           <div className="lg:col-span-7">
             <div className="rounded-2xl bg-white border border-black/5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="flex items-center justify-between px-5 py-3 border-b border-black/5 bg-[#fafafb]">

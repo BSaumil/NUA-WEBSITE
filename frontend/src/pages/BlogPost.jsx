@@ -79,9 +79,9 @@ export default function BlogPost() {
 
   return (
     <PageShell testId="blog-post-page">
-      <SEO title={`${post.title} — NUA`} description={post.metaDescription} canonical={canonical} jsonLd={jsonLd} />
+      <SEO title={`${post.title}: NUA`} description={post.metaDescription} canonical={canonical} jsonLd={jsonLd} />
       <PageHero
-        eyebrow={`— Blog · ${post.pillar}`}
+        eyebrow={`Blog · ${post.pillar}`}
         title={post.title}
         subtitle={post.excerpt}
         accent="#8b5cf6"

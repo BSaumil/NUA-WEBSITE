@@ -8,7 +8,7 @@ import LiveNumber from "@/components/graphics/LiveNumber";
 const values = [
   { icon: Target, title: "Built by operators", body: "Every module started as a real problem on a real floor, not a feature-request backlog." },
   { icon: Sparkles, title: "AI that acts, not just reports", body: "We measure NUA by decisions made, not dashboards viewed." },
-  { icon: ShieldCheck, title: "Trust through transparency", body: "Every automated action is logged and explainable — nothing runs in the dark." },
+  { icon: ShieldCheck, title: "Trust through transparency", body: "Every automated action is logged and explainable. Nothing runs in the dark." },
   { icon: Users, title: "One system, not ten logins", body: "We'd rather replace your stack than integrate with all of it." },
 ];
 
@@ -22,7 +22,7 @@ export default function About() {
   return (
     <PageShell testId="about-page">
       <PageHero
-        eyebrow="— Company"
+        eyebrow="Company"
         title="Built by operators, for operators."
         subtitle="NUA exists because running a venue shouldn't mean logging into eight different systems before your first coffee."
         accent="#8b5cf6"
@@ -38,15 +38,15 @@ export default function About() {
           className="text-[15px] text-[#a1a1aa] leading-relaxed space-y-4"
         >
           <p>
-            NUA started with a simple observation: hospitality operators weren't short on software — they were
+            NUA started with a simple observation: hospitality operators weren't short on software: they were
             drowning in it. A POS here, a booking system there, a separate app for rostering, another for loyalty,
             a spreadsheet holding it all together. Nobody designed that stack on purpose. It just accumulated, one
             "quick fix" at a time.
           </p>
           <p>
-            So we built the opposite: one platform, one data layer, and an AI agent — NUA — that watches everything
+            So we built the opposite: one platform, one data layer, and an AI agent: NUA: that watches everything
             happening across the venue and acts on it, instead of just recording it for someone to read later. Point
-            of sale, reservations, kitchen display, loyalty, inventory, staff, analytics, marketing, voice ordering —
+            of sale, reservations, kitchen display, loyalty, inventory, staff, analytics, marketing, voice ordering: 
             unified, not integrated.
           </p>
           <p>

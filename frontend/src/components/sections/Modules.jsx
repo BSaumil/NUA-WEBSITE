@@ -15,10 +15,10 @@ const modules = [
   { id: "loyalty", icon: Gift, title: "Loyalty Engine", desc: "Points, tiers, multipliers, gift cards & referrals.", color: "#ec4899", span: "md:col-span-2" },
   { id: "inventory", icon: Boxes, title: "Inventory & Purchasing", desc: "Smart Pantry AI, recipe costing, auto purchase orders.", color: "#8b5cf6", span: "md:col-span-2" },
   { id: "staff", icon: Users, title: "Staff Management", desc: "AI rostering, shift swaps, payroll & tip distribution.", color: "#f58c14", span: "md:col-span-1" },
-  { id: "nua", icon: BrainCircuit, title: "AI Command Center", desc: "NUA runs ops autonomously — review, approve, automate.", color: "#8b5cf6", span: "md:col-span-1" },
+  { id: "nua", icon: BrainCircuit, title: "AI Command Center", desc: "NUA runs ops autonomously, review, approve, automate.", color: "#8b5cf6", span: "md:col-span-1" },
   { id: "analytics", icon: BarChart3, title: "Analytics Dashboard", desc: "Menu engineering, retention, profit & forecasting.", color: "#f58c14", span: "md:col-span-2" },
   { id: "marketing", icon: Megaphone, title: "Marketing Automation", desc: "Segmented campaigns triggered by guest behaviour.", color: "#ec4899", span: "md:col-span-1" },
-  { id: "voice", icon: Mic, title: "Voice POS", desc: "Run your venue by voice — orders, discounts, reports.", color: "#f58c14", span: "md:col-span-1" },
+  { id: "voice", icon: Mic, title: "Voice POS", desc: "Run your venue by voice, orders, discounts, reports.", color: "#f58c14", span: "md:col-span-1" },
 ];
 
 export default function Modules() {
@@ -33,7 +33,7 @@ export default function Modules() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">— The Platform</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">The Platform</span>
           <h2 className="font-display mt-3 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight">
             All-in-one,
             <br />

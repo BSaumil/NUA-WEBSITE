@@ -7,8 +7,8 @@ import PageHero from "@/components/PageHero";
 import WhyNua from "@/components/sections/WhyNua";
 
 const resources = [
-  { icon: Image, title: "Product Gallery", body: "Real interface renders of every module — POS, AI copilot, wallet and more.", to: "/gallery" },
-  { icon: BookOpen, title: "Documentation", body: "Setup guides for every module — POS, KDS, Loyalty, NUA and beyond." },
+  { icon: Image, title: "Product Gallery", body: "Real interface renders of every module: POS, AI copilot, wallet and more.", to: "/gallery" },
+  { icon: BookOpen, title: "Documentation", body: "Setup guides for every module: POS, KDS, Loyalty, NUA and beyond." },
   { icon: FileText, title: "Case studies", body: "How hospitality groups cut labour cost and food waste with NUA." },
   { icon: Calculator, title: "ROI calculator", body: "See exactly how much a stitched-together POS stack costs vs NUA.", to: "/savings" },
   { icon: LifeBuoy, title: "Help center", body: "Answers to setup, billing and integration questions." },
@@ -20,7 +20,7 @@ export default function Resources() {
   return (
     <PageShell testId="resources-page">
       <PageHero
-        eyebrow="— Resources"
+        eyebrow="Resources"
         title="Everything to help you switch, well."
         subtitle="Guides, playbooks and reference material for teams evaluating or onboarding onto NUA."
         accent="#8b5cf6"

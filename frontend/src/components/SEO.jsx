@@ -11,7 +11,7 @@ function upsertMeta(attr, key, content) {
 }
 
 /**
- * Lightweight per-page <head> manager — no react-helmet dependency.
+ * Lightweight per-page <head> manager: no react-helmet dependency.
  * Sets title/meta description/OG tags/canonical, and optionally injects a
  * single JSON-LD script (e.g. FAQPage schema) that gets replaced on navigation.
  */

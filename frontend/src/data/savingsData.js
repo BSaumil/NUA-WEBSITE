@@ -4,14 +4,14 @@ import {
 } from "lucide-react";
 
 // Indicative monthly AUD costs for a single, mid-size venue, compiled from
-// publicly listed pricing as at July 2026. See the disclaimer on the page —
+// publicly listed pricing as at July 2026. See the disclaimer on the page: 
 // actual pricing varies by provider, plan, region and negotiated rate.
 export const costRows = [
   {
     id: "pos-software",
     icon: Monitor,
     category: "POS software subscription",
-    tool: "Typical major POS provider — base plan",
+    tool: "Typical major POS provider: base plan",
     cost: 199,
   },
   {
@@ -108,9 +108,9 @@ export const MONTHLY_SAVING = COMPETITOR_TOTAL - NUA_TOTAL;
 export const ANNUAL_SAVING = MONTHLY_SAVING * 12;
 
 export const bonusItems = [
-  { icon: ChefHat, title: "Kitchen Display System", body: "Often sold as a separate hardware-and-software add-on elsewhere — built into every NUA plan." },
-  { icon: Globe2, title: "Multi-location dashboard", body: "Franchise and group reporting is usually an enterprise upsell — included from the Growth plan up." },
-  { icon: Star, title: "Guest reviews & feedback", body: "NUA surfaces guest sentiment automatically to the AI agent — no separate reputation-management tool needed." },
-  { icon: BarChart3, title: "Menu engineering & profit analytics", body: "Usually gated behind a premium analytics tier elsewhere — standard in NUA's Analytics Dashboard." },
-  { icon: Mic, title: "Voice ordering", body: "Rarely offered by legacy POS at all — built into NUA as Voice POS, included in every plan." },
+  { icon: ChefHat, title: "Kitchen Display System", body: "Often sold as a separate hardware-and-software add-on elsewhere: built into every NUA plan." },
+  { icon: Globe2, title: "Multi-location dashboard", body: "Franchise and group reporting is usually an enterprise upsell, included from the Growth plan up." },
+  { icon: Star, title: "Guest reviews & feedback", body: "NUA surfaces guest sentiment automatically to the AI agent. No separate reputation-management tool needed." },
+  { icon: BarChart3, title: "Menu engineering & profit analytics", body: "Usually gated behind a premium analytics tier elsewhere: standard in NUA's Analytics Dashboard." },
+  { icon: Mic, title: "Voice ordering", body: "Rarely offered by legacy POS at all: built into NUA as Voice POS, included in every plan." },
 ];

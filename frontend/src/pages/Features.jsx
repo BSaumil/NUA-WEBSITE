@@ -11,9 +11,9 @@ export default function Features() {
   return (
     <PageShell testId="features-page">
       <PageHero
-        eyebrow="— How it works"
+        eyebrow="How it works"
         title="Every feature, graphically explained."
-        subtitle="NUA isn't a black box. Here's exactly how each module works — plainly explained, side-by-side with the interface your team sees. No code, just how it plays out."
+        subtitle="NUA isn't a black box. Here's exactly how each module works, plainly explained, side-by-side with the interface your team sees. No code, just how it plays out."
         accent="#f58c14"
         crumb="Features"
       />
@@ -79,7 +79,7 @@ export default function Features() {
                     {Visual && <Visual />}
                   </div>
 
-                  {/* How it works — plain-language steps, no code */}
+                  {/* How it works: plain-language steps, no code */}
                   <div className="lg:col-span-4 flex flex-col justify-center">
                     <span className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#71717a]">How it works</span>
                     <div className="rounded-2xl bg-white/[0.03] border border-white/5 p-5">
