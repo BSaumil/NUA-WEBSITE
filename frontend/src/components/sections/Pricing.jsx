@@ -221,7 +221,7 @@ export default function Pricing() {
 
                   <div className="flex items-baseline gap-2">
                     <span className="font-display text-6xl font-bold text-white tracking-tight">
-                      $2,499
+                      $2,999
                     </span>
                   </div>
                   <div className="mt-1 font-mono text-[11px] text-[#a1a1aa] uppercase tracking-wider">
@@ -230,7 +230,7 @@ export default function Pricing() {
 
                   <div className="mt-4 p-3 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20">
                     <div className="text-[11px] text-[#c4b5fd] leading-relaxed">
-                      Equivalent to <span className="font-mono">~21 months</span> of Enterprise.
+                      Equivalent to <span className="font-mono">~20 months</span> of Enterprise.
                       Break-even in under 2 years: free forever after.
                     </div>
                   </div>
@@ -238,7 +238,7 @@ export default function Pricing() {
                   {LEAD_CAPTURE_ENABLED && (
                     <button
                       type="button"
-                      onClick={() => openLead({ type: "demo", plan: "Lifetime ($2,499 + GST)" })}
+                      onClick={() => openLead({ type: "demo", plan: "Lifetime ($2,999 + GST)" })}
                       data-testid="pricing-lifetime-cta"
                       className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-semibold shadow-lg shadow-[#f58c14]/30 transition-all hover:-translate-y-0.5"
                     >
