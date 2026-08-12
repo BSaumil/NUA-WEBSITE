@@ -68,7 +68,7 @@ export default function TermsConditions() {
           <p>
             The Services are offered on a subscription basis under the plans described on our pricing page from time to
             time (currently Starter, Growth, Enterprise, and a one-time Lifetime plan), and may be billed per venue, per
-            month, or as otherwise stated at the time of purchase. Where offered, a free trial (currently 14 days, no
+            month, or as otherwise stated at the time of purchase. Where offered, a free trial (currently 7 days, no
             payment card required) allows you to evaluate the Services before committing to a paid subscription. We may
             change trial terms, or end a free trial offer, at any time.
           </p>

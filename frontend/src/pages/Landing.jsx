@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import Modules from "@/components/sections/Modules";
+import NewFeatures from "@/components/sections/NewFeatures";
 import MeetNua from "@/components/sections/MeetNua";
 import Voice from "@/components/sections/Voice";
 import Reservations from "@/components/sections/Reservations";
@@ -24,6 +25,7 @@ export default function Landing() {
       <Navbar />
       <Hero />
       <Modules />
+      <NewFeatures />
       <MeetNua />
       <Voice />
       <Reservations />

@@ -4,6 +4,7 @@ import { ShieldCheck, Lock, KeyRound, ListChecks, Server, CreditCard, ArrowRight
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import { useModals } from "@/components/ModalProvider";
+import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
 const pillars = [
   {
@@ -58,9 +59,13 @@ export default function Security() {
             This page describes NUA's architecture and data-handling practices in plain language. It is not a
             substitute for a signed data processing agreement or a specific compliance certificate. If your venue
             needs a formal certification reference (e.g. a specific PCI-DSS level or SOC 2 report) for procurement,{" "}
-            <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#22c55e] hover:underline">
-              ask us directly
-            </button>{" "}
+            {LEAD_CAPTURE_ENABLED ? (
+              <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#22c55e] hover:underline">
+                ask us directly
+              </button>
+            ) : (
+              <a href="mailto:security@nua.app" className="text-[#22c55e] hover:underline">email us</a>
+            )}{" "}
             and we'll provide current documentation.
           </p>
         </div>
@@ -94,21 +99,23 @@ export default function Security() {
           </p>
         </div>
 
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/[0.02] p-6 sm:p-8">
-          <div>
-            <div className="font-display text-lg font-semibold text-white">Questions before you switch?</div>
-            <div className="text-sm text-[#a1a1aa] mt-1">Talk it through with a real operator, not a script.</div>
+        {LEAD_CAPTURE_ENABLED && (
+          <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/[0.02] p-6 sm:p-8">
+            <div>
+              <div className="font-display text-lg font-semibold text-white">Questions before you switch?</div>
+              <div className="text-sm text-[#a1a1aa] mt-1">Talk it through with a real operator, not a script.</div>
+            </div>
+            <button
+              type="button"
+              onClick={() => openLead({ type: "demo" })}
+              data-testid="security-book-demo-btn"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
+            >
+              Book a Demo
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={() => openLead({ type: "demo" })}
-            data-testid="security-book-demo-btn"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
-          >
-            Book a Demo
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+        )}
       </div>
     </PageShell>
   );

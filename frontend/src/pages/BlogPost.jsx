@@ -6,6 +6,7 @@ import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { useModals } from "@/components/ModalProvider";
+import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
 import posts from "@/data/blogData";
 
 function ContentBlock({ block }) {
@@ -127,18 +128,20 @@ export default function BlogPost() {
         <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/[0.02] p-6 sm:p-8">
           <div>
             <div className="font-display text-lg font-semibold text-white">See NUA running a venue like yours.</div>
-            <div className="text-sm text-[#a1a1aa] mt-1">14-day free trial · no card required</div>
+            <div className="text-sm text-[#a1a1aa] mt-1">{TRIAL_DAYS}-day free trial · no card required</div>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <button
-              type="button"
-              onClick={() => openLead({ type: "demo" })}
-              data-testid="blog-post-book-demo-btn"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
-            >
-              Book a Demo
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            {LEAD_CAPTURE_ENABLED && (
+              <button
+                type="button"
+                onClick={() => openLead({ type: "demo" })}
+                data-testid="blog-post-book-demo-btn"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              >
+                Book a Demo
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            )}
             <Link
               to="/blog"
               data-testid="blog-post-back-link"
