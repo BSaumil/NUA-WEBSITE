@@ -42,7 +42,7 @@ export default function Reservations() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-28">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">— Reservations & guests</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Reservations & guests</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -136,11 +136,11 @@ export default function Reservations() {
           transition={{ duration: 0.6 }}
           className="mt-20 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">— See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <BookingWaitlistShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA — Booking OS. Zero double-bookings, ever.</p>
+          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA: Booking OS. Zero double-bookings, ever.</p>
         </motion.div>
       </div>
     </section>

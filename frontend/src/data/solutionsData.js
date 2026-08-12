@@ -18,7 +18,7 @@ const solutionsData = [
       "Rostering by gut feel leaves the counter short-staffed",
     ],
     features: [
-      { icon: Mic, title: "Voice POS", body: "Call out orders hands-free during the rush — no fumbling for a screen." },
+      { icon: Mic, title: "Voice POS", body: "Call out orders hands-free during the rush: no fumbling for a screen." },
       { icon: ChefHat, title: "Kitchen Display routing", body: "Tickets fire to the right station automatically, with live aging alerts." },
       { icon: Gift, title: "Loyalty Wallet", body: "A tap-to-scan wallet pass turns one-off visitors into daily regulars." },
       { icon: Users, title: "AI rostering", body: "Staffing matched to forecast demand, down to the hour." },
@@ -46,7 +46,7 @@ const solutionsData = [
       { icon: Boxes, title: "Waste tracking", body: "Inventory flags slow-moving stock before it needs to be 86'd." },
     ],
     stat: { value: "±6 min", label: "table turn-time prediction accuracy" },
-    quote: { text: "The floor plan finally tells us something useful — which table is about to turn, not just which one is occupied.", author: "General Manager", venue: "North Common" },
+    quote: { text: "The floor plan finally tells us something useful: which table is about to turn, not just which one is occupied.", author: "General Manager", venue: "North Common" },
   },
   {
     slug: "cafes",
@@ -62,7 +62,7 @@ const solutionsData = [
       "No easy way to win back a regular who's drifted off",
     ],
     features: [
-      { icon: Gift, title: "Scan-to-reorder Wallet", body: "A regular scans their pass and their usual is ready to confirm — in-venue or online." },
+      { icon: Gift, title: "Scan-to-reorder Wallet", body: "A regular scans their pass and their usual is ready to confirm, in-venue or online." },
       { icon: Mic, title: "Voice POS", body: "Quick, hands-free order entry that keeps the morning queue moving." },
       { icon: Boxes, title: "Perishables forecasting", body: "Smart Pantry predicts daily milk, pastry and produce needs to cut waste." },
       { icon: Megaphone, title: "Marketing automation", body: "Automatic winback offers the moment a regular's visit pattern breaks." },
@@ -76,7 +76,7 @@ const solutionsData = [
     color: "#ec4899",
     title: "Fine Dining",
     tagline: "Every guest, remembered.",
-    heroBody: "Fine dining runs on recognition and precision — knowing who's walking in, what they prefer, and keeping every dish's margin honest. NUA handles all three without a maître d's memory.",
+    heroBody: "Fine dining runs on recognition and precision. Knowing who's walking in, what they prefer, and keeping every dish's margin honest. NUA handles all three without a maître d's memory.",
     painPoints: [
       "VIP recognition depends on one person's memory, not the system's",
       "Degustation bookings and deposits are tracked in a spreadsheet",
@@ -98,7 +98,7 @@ const solutionsData = [
     color: "#8b5cf6",
     title: "Bars & Lounges",
     tagline: "Fast tabs, faster upsells.",
-    heroBody: "A busy bar is a margin business fought pour by pour. NUA keeps tabs moving, staffing tuned to the night, and stock shrinkage in check — even when the room is loud and full.",
+    heroBody: "A busy bar is a margin business fought pour by pour. NUA keeps tabs moving, staffing tuned to the night, and stock shrinkage in check. Even when the room is loud and full.",
     painPoints: [
       "Open tabs pile up across a crowded, noisy room",
       "Staffing the right night (and not the wrong one) is guesswork",

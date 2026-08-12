@@ -20,7 +20,7 @@ export default function Staff() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">— Staff & operations</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Staff & operations</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function Staff() {
               <span className="text-[#8b5cf6]">that runs itself.</span>
             </motion.h2>
             <p className="mt-5 text-[#a1a1aa] leading-relaxed max-w-md">
-              AI rostering matches forecast demand to skills and certifications. Shift swaps, payroll, tip distribution and performance — all built in.
+              AI rostering matches forecast demand to skills and certifications. Shift swaps, payroll, tip distribution and performance: all built in.
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-3">
@@ -110,7 +110,7 @@ export default function Staff() {
                 <div className="flex items-start gap-3">
                   <Sparkles className="w-4 h-4 text-[#8b5cf6] mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="text-sm text-white">NUA suggests adding Jules for Friday dinner — forecast +18% covers, save $284 vs split shift.</div>
+                    <div className="text-sm text-white">NUA suggests adding Jules for Friday dinner: forecast +18% covers, save $284 vs split shift.</div>
                     <div className="mt-2 flex gap-2">
                       <button data-testid="staff-approve-suggestion" className="px-3 py-1.5 rounded-full bg-[#8b5cf6] text-white text-[11px] font-medium hover:bg-[#7c3aed] transition-colors">
                         Approve
@@ -133,11 +133,11 @@ export default function Staff() {
           transition={{ duration: 0.6 }}
           className="mt-16 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">— See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <StaffShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA — Staff OS. Hours saved every week on rostering.</p>
+          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA: Staff OS. Hours saved every week on rostering.</p>
         </motion.div>
       </div>
     </section>

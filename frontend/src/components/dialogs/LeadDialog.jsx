@@ -110,7 +110,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
             </div>
             <h3 className="font-display text-xl font-bold text-white">You&apos;re on the list.</h3>
             <p className="mt-2 text-sm text-[#a1a1aa] max-w-sm mx-auto">
-              A NUA operator will reach out within 24 hours. Meanwhile, keep an eye on your inbox — including spam.
+              A NUA operator will reach out within 24 hours. Meanwhile, keep an eye on your inbox, including spam.
             </p>
             <button
               data-testid="lead-success-close"

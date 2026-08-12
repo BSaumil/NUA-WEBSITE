@@ -29,7 +29,7 @@ app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
 # Protects read access to captured lead PII (name/email/phone/business).
-# Submitting a lead (POST) stays public — that's the site's contact form.
+# Submitting a lead (POST) stays public: that's the site's contact form.
 _admin_api_key_header = APIKeyHeader(name="X-Admin-Api-Key", auto_error=False)
 
 
@@ -139,7 +139,7 @@ _cors_origins = os.environ.get('CORS_ORIGINS', '*').split(',')
 app.add_middleware(
     CORSMiddleware,
     # allow_credentials + a wildcard origin is invalid per the CORS spec (browsers
-    # reject it outright), and nothing in this API relies on cookies — every
+    # reject it outright), and nothing in this API relies on cookies: every
     # protected route uses an explicit X-Admin-Api-Key header instead. Only turn
     # credentials on if CORS_ORIGINS is set to specific, non-wildcard origins.
     allow_credentials=_cors_origins != ['*'],

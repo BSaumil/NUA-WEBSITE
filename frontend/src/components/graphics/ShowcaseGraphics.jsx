@@ -109,7 +109,7 @@ export function AnalyticsDashboardScreen() {
   );
 }
 
-/* A — flagship: dashboard + AI copilot answering a real question */
+/* A: flagship: dashboard + AI copilot answering a real question */
 export function InsightsCopilotShowcase() {
   return (
     <div className="relative" data-testid="showcase-insights-copilot">
@@ -126,7 +126,7 @@ export function InsightsCopilotShowcase() {
         <AICopilotPanel
           messages={[
             { from: "user", text: "Why were sales down last week?" },
-            { from: "nua", text: "Most of the drop came from Riverside's lunch trade — orders fell 14% between 12–2pm after your top lunch item sold out." },
+            { from: "nua", text: "Most of the drop came from Riverside's lunch trade, orders fell 14% between 12–2pm after your top lunch item sold out." },
             { from: "user", text: "What should I do first?" },
             { from: "nua", text: "Prep more before lunch and add one extra team member from 12–2pm. That alone could recover about $2,100 a week." },
           ]}
@@ -136,7 +136,7 @@ export function InsightsCopilotShowcase() {
   );
 }
 
-/* B — standalone analytics monitor */
+/* B: standalone analytics monitor */
 export function AnalyticsMonitorShowcase() {
   return (
     <div data-testid="showcase-analytics-monitor">
@@ -147,7 +147,7 @@ export function AnalyticsMonitorShowcase() {
   );
 }
 
-/* C — scan-to-pay + loyalty auto-linked, fully constructed (no photos) */
+/* C: scan-to-pay + loyalty auto-linked, fully constructed (no photos) */
 const orderItems = [
   { icon: Coffee, name: "Flat White ×2", price: "$9.60" },
   { icon: UtensilsCrossed, name: "Truffle Pasta", price: "$24.00" },
@@ -286,7 +286,7 @@ export function VoiceShowcase() {
 
 /* ---------- New: genuinely live showcases (continuous motion, not just entrance) ---------- */
 
-/* D — Loyalty wallet: points tick up live, tier progress fills */
+/* D: Loyalty wallet: points tick up live, tier progress fills */
 export function LoyaltyWalletLiveShowcase() {
   const [points, setPoints] = useState(12840);
   useEffect(() => {
@@ -324,11 +324,11 @@ export function LoyaltyWalletLiveShowcase() {
   );
 }
 
-/* E — AI Command Center: autonomous action log, live-cycling */
+/* E: AI Command Center: autonomous action log, live-cycling */
 const aiActionPool = [
   { action: "Table 9 lingering 22min past predicted turn-time", outcome: "Nudged FOH to prep for the 7:45 walk-in.", status: "suggested" },
   { action: "Burrata usage trending 31% under forecast", outcome: "Suggested tonight's staff special to clear stock.", status: "approved" },
-  { action: "Lapsed-guest segment crossed 400 members", outcome: "Winback campaign queued — 15% offer, sends at 4pm.", status: "executed" },
+  { action: "Lapsed-guest segment crossed 400 members", outcome: "Winback campaign queued: 15% offer, sends at 4pm.", status: "executed" },
   { action: "Friday dinner forecast +18% vs last week", outcome: "Drafted an extra bar shift. Awaiting approval.", status: "suggested" },
   { action: "Sea bass demand forecast +28% vs baseline", outcome: "Bumped purchase qty to 14kg with Supplier A.", status: "executed" },
   { action: "Profit margin on Set Menu B dropped to 58%", outcome: "Repriced sides +$2. Margin restored to 65%.", status: "executed" },
@@ -397,7 +397,7 @@ export function AICommandCenterShowcase() {
   );
 }
 
-/* F — Multi-venue live: revenue ticking per venue, pulsing live dots */
+/* F: Multi-venue live: revenue ticking per venue, pulsing live dots */
 const initialVenueRevenue = [
   { name: "Riverside", value: 18240 },
   { name: "Southbank", value: 14310 },
@@ -436,7 +436,7 @@ export function MultiVenueLiveShowcase() {
   );
 }
 
-/* G — Temperature monitoring: live jittering readouts, always-safe pulse */
+/* G: Temperature monitoring: live jittering readouts, always-safe pulse */
 export function TemperatureMonitoringShowcase() {
   const [fridge, setFridge] = useState(3.2);
   const [freezer, setFreezer] = useState(-18.4);
@@ -478,7 +478,7 @@ export function TemperatureMonitoringShowcase() {
   );
 }
 
-/* H — Payments / EFTPOS: tap-to-pay ripple, any method accepted */
+/* H: Payments / EFTPOS: tap-to-pay ripple, any method accepted */
 export function PaymentsShowcase() {
   return (
     <div data-testid="showcase-payments">
@@ -513,7 +513,7 @@ export function PaymentsShowcase() {
   );
 }
 
-/* I — Delivery hub: every platform into one queue */
+/* I: Delivery hub: every platform into one queue */
 const deliveryPartners = [
   { tag: "Partner A", color: "#f58c14", item: "2× Pad Thai", eta: "18 min" },
   { tag: "Partner B", color: "#8b5cf6", item: "1× Butter Chicken", eta: "24 min" },
@@ -570,7 +570,7 @@ export function DeliveryHubShowcase() {
   );
 }
 
-/* J — Booking & waitlist: auto-converting waitlist, zero double-bookings */
+/* J: Booking & waitlist: auto-converting waitlist, zero double-bookings */
 const waitlistPool = [
   "Waitlist #3 → Table 6 confirmed",
   "Waitlist #4 → Table 2 confirmed",
@@ -628,7 +628,7 @@ export function BookingWaitlistShowcase() {
   );
 }
 
-/* K — Forecasting: demand chart draws in, confidence band beyond "today" */
+/* K: Forecasting: demand chart draws in, confidence band beyond "today" */
 export function ForecastingShowcase() {
   return (
     <div data-testid="showcase-forecasting">

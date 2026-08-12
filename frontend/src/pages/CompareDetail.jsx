@@ -17,7 +17,7 @@ export default function CompareDetail() {
   return (
     <PageShell testId="compare-detail-page">
       <PageHero
-        eyebrow={`— Compare · ${data.category}`}
+        eyebrow={`Compare · ${data.category}`}
         title={`NUA vs ${data.name}`}
         subtitle={data.summary}
         accent={data.color}
@@ -28,8 +28,8 @@ export default function CompareDetail() {
         <div className="flex items-start gap-3 rounded-2xl bg-white/[0.03] border border-white/5 p-4" data-testid="compare-detail-disclaimer">
           <Info className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
           <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
-            {data.name}'s column reflects general category positioning, not confirmed current pricing or policy —
-            those change often. Confirm specifics directly with {data.name}; ask us anything about NUA's column on a call.
+            {data.name}'s column reflects general category positioning, not confirmed current pricing or policy. 
+            Those change often. Confirm specifics directly with {data.name}; ask us anything about NUA's column on a call.
           </p>
         </div>
 

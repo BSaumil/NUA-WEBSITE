@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * NUA Pulse Grid mark — the brand icon used in the navbar, footer, and favicon set.
+ * NUA Pulse Grid mark: the brand icon used in the navbar, footer, and favicon set.
  * variant="mono" is for very small sizes (<24px) where the 2x2 grid would lose legibility.
  */
 export default function BrandIcon({ size = 32, variant = "full", className = "" }) {

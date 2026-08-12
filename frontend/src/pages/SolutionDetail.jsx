@@ -19,7 +19,7 @@ export default function SolutionDetail() {
   return (
     <PageShell testId="solution-detail-page">
       <PageHero
-        eyebrow="— Solutions"
+        eyebrow="Solutions"
         title={data.tagline}
         subtitle={data.heroBody}
         accent={data.color}

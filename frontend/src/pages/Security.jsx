@@ -9,7 +9,7 @@ const pillars = [
   {
     icon: Lock,
     title: "Encryption, in transit and at rest",
-    body: "Data moving between a terminal and NUA's cloud platform is encrypted over TLS. Stored data — menus, guest records, sales history — is encrypted at rest.",
+    body: "Data moving between a terminal and NUA's cloud platform is encrypted over TLS. Stored data (menus, guest records, sales history) is encrypted at rest.",
   },
   {
     icon: CreditCard,
@@ -19,12 +19,12 @@ const pillars = [
   {
     icon: KeyRound,
     title: "Role-based access, per staff member",
-    body: "Every login gets exactly the access their role needs — a server isn't a manager isn't an owner. No shared blanket-admin logins by default.",
+    body: "Every login gets exactly the access their role needs. A server isn't a manager isn't an owner. No shared blanket-admin logins by default.",
   },
   {
     icon: ListChecks,
     title: "A full audit trail on every AI action",
-    body: "Every action the AI Agent takes — automatic or approved — is timestamped, logged, and reviewable. Nothing acts invisibly.",
+    body: "Every action the AI Agent takes (automatic or approved) is timestamped, logged, and reviewable. Nothing acts invisibly.",
   },
   {
     icon: Server,
@@ -44,9 +44,9 @@ export default function Security() {
   return (
     <PageShell testId="security-page">
       <PageHero
-        eyebrow="— Security &amp; Trust"
+        eyebrow="Security &amp; Trust"
         title="How NUA actually handles your data."
-        subtitle="Not a badge wall — a straight answer to what happens to your business and guest data, and why."
+        subtitle="Not a badge wall: a straight answer to what happens to your business and guest data, and why."
         accent="#22c55e"
         crumb="Security"
       />
@@ -56,7 +56,7 @@ export default function Security() {
           <Info className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
           <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
             This page describes NUA's architecture and data-handling practices in plain language. It is not a
-            substitute for a signed data processing agreement or a specific compliance certificate — if your venue
+            substitute for a signed data processing agreement or a specific compliance certificate. If your venue
             needs a formal certification reference (e.g. a specific PCI-DSS level or SOC 2 report) for procurement,{" "}
             <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#22c55e] hover:underline">
               ask us directly
@@ -90,7 +90,7 @@ export default function Security() {
           <p className="mt-3 text-sm text-[#a1a1aa] leading-relaxed max-w-2xl">
             Found something that looks like a security issue? Email{" "}
             <a href="mailto:security@nua.app" className="text-emerald-400 hover:underline">security@nua.app</a>{" "}
-            directly — a real person on the engineering team reads that inbox, and we'd rather hear it from you first.
+            directly: a real person on the engineering team reads that inbox, and we'd rather hear it from you first.
           </p>
         </div>
 

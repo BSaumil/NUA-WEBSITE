@@ -14,9 +14,9 @@ export default function Solutions() {
   return (
     <PageShell testId="solutions-page">
       <PageHero
-        eyebrow="— Solutions"
+        eyebrow="Solutions"
         title="Built for every kind of venue."
-        subtitle="From a single café to a global hospitality group — NUA adapts to how your business actually runs, without bolting on a different tool for every venue type."
+        subtitle="From a single café to a global hospitality group: NUA adapts to how your business actually runs, without bolting on a different tool for every venue type."
         accent="#ec4899"
         crumb="Solutions"
       />

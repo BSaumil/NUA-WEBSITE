@@ -10,9 +10,9 @@ export default function Blog() {
   return (
     <PageShell testId="blog-page">
       <PageHero
-        eyebrow="— Blog"
+        eyebrow="Blog"
         title="Product notes & operator playbooks."
-        subtitle="Field notes from building an AI operating system for hospitality — and from the venues running on it."
+        subtitle="Field notes from building an AI operating system for hospitality, and from the venues running on it."
         accent="#8b5cf6"
         crumb="Blog"
       />

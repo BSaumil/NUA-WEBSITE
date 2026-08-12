@@ -43,7 +43,7 @@ export default function WhyNua() {
       <div className="absolute inset-0 bg-grid-dark opacity-20 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)]" />
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">— Why NUA</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Why NUA</span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function WhyNua() {
             NUA vs traditional POS.
           </motion.h2>
           <p className="mt-5 text-[#a1a1aa]">
-            Legacy systems were built to record. NUA is built to think — and act.
+            Legacy systems were built to record. NUA is built to think, and act.
           </p>
         </div>
 

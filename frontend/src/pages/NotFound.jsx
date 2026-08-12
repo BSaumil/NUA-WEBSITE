@@ -8,7 +8,7 @@ export default function NotFound() {
   return (
     <PageShell testId="not-found-page">
       <PageHero
-        eyebrow="— 404"
+        eyebrow="404"
         title="This page doesn't exist."
         subtitle="The link might be old, mistyped, or the page has moved. Here's how to get back on track."
         accent="#f58c14"

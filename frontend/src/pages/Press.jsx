@@ -7,7 +7,7 @@ export default function Press() {
   return (
     <PageShell testId="press-page">
       <PageHero
-        eyebrow="— Press"
+        eyebrow="Press"
         title="Press & media."
         subtitle="Resources for journalists and media covering NUA and the hospitality technology space."
         accent="#f58c14"
@@ -28,7 +28,7 @@ export default function Press() {
         <div className="rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7">
           <h2 className="font-display text-xl font-bold text-white">Media assets</h2>
           <p className="mt-3 text-[15px] text-[#a1a1aa] leading-relaxed">
-            Logos, product screenshots and founder headshots are available on request — email us and we'll send
+            Logos, product screenshots and founder headshots are available on request. Email us and we'll send
             over a media kit.
           </p>
           <a

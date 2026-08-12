@@ -16,9 +16,9 @@ export default function Contact() {
   return (
     <PageShell testId="contact-page">
       <PageHero
-        eyebrow="— Contact"
+        eyebrow="Contact"
         title="Talk to a human, not a chatbot."
-        subtitle="Questions about pricing, a specific module, or migrating from your current stack — reach out, and a real person answers."
+        subtitle="Questions about pricing, a specific module, or migrating from your current stack: reach out, and a real person answers."
         accent="#ec4899"
         crumb="Contact"
       />
@@ -27,7 +27,7 @@ export default function Contact() {
         <div className="rounded-2xl bg-gradient-to-br from-[#f58c14]/15 to-[#15151d] border border-[#f58c14]/30 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div>
             <div className="font-display text-lg font-semibold text-white">Prefer to just see it running?</div>
-            <div className="text-sm text-[#a1a1aa] mt-1">Book a 30-minute demo — no pressure, no scripted pitch.</div>
+            <div className="text-sm text-[#a1a1aa] mt-1">Book a 30-minute demo: no pressure, no scripted pitch.</div>
           </div>
           <button
             type="button"

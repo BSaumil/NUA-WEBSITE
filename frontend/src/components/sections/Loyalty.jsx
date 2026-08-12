@@ -29,7 +29,7 @@ export default function Loyalty() {
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           {/* Left */}
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#ec4899]">— Loyalty & revenue engine</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#ec4899]">Loyalty & revenue engine</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function Loyalty() {
               into a <span className="text-[#ec4899]">repeat guest.</span>
             </motion.h2>
             <p className="mt-5 text-[#a1a1aa] leading-relaxed max-w-md">
-              Points, multipliers, tiers, gift cards, referrals — wired into POS, app, and NUA&apos;s marketing brain. Every dollar feeds the next visit.
+              Points, multipliers, tiers, gift cards, referrals: wired into POS, app, and NUA&apos;s marketing brain. Every dollar feeds the next visit.
             </p>
 
             <div className="mt-8 space-y-3">
@@ -78,7 +78,7 @@ export default function Loyalty() {
             </a>
           </div>
 
-          {/* Right — Loyalty card */}
+          {/* Right: Loyalty card */}
           <div className="relative">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -143,7 +143,7 @@ export default function Loyalty() {
         {/* Wallet & instant reorder */}
         <div className="mt-24 lg:mt-28">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#ec4899]">— NUA Wallet</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#ec4899]">NUA Wallet</span>
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -154,7 +154,7 @@ export default function Loyalty() {
               Spend. Earn. Scan. Reorder.
             </motion.h3>
             <p className="mt-4 text-[#a1a1aa] leading-relaxed">
-              Every purchase earns points automatically, stored in a wallet pass guests already carry — no app to download, no card to lose.
+              Every purchase earns points automatically, stored in a wallet pass guests already carry: no app to download, no card to lose.
             </p>
           </div>
 
@@ -179,7 +179,7 @@ export default function Loyalty() {
                 ))}
               </div>
               <div className="mt-4 font-mono text-[11px] text-[#a1a1aa] leading-relaxed">
-                $1 spent = 1 point. Credited the instant the bill closes — no waiting, no app required.
+                $1 spent = 1 point. Credited the instant the bill closes: no waiting, no app required.
               </div>
             </motion.div>
 
@@ -220,7 +220,7 @@ export default function Loyalty() {
                 </div>
               </div>
               <div className="mt-4 font-mono text-[11px] text-[#a1a1aa] leading-relaxed">
-                Added in one tap from any receipt or confirmation email — balance updates itself, everywhere.
+                Added in one tap from any receipt or confirmation email: balance updates itself, everywhere.
               </div>
             </motion.div>
 
@@ -248,7 +248,7 @@ export default function Loyalty() {
                 ))}
               </div>
               <div className="mt-4 pt-4 border-t border-white/5 font-mono text-[11px] text-[#a1a1aa] leading-relaxed">
-                Works the same in-venue at the POS and for online ordering — scan once, reorder instantly.
+                Works the same in-venue at the POS and for online ordering, scan once, reorder instantly.
               </div>
             </motion.div>
           </div>
@@ -261,11 +261,11 @@ export default function Loyalty() {
           transition={{ duration: 0.6 }}
           className="mt-20 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">— See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <LoyaltyWalletLiveShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA — Loyalty OS. $1 spent = 1 point, credited instantly.</p>
+          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA: Loyalty OS. $1 spent = 1 point, credited instantly.</p>
         </motion.div>
       </div>
     </section>

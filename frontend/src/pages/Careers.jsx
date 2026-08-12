@@ -12,8 +12,8 @@ const roles = [
 ];
 
 const perks = [
-  { icon: Rocket, title: "Ship fast, ship real", body: "Small team, direct impact — no six-layer approval chain between an idea and production." },
-  { icon: Heart, title: "Built around hospitality", body: "We visit venues, work a shift, and talk to operators — this isn't a spreadsheet product." },
+  { icon: Rocket, title: "Ship fast, ship real", body: "Small team, direct impact: no six-layer approval chain between an idea and production." },
+  { icon: Heart, title: "Built around hospitality", body: "We visit venues, work a shift, and talk to operators. This isn't a spreadsheet product." },
   { icon: Users2, title: "Remote-friendly, AU-based", body: "Work from anywhere in Australia, with the team gathering in person a few times a year." },
 ];
 
@@ -21,9 +21,9 @@ export default function Careers() {
   return (
     <PageShell testId="careers-page">
       <PageHero
-        eyebrow="— Careers"
+        eyebrow="Careers"
         title="Help operators run smarter."
-        subtitle="We're a small team building the AI operating system for hospitality — and we're looking for people who'd rather fix the real problem than ship another dashboard."
+        subtitle="We're a small team building the AI operating system for hospitality, and we're looking for people who'd rather fix the real problem than ship another dashboard."
         accent="#f58c14"
         crumb="Careers"
       />
@@ -75,7 +75,7 @@ export default function Careers() {
           </div>
           <p className="mt-4 text-sm text-[#a1a1aa]">
             Don't see a role that fits? Email your resume to{" "}
-            <a href="mailto:careers@nua.app" className="text-[#f58c14] hover:underline">careers@nua.app</a> anyway —
+            <a href="mailto:careers@nua.app" className="text-[#f58c14] hover:underline">careers@nua.app</a> anyway: 
             we'd rather hear from you than miss you.
           </p>
         </div>

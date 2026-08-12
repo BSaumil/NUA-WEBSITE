@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 import Integrations from "@/components/sections/Integrations";
 
 const categories = [
-  { icon: CreditCard, title: "Payments", body: "Stripe, Square, PayPal, Apple Pay — reconcile every transaction automatically." },
+  { icon: CreditCard, title: "Payments", body: "Stripe, Square, PayPal, Apple Pay, reconcile every transaction automatically." },
   { icon: Truck, title: "Delivery platforms", body: "Uber Eats, DoorDash, Deliveroo orders flow straight into KDS, no tablet farm." },
   { icon: Calculator, title: "Accounting & CRM", body: "Xero, QuickBooks, Salesforce, HubSpot stay in sync with every sale and refund." },
   { icon: MessagesSquare, title: "Messaging & comms", body: "Twilio, Slack, Mailchimp power guest notifications and internal alerts." },
@@ -16,9 +16,9 @@ export default function IntegrationsPage() {
   return (
     <PageShell testId="integrations-page">
       <PageHero
-        eyebrow="— Integrations"
+        eyebrow="Integrations"
         title="Plays nicely with your existing stack."
-        subtitle="NUA replaces the tangle of point tools — but it still speaks fluently with the ones you want to keep."
+        subtitle="NUA replaces the tangle of point tools, but it still speaks fluently with the ones you want to keep."
         accent="#f58c14"
         crumb="Integrations"
       />

@@ -9,7 +9,7 @@ export default function TermsConditions() {
   return (
     <PageShell testId="terms-page">
       <PageHero
-        eyebrow="— Legal"
+        eyebrow="Legal"
         title="Terms & Conditions"
         subtitle={`Last updated: ${LAST_UPDATED}`}
         accent="#f58c14"

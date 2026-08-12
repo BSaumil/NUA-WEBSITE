@@ -22,7 +22,7 @@ export default function Status() {
   return (
     <PageShell testId="status-page">
       <PageHero
-        eyebrow="— System Status"
+        eyebrow="System Status"
         title="Current platform status."
         subtitle="Live state of every NUA module. Nothing to report right now means exactly that."
         accent="#22c55e"
@@ -71,7 +71,7 @@ export default function Status() {
           <Info className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
           <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
             This page reflects current known status. For automated incident history, uptime history and subscribable
-            alerts, this is designed to be backed by a dedicated status provider (e.g. Statuspage or Instatus) —
+            alerts, this is designed to be backed by a dedicated status provider (e.g. Statuspage or Instatus): 
             connect one to replace this with live, independently-hosted monitoring.
           </p>
         </div>

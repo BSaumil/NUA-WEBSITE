@@ -38,7 +38,7 @@ export default function Analytics() {
       <div className="absolute inset-0 bg-grid-dark opacity-25 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="max-w-2xl mb-12">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">— Analytics & intelligence</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">Analytics & intelligence</span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function Analytics() {
             <span className="text-[#a1a1aa]">like never before.</span>
           </motion.h2>
           <p className="mt-5 text-[#a1a1aa] max-w-lg">
-            Live revenue streams, menu engineering, retention heatmaps, profit analysis and forecasting — built into one executive dashboard.
+            Live revenue streams, menu engineering, retention heatmaps, profit analysis and forecasting: built into one executive dashboard.
           </p>
         </div>
 
@@ -192,11 +192,11 @@ export default function Analytics() {
           transition={{ duration: 0.6 }}
           className="mt-20 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">— See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-4">
             <InsightsCopilotShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA — Insights OS. Ask a real question, get a real answer, in dollars.</p>
+          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA: Insights OS. Ask a real question, get a real answer, in dollars.</p>
         </motion.div>
       </div>
     </section>

@@ -30,9 +30,9 @@ export default function Savings() {
   return (
     <PageShell testId="savings-page">
       <PageHero
-        eyebrow="— Total cost of ownership"
+        eyebrow="Total cost of ownership"
         title="What a 'stitched-together' POS stack really costs you."
-        subtitle="Most venues aren't paying for one system — they're paying for eight or nine, quietly, across separate invoices. Here's the real monthly bill, itemised, next to a single NUA subscription."
+        subtitle="Most venues aren't paying for one system. They're paying for eight or nine, quietly, across separate invoices. Here's the real monthly bill, itemised, next to a single NUA subscription."
         accent="#f58c14"
         crumb="Savings"
       />
@@ -44,7 +44,7 @@ export default function Savings() {
           <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
             Figures below are indicative monthly averages for a single, mid-size Australian venue, compiled from
             publicly listed pricing as at July 2026. Actual costs vary by provider, plan, region, transaction volume
-            and negotiated rate — treat this as a guide, then <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#f58c14] hover:underline">book a demo</button> for a number based on your actual stack.
+            and negotiated rate, treat this as a guide, then <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#f58c14] hover:underline">book a demo</button> for a number based on your actual stack.
           </p>
         </div>
 
@@ -119,7 +119,7 @@ export default function Savings() {
                   className="w-full pl-7 pr-3 bg-white/[0.04] border border-white/10 rounded-lg py-2 font-display text-lg font-bold text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
-              <div className="mt-1.5 font-mono text-[11px] text-[#71717a]">Defaults to our {costRows.length}-tool estimate below — edit to use your own invoices.</div>
+              <div className="mt-1.5 font-mono text-[11px] text-[#71717a]">Defaults to our {costRows.length}-tool estimate below: edit to use your own invoices.</div>
             </div>
           </div>
         </motion.div>
@@ -194,7 +194,7 @@ export default function Savings() {
         {/* Itemised breakdown */}
         <div className="mt-16">
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">The itemised breakdown.</h2>
-          <p className="mt-2 text-[#a1a1aa]">Every line item most venues pay for separately — and what replaces it in NUA.</p>
+          <p className="mt-2 text-[#a1a1aa]">Every line item most venues pay for separately, and what replaces it in NUA.</p>
 
           <div className="mt-6 rounded-2xl border border-white/10 bg-[#15151d] overflow-hidden">
             {costRows.map((r, i) => (
@@ -232,7 +232,7 @@ export default function Savings() {
         {/* Bonus bundled items */}
         <div className="mt-16">
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">And here's what else is bundled in.</h2>
-          <p className="mt-2 text-[#a1a1aa]">Features many stacks charge extra for — or don't offer at all — that ship standard with NUA.</p>
+          <p className="mt-2 text-[#a1a1aa]">Features many stacks charge extra for, or don't offer at all, that ship standard with NUA.</p>
 
           <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {bonusItems.map((b, i) => (
@@ -260,7 +260,7 @@ export default function Savings() {
             Want your actual number, not an estimate?
           </h2>
           <p className="mt-3 text-[#a1a1aa] max-w-lg mx-auto">
-            Bring us your current invoices — POS, EFTPOS, rostering, booking, delivery, whatever you're juggling — and
+            Bring us your current invoices: POS, EFTPOS, rostering, booking, delivery, whatever you're juggling, and
             we'll build a savings breakdown specific to your venue.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">

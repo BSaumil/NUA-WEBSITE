@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
   return (
     <PageShell testId="privacy-policy-page">
       <PageHero
-        eyebrow="— Legal"
+        eyebrow="Legal"
         title="Privacy Policy"
         subtitle={`Last updated: ${LAST_UPDATED}`}
         accent="#8b5cf6"
@@ -35,25 +35,25 @@ export default function PrivacyPolicy() {
           <p>This Privacy Policy applies to three broad groups of people, and we've tried to be clear about which sections apply to whom:</p>
           <ul>
             <li><strong>Visitors</strong> to our website who browse our Platform, request a demo, or start a free trial.</li>
-            <li><strong>Merchants</strong> — the venues, restaurants, cafés and hospitality groups that hold a NUA account and use the Services to run their business (in this Policy, "<strong>you</strong>" generally refers to a Merchant unless the context otherwise requires).</li>
-            <li><strong>Guests</strong> — the customers of a Merchant whose information is processed through the Platform (for example, through the POS, Reservations, or Loyalty Engine). Where we process Guest information, we generally do so on behalf of, and under the instructions of, the relevant Merchant, who is responsible for their own compliance with privacy law in respect of their Guests.</li>
+            <li><strong>Merchants</strong>, the venues, restaurants, cafés and hospitality groups that hold a NUA account and use the Services to run their business (in this Policy, "<strong>you</strong>" generally refers to a Merchant unless the context otherwise requires).</li>
+            <li><strong>Guests</strong>, the customers of a Merchant whose information is processed through the Platform (for example, through the POS, Reservations, or Loyalty Engine). Where we process Guest information, we generally do so on behalf of, and under the instructions of, the relevant Merchant, who is responsible for their own compliance with privacy law in respect of their Guests.</li>
           </ul>
         </LegalSection>
 
         <LegalSection number={2} title="Information we collect">
-          <p><strong>Information you give us directly</strong> — for example, when you:</p>
+          <p><strong>Information you give us directly</strong>, for example, when you:</p>
           <ul>
             <li>request a demo, start a free trial, or otherwise enquire about the Services, including your name, work email, business name, phone number, number of venues, and any message you send us;</li>
             <li>create or manage a Merchant account, including business details, billing information, and the names, emails and roles of staff members you invite to the Platform;</li>
             <li>contact our support team, including the content of any correspondence and attachments.</li>
           </ul>
-          <p><strong>Information collected automatically</strong> — when you visit our website or use the Platform, we (and our service providers) may automatically collect:</p>
+          <p><strong>Information collected automatically</strong>: when you visit our website or use the Platform, we (and our service providers) may automatically collect:</p>
           <ul>
             <li>device and usage information, such as IP address, browser type, operating system, pages viewed, and referring URLs;</li>
             <li>analytics and interaction data collected through tools such as PostHog, used to understand how our website and Platform are used so we can improve them; and</li>
             <li>cookies and similar technologies, as described in section 5 below.</li>
           </ul>
-          <p><strong>Information processed on behalf of Merchants</strong> — as part of operating the Services, we process information that Merchants input or that is generated through use of the Platform, including:</p>
+          <p><strong>Information processed on behalf of Merchants</strong>, as part of operating the Services, we process information that Merchants input or that is generated through use of the Platform, including:</p>
           <ul>
             <li>Guest information such as names, contact details, order history, reservation details, table preferences, loyalty point balances and tier, and wallet pass identifiers (for the NUA Wallet, including Apple Wallet and Google Wallet passes);</li>
             <li>transaction and order data processed through the POS, Kitchen Display System, and Voice POS features;</li>
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
             <li>process payments and manage billing for paid subscriptions;</li>
             <li>generate the forecasts, recommendations and automated decisions that power features such as demand forecasting, smart reordering, AI rostering, and marketing automation;</li>
             <li>issue and maintain NUA Wallet loyalty passes, including syncing balances to Apple Wallet and Google Wallet;</li>
-            <li>send Merchants operational and transactional communications, and — where permitted and where a Merchant has enabled marketing automation — send Guests offers and communications on the Merchant's behalf;</li>
+            <li>send Merchants operational and transactional communications, and: where permitted and where a Merchant has enabled marketing automation, send Guests offers and communications on the Merchant's behalf;</li>
             <li>monitor, detect and prevent fraud, abuse, and security incidents;</li>
             <li>comply with our legal obligations, and to establish, exercise or defend legal claims.</li>
           </ul>
@@ -93,14 +93,14 @@ export default function PrivacyPolicy() {
             Our website and Platform use cookies and similar technologies (such as local storage and analytics scripts) to keep
             you signed in, remember your preferences, understand how our website is used, and improve the performance and
             content of our Services. Most browsers allow you to control cookies through their settings, including blocking or
-            deleting them — please note that disabling cookies may affect the functionality of our website or Platform.
+            deleting them. Please note that disabling cookies may affect the functionality of our website or Platform.
           </p>
         </LegalSection>
 
         <LegalSection number={6} title="Payment information">
           <p>
-            We do not store full payment card numbers. Payments made through the Platform — whether for a Merchant's NUA
-            subscription or for transactions processed through the POS — are handled by our third-party payment processors,
+            We do not store full payment card numbers. Payments made through the Platform, whether for a Merchant's NUA
+            subscription or for transactions processed through the POS. Are handled by our third-party payment processors,
             who are responsible for the security of payment card data in accordance with the Payment Card Industry Data
             Security Standard (PCI DSS). We may receive limited transaction metadata (such as amount, date, and payment
             status) from these providers in order to operate the Services.

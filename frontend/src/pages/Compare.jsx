@@ -12,9 +12,9 @@ export default function Compare() {
   return (
     <PageShell testId="compare-page">
       <PageHero
-        eyebrow="— Compare"
+        eyebrow="Compare"
         title="NUA, next to the platforms you're already evaluating."
-        subtitle="A straight, feature-level comparison — not a takedown. Pick the one you're weighing against NUA."
+        subtitle="A straight, feature-level comparison: not a takedown. Pick the one you're weighing against NUA."
         accent="#f58c14"
         crumb="Compare"
       />
@@ -23,8 +23,8 @@ export default function Compare() {
         <div className="flex items-start gap-3 rounded-2xl bg-white/[0.03] border border-white/5 p-4" data-testid="compare-disclaimer">
           <Info className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
           <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
-            Competitor details reflect general, publicly-known category positioning, not confirmed current pricing —
-            plans and features change often. Confirm specifics directly with each provider; NUA's own figures are
+            Competitor details reflect general, publicly-known category positioning, not confirmed current pricing. 
+            Plans and features change often. Confirm specifics directly with each provider; NUA's own figures are
             accurate as of the pricing page.
           </p>
         </div>

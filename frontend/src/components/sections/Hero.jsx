@@ -37,7 +37,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#f58c14] animate-pulse-dot" />
-            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">Introducing NUA — Your AI Restaurant Manager</span>
+            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">Introducing NUA: Your AI Restaurant Manager</span>
           </div>
         </motion.div>
 
@@ -63,7 +63,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-7 max-w-2xl mx-auto text-center text-base sm:text-lg text-[#a1a1aa] leading-relaxed"
         >
-          POS, Reservations, Loyalty, Inventory, Staff, Marketing, and an autonomous AI agent — unified into one intelligent platform.
+          POS, Reservations, Loyalty, Inventory, Staff, Marketing, and an autonomous AI agent: unified into one intelligent platform.
         </motion.p>
 
         {/* CTAs */}

@@ -29,7 +29,7 @@ export default function Voice() {
       <div className="absolute inset-0 bg-grid-dark opacity-20 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_60%)]" />
 
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10 text-center">
-        <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">— Voice-first operations</span>
+        <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">Voice-first operations</span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export default function Voice() {
         </motion.h2>
 
         <p className="mt-6 max-w-xl mx-auto text-[#a1a1aa]">
-          Hands full at the pass? Just speak. NUA understands intent, context, and your menu — instantly.
+          Hands full at the pass? Just speak. NUA understands intent, context, and your menu: instantly.
         </p>
 
         <div className="mt-14 max-w-3xl mx-auto rounded-2xl glass-card-dark p-8 sm:p-10">
@@ -73,7 +73,7 @@ export default function Voice() {
             ))}
           </div>
 
-          {/* Transcription — animated via key change */}
+          {/* Transcription: animated via key change */}
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 8 }}
@@ -111,11 +111,11 @@ export default function Voice() {
           transition={{ duration: 0.6 }}
           className="mt-16 flex flex-col items-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">— See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <VoiceShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA — Voice OS. Zero clicks — hands stay on the pass.</p>
+          <p className="mt-4 text-sm text-[#a1a1aa] max-w-sm">NUA: Voice OS. Zero clicks: hands stay on the pass.</p>
         </motion.div>
       </div>
     </section>
