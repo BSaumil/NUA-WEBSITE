@@ -192,8 +192,8 @@ export default function Pricing() {
 
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
                   {[
-                    "All Enterprise features",
-                    "Unlimited locations",
+                    "All Growth features",
+                    "Up to 10 locations",
                     "Lifetime free updates",
                     "Priority onboarding",
                     "Founding-member badge",
@@ -230,8 +230,8 @@ export default function Pricing() {
 
                   <div className="mt-4 p-3 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20">
                     <div className="text-[11px] text-[#c4b5fd] leading-relaxed">
-                      Equivalent to <span className="font-mono">~20 months</span> of Enterprise.
-                      Break-even in under 2 years: free forever after.
+                      Equivalent to <span className="font-mono">~30 months</span> of Growth.
+                      Break-even in under 3 years: free forever after.
                     </div>
                   </div>
 
