@@ -37,7 +37,7 @@ export default function CompareDetail() {
         <div className="mt-8 rounded-2xl border border-white/10 bg-[#15151d] overflow-hidden">
           <div className="grid grid-cols-[1fr_auto_auto] items-center gap-3 px-5 py-4 border-b border-white/10 bg-white/[0.03]">
             <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Capability</span>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa] text-center w-28">{data.name}</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa] text-center w-28">{data.name}*</span>
             <span className="font-mono text-[10px] uppercase tracking-widest text-center w-28" style={{ color: data.color }}>NUA</span>
           </div>
           {data.rows.map((r, i) => (
@@ -100,6 +100,10 @@ export default function CompareDetail() {
             </Link>
           </div>
         </div>
+
+        <p className="mt-6 text-center text-[11px] text-[#666670] max-w-2xl mx-auto">
+          *For illustration only. Confirm current pricing and features directly with {data.name} before deciding.
+        </p>
       </div>
     </PageShell>
   );
