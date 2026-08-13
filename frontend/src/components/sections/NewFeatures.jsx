@@ -49,7 +49,7 @@ export default function NewFeatures() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#f58c14]/40 bg-[#f58c14]/10">
             <Sparkles className="w-3 h-3 text-[#f58c14]" />
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#fbbf24]">Just added</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#fbbf24]">And More</span>
           </div>
           <h2 className="font-display mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.02]">
             New on the platform.
