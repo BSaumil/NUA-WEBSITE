@@ -188,7 +188,7 @@ export function ScanToPayShowcase() {
         <div className="h-full bg-[#0b0b0f] flex flex-col items-center justify-center gap-2 px-3">
           <span className="font-mono text-[7px] uppercase tracking-widest text-[#a1a1aa]">NUA Wallet</span>
           <QRPattern size={64} dark="#ffffff" light="#0b0b0f" />
-          <span className="font-mono text-[7px] text-[#8b5cf6]">Anaïs Laurent · Black tier</span>
+          <span className="font-mono text-[7px] text-[#8b5cf6]">Sam B. · Black tier</span>
         </div>
       </PhoneFrame>
 

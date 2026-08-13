@@ -134,7 +134,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   value={form.name}
                   onChange={update("name")}
                   required
-                  placeholder="Anaïs Laurent"
+                  placeholder="Sam B."
                   className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-[#52525b]"
                 />
               </div>

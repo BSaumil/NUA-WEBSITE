@@ -7,7 +7,7 @@ const initialFeed = [
   {
     id: "f1",
     time: "09:42:12",
-    action: "VIP guest Anaïs Laurent re-detected (12th visit)",
+    action: "VIP guest Sam B. re-detected (12th visit)",
     outcome: "Greeting note sent to front-of-house. Comp bubbles assigned.",
     status: "executed",
   },

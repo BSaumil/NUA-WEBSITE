@@ -93,7 +93,7 @@ export default function Loyalty() {
                 <div className="flex items-start justify-between relative">
                   <div>
                     <div className="font-mono text-[10px] uppercase tracking-widest text-[#fbcfe8]">NUA Loyalty · Black tier</div>
-                    <div className="font-display text-2xl font-bold text-white mt-1">Anaïs Laurent</div>
+                    <div className="font-display text-2xl font-bold text-white mt-1">Sam B.</div>
                   </div>
                   <Sparkles className="w-6 h-6 text-[#ec4899]" />
                 </div>
@@ -202,7 +202,7 @@ export default function Loyalty() {
                   </div>
                   <div className="mt-2 font-display text-xl font-bold text-white"><LiveNumber value={12840} duration={1.2} suffix=" pts" /></div>
                   <div className="mt-2 flex items-center justify-between">
-                    <span className="font-mono text-[9px] text-[#a1a1aa]">Anaïs Laurent · Black tier</span>
+                    <span className="font-mono text-[9px] text-[#a1a1aa]">Sam B. · Black tier</span>
                     <QrCode className="w-6 h-6 text-white/80" />
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export default function Loyalty() {
                   </div>
                   <div className="mt-2 font-display text-xl font-bold text-[#0f0f14]"><LiveNumber value={12840} duration={1.2} suffix=" pts" /></div>
                   <div className="mt-2 flex items-center justify-between">
-                    <span className="font-mono text-[9px] text-[#666670]">Anaïs Laurent · Black tier</span>
+                    <span className="font-mono text-[9px] text-[#666670]">Sam B. · Black tier</span>
                     <QrCode className="w-6 h-6 text-[#0f0f14]/70" />
                   </div>
                 </div>

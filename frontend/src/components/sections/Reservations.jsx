@@ -121,7 +121,7 @@ export default function Reservations() {
               <div className="px-5 py-3 border-t border-black/5 bg-[#fafafb] flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <Crown className="w-4 h-4 text-[#8b5cf6]" />
-                  <span className="text-sm">VIP Anaïs · party of 4 · arriving in <span className="font-mono text-[#8b5cf6]">12m</span></span>
+                  <span className="text-sm">VIP Sam B. · party of 4 · arriving in <span className="font-mono text-[#8b5cf6]">12m</span></span>
                 </div>
                 <span className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">NUA recommends T7 (south corner)</span>
               </div>
