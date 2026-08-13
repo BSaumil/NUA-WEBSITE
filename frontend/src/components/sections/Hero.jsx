@@ -1,12 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, Mic } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, Mic } from "lucide-react";
 import { useModals } from "@/components/ModalProvider";
 import LiveNumber from "@/components/graphics/LiveNumber";
-import SaltPepperSprinkle from "@/components/graphics/SaltPepperSprinkle";
 import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
 const barHeights = [35, 48, 32, 58, 44, 70, 62, 80, 55, 88, 72, 95];
+
+const trustedBy = [
+  "Lumière", "Saltgrass", "Hojo & Co", "Maru Bistro", "North Common", "Oaklane", "Rivière",
+  "Elfresco Cafe", "Cafe NUA", "Alphington Social",
+];
 
 const StatPill = ({ icon: Icon, label, value, color }) => (
   <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5">
@@ -21,7 +25,7 @@ const StatPill = ({ icon: Icon, label, value, color }) => (
 );
 
 export default function Hero() {
-  const { openLead, openVideo } = useModals();
+  const { openLead } = useModals();
   return (
     <section id="hero" data-testid="hero-section" className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-radial">
       {/* Grid overlay */}
@@ -68,13 +72,13 @@ export default function Hero() {
         </motion.p>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3"
-        >
-          {LEAD_CAPTURE_ENABLED && (
+        {LEAD_CAPTURE_ENABLED && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3"
+          >
             <button
               type="button"
               onClick={() => openLead({ type: "demo" })}
@@ -84,17 +88,8 @@ export default function Hero() {
               Book a Demo
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </button>
-          )}
-          <button
-            type="button"
-            onClick={openVideo}
-            data-testid="hero-watch-tour-btn"
-            className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium text-sm backdrop-blur-sm transition-all duration-200"
-          >
-            <Play className="w-3.5 h-3.5 fill-white" />
-            Watch Product Tour
-          </button>
-        </motion.div>
+          </motion.div>
+        )}
 
         {/* Mock dashboard */}
         <motion.div
@@ -244,19 +239,26 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
-          <SaltPepperSprinkle />
         </motion.div>
 
         {/* Trust strip */}
         <div className="mt-16 text-center">
           <p className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Trusted by next-generation hospitality operators</p>
-          <div className="mt-5 flex flex-wrap justify-center items-center gap-x-10 gap-y-4 text-[#a1a1aa]">
-            {["Lumière", "Saltgrass", "Hojo & Co", "Maru Bistro", "North Common", "Oaklane", "Rivière"].map((b) => (
-              <span key={b} className="font-display text-lg sm:text-xl font-semibold tracking-tight opacity-60 hover:opacity-100 transition-opacity">
-                {b}
-              </span>
-            ))}
+          <div className="mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
+            <motion.div
+              className="flex items-center gap-14 w-max"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+            >
+              {[...trustedBy, ...trustedBy].map((b, i) => (
+                <span
+                  key={`${b}-${i}`}
+                  className="flex-shrink-0 font-display text-lg sm:text-xl font-semibold tracking-tight text-[#a1a1aa] opacity-60 hover:opacity-100 transition-opacity"
+                >
+                  {b}
+                </span>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
