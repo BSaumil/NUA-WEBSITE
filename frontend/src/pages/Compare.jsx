@@ -45,11 +45,15 @@ export default function Compare() {
                 <span className="font-mono text-[10px] uppercase tracking-widest" style={{ color: c.color }}>{c.category}</span>
                 <ArrowUpRight className="w-4 h-4 text-[#a1a1aa] opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <h3 className="mt-3 font-display text-xl font-bold text-white">NUA vs {c.name}</h3>
+              <h3 className="mt-3 font-display text-xl font-bold text-white">NUA vs {c.name}*</h3>
               <p className="mt-2 text-[13px] text-[#a1a1aa] leading-relaxed">{c.summary}</p>
             </MotionLink>
           ))}
         </div>
+
+        <p className="mt-8 text-center text-[11px] text-[#666670] max-w-2xl mx-auto">
+          *For illustration only. Confirm current pricing and features directly with each provider before deciding.
+        </p>
       </div>
     </PageShell>
   );

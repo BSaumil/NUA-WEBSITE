@@ -63,7 +63,7 @@ export default function WhyNua() {
           <div className="grid grid-cols-[1.6fr_0.6fr_0.6fr_1fr] gap-2 px-5 py-4 border-b border-white/5 bg-white/[0.02]">
             <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Capability</span>
             <span className="font-display text-sm font-semibold text-[#f58c14] text-center">NUA</span>
-            <span className="font-display text-sm font-semibold text-[#a1a1aa] text-center">Traditional POS</span>
+            <span className="font-display text-sm font-semibold text-[#a1a1aa] text-center">Traditional POS*</span>
             <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa] hidden md:block">Notes</span>
           </div>
 
@@ -94,6 +94,10 @@ export default function WhyNua() {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
+
+        <p className="mt-6 text-center text-[11px] text-[#666670] max-w-2xl mx-auto">
+          *"Traditional POS" refers to a generic legacy category, not any specific named vendor. Example comparison only, individual products vary.
+        </p>
       </div>
     </section>
   );

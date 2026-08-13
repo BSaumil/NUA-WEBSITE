@@ -110,6 +110,7 @@ export default function Pricing() {
 
                 <div className="mt-6">
                   <span className="font-display text-5xl font-bold">{p.price}</span>
+                  <span className={`font-display text-lg font-bold ${p.featured ? "text-[#a1a1aa]" : "text-[#666670]"}`}>*</span>
                   <span className={`ml-2 font-mono text-xs ${p.featured ? "text-[#a1a1aa]" : "text-[#666670]"}`}>{p.period}</span>
                 </div>
               </div>
@@ -223,6 +224,7 @@ export default function Pricing() {
                     <span className="font-display text-6xl font-bold text-white tracking-tight">
                       $2,999
                     </span>
+                    <span className="font-display text-2xl font-bold text-[#a1a1aa]">*</span>
                   </div>
                   <div className="mt-1 font-mono text-[11px] text-[#a1a1aa] uppercase tracking-wider">
                     + GST · paid once
@@ -255,6 +257,10 @@ export default function Pricing() {
             </div>
           </div>
         </motion.div>
+
+        <p className="mt-6 text-center text-[11px] text-[#666670] max-w-2xl mx-auto">
+          *Pricing shown is indicative and may vary by region, add-ons or promotional offers. Confirm a formal quote for your venue before purchase.
+        </p>
       </div>
     </section>
   );
