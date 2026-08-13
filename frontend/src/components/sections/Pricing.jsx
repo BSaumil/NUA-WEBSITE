@@ -181,9 +181,9 @@ export default function Pricing() {
                 </div>
 
                 <h3 className="font-display mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.02]">
-                  Pay once.
+                  One payment. Infinite swipes.
                   <br />
-                  <span className="text-shimmer">Use NUA forever.</span>
+                  <span className="text-shimmer">You&apos;re welcome.</span>
                 </h3>
 
                 <p className="mt-4 text-[#a1a1aa] max-w-md leading-relaxed">
