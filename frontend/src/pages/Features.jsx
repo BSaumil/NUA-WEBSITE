@@ -12,7 +12,7 @@ export default function Features() {
     <PageShell testId="features-page">
       <PageHero
         eyebrow="How it works"
-        title="Every feature, graphically explained."
+        title="See How It Works, Feature by Feature"
         subtitle="NUA isn't a black box. Here's exactly how each module works, plainly explained, side-by-side with the interface your team sees. No code, just how it plays out."
         accent="#f58c14"
         crumb="Features"
