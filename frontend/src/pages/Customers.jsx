@@ -3,11 +3,17 @@ import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import solutionsData from "@/data/solutionsData";
 
 export default function Customers() {
   return (
     <PageShell testId="customers-page">
+      <SEO
+        title="Customers: NUA"
+        description="From single-site cafés to multi-venue groups: here's who trusts NUA to run the floor."
+        canonical="https://nuapos.com.au/customers"
+      />
       <PageHero
         eyebrow="Customers"
         title="Operators who run on NUA."

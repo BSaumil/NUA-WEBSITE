@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { BookOpen, FileText, Calculator, LifeBuoy, Newspaper, Code2, ArrowRight, Image, Mail, HelpCircle } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import WhyNua from "@/components/sections/WhyNua";
 import BrandIcon from "@/components/BrandIcon";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
@@ -20,9 +21,25 @@ const resources = [
   { icon: Code2, title: "API reference", body: "Custom integrations and API access are included on Growth and Enterprise plans.", to: "/docs" },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqData.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function Resources() {
   return (
     <PageShell testId="resources-page">
+      <SEO
+        title="Resources & FAQ: NUA"
+        description="Guides, playbooks, documentation and FAQs for teams evaluating or onboarding onto NUA."
+        canonical="https://nuapos.com.au/resources"
+        jsonLd={faqJsonLd}
+      />
       <PageHero
         eyebrow="Resources"
         title="Everything to help you switch, well."

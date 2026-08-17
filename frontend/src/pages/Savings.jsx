@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight, Info, Minus, Plus, RotateCcw } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import LiveNumber from "@/components/graphics/LiveNumber";
 import { useModals } from "@/components/ModalProvider";
 import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
@@ -30,6 +31,11 @@ export default function Savings() {
 
   return (
     <PageShell testId="savings-page">
+      <SEO
+        title="Savings Calculator: NUA"
+        description="Most venues pay for eight or nine separate systems. See the real monthly bill, itemised, next to a single NUA subscription."
+        canonical="https://nuapos.com.au/savings"
+      />
       <PageHero
         eyebrow="Total cost of ownership"
         title="What a 'stitched-together' POS stack really costs you."

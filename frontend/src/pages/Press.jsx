@@ -2,10 +2,16 @@ import React from "react";
 import { Download, Mail } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 
 export default function Press() {
   return (
     <PageShell testId="press-page">
+      <SEO
+        title="Press & Media: NUA"
+        description="Resources for journalists and media covering NUA and the hospitality technology space."
+        canonical="https://nuapos.com.au/press"
+      />
       <PageHero
         eyebrow="Press"
         title="Press & media."

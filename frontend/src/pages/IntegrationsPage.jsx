@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { CreditCard, Truck, Calculator, MessagesSquare } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import Integrations from "@/components/sections/Integrations";
 
 const categories = [
@@ -15,6 +16,11 @@ const categories = [
 export default function IntegrationsPage() {
   return (
     <PageShell testId="integrations-page">
+      <SEO
+        title="Integrations: NUA"
+        description="NUA replaces the tangle of point tools, but still speaks fluently with the accounting, payroll, delivery and marketing tools you want to keep."
+        canonical="https://nuapos.com.au/integrations"
+      />
       <PageHero
         eyebrow="Integrations"
         title="Plays nicely with your existing stack."

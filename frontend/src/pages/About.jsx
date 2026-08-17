@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Target, Sparkles, ShieldCheck, Users } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import LiveNumber from "@/components/graphics/LiveNumber";
 
 const values = [
@@ -21,6 +22,11 @@ const stats = [
 export default function About() {
   return (
     <PageShell testId="about-page">
+      <SEO
+        title="About: NUA"
+        description="NUA exists because running a venue shouldn't mean logging into eight different systems before your first coffee."
+        canonical="https://nuapos.com.au/about"
+      />
       <PageHero
         eyebrow="Company"
         title="Built by operators, for operators."

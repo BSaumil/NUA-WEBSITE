@@ -4,12 +4,18 @@ import { Link } from "react-router-dom";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import { VISUAL_REGISTRY } from "@/components/graphics/FeatureVisuals";
 import featuresData from "@/data/featuresData";
 
 export default function Features() {
   return (
     <PageShell testId="features-page">
+      <SEO
+        title="Features, Explained Step by Step: NUA"
+        description="See exactly how NUA's POS, Kitchen Display, Loyalty, Inventory, Staff and AI Agent modules work, side-by-side with the real interface your team sees."
+        canonical="https://nuapos.com.au/features"
+      />
       <PageHero
         eyebrow="How it works"
         title="See How It Works, Feature by Feature"

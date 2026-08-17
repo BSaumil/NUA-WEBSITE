@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import { Switch } from "@/components/ui/switch";
 import MeetNua from "@/components/sections/MeetNua";
 import Voice from "@/components/sections/Voice";
@@ -50,6 +51,11 @@ const auditStatusColor = { executed: "#22c55e", approved: "#8b5cf6", suggested: 
 export default function AiAgent() {
   return (
     <PageShell testId="ai-agent-page">
+      <SEO
+        title="AI Agent: NUA"
+        description="Meet NUA, the decision loop every module reports into. See exactly how it decides what to suggest, approve or execute."
+        canonical="https://nuapos.com.au/ai-agent"
+      />
       <PageHero
         eyebrow="AI Agent"
         title="Meet NUA. The engine behind every module."

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import {
   InsightsCopilotShowcase, AnalyticsMonitorShowcase, ScanToPayShowcase,
   POSShowcase, KDSShowcase, StaffShowcase, InventoryShowcase, MarketingShowcase, VoiceShowcase,
@@ -62,6 +63,11 @@ const FadeIn = ({ children, delay = 0 }) => (
 export default function Gallery() {
   return (
     <PageShell testId="gallery-page">
+      <SEO
+        title="Product Gallery: NUA"
+        description="Live-animated renders of the real NUA interface: POS, AI copilot, loyalty wallet and more."
+        canonical="https://nuapos.com.au/gallery"
+      />
       <PageHero
         eyebrow="Product Gallery"
         title="See NUA, running."

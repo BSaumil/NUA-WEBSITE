@@ -1,6 +1,7 @@
 import React from "react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import LegalSection from "@/components/LegalSection";
 
 const LAST_UPDATED = "25 July 2026";
@@ -8,6 +9,11 @@ const LAST_UPDATED = "25 July 2026";
 export default function PrivacyPolicy() {
   return (
     <PageShell testId="privacy-policy-page">
+      <SEO
+        title="Privacy Policy: NUA"
+        description="How NUA collects, uses, stores and protects guest, staff and business data."
+        canonical="https://nuapos.com.au/privacy"
+      />
       <PageHero
         eyebrow="Legal"
         title="Privacy Policy"

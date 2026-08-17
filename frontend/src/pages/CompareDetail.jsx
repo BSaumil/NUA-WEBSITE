@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check, Info } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
 import compareData from "@/data/compareData";
@@ -14,8 +15,15 @@ export default function CompareDetail() {
 
   if (!data) return <Navigate to="/compare" replace />;
 
+  const canonical = `https://nuapos.com.au/compare/${data.slug}`;
+
   return (
     <PageShell testId="compare-detail-page">
+      <SEO
+        title={`NUA vs ${data.name}`}
+        description={data.summary}
+        canonical={canonical}
+      />
       <PageHero
         eyebrow={`Compare · ${data.category}`}
         title={`NUA vs ${data.name}`}

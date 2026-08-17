@@ -20,7 +20,7 @@ function snapshotMeta(attr, key) {
   return el ? el.getAttribute("content") : null;
 }
 
-export default function SEO({ title, description, canonical, jsonLd }) {
+export default function SEO({ title, description, canonical, jsonLd, noIndex }) {
   useEffect(() => {
     const prevTitle = document.title;
     const prevDescription = snapshotMeta("name", "description");
@@ -28,6 +28,7 @@ export default function SEO({ title, description, canonical, jsonLd }) {
     const prevTwitterDescription = snapshotMeta("name", "twitter:description");
     const prevOgTitle = snapshotMeta("property", "og:title");
     const prevTwitterTitle = snapshotMeta("name", "twitter:title");
+    const prevRobots = snapshotMeta("name", "robots");
     const prevCanonicalEl = document.head.querySelector('link[rel="canonical"]');
     const prevCanonicalHref = prevCanonicalEl ? prevCanonicalEl.getAttribute("href") : null;
 
@@ -41,6 +42,7 @@ export default function SEO({ title, description, canonical, jsonLd }) {
       upsertMeta("property", "og:title", title);
       upsertMeta("name", "twitter:title", title);
     }
+    if (noIndex) upsertMeta("name", "robots", "noindex, nofollow");
 
     if (canonical) {
       let canonicalEl = document.head.querySelector('link[rel="canonical"]');
@@ -71,6 +73,10 @@ export default function SEO({ title, description, canonical, jsonLd }) {
       if (prevTwitterDescription !== null) upsertMeta("name", "twitter:description", prevTwitterDescription);
       if (prevOgTitle !== null) upsertMeta("property", "og:title", prevOgTitle);
       if (prevTwitterTitle !== null) upsertMeta("name", "twitter:title", prevTwitterTitle);
+      if (noIndex) {
+        if (prevRobots !== null) upsertMeta("name", "robots", prevRobots);
+        else document.head.querySelector('meta[name="robots"]')?.remove();
+      }
 
       const canonicalEl = document.head.querySelector('link[rel="canonical"]');
       if (canonicalEl) {
@@ -82,7 +88,7 @@ export default function SEO({ title, description, canonical, jsonLd }) {
       if (el) el.remove();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [title, description, canonical, JSON.stringify(jsonLd)]);
+  }, [title, description, canonical, JSON.stringify(jsonLd), noIndex]);
 
   return null;
 }

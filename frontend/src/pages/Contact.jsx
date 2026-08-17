@@ -2,6 +2,7 @@ import React from "react";
 import { Mail, MapPin, ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
@@ -14,6 +15,11 @@ const channels = [
 export default function Contact() {
   return (
     <PageShell testId="contact-page">
+      <SEO
+        title="Contact: NUA"
+        description="Questions about pricing, a specific module, or migrating from your current stack: reach out, and a real person answers."
+        canonical="https://nuapos.com.au/contact"
+      />
       <PageHero
         eyebrow="Contact"
         title="Talk to a human, not a chatbot."
