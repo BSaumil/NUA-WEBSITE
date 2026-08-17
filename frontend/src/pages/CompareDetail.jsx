@@ -5,7 +5,7 @@ import { ArrowRight, Check, Info } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import { useModals } from "@/components/ModalProvider";
-import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
+import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS, SUPPORT_EMAIL } from "@/config/siteConfig";
 import compareData from "@/data/compareData";
 
 export default function CompareDetail() {
@@ -77,10 +77,12 @@ export default function CompareDetail() {
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/[0.02] p-6 sm:p-8">
           <div>
             <div className="font-display text-lg font-semibold text-white">See the difference on your own menu.</div>
-            <div className="text-sm text-[#a1a1aa] mt-1">{TRIAL_DAYS}-day free trial · no card required</div>
+            <div className="text-sm text-[#a1a1aa] mt-1">
+              {LEAD_CAPTURE_ENABLED ? `${TRIAL_DAYS}-day free trial · no card required` : "Email us and we'll walk you through it."}
+            </div>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            {LEAD_CAPTURE_ENABLED && (
+            {LEAD_CAPTURE_ENABLED ? (
               <button
                 type="button"
                 onClick={() => openLead({ type: "demo" })}
@@ -90,6 +92,14 @@ export default function CompareDetail() {
                 Book a Demo
                 <ArrowRight className="w-4 h-4" />
               </button>
+            ) : (
+              <a
+                href={`mailto:${SUPPORT_EMAIL}`}
+                data-testid="compare-detail-email-support"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              >
+                {SUPPORT_EMAIL}
+              </a>
             )}
             <Link
               to="/compare"

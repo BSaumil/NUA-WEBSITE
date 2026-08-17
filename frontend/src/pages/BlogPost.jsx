@@ -6,7 +6,7 @@ import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { useModals } from "@/components/ModalProvider";
-import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
+import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS, SUPPORT_EMAIL } from "@/config/siteConfig";
 import posts from "@/data/blogData";
 
 function ContentBlock({ block }) {
@@ -128,10 +128,12 @@ export default function BlogPost() {
         <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/[0.02] p-6 sm:p-8">
           <div>
             <div className="font-display text-lg font-semibold text-white">See NUA running a venue like yours.</div>
-            <div className="text-sm text-[#a1a1aa] mt-1">{TRIAL_DAYS}-day free trial · no card required</div>
+            <div className="text-sm text-[#a1a1aa] mt-1">
+              {LEAD_CAPTURE_ENABLED ? `${TRIAL_DAYS}-day free trial · no card required` : "Email us and we'll walk you through it."}
+            </div>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            {LEAD_CAPTURE_ENABLED && (
+            {LEAD_CAPTURE_ENABLED ? (
               <button
                 type="button"
                 onClick={() => openLead({ type: "demo" })}
@@ -141,6 +143,14 @@ export default function BlogPost() {
                 Book a Demo
                 <ArrowRight className="w-4 h-4" />
               </button>
+            ) : (
+              <a
+                href={`mailto:${SUPPORT_EMAIL}`}
+                data-testid="blog-post-email-support"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              >
+                {SUPPORT_EMAIL}
+              </a>
             )}
             <Link
               to="/blog"

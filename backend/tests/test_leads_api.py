@@ -27,10 +27,22 @@ UNIQUE = uuid.uuid4().hex[:8]
 DOMAIN = "example.com"
 
 
+ADMIN_API_KEY = os.environ.get("ADMIN_API_KEY")
+
+
 @pytest.fixture(scope="module")
 def session():
     s = requests.Session()
     s.headers.update({"Content-Type": "application/json"})
+    return s
+
+
+@pytest.fixture(scope="module")
+def admin_session():
+    if not ADMIN_API_KEY:
+        pytest.skip("ADMIN_API_KEY not set in test environment; skipping admin-gated GET /api/leads tests")
+    s = requests.Session()
+    s.headers.update({"Content-Type": "application/json", "X-Admin-Api-Key": ADMIN_API_KEY})
     return s
 
 
@@ -93,9 +105,19 @@ class TestCreateLead:
 
 
 # ---------- GET /api/leads ----------
-class TestListLeads:
-    def test_list_includes_created_and_sorted_desc(self, session):
+class TestListLeadsAuth:
+    def test_list_without_admin_key_returns_401(self, session):
         r = session.get(LEADS_URL, timeout=15)
+        assert r.status_code == 401, r.text
+
+    def test_list_with_wrong_admin_key_returns_401(self, session):
+        r = session.get(LEADS_URL, headers={"X-Admin-Api-Key": "not-the-real-key"}, timeout=15)
+        assert r.status_code == 401, r.text
+
+
+class TestListLeads:
+    def test_list_includes_created_and_sorted_desc(self, admin_session):
+        r = admin_session.get(LEADS_URL, timeout=15)
         assert r.status_code == 200, r.text
         leads = r.json()
         assert isinstance(leads, list)
@@ -113,8 +135,8 @@ class TestListLeads:
         for i in range(len(parsed) - 1):
             assert parsed[i] >= parsed[i + 1], f"Not sorted desc at index {i}: {parsed[i]} < {parsed[i+1]}"
 
-    def test_filter_by_type_demo(self, session):
-        r = session.get(f"{LEADS_URL}?type=demo", timeout=15)
+    def test_filter_by_type_demo(self, admin_session):
+        r = admin_session.get(f"{LEADS_URL}?type=demo", timeout=15)
         assert r.status_code == 200
         leads = r.json()
         assert isinstance(leads, list)
@@ -123,16 +145,16 @@ class TestListLeads:
             assert lead.get("type") == "demo"
         assert any(lead.get("email") == f"qa_demo_{UNIQUE}@example.com" for lead in leads)
 
-    def test_filter_by_type_trial(self, session):
-        r = session.get(f"{LEADS_URL}?type=trial", timeout=15)
+    def test_filter_by_type_trial(self, admin_session):
+        r = admin_session.get(f"{LEADS_URL}?type=trial", timeout=15)
         assert r.status_code == 200
         leads = r.json()
         for lead in leads:
             assert lead.get("type") == "trial"
         assert any(lead.get("email") == f"qa_trial_{UNIQUE}@example.com" for lead in leads)
 
-    def test_no_mongo_id_leaked(self, session):
-        r = session.get(LEADS_URL, timeout=15)
+    def test_no_mongo_id_leaked(self, admin_session):
+        r = admin_session.get(LEADS_URL, timeout=15)
         assert r.status_code == 200
         for lead in r.json():
             assert "_id" not in lead

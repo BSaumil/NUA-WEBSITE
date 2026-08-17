@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, Mic } from "lucide-react";
 import { useModals } from "@/components/ModalProvider";
 import LiveNumber from "@/components/graphics/LiveNumber";
@@ -26,6 +26,7 @@ const StatPill = ({ icon: Icon, label, value, color }) => (
 
 export default function Hero() {
   const { openLead } = useModals();
+  const prefersReducedMotion = useReducedMotion();
   return (
     <section id="hero" data-testid="hero-section" className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-radial">
       {/* Grid overlay */}
@@ -247,17 +248,30 @@ export default function Hero() {
           <div className="mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
             <motion.div
               className="flex items-center gap-14 w-max"
-              animate={{ x: ["0%", "-50%"] }}
+              animate={prefersReducedMotion ? undefined : { x: ["0%", "-50%"] }}
               transition={{ duration: 40, ease: "linear", repeat: Infinity }}
             >
-              {[...trustedBy, ...trustedBy].map((b, i) => (
-                <span
-                  key={`${b}-${i}`}
-                  className="flex-shrink-0 font-display text-lg sm:text-xl font-semibold tracking-tight text-[#a1a1aa] opacity-60 hover:opacity-100 transition-opacity"
-                >
-                  {b}
-                </span>
-              ))}
+              <div className="flex items-center gap-14 flex-shrink-0" role="list">
+                {trustedBy.map((b) => (
+                  <span
+                    key={b}
+                    role="listitem"
+                    className="flex-shrink-0 font-display text-lg sm:text-xl font-semibold tracking-tight text-[#a1a1aa] opacity-60 hover:opacity-100 transition-opacity"
+                  >
+                    {b}
+                  </span>
+                ))}
+              </div>
+              <div className="flex items-center gap-14 flex-shrink-0" aria-hidden="true">
+                {trustedBy.map((b, i) => (
+                  <span
+                    key={`${b}-${i}`}
+                    className="flex-shrink-0 font-display text-lg sm:text-xl font-semibold tracking-tight text-[#a1a1aa] opacity-60 hover:opacity-100 transition-opacity"
+                  >
+                    {b}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
