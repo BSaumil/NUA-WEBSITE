@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
+import secrets
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field, EmailStr, ConfigDict
@@ -35,7 +36,7 @@ _admin_api_key_header = APIKeyHeader(name="X-Admin-Api-Key", auto_error=False)
 
 async def require_admin_key(key: str = Security(_admin_api_key_header)):
     expected = os.environ.get("ADMIN_API_KEY")
-    if not expected or key != expected:
+    if not expected or not key or not secrets.compare_digest(key, expected):
         raise HTTPException(status_code=401, detail="Missing or invalid admin API key")
 
 
@@ -125,8 +126,9 @@ async def list_leads(limit: int = 100, type: Optional[LeadType] = None):
     query = {}
     if type:
         query['type'] = type
-    cursor = db.leads.find(query, {"_id": 0}).sort("created_at", -1).limit(min(max(limit, 1), 500))
-    leads = await cursor.to_list(length=limit)
+    clamped_limit = min(max(limit, 1), 500)
+    cursor = db.leads.find(query, {"_id": 0}).sort("created_at", -1).limit(clamped_limit)
+    leads = await cursor.to_list(length=clamped_limit)
     for lead in leads:
         if isinstance(lead.get('created_at'), str):
             lead['created_at'] = datetime.fromisoformat(lead['created_at'])
