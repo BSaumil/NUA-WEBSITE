@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BrandIcon from "@/components/BrandIcon";
+import { SUPPORT_EMAIL } from "@/config/siteConfig";
 
 const cols = [
   {
@@ -52,6 +53,8 @@ const cols = [
   {
     title: "Resources",
     items: [
+      { label: "Documentation", to: "/docs" },
+      { label: "FAQ", to: "/resources#faq" },
       { label: "Compare", to: "/compare" },
       { label: "Savings calculator", to: "/savings" },
       { label: "Security", to: "/security" },
@@ -102,6 +105,7 @@ export default function Footer() {
             © {new Date().getFullYear()} NUA AUS PTY LTD. All rights reserved.
           </p>
           <div className="flex items-center gap-5 font-mono text-[11px] text-[#a1a1aa]">
+            <a href={`mailto:${SUPPORT_EMAIL}`} data-testid="footer-email" className="hover:text-white transition-colors">{SUPPORT_EMAIL}</a>
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
             <Link to="/security" className="hover:text-white transition-colors">Security</Link>

@@ -10,6 +10,8 @@ import SolutionDetail from "@/pages/SolutionDetail";
 import PricingPage from "@/pages/PricingPage";
 import IntegrationsPage from "@/pages/IntegrationsPage";
 import Resources from "@/pages/Resources";
+import Docs from "@/pages/Docs";
+import DocDetail from "@/pages/DocDetail";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsConditions from "@/pages/TermsConditions";
 import Savings from "@/pages/Savings";
@@ -45,6 +47,8 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/integrations" element={<IntegrationsPage />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/docs" element={<Docs />} />
+            <Route path="/docs/:slug" element={<DocDetail />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsConditions />} />
             <Route path="/savings" element={<Savings />} />
