@@ -6,9 +6,9 @@ import { useModals } from "@/components/ModalProvider";
 import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
 const channels = [
-  { icon: Mail, label: "General enquiries", value: "hello@nua.app", href: "mailto:hello@nua.app" },
-  { icon: Mail, label: "Support", value: "support@nua.app", href: "mailto:support@nua.app" },
-  { icon: Mail, label: "Sales", value: "sales@nua.app", href: "mailto:sales@nua.app" },
+  { icon: Mail, label: "General enquiries", value: "info@nuapos.com.au", href: "mailto:info@nuapos.com.au" },
+  { icon: Mail, label: "Support", value: "info@nuapos.com.au", href: "mailto:info@nuapos.com.au" },
+  { icon: Mail, label: "Sales", value: "info@nuapos.com.au", href: "mailto:info@nuapos.com.au" },
 ];
 
 export default function Contact() {

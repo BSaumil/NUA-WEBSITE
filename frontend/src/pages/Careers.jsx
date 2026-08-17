@@ -54,7 +54,7 @@ export default function Careers() {
             {roles.map((r, i) => (
               <motion.a
                 key={r.title}
-                href="mailto:careers@nua.app"
+                href="mailto:info@nuapos.com.au"
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -75,7 +75,7 @@ export default function Careers() {
           </div>
           <p className="mt-4 text-sm text-[#a1a1aa]">
             Don't see a role that fits? Email your resume to{" "}
-            <a href="mailto:careers@nua.app" className="text-[#f58c14] hover:underline">careers@nua.app</a> anyway: 
+            <a href="mailto:info@nuapos.com.au" className="text-[#f58c14] hover:underline">info@nuapos.com.au</a> anyway:
             we'd rather hear from you than miss you.
           </p>
         </div>

@@ -32,7 +32,7 @@ export default function Press() {
             over a media kit.
           </p>
           <a
-            href="mailto:press@nua.app"
+            href="mailto:info@nuapos.com.au"
             data-testid="press-media-kit-request"
             className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-medium transition-all duration-200"
           >
@@ -47,12 +47,12 @@ export default function Press() {
             For interviews, comment, or media enquiries, reach our team directly.
           </p>
           <a
-            href="mailto:press@nua.app"
+            href="mailto:info@nuapos.com.au"
             data-testid="press-contact-email"
             className="mt-4 inline-flex items-center gap-2 text-[#f58c14] hover:underline text-sm"
           >
             <Mail className="w-4 h-4" />
-            press@nua.app
+            info@nuapos.com.au
           </a>
         </div>
       </div>
