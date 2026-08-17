@@ -1,6 +1,6 @@
 import {
   Calculator, ChefHat, CalendarRange, Gift, BrainCircuit,
-  Boxes, Users, Mic, BarChart3,
+  Boxes, Users, Mic, BarChart3, ClipboardCheck, Radar,
 } from "lucide-react";
 
 const docsData = [
@@ -295,6 +295,72 @@ const docsData = [
       { issue: "Scheduled report emails aren't arriving.", fix: "Confirm recipient addresses under Analytics → Scheduled Reports and check spam/junk on the first send." },
     ],
     related: ["nua", "staff"],
+  },
+  {
+    slug: "compliance",
+    icon: ClipboardCheck,
+    color: "#22c55e",
+    category: "Operations",
+    title: "Compliance Automation",
+    tagline: "Inspection-ready every day, not just before the inspector arrives.",
+    summary: "Temperature logs, staff certification tracking and inspection checklists, tied directly to your Inventory data.",
+    setupTime: "15–20 min",
+    prerequisites: [
+      "Inventory & Pantry set up (temperature logs attach to your stored items)",
+      "A list of staff certifications you need to track (RSA, food safety handler, etc.) and their expiry dates",
+      "Temperature probes or sensors, if you want automatic logging rather than manual entry",
+    ],
+    steps: [
+      { title: "Choose your logging method", body: "Pair IoT temperature sensors for automatic cold-chain logging under Compliance → Sensors, or enable scheduled manual-log reminders if you don't have hardware yet." },
+      { title: "Build your checklist templates", body: "Set up checklist categories that mirror what an inspector actually checks (storage, prep surfaces, cleaning schedules) under Compliance → Checklists." },
+      { title: "Add staff certifications", body: "Enter each staff member's RSA / food safety certification and expiry date under Staff → Certifications; NUA tracks the dates for you." },
+      { title: "Set expiry alerts", body: "Choose how much notice you want before a certification lapses (e.g. 30 and 60 days) under Compliance → Alerts." },
+      { title: "Configure incident logging", body: "Turn on automatic incident capture for temperature excursions or missed checklist items, so nothing needs to be remembered after the fact." },
+      { title: "Generate your first report", body: "Pull an inspection-ready report from Compliance → Reports and confirm it covers what your local health authority actually asks for." },
+    ],
+    tips: [
+      "Keep logging continuous, not just in the week before a scheduled inspection — that's what actually makes a report credible.",
+      "Set certification alerts with real buffer (30–60 days) so there's time to book a renewal, not just a warning the day it lapses.",
+      "Pairing this with Inventory par levels on cold-chain items catches problems (a fridge drifting warm) before stock is lost, not just after.",
+    ],
+    troubleshooting: [
+      { issue: "A sensor isn't reporting readings.", fix: "Check it's paired and powered under Compliance → Sensors; a gap in the log is flagged automatically rather than silently skipped." },
+      { issue: "A certification alert didn't fire.", fix: "Confirm the expiry date is entered correctly under Staff → Certifications — alerts are calculated from that date." },
+    ],
+    related: ["inventory", "staff"],
+  },
+  {
+    slug: "benchmarking",
+    icon: Radar,
+    color: "#8b5cf6",
+    category: "AI",
+    title: "Benchmark Insights",
+    tagline: "See how your venue stacks up, without guessing.",
+    summary: "Compare your own locations against each other, and — once opted in — against anonymized venues like yours across the NUA network.",
+    setupTime: "5–10 min",
+    prerequisites: [
+      "Analytics connected (benchmarking reads from the same data)",
+      "Growth or Enterprise plan for cross-venue and network comparisons",
+      "A decision on whether to opt in to anonymized network benchmarking (off by default)",
+    ],
+    steps: [
+      { title: "Start with your own portfolio", body: "If you run more than one location, Benchmark → Portfolio compares them against each other immediately — no network data required." },
+      { title: "Review your venue category and region", body: "Under Benchmark → Profile, confirm the category and region your venue is tagged with — this is what any peer comparison is matched on." },
+      { title: "Opt in to network benchmarking (optional)", body: "Enable Benchmark → Network Insights if you want anonymized comparison against similar venues on NUA. This is opt-in and off by default." },
+      { title: "Understand the anonymity threshold", body: "Network comparisons only appear once enough venues in your category and region have opted in — this protects everyone's anonymity and means early results may be limited." },
+      { title: "Set drift alerts", body: "Configure an alert if a metric (e.g. food cost %) moves more than a set amount away from your own trend or your peer median, under Benchmark → Alerts." },
+      { title: "Revisit monthly", body: "Treat a single benchmark as directional, not gospel — it gets more useful as both your own history and your peer group mature." },
+    ],
+    tips: [
+      "Your own multi-location comparison is useful on day one; network comparison is the part that improves as the NUA customer base grows.",
+      "Use benchmarking alongside your own historical trend, not instead of it — a peer median is context, not a target.",
+      "Keep cost categorization consistent across venues (e.g. how you classify delivery fees) or portfolio comparisons will be misleading.",
+    ],
+    troubleshooting: [
+      { issue: "No network benchmark is showing yet.", fix: "Your category/region peer group likely hasn't reached the minimum size needed to preserve anonymity — this resolves automatically as more venues opt in." },
+      { issue: "A number looks off compared to the benchmark.", fix: "Check your cost categorization matches the benchmark's methodology, under Benchmark → Methodology, before assuming the comparison is wrong." },
+    ],
+    related: ["analytics", "nua"],
   },
 ];
 
