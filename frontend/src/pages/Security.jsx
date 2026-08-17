@@ -64,7 +64,7 @@ export default function Security() {
                 ask us directly
               </button>
             ) : (
-              <a href="mailto:security@nua.app" className="text-[#22c55e] hover:underline">email us</a>
+              <a href="mailto:info@nuapos.com.au" className="text-[#22c55e] hover:underline">email us</a>
             )}{" "}
             and we'll provide current documentation.
           </p>
@@ -94,7 +94,7 @@ export default function Security() {
           <h2 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">Reporting a concern</h2>
           <p className="mt-3 text-sm text-[#a1a1aa] leading-relaxed max-w-2xl">
             Found something that looks like a security issue? Email{" "}
-            <a href="mailto:security@nua.app" className="text-emerald-400 hover:underline">security@nua.app</a>{" "}
+            <a href="mailto:info@nuapos.com.au" className="text-emerald-400 hover:underline">info@nuapos.com.au</a>{" "}
             directly: a real person on the engineering team reads that inbox, and we'd rather hear it from you first.
           </p>
         </div>

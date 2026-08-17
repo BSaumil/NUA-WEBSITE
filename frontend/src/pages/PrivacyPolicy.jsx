@@ -180,7 +180,7 @@ export default function PrivacyPolicy() {
             NUA AUS PTY LTD<br />
             ABN: <span className="font-mono">54 299 131 653</span><br />
             Attn: Privacy Officer<br />
-            Email: <a href="mailto:privacy@nua.app">privacy@nua.app</a><br />
+            Email: <a href="mailto:info@nuapos.com.au">info@nuapos.com.au</a><br />
             Address: <span className="font-mono">[Insert registered business address]</span>
           </p>
           <p>
