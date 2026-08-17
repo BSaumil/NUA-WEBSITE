@@ -5,8 +5,8 @@ import { ArrowRight, Clock, ArrowLeft } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
-import { useModals } from "@/components/ModalProvider";
-import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS, SUPPORT_EMAIL } from "@/config/siteConfig";
+import LeadCta from "@/components/LeadCta";
+import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
 import posts from "@/data/blogData";
 
 function ContentBlock({ block }) {
@@ -58,7 +58,6 @@ function ContentBlock({ block }) {
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const { openLead } = useModals();
   const post = posts.find((post) => post.slug === slug);
 
   if (!post) return <Navigate to="/blog" replace />;
@@ -133,25 +132,14 @@ export default function BlogPost() {
             </div>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            {LEAD_CAPTURE_ENABLED ? (
-              <button
-                type="button"
-                onClick={() => openLead({ type: "demo" })}
-                data-testid="blog-post-book-demo-btn"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
-              >
-                Book a Demo
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            ) : (
-              <a
-                href={`mailto:${SUPPORT_EMAIL}`}
-                data-testid="blog-post-email-support"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
-              >
-                {SUPPORT_EMAIL}
-              </a>
-            )}
+            <LeadCta
+              type="demo"
+              label="Book a Demo"
+              icon={ArrowRight}
+              fallback="email"
+              testId="blog-post-book-demo-btn"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+            />
             <Link
               to="/blog"
               data-testid="blog-post-back-link"

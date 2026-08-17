@@ -4,13 +4,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, Quote } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
-import { useModals } from "@/components/ModalProvider";
-import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS, SUPPORT_EMAIL } from "@/config/siteConfig";
+import LeadCta from "@/components/LeadCta";
+import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
 import solutionsData from "@/data/solutionsData";
 
 export default function SolutionDetail() {
   const { slug } = useParams();
-  const { openLead } = useModals();
   const data = solutionsData.find((s) => s.slug === slug);
 
   if (!data) return <Navigate to="/solutions" replace />;
@@ -117,25 +116,14 @@ export default function SolutionDetail() {
             </div>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            {LEAD_CAPTURE_ENABLED ? (
-              <button
-                type="button"
-                onClick={() => openLead({ type: "demo" })}
-                data-testid="solution-detail-book-demo-btn"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
-              >
-                Book a Demo
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            ) : (
-              <a
-                href={`mailto:${SUPPORT_EMAIL}`}
-                data-testid="solution-detail-email-support"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
-              >
-                {SUPPORT_EMAIL}
-              </a>
-            )}
+            <LeadCta
+              type="demo"
+              label="Book a Demo"
+              icon={ArrowRight}
+              fallback="email"
+              testId="solution-detail-book-demo-btn"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+            />
             <Link
               to="/solutions"
               data-testid="solution-detail-back-link"

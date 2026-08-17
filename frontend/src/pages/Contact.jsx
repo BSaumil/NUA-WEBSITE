@@ -2,7 +2,7 @@ import React from "react";
 import { Mail, MapPin, ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
-import { useModals } from "@/components/ModalProvider";
+import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
 const channels = [
@@ -12,8 +12,6 @@ const channels = [
 ];
 
 export default function Contact() {
-  const { openLead } = useModals();
-
   return (
     <PageShell testId="contact-page">
       <PageHero
@@ -31,15 +29,13 @@ export default function Contact() {
               <div className="font-display text-lg font-semibold text-white">Prefer to just see it running?</div>
               <div className="text-sm text-[#a1a1aa] mt-1">Book a 30-minute demo: no pressure, no scripted pitch.</div>
             </div>
-            <button
-              type="button"
-              onClick={() => openLead({ type: "demo" })}
-              data-testid="contact-book-demo-btn"
+            <LeadCta
+              type="demo"
+              label="Book a Demo"
+              icon={ArrowRight}
+              testId="contact-book-demo-btn"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
-            >
-              Book a Demo
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            />
           </div>
         )}
 
