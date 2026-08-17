@@ -1,8 +1,8 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, Mic } from "lucide-react";
-import { useModals } from "@/components/ModalProvider";
 import LiveNumber from "@/components/graphics/LiveNumber";
+import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
 const barHeights = [35, 48, 32, 58, 44, 70, 62, 80, 55, 88, 72, 95];
@@ -25,7 +25,6 @@ const StatPill = ({ icon: Icon, label, value, color }) => (
 );
 
 export default function Hero() {
-  const { openLead } = useModals();
   const prefersReducedMotion = useReducedMotion();
   return (
     <section id="hero" data-testid="hero-section" className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-radial">
@@ -80,15 +79,14 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3"
           >
-            <button
-              type="button"
-              onClick={() => openLead({ type: "demo" })}
-              data-testid="hero-book-demo-btn"
+            <LeadCta
+              type="demo"
+              label="Book a Demo"
+              icon={ArrowRight}
+              iconClassName="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+              testId="hero-book-demo-btn"
               className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Book a Demo
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-            </button>
+            />
           </motion.div>
         )}
 
@@ -244,7 +242,7 @@ export default function Hero() {
 
         {/* Trust strip */}
         <div className="mt-16 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Trusted by next-generation hospitality operators</p>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Trusted by next-generation hospitality operators*</p>
           <div className="mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
             <motion.div
               className="flex items-center gap-14 w-max"
@@ -274,6 +272,7 @@ export default function Hero() {
               </div>
             </motion.div>
           </div>
+          <p className="mt-3 font-mono text-[10px] text-[#71717a]">*Illustrative venue names for evaluation purposes.</p>
         </div>
       </div>
     </section>

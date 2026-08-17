@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Lock, KeyRound, ListChecks, Server, CreditCard, ArrowRight, Info } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
-import { useModals } from "@/components/ModalProvider";
-import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
+import LeadCta from "@/components/LeadCta";
+import { LEAD_CAPTURE_ENABLED, SUPPORT_EMAIL } from "@/config/siteConfig";
 
 const pillars = [
   {
@@ -40,8 +40,6 @@ const pillars = [
 ];
 
 export default function Security() {
-  const { openLead } = useModals();
-
   return (
     <PageShell testId="security-page">
       <PageHero
@@ -59,13 +57,13 @@ export default function Security() {
             This page describes NUA's architecture and data-handling practices in plain language. It is not a
             substitute for a signed data processing agreement or a specific compliance certificate. If your venue
             needs a formal certification reference (e.g. a specific PCI-DSS level or SOC 2 report) for procurement,{" "}
-            {LEAD_CAPTURE_ENABLED ? (
-              <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#22c55e] hover:underline">
-                ask us directly
-              </button>
-            ) : (
-              <a href="mailto:info@nuapos.com.au" className="text-[#22c55e] hover:underline">email us</a>
-            )}{" "}
+            <LeadCta
+              type="demo"
+              label="ask us directly"
+              fallback="email"
+              fallbackLabel="email us"
+              className="text-[#22c55e] hover:underline"
+            />{" "}
             and we'll provide current documentation.
           </p>
         </div>
@@ -94,7 +92,7 @@ export default function Security() {
           <h2 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">Reporting a concern</h2>
           <p className="mt-3 text-sm text-[#a1a1aa] leading-relaxed max-w-2xl">
             Found something that looks like a security issue? Email{" "}
-            <a href="mailto:info@nuapos.com.au" className="text-emerald-400 hover:underline">info@nuapos.com.au</a>{" "}
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="text-emerald-400 hover:underline">{SUPPORT_EMAIL}</a>{" "}
             directly: a real person on the engineering team reads that inbox, and we'd rather hear it from you first.
           </p>
         </div>
@@ -105,15 +103,13 @@ export default function Security() {
               <div className="font-display text-lg font-semibold text-white">Questions before you switch?</div>
               <div className="text-sm text-[#a1a1aa] mt-1">Talk it through with a real operator, not a script.</div>
             </div>
-            <button
-              type="button"
-              onClick={() => openLead({ type: "demo" })}
-              data-testid="security-book-demo-btn"
+            <LeadCta
+              type="demo"
+              label="Book a Demo"
+              icon={ArrowRight}
+              testId="security-book-demo-btn"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
-            >
-              Book a Demo
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            />
           </div>
         )}
       </div>

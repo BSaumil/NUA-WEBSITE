@@ -1,65 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check, Sparkles, ArrowRight, Infinity as InfinityIcon, Zap } from "lucide-react";
-import { useModals } from "@/components/ModalProvider";
-import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
-
-const plans = [
-  {
-    name: "Starter",
-    price: "$59",
-    period: "per venue / mo",
-    desc: "For single-venue operators ready to switch on intelligence.",
-    accent: "#a1a1aa",
-    cta: "Start free trial",
-    features: [
-      "POS + Reservations + KDS",
-      "AI Agent: NUA (basic)",
-      "Voice POS included",
-      "Loyalty engine included",
-      "1 location, up to 5 users",
-      "Email & chat support",
-    ],
-    featured: false,
-  },
-  {
-    name: "Growth",
-    price: "$99",
-    period: "per venue / mo",
-    desc: "Multi-venue brands scaling with autonomous ops.",
-    accent: "#8b5cf6",
-    cta: "Book a demo",
-    features: [
-      "Everything in Starter",
-      "NUA AI: full autonomous mode",
-      "Marketing automation",
-      "Smart Pantry + supplier compare",
-      "Up to 10 locations",
-      "Priority support + onboarding",
-    ],
-    featured: true,
-  },
-  {
-    name: "Enterprise",
-    price: "$149",
-    period: "per venue / mo",
-    desc: "Hospitality groups, franchises and chains.",
-    accent: "#f58c14",
-    cta: "Talk to sales",
-    features: [
-      "Everything in Growth",
-      "Multi-location orchestration",
-      "Franchise dashboards & RBAC",
-      "Custom integrations & API",
-      "Unlimited locations & users",
-      "Dedicated CSM + 24/7 support",
-    ],
-    featured: false,
-  },
-];
+import LeadCta from "@/components/LeadCta";
+import { TRIAL_DAYS } from "@/config/siteConfig";
+import { plans, lifetime, getLifetimeEquivalence } from "@/data/plansData";
 
 export default function Pricing() {
-  const { openLead } = useModals();
+  const { months, breakEvenYears, includedPlanName } = getLifetimeEquivalence();
+
   return (
     <section id="pricing" data-testid="pricing-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
@@ -76,18 +24,19 @@ export default function Pricing() {
           </motion.h2>
           <p className="mt-5 text-[#444450]">
             AI Agent, Voice POS and the Loyalty engine are included in <span className="font-semibold text-[#0f0f14]">every</span> plan.
+            All prices in AUD.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
           {plans.map((p, i) => (
             <motion.div
-              key={p.name}
+              key={p.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              data-testid={`pricing-${p.name.toLowerCase()}-card`}
+              data-testid={`pricing-${p.id}-card`}
               className={`relative rounded-2xl p-7 flex flex-col ${
                 p.featured
                   ? "bg-[#0b0b0f] text-white border-2 border-[#8b5cf6] shadow-[0_30px_60px_-15px_rgba(139,92,246,0.4)] lg:-translate-y-3"
@@ -109,9 +58,10 @@ export default function Pricing() {
                 <p className={`mt-2 text-sm ${p.featured ? "text-[#a1a1aa]" : "text-[#444450]"}`}>{p.desc}</p>
 
                 <div className="mt-6">
-                  <span className="font-display text-5xl font-bold">{p.price}</span>
+                  <span className={`font-mono text-xs mr-1 ${p.featured ? "text-[#a1a1aa]" : "text-[#666670]"}`}>AUD</span>
+                  <span className="font-display text-5xl font-bold">${p.priceMonthly}</span>
                   <span className={`font-display text-lg font-bold ${p.featured ? "text-[#a1a1aa]" : "text-[#666670]"}`}>*</span>
-                  <span className={`ml-2 font-mono text-xs ${p.featured ? "text-[#a1a1aa]" : "text-[#666670]"}`}>{p.period}</span>
+                  <span className={`ml-2 font-mono text-xs ${p.featured ? "text-[#a1a1aa]" : "text-[#666670]"}`}>+ GST · {p.period}</span>
                 </div>
               </div>
 
@@ -129,23 +79,20 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              {LEAD_CAPTURE_ENABLED && (
-                <button
-                  type="button"
-                  onClick={() => openLead({ type: p.name === "Starter" ? "trial" : "demo", plan: p.name })}
-                  data-testid={`pricing-${p.name.toLowerCase()}-cta`}
-                  className={`mt-7 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all ${
-                    p.featured
-                      ? "bg-[#f58c14] text-white hover:bg-[#d87b10] shadow-lg shadow-[#f58c14]/30"
-                      : p.name === "Enterprise"
-                      ? "bg-[#0b0b0f] text-white hover:bg-[#1c1c26]"
-                      : "border border-black/10 hover:bg-[#f6f7fb]"
-                  }`}
-                >
-                  {p.cta}
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              )}
+              <LeadCta
+                type={p.name === "Starter" ? "trial" : "demo"}
+                plan={p.name}
+                label={p.cta}
+                icon={ArrowRight}
+                testId={`pricing-${p.id}-cta`}
+                className={`mt-7 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all ${
+                  p.featured
+                    ? "bg-[#f58c14] text-white hover:bg-[#d87b10] shadow-lg shadow-[#f58c14]/30"
+                    : p.name === "Enterprise"
+                    ? "bg-[#0b0b0f] text-white hover:bg-[#1c1c26]"
+                    : "border border-black/10 hover:bg-[#f6f7fb]"
+                }`}
+              />
             </motion.div>
           ))}
         </div>
@@ -176,30 +123,22 @@ export default function Pricing() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#f58c14]/40 bg-[#f58c14]/10">
                   <Zap className="w-3 h-3 text-[#f58c14]" />
                   <span className="font-mono text-[10px] uppercase tracking-widest text-[#fbbf24]">
-                    Founding members · limited
+                    {lifetime.badge}
                   </span>
                 </div>
 
                 <h3 className="font-display mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.02]">
-                  One payment. Infinite swipes.
+                  {lifetime.headlineTop}
                   <br />
-                  <span className="text-shimmer">You&apos;re welcome.</span>
+                  <span className="text-shimmer">{lifetime.headlineAccent}</span>
                 </h3>
 
                 <p className="mt-4 text-[#a1a1aa] max-w-md leading-relaxed">
-                  One-time payment, lifetime access. Lock in the full NUA platform (AI Agent,
-                  Voice POS, Loyalty, every future update) with no monthly fee, ever.
+                  {lifetime.body}
                 </p>
 
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
-                  {[
-                    "All Growth features",
-                    "Up to 10 locations",
-                    "Lifetime free updates",
-                    "Priority onboarding",
-                    "Founding-member badge",
-                    "Direct line to product team",
-                  ].map((f) => (
+                  {lifetime.features.map((f) => (
                     <li key={f} className="flex items-center gap-2 text-[#eaeaea]">
                       <div className="w-4 h-4 rounded-full bg-[#f58c14]/20 flex items-center justify-center flex-shrink-0">
                         <Check className="w-2.5 h-2.5 text-[#f58c14]" />
@@ -221,8 +160,9 @@ export default function Pricing() {
                   </div>
 
                   <div className="flex items-baseline gap-2">
+                    <span className="font-mono text-sm text-[#a1a1aa]">AUD</span>
                     <span className="font-display text-6xl font-bold text-white tracking-tight">
-                      $2,999
+                      ${lifetime.priceOneTime.toLocaleString()}
                     </span>
                     <span className="font-display text-2xl font-bold text-[#a1a1aa]">*</span>
                   </div>
@@ -232,25 +172,22 @@ export default function Pricing() {
 
                   <div className="mt-4 p-3 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20">
                     <div className="text-[11px] text-[#c4b5fd] leading-relaxed">
-                      Equivalent to <span className="font-mono">~30 months</span> of Growth.
-                      Break-even in under 3 years: free forever after.
+                      Equivalent to <span className="font-mono">~{months} months</span> of {includedPlanName}.
+                      Break-even in under {breakEvenYears} years: free forever after.
                     </div>
                   </div>
 
-                  {LEAD_CAPTURE_ENABLED && (
-                    <button
-                      type="button"
-                      onClick={() => openLead({ type: "demo", plan: "Lifetime ($2,999 + GST)" })}
-                      data-testid="pricing-lifetime-cta"
-                      className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-semibold shadow-lg shadow-[#f58c14]/30 transition-all hover:-translate-y-0.5"
-                    >
-                      Claim lifetime access
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  )}
+                  <LeadCta
+                    type="demo"
+                    plan={`Lifetime ($${lifetime.priceOneTime.toLocaleString()} + GST)`}
+                    label="Claim lifetime access"
+                    icon={ArrowRight}
+                    testId="pricing-lifetime-cta"
+                    className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-semibold shadow-lg shadow-[#f58c14]/30 transition-all hover:-translate-y-0.5"
+                  />
 
                   <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-[#666670]">
-                    30-day money-back guarantee
+                    {lifetime.guarantee}
                   </p>
                 </div>
               </div>

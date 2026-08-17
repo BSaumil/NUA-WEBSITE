@@ -1,11 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { useModals } from "@/components/ModalProvider";
+import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
 
 export default function FinalCta() {
-  const { openLead } = useModals();
   return (
     <section id="final-cta" data-testid="final-cta-section" className="relative py-28 lg:py-40 bg-nua-bg overflow-hidden">
       {/* Ambient glow */}
@@ -42,23 +41,20 @@ export default function FinalCta() {
 
         {LEAD_CAPTURE_ENABLED && (
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
-              type="button"
-              onClick={() => openLead({ type: "demo" })}
-              data-testid="final-book-demo-btn"
+            <LeadCta
+              type="demo"
+              label="Book a Demo"
+              icon={ArrowRight}
+              iconClassName="w-4 h-4 transition-transform group-hover:translate-x-1"
+              testId="final-book-demo-btn"
               className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-base shadow-2xl shadow-[#f58c14]/30 transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Book a Demo
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <button
-              type="button"
-              onClick={() => openLead({ type: "trial" })}
-              data-testid="final-start-trial-btn"
+            />
+            <LeadCta
+              type="trial"
+              label="Start Free Trial"
+              testId="final-start-trial-btn"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-[#8b5cf6]/50 text-[#c4b5fd] hover:bg-[#8b5cf6]/10 hover:text-white font-medium text-base transition-all duration-200"
-            >
-              Start Free Trial
-            </button>
+            />
           </div>
         )}
 

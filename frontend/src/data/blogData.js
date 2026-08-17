@@ -43,7 +43,7 @@ const posts = [
       p("NUA AI isn't a chatbot bolted onto a dashboard. It's a continuous decision loop that watches signals across every module (guest behaviour, stock levels, staff availability, margins) and either suggests an action, or (for high-confidence, low-risk calls) takes it automatically, logging exactly why."),
       stat("10", "modules, one login, one AI core"),
       h2("Why operators are switching now"),
-      p("The honest reason most venues switch isn't the AI headline feature. It's the math. A typical stitched-together stack of POS, booking software, loyalty tooling and rostering software runs a venue roughly $1,968 a month once every tool is added up. NUA starts at $119 a month for the same functional coverage, because there's no markup for gluing ten vendors together."),
+      p("The honest reason most venues switch isn't the AI headline feature. It's the math. A typical stitched-together stack of POS, booking software, loyalty tooling and rostering software runs a venue roughly $1,968 a month once every tool is added up. NUA starts at $79 AUD a month for the same functional coverage, because there's no markup for gluing ten vendors together."),
       callout("Worth knowing", "NUA runs offline-first at the terminal level. A dropped connection is a sync delay, not a lost sale or a frozen kitchen screen."),
       h2("What's next"),
       p("If you're evaluating NUA against what you're running today, the next article in this series (\"Why Traditional POS Systems Are No Longer Enough\") breaks down exactly where disconnected tools cost you money, and what changes when they're unified."),
@@ -533,7 +533,7 @@ const posts = [
     content: [
       p("Pricing pages are usually the least trustworthy page on any software site, because list price rarely matches what a venue actually pays once every needed add-on is included. Here's the specific version for NUA."),
       h2("What's included at the Growth tier"),
-      p("The Growth plan runs $99 a month and includes all ten modules (POS, inventory, staff, bookings, loyalty, kitchen display, analytics, marketing automation and NUA AI) not a stripped core with the rest sold separately."),
+      p("The Growth plan runs $149 AUD a month and includes all ten modules (POS, inventory, staff, bookings, loyalty, kitchen display, analytics, marketing automation and NUA AI) not a stripped core with the rest sold separately."),
       h2("The terminal"),
       p("A terminal runs $20 a month on top of the plan. That's the full fully-loaded cost most vendors bury in a separate line item, $119 a month, total, for one venue running everything."),
       stat("$119", "total monthly cost, Growth plan + terminal, everything included"),

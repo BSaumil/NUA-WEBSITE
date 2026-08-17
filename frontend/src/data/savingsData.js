@@ -2,6 +2,7 @@ import {
   Monitor, Layers, CreditCard, CalendarRange, PhoneCall, Truck, Users, Boxes,
   Thermometer, Gift, Megaphone, QrCode, Wallet, ChefHat, Globe2, Star, BarChart3, Mic,
 } from "lucide-react";
+import { plans } from "@/data/plansData";
 
 // Indicative monthly AUD costs for a single, mid-size venue, compiled from
 // publicly listed pricing as at July 2026. See the disclaimer on the page: 
@@ -101,7 +102,7 @@ export const costRows = [
 ];
 
 export const COMPETITOR_TOTAL = costRows.reduce((sum, r) => sum + r.cost, 0);
-export const NUA_PLAN_COST = 99;
+export const NUA_PLAN_COST = plans.find((p) => p.id === "growth").priceMonthly;
 export const NUA_OPTIONAL_TERMINAL = 20;
 export const NUA_TOTAL = NUA_PLAN_COST + NUA_OPTIONAL_TERMINAL;
 export const MONTHLY_SAVING = COMPETITOR_TOTAL - NUA_TOTAL;

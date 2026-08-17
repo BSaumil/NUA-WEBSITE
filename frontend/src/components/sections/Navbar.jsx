@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { useModals } from "@/components/ModalProvider";
 import BrandIcon from "@/components/BrandIcon";
-import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
+import LeadCta from "@/components/LeadCta";
 
 const navItems = [
   { label: "Features", to: "/features" },
@@ -19,7 +18,6 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { openLead } = useModals();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -59,26 +57,20 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {LEAD_CAPTURE_ENABLED && (
-          <div className="hidden lg:flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => openLead({ type: "trial" })}
-              data-testid="navbar-trial-btn"
-              className="text-sm px-4 py-2 rounded-full border border-[#8b5cf6]/60 text-[#c4b5fd] hover:bg-[#8b5cf6]/10 transition-all duration-200"
-            >
-              Start Free Trial
-            </button>
-            <button
-              type="button"
-              onClick={() => openLead({ type: "demo" })}
-              data-testid="navbar-demo-btn"
-              className="text-sm px-4 py-2 rounded-full bg-[#f58c14] text-white hover:bg-[#d87b10] transition-all duration-200 font-medium shadow-lg shadow-[#f58c14]/20"
-            >
-              Book Demo
-            </button>
-          </div>
-        )}
+        <div className="hidden lg:flex items-center gap-3">
+          <LeadCta
+            type="trial"
+            label="Start Free Trial"
+            testId="navbar-trial-btn"
+            className="text-sm px-4 py-2 rounded-full border border-[#8b5cf6]/60 text-[#c4b5fd] hover:bg-[#8b5cf6]/10 transition-all duration-200"
+          />
+          <LeadCta
+            type="demo"
+            label="Book Demo"
+            testId="navbar-demo-btn"
+            className="text-sm px-4 py-2 rounded-full bg-[#f58c14] text-white hover:bg-[#d87b10] transition-all duration-200 font-medium shadow-lg shadow-[#f58c14]/20"
+          />
+        </div>
 
         <button
           onClick={() => setOpen((v) => !v)}
@@ -103,15 +95,12 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            {LEAD_CAPTURE_ENABLED && (
-              <button
-                type="button"
-                className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-white font-medium"
-                onClick={() => { setOpen(false); openLead({ type: "demo" }); }}
-              >
-                Book Demo
-              </button>
-            )}
+            <LeadCta
+              type="demo"
+              label="Book Demo"
+              onClick={() => setOpen(false)}
+              className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-white font-medium"
+            />
           </div>
         </div>
       )}
