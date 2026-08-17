@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Home, Mail } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 
 export default function NotFound() {
   return (
     <PageShell testId="not-found-page">
+      <SEO title="Page Not Found: NUA" noIndex />
       <PageHero
         eyebrow="404"
         title="This page doesn't exist."

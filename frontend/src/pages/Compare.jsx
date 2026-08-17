@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Info } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import compareData from "@/data/compareData";
 
 const MotionLink = motion(Link);
@@ -11,6 +12,11 @@ const MotionLink = motion(Link);
 export default function Compare() {
   return (
     <PageShell testId="compare-page">
+      <SEO
+        title="Compare NUA to Other POS Platforms"
+        description="A straight, feature-level comparison: not a takedown. Pick the platform you're weighing against NUA."
+        canonical="https://nuapos.com.au/compare"
+      />
       <PageHero
         eyebrow="Compare"
         title="NUA, next to the platforms you're already evaluating."

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import posts from "@/data/blogData";
 
 const PAGE_SIZE = 9;
@@ -29,6 +30,11 @@ export default function Blog() {
 
   return (
     <PageShell testId="blog-page">
+      <SEO
+        title="Blog: NUA"
+        description="Field notes from building an AI operating system for hospitality, and from the venues running on it."
+        canonical="https://nuapos.com.au/blog"
+      />
       <PageHero
         eyebrow="Blog"
         title="Product notes & operator playbooks."

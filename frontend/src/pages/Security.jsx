@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Lock, KeyRound, ListChecks, Server, CreditCard, ArrowRight, Info } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED, SUPPORT_EMAIL } from "@/config/siteConfig";
 
@@ -42,6 +43,11 @@ const pillars = [
 export default function Security() {
   return (
     <PageShell testId="security-page">
+      <SEO
+        title="Security & Trust: NUA"
+        description="A straight answer to what happens to your business and guest data, and why. Not a badge wall."
+        canonical="https://nuapos.com.au/security"
+      />
       <PageHero
         eyebrow="Security &amp; Trust"
         title="How NUA actually handles your data."

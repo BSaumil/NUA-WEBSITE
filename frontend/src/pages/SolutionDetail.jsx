@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Quote } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
 import solutionsData from "@/data/solutionsData";
@@ -15,9 +16,15 @@ export default function SolutionDetail() {
   if (!data) return <Navigate to="/solutions" replace />;
 
   const Icon = data.icon;
+  const canonical = `https://nuapos.com.au/solutions/${data.slug}`;
 
   return (
     <PageShell testId="solution-detail-page">
+      <SEO
+        title={`${data.title} Solutions: NUA`}
+        description={data.heroBody}
+        canonical={canonical}
+      />
       <PageHero
         eyebrow="Solutions"
         title={data.tagline}

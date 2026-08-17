@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Mail } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import { SUPPORT_EMAIL } from "@/config/siteConfig";
 import docsData from "@/data/docsData";
 
@@ -14,6 +15,11 @@ const categories = ["Core", "AI", "Operations"];
 export default function Docs() {
   return (
     <PageShell testId="docs-page">
+      <SEO
+        title="Documentation: Setup Guides: NUA"
+        description="Step-by-step instructions for getting POS, KDS, Bookings, Loyalty, the AI Agent and every other module live at your venue."
+        canonical="https://nuapos.com.au/docs"
+      />
       <PageHero
         eyebrow="Documentation"
         title="Setup guides for every module."

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Info } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 
 const components = [
   { name: "POS & Checkout" },
@@ -21,6 +22,11 @@ const components = [
 export default function Status() {
   return (
     <PageShell testId="status-page">
+      <SEO
+        title="System Status: NUA"
+        description="Live operational status of every NUA module."
+        canonical="https://nuapos.com.au/status"
+      />
       <PageHero
         eyebrow="System Status"
         title="Current platform status."

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, AlertTriangle, Mail, Clock } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import { SUPPORT_EMAIL } from "@/config/siteConfig";
 import docsData from "@/data/docsData";
 
@@ -15,9 +16,27 @@ export default function DocDetail() {
 
   const Icon = data.icon;
   const related = docsData.filter((d) => data.related.includes(d.slug));
+  const canonical = `https://nuapos.com.au/docs/${data.slug}`;
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: `${data.title} setup guide`,
+    description: data.summary,
+    step: data.steps.map((s) => ({
+      "@type": "HowToStep",
+      name: s.title,
+      text: s.body,
+    })),
+  };
 
   return (
     <PageShell testId="doc-detail-page">
+      <SEO
+        title={`${data.title} Setup Guide: NUA`}
+        description={data.summary}
+        canonical={canonical}
+        jsonLd={howToJsonLd}
+      />
       <PageHero
         eyebrow={`Documentation · ${data.category}`}
         title={data.tagline}

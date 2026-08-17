@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Sparkles, Database, ShieldCheck, Cpu, Layers, Zap, Radio, Share2, Eye } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 
 const nodes = [
   { label: "POS", color: "#f58c14" },
@@ -37,6 +38,11 @@ const eventFlow = [
 export default function Platform() {
   return (
     <PageShell testId="platform-page">
+      <SEO
+        title="Platform Architecture: NUA"
+        description="One data graph and event bus that every module reads from and writes to, with the NUA AI Agent at the center."
+        canonical="https://nuapos.com.au/platform"
+      />
       <PageHero
         eyebrow="Platform architecture"
         title="One intelligence layer. Every module wired in."

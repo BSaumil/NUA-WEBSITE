@@ -18,10 +18,16 @@ import WhyNua from "@/components/sections/WhyNua";
 import Pricing from "@/components/sections/Pricing";
 import FinalCta from "@/components/sections/FinalCta";
 import Footer from "@/components/sections/Footer";
+import SEO from "@/components/SEO";
 
 export default function Landing() {
   return (
     <main data-testid="landing-page" className="min-h-screen bg-nua-bg text-[#eaeaea] font-body antialiased overflow-x-hidden">
+      <SEO
+        title="NUA: Restaurant OS"
+        description="Point of sale built for independent hospitality venues. Payments, bookings, loyalty and forecasting in one system."
+        canonical="https://nuapos.com.au/"
+      />
       <Navbar />
       <Hero />
       <Modules />

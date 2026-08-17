@@ -1,6 +1,7 @@
 import React from "react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import LegalSection from "@/components/LegalSection";
 
 const LAST_UPDATED = "25 July 2026";
@@ -8,6 +9,11 @@ const LAST_UPDATED = "25 July 2026";
 export default function TermsConditions() {
   return (
     <PageShell testId="terms-page">
+      <SEO
+        title="Terms & Conditions: NUA"
+        description="The terms governing use of the NUA platform, subscriptions, trials and billing."
+        canonical="https://nuapos.com.au/terms"
+      />
       <PageHero
         eyebrow="Legal"
         title="Terms & Conditions"
