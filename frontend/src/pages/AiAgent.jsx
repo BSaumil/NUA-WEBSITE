@@ -55,6 +55,7 @@ export default function AiAgent() {
         title="AI Agent: NUA"
         description="Meet NUA, the decision loop every module reports into. See exactly how it decides what to suggest, approve or execute."
         canonical="https://nuapos.com.au/ai-agent"
+        includeSoftware
       />
       <PageHero
         eyebrow="AI Agent"

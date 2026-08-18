@@ -23,6 +23,7 @@ export default function CompareDetail() {
         title={`NUA vs ${data.name}`}
         description={data.summary}
         canonical={canonical}
+        breadcrumb={[{ name: "Home", path: "/" }, { name: "Compare", path: "/compare" }, { name: `NUA vs ${data.name}`, path: `/compare/${data.slug}` }]}
       />
       <PageHero
         eyebrow={`Compare · ${data.category}`}
