@@ -18,7 +18,6 @@ export default function DocDetail() {
   const related = docsData.filter((d) => data.related.includes(d.slug));
   const canonical = `https://nuapos.com.au/docs/${data.slug}`;
   const howToJsonLd = {
-    "@context": "https://schema.org",
     "@type": "HowTo",
     name: `${data.title} setup guide`,
     description: data.summary,
@@ -36,6 +35,7 @@ export default function DocDetail() {
         description={data.summary}
         canonical={canonical}
         jsonLd={howToJsonLd}
+        breadcrumb={[{ name: "Home", path: "/" }, { name: "Documentation", path: "/docs" }, { name: data.title, path: `/docs/${data.slug}` }]}
       />
       <PageHero
         eyebrow={`Documentation · ${data.category}`}

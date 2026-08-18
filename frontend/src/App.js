@@ -12,6 +12,7 @@ const Platform = lazy(() => import("@/pages/Platform"));
 const AiAgent = lazy(() => import("@/pages/AiAgent"));
 const Solutions = lazy(() => import("@/pages/Solutions"));
 const SolutionDetail = lazy(() => import("@/pages/SolutionDetail"));
+const VerticalLanding = lazy(() => import("@/pages/VerticalLanding"));
 const PricingPage = lazy(() => import("@/pages/PricingPage"));
 const IntegrationsPage = lazy(() => import("@/pages/IntegrationsPage"));
 const Resources = lazy(() => import("@/pages/Resources"));
@@ -48,6 +49,12 @@ function App() {
               <Route path="/ai-agent" element={<AiAgent />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/solutions/:slug" element={<SolutionDetail />} />
+              {/* High-intent vertical landing pages, kept at the root so the
+                  URL reads as the category term itself. */}
+              <Route path="/restaurant-pos" element={<VerticalLanding />} />
+              <Route path="/cafe-pos" element={<VerticalLanding />} />
+              <Route path="/bar-pos" element={<VerticalLanding />} />
+              <Route path="/hospitality-pos" element={<VerticalLanding />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/integrations" element={<IntegrationsPage />} />
               <Route path="/resources" element={<Resources />} />

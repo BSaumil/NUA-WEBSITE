@@ -15,6 +15,7 @@ export default function Features() {
         title="Features, Explained Step by Step: NUA"
         description="See exactly how NUA's POS, Kitchen Display, Loyalty, Inventory, Staff and AI Agent modules work, side-by-side with the real interface your team sees."
         canonical="https://nuapos.com.au/features"
+        includeSoftware
       />
       <PageHero
         eyebrow="How it works"

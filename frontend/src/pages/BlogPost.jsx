@@ -67,7 +67,6 @@ export default function BlogPost() {
 
   const jsonLd = post.faqs?.length
     ? {
-        "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity: post.faqs.map((f) => ({
           "@type": "Question",
@@ -79,7 +78,9 @@ export default function BlogPost() {
 
   return (
     <PageShell testId="blog-post-page">
-      <SEO title={`${post.title}: NUA`} description={post.metaDescription} canonical={canonical} jsonLd={jsonLd} />
+      <SEO title={`${post.title}: NUA`} description={post.metaDescription} canonical={canonical} jsonLd={jsonLd}
+        breadcrumb={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }]}
+      />
       <PageHero
         eyebrow={`Blog · ${post.pillar}`}
         title={post.title}

@@ -27,6 +27,8 @@ function extractSlugs(fileName) {
 }
 
 const dynamicRoutes = [
+  // Vertical landing pages sit at the root, so the slug is the whole path.
+  ...extractSlugs("verticalsData.js").map((s) => `/${s}`),
   ...extractSlugs("solutionsData.js").map((s) => `/solutions/${s}`),
   ...extractSlugs("compareData.js").map((s) => `/compare/${s}`),
   ...extractSlugs("docsData.js").map((s) => `/docs/${s}`),

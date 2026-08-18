@@ -31,6 +31,10 @@ const cols = [
   {
     title: "Solutions",
     items: [
+      { label: "Restaurant POS", to: "/restaurant-pos" },
+      { label: "Cafe POS", to: "/cafe-pos" },
+      { label: "Bar POS", to: "/bar-pos" },
+      { label: "Hospitality POS", to: "/hospitality-pos" },
       { label: "Quick service", to: "/solutions/quick-service" },
       { label: "Casual dining", to: "/solutions/casual-dining" },
       { label: "Cafes", to: "/solutions/cafes" },

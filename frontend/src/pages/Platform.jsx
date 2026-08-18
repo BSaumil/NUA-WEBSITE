@@ -42,6 +42,7 @@ export default function Platform() {
         title="Platform Architecture: NUA"
         description="One data graph and event bus that every module reads from and writes to, with the NUA AI Agent at the center."
         canonical="https://nuapos.com.au/platform"
+        includeSoftware
       />
       <PageHero
         eyebrow="Platform architecture"

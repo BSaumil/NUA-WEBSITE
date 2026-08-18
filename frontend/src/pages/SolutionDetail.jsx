@@ -24,6 +24,7 @@ export default function SolutionDetail() {
         title={`${data.title} Solutions: NUA`}
         description={data.heroBody}
         canonical={canonical}
+        breadcrumb={[{ name: "Home", path: "/" }, { name: "Solutions", path: "/solutions" }, { name: data.title, path: `/solutions/${data.slug}` }]}
       />
       <PageHero
         eyebrow="Solutions"

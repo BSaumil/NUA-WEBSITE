@@ -32,9 +32,21 @@ jobs:
         working-directory: frontend
         run: yarn install
 
-      - name: Build
+      # The postbuild prerender step drives a real browser to render each route
+      # to static HTML. Without this the deploy would ship the empty app shell.
+      - name: Install Chromium for prerendering
+        working-directory: frontend
+        run: npx --yes playwright install --with-deps chromium
+
+      - name: Build (includes sitemap + prerender)
         working-directory: frontend
         run: CI=true yarn build
+
+      # Fail the deploy rather than publish an unindexable shell if prerendering
+      # silently produced empty pages.
+      - name: Verify prerendered output
+        working-directory: frontend
+        run: node scripts/verify-prerender.js
 
       - uses: actions/configure-pages@v5
 

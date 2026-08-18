@@ -22,7 +22,6 @@ const resources = [
 ];
 
 const faqJsonLd = {
-  "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: faqData.map((f) => ({
     "@type": "Question",

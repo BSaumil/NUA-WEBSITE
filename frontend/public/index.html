@@ -56,17 +56,13 @@
         <meta name="twitter:image" content="%PUBLIC_URL%/og-card.png" />
 
         <!-- Organisation structured data -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "NUA AUS PTY LTD",
-                "alternateName": "NUA",
-                "logo": "%PUBLIC_URL%/nua-icon-512.png",
-                "identifier": "ABN 54 299 131 653",
-                "address": { "@type": "PostalAddress", "addressCountry": "AU" }
-            }
-        </script>
+        <!--
+          Structured data is emitted per page by src/components/SEO.jsx (see
+          src/lib/schema.js), which builds a linked Organization + WebSite
+          graph and adds SoftwareApplication / FAQPage / HowTo / BreadcrumbList
+          where relevant. A second hardcoded Organization block here would
+          duplicate that entity, so it deliberately isn't repeated.
+        -->
 
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
     </head>

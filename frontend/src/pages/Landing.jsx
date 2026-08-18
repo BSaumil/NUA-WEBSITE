@@ -27,6 +27,7 @@ export default function Landing() {
         title="NUA: Restaurant OS"
         description="Point of sale built for independent hospitality venues. Payments, bookings, loyalty and forecasting in one system."
         canonical="https://nuapos.com.au/"
+        includeSoftware
       />
       <Navbar />
       <Hero />
