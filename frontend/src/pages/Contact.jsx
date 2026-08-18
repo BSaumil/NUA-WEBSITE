@@ -1,10 +1,10 @@
 import React from "react";
-import { Mail, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Building2, ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import LeadCta from "@/components/LeadCta";
-import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
+import { LEAD_CAPTURE_ENABLED, LEGAL_NAME, ABN } from "@/config/siteConfig";
 
 const channels = [
   { icon: Mail, label: "General enquiries", value: "info@nuapos.com.au", href: "mailto:info@nuapos.com.au" },
@@ -64,12 +64,11 @@ export default function Contact() {
 
         <div className="mt-6 rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7">
           <div className="flex items-start gap-3">
-            <MapPin className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
+            <Building2 className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-wider text-[#a1a1aa]">Registered office</div>
+              <div className="font-mono text-[10px] uppercase tracking-wider text-[#a1a1aa]">Business details</div>
               <div className="mt-1 text-sm text-white">
-                NUA AUS PTY LTD · ABN 54 299 131 653<br />
-                <span className="font-mono text-[#a1a1aa]">[Insert registered business address]</span>
+                {LEGAL_NAME} · ABN {ABN}
               </div>
             </div>
           </div>
