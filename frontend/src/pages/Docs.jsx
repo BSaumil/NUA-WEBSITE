@@ -34,7 +34,7 @@ export default function Docs() {
           if (!items.length) return null;
           return (
             <div key={cat} className="mb-12 last:mb-0">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#71717a]">{cat} modules</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">{cat} modules</span>
               <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {items.map((d, i) => (
                   <MotionLink
@@ -55,7 +55,7 @@ export default function Docs() {
                     </div>
                     <h3 className="mt-4 font-display font-semibold text-white text-sm">{d.title}</h3>
                     <p className="mt-1.5 text-[13px] text-[#a1a1aa] leading-relaxed">{d.summary}</p>
-                    <span className="mt-3 inline-block font-mono text-[10px] uppercase tracking-widest text-[#71717a]">
+                    <span className="mt-3 inline-block font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">
                       Setup time · {d.setupTime}
                     </span>
                   </MotionLink>
@@ -81,7 +81,7 @@ export default function Docs() {
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
               data-testid="docs-email-support"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200"
             >
               <Mail className="w-4 h-4" />
               {SUPPORT_EMAIL}

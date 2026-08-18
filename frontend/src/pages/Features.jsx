@@ -62,7 +62,7 @@ export default function Features() {
                       >
                         <Icon className="w-5 h-5" style={{ color: f.color }} />
                       </div>
-                      <span className="font-mono text-[11px] text-[#71717a]">{String(i + 1).padStart(2, "0")} / {String(featuresData.length).padStart(2, "0")}</span>
+                      <span className="font-mono text-[11px] text-[#a1a1aa]">{String(i + 1).padStart(2, "0")} / {String(featuresData.length).padStart(2, "0")}</span>
                     </div>
                     <h2 className="font-display mt-4 text-2xl sm:text-3xl font-bold text-white tracking-tight leading-[1.05]">
                       {f.title}
@@ -82,13 +82,13 @@ export default function Features() {
 
                   {/* Visual */}
                   <div className="lg:col-span-4 flex flex-col justify-center">
-                    <span className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Interface</span>
+                    <span className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Interface</span>
                     {Visual && <Visual />}
                   </div>
 
                   {/* How it works: plain-language steps, no code */}
                   <div className="lg:col-span-4 flex flex-col justify-center">
-                    <span className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#71717a]">How it works</span>
+                    <span className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">How it works</span>
                     <div className="rounded-2xl bg-white/[0.03] border border-white/5 p-5">
                       <ol className="space-y-4">
                         {f.howItWorks.map((step, idx) => (

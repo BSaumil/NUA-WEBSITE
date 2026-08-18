@@ -126,7 +126,7 @@ export default function Resources() {
           <a
             href={`mailto:${SUPPORT_EMAIL}`}
             data-testid="resources-email-support"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200 flex-shrink-0"
           >
             <Mail className="w-4 h-4" />
             {SUPPORT_EMAIL}

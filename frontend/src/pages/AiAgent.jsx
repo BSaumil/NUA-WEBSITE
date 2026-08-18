@@ -112,7 +112,7 @@ export default function AiAgent() {
             </div>
 
             <div className="mt-2 pt-5 border-t border-white/5">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Then, one of three outcomes</span>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Then, one of three outcomes</span>
               <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 {outcomes.map((o) => (
                   <div key={o.label} className="rounded-xl bg-white/[0.03] border border-white/5 p-3">
@@ -135,7 +135,7 @@ export default function AiAgent() {
         <div className="relative max-w-6xl mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Forecasting</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#6d28d9]">Forecasting</span>
               <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05]">
                 Demand forecasting,
                 <br />
@@ -193,7 +193,7 @@ export default function AiAgent() {
               </svg>
               <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-[#666670]">
                 <span>← actual</span>
-                <span className="text-[#8b5cf6]">predicted →</span>
+                <span className="text-[#6d28d9]">predicted →</span>
               </div>
             </motion.div>
           </div>
@@ -244,7 +244,7 @@ export default function AiAgent() {
         <div className="relative max-w-6xl mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-5">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Audit trail</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#6d28d9]">Audit trail</span>
               <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05]">
                 Every decision, fully logged.
               </h2>

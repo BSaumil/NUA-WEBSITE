@@ -12,7 +12,7 @@ export default function Pricing() {
     <section id="pricing" data-testid="pricing-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">Pricing</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-[#8a4a00]">Pricing</span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ export default function Pricing() {
                 testId={`pricing-${p.id}-cta`}
                 className={`mt-7 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all ${
                   p.featured
-                    ? "bg-[#f58c14] text-white hover:bg-[#d87b10] shadow-lg shadow-[#f58c14]/30"
+                    ? "bg-[#f58c14] text-[#1a1005] hover:bg-[#d87b10] shadow-lg shadow-[#f58c14]/30"
                     : p.name === "Enterprise"
                     ? "bg-[#0b0b0f] text-white hover:bg-[#1c1c26]"
                     : "border border-black/10 hover:bg-[#f6f7fb]"
@@ -183,7 +183,7 @@ export default function Pricing() {
                     label="Claim lifetime access"
                     icon={ArrowRight}
                     testId="pricing-lifetime-cta"
-                    className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-semibold shadow-lg shadow-[#f58c14]/30 transition-all hover:-translate-y-0.5"
+                    className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-semibold shadow-lg shadow-[#f58c14]/30 transition-all hover:-translate-y-0.5"
                   />
 
                   <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-[#666670]">

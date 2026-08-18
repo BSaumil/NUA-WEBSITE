@@ -57,7 +57,7 @@ export default function Compare() {
           ))}
         </div>
 
-        <p className="mt-8 text-center text-[11px] text-[#666670] max-w-2xl mx-auto">
+        <p className="mt-8 text-center text-[11px] text-[#8b8b96] max-w-2xl mx-auto">
           *For illustration only. Confirm current pricing and features directly with each provider before deciding.
         </p>
       </div>

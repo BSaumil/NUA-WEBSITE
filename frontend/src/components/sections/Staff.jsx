@@ -112,7 +112,7 @@ export default function Staff() {
                   <div>
                     <div className="text-sm text-white">NUA suggests adding Jules for Friday dinner: forecast +18% covers, save $284 vs split shift.</div>
                     <div className="mt-2 flex gap-2">
-                      <button data-testid="staff-approve-suggestion" className="px-3 py-1.5 rounded-full bg-[#8b5cf6] text-white text-[11px] font-medium hover:bg-[#7c3aed] transition-colors">
+                      <button data-testid="staff-approve-suggestion" className="px-3 py-1.5 rounded-full bg-[#7c3aed] text-white text-[11px] font-medium hover:bg-[#7c3aed] transition-colors">
                         Approve
                       </button>
                       <button data-testid="staff-dismiss-suggestion" className="px-3 py-1.5 rounded-full bg-white/5 text-white text-[11px] hover:bg-white/10 transition-colors">
@@ -133,7 +133,7 @@ export default function Staff() {
           transition={{ duration: 0.6 }}
           className="mt-16 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <StaffShowcase />
           </div>

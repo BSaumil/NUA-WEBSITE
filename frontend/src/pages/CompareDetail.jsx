@@ -59,7 +59,7 @@ export default function CompareDetail() {
               className="grid grid-cols-[1fr_auto_auto] items-center gap-3 px-5 py-4 border-b border-white/5 last:border-b-0"
             >
               <span className="text-sm text-white">{r.label}</span>
-              <span className="text-[12px] text-[#71717a] text-center w-28 leading-snug">{r.competitor}</span>
+              <span className="text-[12px] text-[#a1a1aa] text-center w-28 leading-snug">{r.competitor}</span>
               <span
                 className="inline-flex items-center justify-center gap-1 w-28 mx-auto px-2 py-1 rounded-full font-mono text-[10px] font-bold"
                 style={{ background: `${data.color}20`, color: data.color }}
@@ -96,7 +96,7 @@ export default function CompareDetail() {
               icon={ArrowRight}
               fallback="email"
               testId="compare-detail-book-demo-btn"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200"
             />
             <Link
               to="/compare"
@@ -108,7 +108,7 @@ export default function CompareDetail() {
           </div>
         </div>
 
-        <p className="mt-6 text-center text-[11px] text-[#666670] max-w-2xl mx-auto">
+        <p className="mt-6 text-center text-[11px] text-[#8b8b96] max-w-2xl mx-auto">
           *For illustration only. Confirm current pricing and features directly with {data.name} before deciding.
         </p>
       </div>

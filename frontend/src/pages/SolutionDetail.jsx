@@ -44,7 +44,7 @@ export default function SolutionDetail() {
             transition={{ duration: 0.5 }}
             className="rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7"
           >
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">What {data.title.toLowerCase()} venues run into</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">What {data.title.toLowerCase()} venues run into</span>
             <ul className="mt-4 space-y-3">
               {data.painPoints.map((p) => (
                 <li key={p} className="flex items-start gap-2.5 text-sm text-[#eaeaea] leading-relaxed">
@@ -130,7 +130,7 @@ export default function SolutionDetail() {
               icon={ArrowRight}
               fallback="email"
               testId="solution-detail-book-demo-btn"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200"
             />
             <Link
               to="/solutions"

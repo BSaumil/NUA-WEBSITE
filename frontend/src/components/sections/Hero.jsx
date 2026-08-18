@@ -46,20 +46,22 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-display text-center mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[88px] leading-[0.95] font-bold text-white tracking-tight"
-        >
+        {/*
+          Headline is deliberately NOT animated on mount. It is the page's
+          Largest Contentful Paint element and the build prerenders it into
+          the HTML, so a mount animation would hide the already-painted text
+          and re-reveal it — measured at ~0.8s of pure LCP delay. The eyebrow,
+          subheadline and CTA still animate in around it, so the hero keeps
+          its choreography while the headline lands instantly.
+        */}
+        <h1 className="font-display text-center mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[88px] leading-[0.95] font-bold text-white tracking-tight">
           AI-Powered Operating
           <br />
           System for Modern{" "}
           <span className="relative inline-block">
             <span className="text-shimmer">Hospitality</span>
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Subheadline */}
         <motion.p
@@ -85,7 +87,7 @@ export default function Hero() {
               icon={ArrowRight}
               iconClassName="w-4 h-4 transition-transform group-hover:translate-x-0.5"
               testId="hero-book-demo-btn"
-              className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
             />
           </motion.div>
         )}
@@ -272,7 +274,7 @@ export default function Hero() {
               </div>
             </motion.div>
           </div>
-          <p className="mt-3 font-mono text-[10px] text-[#71717a]">*Illustrative venue names for evaluation purposes.</p>
+          <p className="mt-3 font-mono text-[10px] text-[#a1a1aa]">*Illustrative venue names for evaluation purposes.</p>
         </div>
       </div>
     </section>

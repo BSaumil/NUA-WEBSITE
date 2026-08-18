@@ -65,16 +65,16 @@ export default function VerticalLanding() {
             <div className="w-11 h-11 rounded-xl flex items-center justify-center border" style={{ background: `${data.color}20`, borderColor: `${data.color}40` }}>
               <Icon className="w-5 h-5" style={{ color: data.color }} />
             </div>
-            <span className="mt-4 block font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Who it's for</span>
+            <span className="mt-4 block font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Who it's for</span>
             <p className="mt-2 text-white text-lg leading-snug">{data.forWho}</p>
           </div>
 
           <div className="rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">What it replaces</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">What it replaces</span>
             <ul className="mt-4 space-y-2.5">
               {data.replaces.map((r) => (
                 <li key={r} className="flex items-start gap-2.5 text-[13px] text-[#a1a1aa] leading-relaxed">
-                  <X className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#71717a]" />
+                  <X className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#a1a1aa]" />
                   {r}
                 </li>
               ))}
@@ -216,7 +216,7 @@ export default function VerticalLanding() {
               icon={ArrowRight}
               fallback="email"
               testId="vertical-cta"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200"
             />
             <Link
               to="/features"
@@ -228,13 +228,13 @@ export default function VerticalLanding() {
           </div>
         </div>
 
-        <p className="mt-6 text-center text-[11px] text-[#666670] max-w-2xl mx-auto">
+        <p className="mt-6 text-center text-[11px] text-[#8b8b96] max-w-2xl mx-auto">
           *Pricing shown is indicative and may vary by region, add-ons or promotional offers. Confirm a formal quote for your venue before purchase.
         </p>
 
         {/* Sibling verticals: internal linking between the keyword clusters */}
         <div className="mt-12">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Other venue types</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Other venue types</span>
           <div className="mt-4 flex flex-wrap gap-3">
             {verticalsData.filter((v) => v.slug !== data.slug).map((v) => (
               <Link

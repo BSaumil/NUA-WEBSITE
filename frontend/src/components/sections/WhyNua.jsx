@@ -26,7 +26,7 @@ const Cell = ({ value, win }) => {
   if (value === false) {
     return (
       <div className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white/5">
-        <X className="w-4 h-4 text-[#71717a]" />
+        <X className="w-4 h-4 text-[#a1a1aa]" />
       </div>
     );
   }
@@ -95,7 +95,7 @@ export default function WhyNua() {
           </Link>
         </div>
 
-        <p className="mt-6 text-center text-[11px] text-[#666670] max-w-2xl mx-auto">
+        <p className="mt-6 text-center text-[11px] text-[#8b8b96] max-w-2xl mx-auto">
           *"Traditional POS" refers to a generic legacy category, not any specific named vendor. Example comparison only, individual products vary.
         </p>
       </div>

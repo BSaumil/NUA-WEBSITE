@@ -75,7 +75,7 @@ export default function Savings() {
                 type="button"
                 onClick={resetCalculator}
                 data-testid="savings-calculator-reset"
-                className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#71717a] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#a1a1aa] hover:text-white transition-colors"
               >
                 <RotateCcw className="w-3 h-3" /> Reset
               </button>
@@ -130,7 +130,7 @@ export default function Savings() {
                   className="w-full pl-7 pr-3 bg-white/[0.04] border border-white/10 rounded-lg py-2 font-display text-lg font-bold text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
-              <div className="mt-1.5 font-mono text-[11px] text-[#71717a]">Defaults to our {costRows.length}-tool estimate below: edit to use your own invoices.</div>
+              <div className="mt-1.5 font-mono text-[11px] text-[#a1a1aa]">Defaults to our {costRows.length}-tool estimate below: edit to use your own invoices.</div>
             </div>
           </div>
         </motion.div>
@@ -280,7 +280,7 @@ export default function Savings() {
                 type="button"
                 onClick={() => openLead({ type: "demo" })}
                 data-testid="savings-book-demo-btn"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Get my savings breakdown
                 <ArrowRight className="w-4 h-4" />

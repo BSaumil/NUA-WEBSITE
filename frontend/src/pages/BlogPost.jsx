@@ -90,7 +90,7 @@ export default function BlogPost() {
       />
 
       <div className="relative max-w-3xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
-        <div className="flex items-center gap-4 font-mono text-[11px] text-[#71717a]">
+        <div className="flex items-center gap-4 font-mono text-[11px] text-[#a1a1aa]">
           <span className="flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5" />
             {post.readTime}
@@ -139,7 +139,7 @@ export default function BlogPost() {
               icon={ArrowRight}
               fallback="email"
               testId="blog-post-book-demo-btn"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200"
             />
             <Link
               to="/blog"

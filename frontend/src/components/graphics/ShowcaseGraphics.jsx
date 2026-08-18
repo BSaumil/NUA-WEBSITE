@@ -47,7 +47,7 @@ export function AnalyticsDashboardScreen() {
     <div className="bg-[#fafbfc] text-[#0f0f14]">
       <div className="flex items-center justify-between px-5 py-3 border-b border-black/5 bg-white">
         <div>
-          <div className="font-mono text-[9px] text-[#8b8b95] uppercase tracking-wider">Insights</div>
+          <div className="font-mono text-[9px] text-[#6b6b75] uppercase tracking-wider">Insights</div>
           <div className="font-display text-sm font-semibold">Sales, Loyalty &amp; Inventory Overview</div>
         </div>
         <div className="hidden sm:flex items-center gap-1.5">
@@ -68,7 +68,7 @@ export function AnalyticsDashboardScreen() {
               <div className="mt-2 font-display text-lg font-bold">
                 <LiveNumber value={k.value} prefix={k.prefix} decimals={k.decimals} />
               </div>
-              <div className="font-mono text-[8px] uppercase tracking-wider text-[#8b8b95]">{k.label}</div>
+              <div className="font-mono text-[8px] uppercase tracking-wider text-[#6b6b75]">{k.label}</div>
               <svg viewBox="0 0 60 24" className="w-full h-4 mt-1">
                 <path d={k.spark} stroke={k.color} strokeWidth="1.5" fill="none" />
               </svg>
@@ -169,7 +169,7 @@ export function ScanToPayShowcase() {
               {orderItems.map((it) => (
                 <div key={it.name} className="flex items-center justify-between text-[10px]">
                   <span className="flex items-center gap-1.5 text-[#1a1a22]"><it.icon className="w-3 h-3 text-[#f58c14]" />{it.name}</span>
-                  <span className="font-mono text-[#71717a]">{it.price}</span>
+                  <span className="font-mono text-[#5f5f6b]">{it.price}</span>
                 </div>
               ))}
               <div className="pt-1.5 mt-1.5 border-t border-black/5 flex justify-between font-display font-bold text-xs">
@@ -177,7 +177,7 @@ export function ScanToPayShowcase() {
               </div>
             </div>
             <div className="p-3 flex flex-col items-center justify-center gap-1.5">
-              <span className="font-mono text-[8px] uppercase tracking-widest text-[#8b5cf6]">Scan to pay</span>
+              <span className="font-mono text-[8px] uppercase tracking-widest text-[#6d28d9]">Scan to pay</span>
               <QRPattern size={72} />
             </div>
           </div>
@@ -315,7 +315,7 @@ export function LoyaltyWalletLiveShowcase() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
               />
             </div>
-            <div className="mt-1 font-mono text-[7px] text-[#71717a]">{Math.max(0, tierTarget - points).toLocaleString()} pts to next reward tier</div>
+            <div className="mt-1 font-mono text-[7px] text-[#a1a1aa]">{Math.max(0, tierTarget - points).toLocaleString()} pts to next reward tier</div>
           </div>
           <LiveDot color="#ec4899" />
         </div>
@@ -382,7 +382,7 @@ export function AICommandCenterShowcase() {
                   className="rounded-lg bg-white/[0.03] border border-white/5 p-2.5"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono text-[8px] text-[#71717a]">{f.time}</span>
+                    <span className="font-mono text-[8px] text-[#a1a1aa]">{f.time}</span>
                     <span className={`px-1.5 py-0.5 rounded-full font-mono text-[7px] uppercase ${s.bg} ${s.text}`}>{s.label}</span>
                   </div>
                   <div className="mt-1 text-[11px] text-white leading-tight">{f.action}</div>
@@ -472,7 +472,7 @@ export function TemperatureMonitoringShowcase() {
             </div>
           ))}
         </div>
-        <div className="mt-2.5 font-mono text-[9px] text-[#71717a]">Auto-logged every 5 min · alerts sent instantly</div>
+        <div className="mt-2.5 font-mono text-[9px] text-[#a1a1aa]">Auto-logged every 5 min · alerts sent instantly</div>
       </MonitorFrame>
     </div>
   );
@@ -506,7 +506,7 @@ export function PaymentsShowcase() {
               </div>
             ))}
           </div>
-          <div className="font-mono text-[8px] uppercase tracking-widest text-[#71717a]">Any method · instant settlement</div>
+          <div className="font-mono text-[8px] uppercase tracking-widest text-[#a1a1aa]">Any method · instant settlement</div>
         </div>
       </TabletStandFrame>
     </div>
@@ -638,7 +638,7 @@ export function ForecastingShowcase() {
             <TrendingUp className="w-3.5 h-3.5 text-[#22c55e]" />
             <span className="font-display text-xs font-semibold text-white">7-Day Demand Forecast</span>
           </div>
-          <span className="font-mono text-[8px] uppercase tracking-widest text-[#71717a]">Sea bass</span>
+          <span className="font-mono text-[8px] uppercase tracking-widest text-[#a1a1aa]">Sea bass</span>
         </div>
         <svg viewBox="0 0 300 100" className="w-full h-24">
           <defs>

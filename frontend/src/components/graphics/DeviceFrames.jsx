@@ -73,7 +73,7 @@ export function AICopilotPanel({ messages, className = "" }) {
             <div
               className={`px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed max-w-[88%] ${
                 m.from === "user"
-                  ? "bg-[#8b5cf6] text-white rounded-br-sm"
+                  ? "bg-[#7c3aed] text-white rounded-br-sm"
                   : "bg-white/[0.06] text-[#eaeaea] rounded-bl-sm"
               }`}
             >
@@ -83,7 +83,7 @@ export function AICopilotPanel({ messages, className = "" }) {
         ))}
       </div>
       <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-2 px-1">
-        <span className="flex-1 text-[12px] text-[#71717a]">Ask anything about your venues…</span>
+        <span className="flex-1 text-[12px] text-[#a1a1aa]">Ask anything about your venues…</span>
         <div className="w-7 h-7 rounded-full bg-[#f58c14] flex items-center justify-center flex-shrink-0">
           <ArrowUp className="w-3.5 h-3.5 text-white" />
         </div>

@@ -30,7 +30,7 @@ export default function MultiLocation() {
     <section id="multi-location" data-testid="multi-location-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Multi-location control</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-[#6d28d9]">Multi-location control</span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

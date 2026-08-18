@@ -104,7 +104,7 @@ export default function Platform() {
                     <div className="mt-2 text-[12px] font-semibold text-white leading-tight">{s.label}</div>
                     <div className="text-[10px] text-[#a1a1aa] mt-0.5">{s.body}</div>
                     {i < eventFlow.length - 1 && (
-                      <span className="hidden sm:block absolute top-1/2 -right-[13px] -translate-y-1/2 text-[#71717a] text-xs">→</span>
+                      <span className="hidden sm:block absolute top-1/2 -right-[13px] -translate-y-1/2 text-[#a1a1aa] text-xs">→</span>
                     )}
                   </div>
                 ))}
