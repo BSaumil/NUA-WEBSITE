@@ -116,7 +116,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
             <button
               data-testid="lead-success-close"
               onClick={() => handleOpenChange(false)}
-              className="mt-6 px-5 py-2.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-colors"
+              className="mt-6 px-5 py-2.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-colors"
             >
               Done
             </button>
@@ -226,7 +226,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
               type="submit"
               data-testid="lead-submit-btn"
               disabled={submitting}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium shadow-lg shadow-[#f58c14]/25 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium shadow-lg shadow-[#f58c14]/25 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {submitting ? (
                 <>

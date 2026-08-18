@@ -50,7 +50,7 @@ export default function Inventory() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
           <div className="max-w-2xl">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">Inventory & smart purchasing</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8a4a00]">Inventory & smart purchasing</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

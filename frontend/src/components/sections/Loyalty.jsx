@@ -173,7 +173,7 @@ export default function Loyalty() {
                 {earnExamples.map((amount) => (
                   <div key={amount} className="flex items-center justify-between rounded-xl bg-white/[0.03] border border-white/5 px-4 py-3">
                     <span className="font-display text-lg font-bold text-white">${amount}</span>
-                    <ArrowRight className="w-4 h-4 text-[#71717a] flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-[#a1a1aa] flex-shrink-0" />
                     <span className="font-display text-lg font-bold text-[#ec4899]">+{amount} pts</span>
                   </div>
                 ))}
@@ -261,7 +261,7 @@ export default function Loyalty() {
           transition={{ duration: 0.6 }}
           className="mt-20 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <LoyaltyWalletLiveShowcase />
           </div>

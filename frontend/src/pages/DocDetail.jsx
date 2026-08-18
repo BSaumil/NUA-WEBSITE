@@ -61,7 +61,7 @@ export default function DocDetail() {
 
         {/* Prerequisites */}
         <div className="mt-10">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Before you start</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Before you start</span>
           <div className="mt-4 rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7">
             <ul className="space-y-3">
               {data.prerequisites.map((p) => (
@@ -76,7 +76,7 @@ export default function DocDetail() {
 
         {/* Steps */}
         <div className="mt-10">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Setup steps</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Setup steps</span>
           <ol className="mt-4 space-y-4">
             {data.steps.map((s, i) => (
               <motion.li
@@ -108,7 +108,7 @@ export default function DocDetail() {
           <div className="rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Tips</span>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Tips</span>
             </div>
             <ul className="mt-4 space-y-3">
               {data.tips.map((t) => (
@@ -119,7 +119,7 @@ export default function DocDetail() {
           <div className="rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7">
             <div className="flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-[#f58c14]" />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Troubleshooting</span>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Troubleshooting</span>
             </div>
             <ul className="mt-4 space-y-4">
               {data.troubleshooting.map((t) => (
@@ -135,7 +135,7 @@ export default function DocDetail() {
         {/* Related modules */}
         {related.length > 0 && (
           <div className="mt-10">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a]">Related modules</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Related modules</span>
             <div className="mt-4 grid sm:grid-cols-3 gap-4">
               {related.map((r) => (
                 <Link
@@ -165,7 +165,7 @@ export default function DocDetail() {
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
               data-testid="doc-detail-email-support"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white text-sm font-medium transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200"
             >
               <Mail className="w-4 h-4" />
               {SUPPORT_EMAIL}

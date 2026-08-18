@@ -42,7 +42,7 @@ export default function Reservations() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-28">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">Reservations & guests</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#6d28d9]">Reservations & guests</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +121,7 @@ export default function Reservations() {
               <div className="px-5 py-3 border-t border-black/5 bg-[#fafafb] flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <Crown className="w-4 h-4 text-[#8b5cf6]" />
-                  <span className="text-sm">VIP Sam B. · party of 4 · arriving in <span className="font-mono text-[#8b5cf6]">12m</span></span>
+                  <span className="text-sm">VIP Sam B. · party of 4 · arriving in <span className="font-mono text-[#6d28d9]">12m</span></span>
                 </div>
                 <span className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">NUA recommends T7 (south corner)</span>
               </div>

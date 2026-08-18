@@ -111,7 +111,7 @@ export default function Voice() {
           transition={{ duration: 0.6 }}
           className="mt-16 flex flex-col items-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71717a] mb-5">See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa] mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <VoiceShowcase />
           </div>

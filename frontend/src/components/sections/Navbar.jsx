@@ -68,7 +68,7 @@ export default function Navbar() {
             type="demo"
             label="Book Demo"
             testId="navbar-demo-btn"
-            className="text-sm px-4 py-2 rounded-full bg-[#f58c14] text-white hover:bg-[#d87b10] transition-all duration-200 font-medium shadow-lg shadow-[#f58c14]/20"
+            className="text-sm px-4 py-2 rounded-full bg-[#f58c14] text-[#1a1005] hover:bg-[#d87b10] transition-all duration-200 font-medium shadow-lg shadow-[#f58c14]/20"
           />
         </div>
 
@@ -99,7 +99,7 @@ export default function Navbar() {
               type="demo"
               label="Book Demo"
               onClick={() => setOpen(false)}
-              className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-white font-medium"
+              className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-[#1a1005] font-medium"
             />
           </div>
         </div>

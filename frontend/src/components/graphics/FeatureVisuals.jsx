@@ -70,7 +70,7 @@ export function POSVisual() {
             <div className="flex justify-between font-mono text-[10px] text-[#a1a1aa]"><span>Tax</span><span>$3.36</span></div>
             <div className="flex justify-between font-display font-bold text-white text-sm"><span>Total</span><span>$36.96</span></div>
           </div>
-          <button className="mt-2.5 w-full py-2 rounded-full bg-[#f58c14] text-white text-[11px] font-medium flex items-center justify-center gap-1.5">
+          <button className="mt-2.5 w-full py-2 rounded-full bg-[#f58c14] text-[#1a1005] text-[11px] font-medium flex items-center justify-center gap-1.5">
             <CreditCard className="w-3.5 h-3.5" /> Charge card
           </button>
         </div>
@@ -155,7 +155,7 @@ export function LoyaltyVisual() {
           <Receipt className="w-4 h-4 text-[#a1a1aa]" />
           <span className="font-display text-xl font-bold text-white">$19.00</span>
         </div>
-        <ArrowRight className="w-4 h-4 text-[#71717a] flex-shrink-0" />
+        <ArrowRight className="w-4 h-4 text-[#a1a1aa] flex-shrink-0" />
         <div className="flex items-center gap-1.5">
           <Star className="w-4 h-4 text-[#ec4899]" />
           <span className="font-display text-xl font-bold text-[#ec4899]">+19 pts</span>
@@ -200,12 +200,12 @@ export function StaffVisual() {
           <div key={i} className="text-center">
             <div
               className={`aspect-square rounded-md flex items-center justify-center text-[10px] font-mono ${
-                !shifts[i] ? "border border-dashed border-white/10" : ai[i] ? "bg-[#8b5cf6] text-white" : "bg-white/5 text-[#a1a1aa]"
+                !shifts[i] ? "border border-dashed border-white/10" : ai[i] ? "bg-[#7c3aed] text-white" : "bg-white/5 text-[#a1a1aa]"
               }`}
             >
               {shifts[i] ? (ai[i] ? "✦" : "•") : ""}
             </div>
-            <div className="mt-1 font-mono text-[9px] text-[#71717a]">{d}</div>
+            <div className="mt-1 font-mono text-[9px] text-[#a1a1aa]">{d}</div>
           </div>
         ))}
       </div>
@@ -269,7 +269,7 @@ export function MarketingVisual() {
               <div className="mt-2 font-mono text-[9px] uppercase tracking-widest text-[#a1a1aa]">{s.label}</div>
               <div className="text-[10px] text-white mt-0.5 leading-tight">{s.value}</div>
             </div>
-            {i < steps.length - 1 && <ArrowRight className="w-3.5 h-3.5 text-[#71717a] flex-shrink-0" />}
+            {i < steps.length - 1 && <ArrowRight className="w-3.5 h-3.5 text-[#a1a1aa] flex-shrink-0" />}
           </React.Fragment>
         ))}
       </div>

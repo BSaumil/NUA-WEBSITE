@@ -9,7 +9,7 @@ export default function PageHero({ eyebrow, title, subtitle, accent = "#f58c14",
       <div className="absolute inset-0 bg-grid-dark opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]" />
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10 text-center">
         {crumb && (
-          <div className="flex items-center justify-center gap-1.5 mb-5 font-mono text-[11px] text-[#71717a]">
+          <div className="flex items-center justify-center gap-1.5 mb-5 font-mono text-[11px] text-[#a1a1aa]">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
             <span className="text-[#a1a1aa]">{crumb}</span>

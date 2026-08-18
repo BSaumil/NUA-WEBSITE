@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap');
+/* Webfonts are linked from public/index.html, not @import-ed here: an
+   @import turns the font CSS into a second-level request that blocks first
+   paint for an extra round trip. */
 
 @tailwind base;
 @tailwind components;
@@ -86,6 +88,21 @@ html, body {
 @layer base {
     * { @apply border-border; }
     body { @apply bg-background text-foreground; }
+}
+
+/* The long marketing pages stack a dozen sections, each with its own animated
+   product mockup, so the homepage alone lays out ~4,300 elements on first
+   paint. content-visibility lets the browser skip layout and paint for
+   sections still below the fold. contain-intrinsic-size gives each one a
+   placeholder height so the scrollbar and page height stay stable (CLS 0)
+   until it is actually rendered. The hero is exempt: it IS the first paint. */
+main > section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 700px;
+}
+main > section:first-of-type,
+main > section#hero {
+    content-visibility: visible;
 }
 
 /* Brand utilities */

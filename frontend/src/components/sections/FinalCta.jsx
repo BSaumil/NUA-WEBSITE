@@ -47,7 +47,7 @@ export default function FinalCta() {
               icon={ArrowRight}
               iconClassName="w-4 h-4 transition-transform group-hover:translate-x-1"
               testId="final-book-demo-btn"
-              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-white font-medium text-base shadow-2xl shadow-[#f58c14]/30 transition-all duration-200 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] font-medium text-base shadow-2xl shadow-[#f58c14]/30 transition-all duration-200 hover:-translate-y-0.5"
             />
             <LeadCta
               type="trial"

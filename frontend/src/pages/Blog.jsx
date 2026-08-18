@@ -53,7 +53,7 @@ export default function Blog() {
               data-testid={`blog-pillar-${pillar.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
               className={`px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-colors ${
                 activePillar === pillar
-                  ? "bg-[#8b5cf6] text-white"
+                  ? "bg-[#7c3aed] text-white"
                   : "bg-white/5 text-[#a1a1aa] hover:bg-white/10 hover:text-white"
               }`}
             >
@@ -78,7 +78,7 @@ export default function Blog() {
               >
                 <div className="flex items-center justify-between">
                   <span className="px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 text-[#c4b5fd] font-mono text-[10px] uppercase tracking-wider">{p.pillar}</span>
-                  <span className="flex items-center gap-1 font-mono text-[10px] text-[#71717a]"><Clock className="w-3 h-3" />{p.readTime}</span>
+                  <span className="flex items-center gap-1 font-mono text-[10px] text-[#a1a1aa]"><Clock className="w-3 h-3" />{p.readTime}</span>
                 </div>
                 <h3 className="mt-4 font-display font-semibold text-white text-base leading-snug">{p.title}</h3>
                 <p className="mt-2 text-[13px] text-[#a1a1aa] leading-relaxed">{p.excerpt}</p>
@@ -110,7 +110,7 @@ export default function Blog() {
                 onClick={() => setPage(n)}
                 data-testid={`blog-page-${n}`}
                 className={`w-9 h-9 flex items-center justify-center rounded-full font-mono text-xs transition-colors ${
-                  n === page ? "bg-[#8b5cf6] text-white" : "border border-white/10 text-[#a1a1aa] hover:bg-white/5 hover:text-white"
+                  n === page ? "bg-[#7c3aed] text-white" : "border border-white/10 text-[#a1a1aa] hover:bg-white/5 hover:text-white"
                 }`}
               >
                 {n}
