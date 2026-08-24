@@ -34,9 +34,32 @@ api_router = APIRouter(prefix="/api")
 _admin_api_key_header = APIKeyHeader(name="X-Admin-Api-Key", auto_error=False)
 
 
+def _parse_iso8601(value: str) -> Optional[datetime]:
+    """Tolerant ISO-8601 read-back for values already in the database.
+
+    Documents written by this app use datetime.isoformat() ("+00:00"), but
+    anything written by a migration, an admin tool or an older revision may use
+    a "Z" suffix, which datetime.fromisoformat cannot parse before Python 3.11.
+    A single malformed row must not 500 an entire listing, so unparseable
+    values are logged and returned as None for Pydantic to reject per-field.
+    """
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except (ValueError, AttributeError):
+        logger.warning("Unparseable timestamp in database: %r", value)
+        return None
+
+
 async def require_admin_key(key: str = Security(_admin_api_key_header)):
     expected = os.environ.get("ADMIN_API_KEY")
-    if not expected or not key or not secrets.compare_digest(key, expected):
+    if not expected or not key:
+        raise HTTPException(status_code=401, detail="Missing or invalid admin API key")
+
+    # compare_digest raises TypeError on str inputs holding non-ASCII, so a
+    # header of "ключ" would surface as an unhandled 500 (and a stack trace in
+    # the logs) instead of a 401. Comparing the UTF-8 bytes is well-defined for
+    # any input while keeping the comparison constant-time.
+    if not secrets.compare_digest(key.encode("utf-8"), expected.encode("utf-8")):
         raise HTTPException(status_code=401, detail="Missing or invalid admin API key")
 
 
@@ -103,8 +126,11 @@ async def create_status_check(input: StatusCheckCreate):
 async def get_status_checks():
     status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
     for check in status_checks:
-        if isinstance(check['timestamp'], str):
-            check['timestamp'] = datetime.fromisoformat(check['timestamp'])
+        # .get, not ['timestamp']: a document written before this field existed
+        # (or by anything other than this endpoint) would raise KeyError and
+        # turn the whole listing into a 500. Matches list_leads' handling.
+        if isinstance(check.get('timestamp'), str):
+            check['timestamp'] = _parse_iso8601(check['timestamp'])
     return status_checks
 
 
@@ -131,20 +157,36 @@ async def list_leads(limit: int = 100, type: Optional[LeadType] = None):
     leads = await cursor.to_list(length=clamped_limit)
     for lead in leads:
         if isinstance(lead.get('created_at'), str):
-            lead['created_at'] = datetime.fromisoformat(lead['created_at'])
+            lead['created_at'] = _parse_iso8601(lead['created_at'])
     return leads
 
 
 app.include_router(api_router)
 
-_cors_origins = os.environ.get('CORS_ORIGINS', '*').split(',')
+# Origins are matched against the browser's Origin header by exact string, so
+# an untrimmed entry from "a.com, b.com" silently never matches and CORS fails
+# in production with no server-side signal. Strip and drop empties.
+_cors_origins = [o.strip() for o in os.environ.get('CORS_ORIGINS', '*').split(',') if o.strip()]
+if not _cors_origins:
+    _cors_origins = ['*']
+
+# allow_credentials + a wildcard origin is invalid per the CORS spec (browsers
+# reject it outright), and nothing in this API relies on cookies: every
+# protected route uses an explicit X-Admin-Api-Key header instead. Credentials
+# go on only when every configured origin is explicit — testing `!= ['*']`
+# missed the mixed case ("*,https://site") which yielded wildcard + credentials.
+_cors_allow_credentials = '*' not in _cors_origins
+
+if '*' in _cors_origins and len(_cors_origins) > 1:
+    logger.warning(
+        "CORS_ORIGINS mixes '*' with explicit origins %s; the wildcard makes the "
+        "explicit entries redundant and disables credentialed requests.",
+        [o for o in _cors_origins if o != '*'],
+    )
+
 app.add_middleware(
     CORSMiddleware,
-    # allow_credentials + a wildcard origin is invalid per the CORS spec (browsers
-    # reject it outright), and nothing in this API relies on cookies: every
-    # protected route uses an explicit X-Admin-Api-Key header instead. Only turn
-    # credentials on if CORS_ORIGINS is set to specific, non-wildcard origins.
-    allow_credentials=_cors_origins != ['*'],
+    allow_credentials=_cors_allow_credentials,
     allow_origins=_cors_origins,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -56,17 +56,46 @@ const MIME = {
 // route and compound stale markup across the run.
 function startServer(shellHtml) {
   const server = http.createServer((req, res) => {
-    const urlPath = decodeURIComponent(req.url.split("?")[0]);
-    const filePath = path.join(BUILD_DIR, urlPath);
-    if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+    let filePath;
+    try {
+      // decodeURIComponent throws URIError on malformed escapes (a bare "%").
+      // Uncaught inside a request handler that kills the whole process, so the
+      // build dies mid-run and neither the browser nor the server is closed.
+      const urlPath = decodeURIComponent(req.url.split("?")[0]);
+      // Resolve, then confirm the result is still inside BUILD_DIR: path.join
+      // happily walks out of the root on "/../../etc/passwd".
+      filePath = path.resolve(BUILD_DIR, "." + path.posix.normalize(urlPath));
+      if (filePath !== BUILD_DIR && !filePath.startsWith(BUILD_DIR + path.sep)) {
+        res.writeHead(403, { "Content-Type": "text/plain" });
+        return res.end("Forbidden");
+      }
+    } catch {
+      res.writeHead(400, { "Content-Type": "text/plain" });
+      return res.end("Bad Request");
+    }
+
+    let stat = null;
+    try {
+      stat = fs.statSync(filePath);
+    } catch {
+      /* missing file falls through to the SPA shell, as before */
+    }
+    if (!stat || stat.isDirectory()) {
       res.writeHead(200, { "Content-Type": "text/html" });
       return res.end(shellHtml);
     }
+
     const ext = path.extname(filePath);
     res.writeHead(200, { "Content-Type": MIME[ext] || "application/octet-stream" });
-    return fs.createReadStream(filePath).pipe(res);
+    const stream = fs.createReadStream(filePath);
+    // A read error after headers are sent can't be turned into a status code;
+    // destroy the socket rather than letting the 'error' event go unhandled.
+    stream.on("error", () => res.destroy());
+    return stream.pipe(res);
   });
-  return new Promise((resolve) => server.listen(PORT, () => resolve(server)));
+  // Bind to loopback explicitly. listen(PORT) alone binds 0.0.0.0, exposing the
+  // build directory to anything that can reach the CI runner or dev machine.
+  return new Promise((resolve) => server.listen(PORT, "127.0.0.1", () => resolve(server)));
 }
 
 function outputPathFor(route) {
@@ -131,8 +160,13 @@ function outputPathFor(route) {
       });
 
       let html = await page.content();
-      // Absolute asset paths so the document works from any nested route depth.
-      html = html.replace(/(src|href)="\/static\//g, '$1="/static/');
+      // A nested route is served from build/<route>/index.html, so any relative
+      // asset path resolves against that directory and 404s ("./static/..." at
+      // /pricing/ becomes /pricing/static/...), leaving a blank page for real
+      // visitors while the prerendered HTML still looks fine to the verifier.
+      // CRA emits absolute paths while package.json "homepage" is an absolute
+      // URL; this rewrites them if that ever changes to a relative value.
+      html = html.replace(/(src|href)="\.\/(static\/|favicon|manifest)/g, '$1="/$2');
 
       const outPath = outputPathFor(route);
       fs.mkdirSync(path.dirname(outPath), { recursive: true });
