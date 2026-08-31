@@ -23,14 +23,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          # Keyed on the lockfile hash. cache-dependency-path is explicit
+          # because the only package.json lives in frontend/, and a stray
+          # lockfile at the repo root would otherwise make the key ambiguous.
+          cache: yarn
+          cache-dependency-path: frontend/yarn.lock
 
-      # No yarn.lock is committed yet, so this resolves fresh each run rather
-      # than using --frozen-lockfile or actions/setup-node's lockfile-hash
-      # cache. Commit a yarn.lock and switch this to --frozen-lockfile (with
-      # cache: yarn / cache-dependency-path restored above) once one exists.
+      # --frozen-lockfile pins the install to the committed tree and fails the
+      # build if yarn.lock and package.json have drifted, instead of resolving
+      # a fresh tree on every run. Without it a transitive dependency could
+      # break a deploy with no change on our side, and the bundle currently
+      # live could not be reproduced.
       - name: Install dependencies
         working-directory: frontend
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       # The postbuild prerender step drives a real browser to render each route
       # to static HTML. Without this the deploy would ship the empty app shell.
