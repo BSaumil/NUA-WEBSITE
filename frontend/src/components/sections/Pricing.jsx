@@ -6,7 +6,10 @@ import { TRIAL_DAYS } from "@/config/siteConfig";
 import { plans, lifetime, getLifetimeEquivalence } from "@/data/plansData";
 
 export default function Pricing() {
-  const { months, breakEvenYears, includedPlanName } = getLifetimeEquivalence();
+  // null when lifetime.includesPlanId no longer matches a plan — the block that
+  // uses it is skipped rather than crashing this section, which also renders on
+  // the homepage.
+  const equivalence = getLifetimeEquivalence();
 
   return (
     <section id="pricing" data-testid="pricing-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
@@ -170,12 +173,14 @@ export default function Pricing() {
                     + GST · paid once
                   </div>
 
-                  <div className="mt-4 p-3 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20">
-                    <div className="text-[11px] text-[#c4b5fd] leading-relaxed">
-                      Equivalent to <span className="font-mono">~{months} months</span> of {includedPlanName}.
-                      Break-even in under {breakEvenYears} years: free forever after.
+                  {equivalence && (
+                    <div className="mt-4 p-3 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20">
+                      <div className="text-[11px] text-[#c4b5fd] leading-relaxed">
+                        Equivalent to <span className="font-mono">~{equivalence.months} months</span> of {equivalence.includedPlanName}.
+                        Break-even in under {equivalence.breakEvenYears} years: free forever after.
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <LeadCta
                     type="demo"

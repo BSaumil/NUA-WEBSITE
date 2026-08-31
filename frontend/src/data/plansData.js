@@ -99,14 +99,42 @@ export const lifetime = {
 };
 
 export function getIncludedPlan() {
-  return plans.find((p) => p.id === lifetime.includesPlanId);
+  return plans.find((p) => p.id === lifetime.includesPlanId) ?? null;
 }
 
-// Derived, not hardcoded: recomputes automatically whenever priceOneTime or
-// the included plan's priceMonthly changes.
+/**
+ * Derived, not hardcoded: recomputes whenever priceOneTime or the included
+ * plan's priceMonthly changes.
+ *
+ * Total by design — it returns null rather than throwing. `includesPlanId` is
+ * a string that has to match a plan id by hand, so renaming a plan silently
+ * breaks the link. This runs during render of the pricing section, which is
+ * mounted on both `/pricing` and the homepage, so a throw here would blank the
+ * site's two highest-traffic pages. Callers must handle null.
+ */
 export function getLifetimeEquivalence() {
   const includedPlan = getIncludedPlan();
+  // Guards a missing plan and a zero/negative/non-numeric price, either of
+  // which would otherwise yield Infinity or NaN in user-facing copy.
+  if (!includedPlan || !(includedPlan.priceMonthly > 0)) return null;
+
   const months = Math.round(lifetime.priceOneTime / includedPlan.priceMonthly);
-  const breakEvenYears = Math.ceil(months / 12);
-  return { months, breakEvenYears, includedPlanName: includedPlan.name };
+  return {
+    months,
+    breakEvenYears: Math.ceil(months / 12),
+    includedPlanName: includedPlan.name,
+  };
+}
+
+/**
+ * Build-time invariant. Vite/CRA strip this in production, so it costs nothing
+ * at runtime while making the misconfiguration impossible to miss in dev and in
+ * the prerender pass (which runs a real browser over every route).
+ */
+if (process.env.NODE_ENV !== "production" && !getIncludedPlan()) {
+  // eslint-disable-next-line no-console
+  console.error(
+    `plansData: lifetime.includesPlanId "${lifetime.includesPlanId}" matches no plan id ` +
+      `(${plans.map((p) => p.id).join(", ")}). The lifetime break-even copy will be hidden.`
+  );
 }

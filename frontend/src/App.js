@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import ModalProvider from "@/components/ModalProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 import RouteLoader from "@/components/RouteLoader";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Landing = lazy(() => import("@/pages/Landing"));
 const Features = lazy(() => import("@/pages/Features"));
@@ -41,43 +42,51 @@ function App() {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <ModalProvider>
           <ScrollToTop />
-          <Suspense fallback={<RouteLoader />}>
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/features" element={<Features />} />
-              <Route path="/platform" element={<Platform />} />
-              <Route path="/ai-agent" element={<AiAgent />} />
-              <Route path="/solutions" element={<Solutions />} />
-              <Route path="/solutions/:slug" element={<SolutionDetail />} />
-              {/* High-intent vertical landing pages, kept at the root so the
-                  URL reads as the category term itself. */}
-              <Route path="/restaurant-pos" element={<VerticalLanding />} />
-              <Route path="/cafe-pos" element={<VerticalLanding />} />
-              <Route path="/bar-pos" element={<VerticalLanding />} />
-              <Route path="/hospitality-pos" element={<VerticalLanding />} />
-              <Route path="/pricing" element={<PricingPage />} />
-              <Route path="/integrations" element={<IntegrationsPage />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/docs" element={<Docs />} />
-              <Route path="/docs/:slug" element={<DocDetail />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/terms" element={<TermsConditions />} />
-              <Route path="/savings" element={<Savings />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/customers" element={<Customers />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/press" element={<Press />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/security" element={<Security />} />
-              <Route path="/status" element={<Status />} />
-              <Route path="/compare" element={<Compare />} />
-              <Route path="/compare/:slug" element={<CompareDetail />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
+          {/*
+            Wraps the routes, not the whole app, so a page-level throw shows a
+            recoverable fallback instead of unmounting everything. This also
+            catches the common production case of a lazy() chunk 404-ing when a
+            visitor has an old tab open across a deploy.
+          */}
+          <ErrorBoundary name="route">
+            <Suspense fallback={<RouteLoader />}>
+              <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route path="/features" element={<Features />} />
+                <Route path="/platform" element={<Platform />} />
+                <Route path="/ai-agent" element={<AiAgent />} />
+                <Route path="/solutions" element={<Solutions />} />
+                <Route path="/solutions/:slug" element={<SolutionDetail />} />
+                {/* High-intent vertical landing pages, kept at the root so the
+                    URL reads as the category term itself. */}
+                <Route path="/restaurant-pos" element={<VerticalLanding />} />
+                <Route path="/cafe-pos" element={<VerticalLanding />} />
+                <Route path="/bar-pos" element={<VerticalLanding />} />
+                <Route path="/hospitality-pos" element={<VerticalLanding />} />
+                <Route path="/pricing" element={<PricingPage />} />
+                <Route path="/integrations" element={<IntegrationsPage />} />
+                <Route path="/resources" element={<Resources />} />
+                <Route path="/docs" element={<Docs />} />
+                <Route path="/docs/:slug" element={<DocDetail />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<TermsConditions />} />
+                <Route path="/savings" element={<Savings />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/customers" element={<Customers />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/press" element={<Press />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/security" element={<Security />} />
+                <Route path="/status" element={<Status />} />
+                <Route path="/compare" element={<Compare />} />
+                <Route path="/compare/:slug" element={<CompareDetail />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </ErrorBoundary>
         </ModalProvider>
       </BrowserRouter>
       <Toaster richColors theme="dark" position="bottom-right" />
