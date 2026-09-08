@@ -15,7 +15,7 @@ export default function Compare() {
       <SEO
         title="Compare NUA to Other POS Platforms"
         description="A straight, feature-level comparison: not a takedown. Pick the platform you're weighing against NUA."
-        canonical="https://nuapos.com.au/compare"
+        path="/compare"
       />
       <PageHero
         eyebrow="Compare"

@@ -25,7 +25,7 @@ export default function About() {
       <SEO
         title="About: NUA"
         description="NUA exists because running a venue shouldn't mean logging into eight different systems before your first coffee."
-        canonical="https://nuapos.com.au/about"
+        path="/about"
       />
       <PageHero
         eyebrow="Company"

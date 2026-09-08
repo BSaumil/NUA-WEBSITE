@@ -18,7 +18,7 @@ export default function Docs() {
       <SEO
         title="Documentation: Setup Guides: NUA"
         description="Step-by-step instructions for getting POS, KDS, Bookings, Loyalty, the AI Agent and every other module live at your venue."
-        canonical="https://nuapos.com.au/docs"
+        path="/docs"
       />
       <PageHero
         eyebrow="Documentation"

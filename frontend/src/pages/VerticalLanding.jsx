@@ -7,7 +7,7 @@ import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import LeadCta from "@/components/LeadCta";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
-import { TRIAL_DAYS, SITE_URL } from "@/config/siteConfig";
+import { TRIAL_DAYS } from "@/config/siteConfig";
 import verticalsData from "@/data/verticalsData";
 import docsData from "@/data/docsData";
 import { plans } from "@/data/plansData";
@@ -22,7 +22,7 @@ export default function VerticalLanding() {
   if (!data) return <Navigate to="/solutions" replace />;
 
   const Icon = data.icon;
-  const canonical = `${SITE_URL}/${data.slug}`;
+  const canonicalPath = `/${data.slug}`;
   const modules = data.features
     .map((id) => docsData.find((d) => d.slug === id))
     .filter(Boolean);
@@ -42,7 +42,7 @@ export default function VerticalLanding() {
       <SEO
         title={data.metaTitle}
         description={data.metaDescription}
-        canonical={canonical}
+        path={canonicalPath}
         includeSoftware
         breadcrumb={[
           { name: "Home", path: "/" },

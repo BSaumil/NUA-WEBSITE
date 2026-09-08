@@ -24,7 +24,7 @@ export default function Careers() {
       <SEO
         title="Careers: NUA"
         description="We're a small team building the AI operating system for hospitality, looking for people who'd rather fix the real problem than ship another dashboard."
-        canonical="https://nuapos.com.au/careers"
+        path="/careers"
       />
       <PageHero
         eyebrow="Careers"

@@ -54,7 +54,7 @@ export default function AiAgent() {
       <SEO
         title="AI Agent: NUA"
         description="Meet NUA, the decision loop every module reports into. See exactly how it decides what to suggest, approve or execute."
-        canonical="https://nuapos.com.au/ai-agent"
+        path="/ai-agent"
         includeSoftware
       />
       <PageHero

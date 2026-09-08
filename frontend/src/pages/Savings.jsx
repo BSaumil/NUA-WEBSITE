@@ -34,7 +34,7 @@ export default function Savings() {
       <SEO
         title="Savings Calculator: NUA"
         description="Most venues pay for eight or nine separate systems. See the real monthly bill, itemised, next to a single NUA subscription."
-        canonical="https://nuapos.com.au/savings"
+        path="/savings"
       />
       <PageHero
         eyebrow="Total cost of ownership"

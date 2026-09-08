@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { buildGraph } from "@/lib/schema";
+import { canonicalUrl } from "@/config/siteConfig";
 
 function upsertMeta(attr, key, content) {
   let el = document.head.querySelector(`meta[${attr}="${key}"]`);
@@ -22,9 +23,15 @@ function snapshotMeta(attr, key) {
 }
 
 export default function SEO({
-  title, description, canonical, jsonLd, noIndex,
+  title, description, canonical, path, jsonLd, noIndex,
   breadcrumb, includeSoftware = false,
 }) {
+  // `path` is the preferred API: pages declare their own root-relative path and
+  // the origin is resolved once from SITE_URL, so moving the site to another
+  // domain is a configuration change rather than an edit to every page.
+  // `canonical` (a full absolute URL) still works for any caller that needs to
+  // point somewhere the route table doesn't describe.
+  const canonicalHref = path ? canonicalUrl(path) : canonical;
   // Every page carries the Organization + WebSite entity graph; `jsonLd` is
   // folded in as the page-specific node (FAQPage, HowTo, ...).
   const graph = noIndex
@@ -56,16 +63,16 @@ export default function SEO({
     if (noIndex) upsertMeta("name", "robots", "noindex, nofollow");
     // og:url must point at the page being shared, not the site root, or every
     // shared link resolves to the homepage in social previews.
-    if (canonical) upsertMeta("property", "og:url", canonical);
+    if (canonicalHref) upsertMeta("property", "og:url", canonicalHref);
 
-    if (canonical) {
+    if (canonicalHref) {
       let canonicalEl = document.head.querySelector('link[rel="canonical"]');
       if (!canonicalEl) {
         canonicalEl = document.createElement("link");
         canonicalEl.setAttribute("rel", "canonical");
         document.head.appendChild(canonicalEl);
       }
-      canonicalEl.setAttribute("href", canonical);
+      canonicalEl.setAttribute("href", canonicalHref);
     }
 
     if (graph) {
@@ -102,7 +109,7 @@ export default function SEO({
       if (el) el.remove();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [title, description, canonical, JSON.stringify(graph), noIndex]);
+  }, [title, description, canonicalHref, JSON.stringify(graph), noIndex]);
 
   return null;
 }

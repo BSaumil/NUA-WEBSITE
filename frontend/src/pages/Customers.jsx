@@ -12,7 +12,7 @@ export default function Customers() {
       <SEO
         title="Customers: NUA"
         description="From single-site cafés to multi-venue groups: here's who trusts NUA to run the floor."
-        canonical="https://nuapos.com.au/customers"
+        path="/customers"
       />
       <PageHero
         eyebrow="Customers"

@@ -25,7 +25,7 @@ export default function Status() {
       <SEO
         title="System Status: NUA"
         description="Live operational status of every NUA module."
-        canonical="https://nuapos.com.au/status"
+        path="/status"
       />
       <PageHero
         eyebrow="System Status"

@@ -33,7 +33,7 @@ export default function Blog() {
       <SEO
         title="Blog: NUA"
         description="Field notes from building an AI operating system for hospitality, and from the venues running on it."
-        canonical="https://nuapos.com.au/blog"
+        path="/blog"
       />
       <PageHero
         eyebrow="Blog"

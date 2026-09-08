@@ -36,7 +36,7 @@ export default function Resources() {
       <SEO
         title="Resources & FAQ: NUA"
         description="Guides, playbooks, documentation and FAQs for teams evaluating or onboarding onto NUA."
-        canonical="https://nuapos.com.au/resources"
+        path="/resources"
         jsonLd={faqJsonLd}
       />
       <PageHero

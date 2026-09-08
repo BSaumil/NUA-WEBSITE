@@ -10,7 +10,7 @@ export default function Press() {
       <SEO
         title="Press & Media: NUA"
         description="Resources for journalists and media covering NUA and the hospitality technology space."
-        canonical="https://nuapos.com.au/press"
+        path="/press"
       />
       <PageHero
         eyebrow="Press"
