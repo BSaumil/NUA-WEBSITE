@@ -1,0 +1,185 @@
+# EDITH — Emergency Deployment: Instantly Trace Home
+#
+# One manual action puts either website channel live on nuapos.com.au:
+#
+#   legacy  -> the parked pre-V2 site, built from the immutable
+#              website/legacy-2026-09-04 ref
+#   live    -> whatever main currently holds
+#
+# WHY THIS SHAPE, AND NOT A DOMAIN SWITCH
+#
+# Directive §4 asks for switching at the deployment/alias layer, and §3.5
+# forbids "rollback" meaning revert-commits / restore-files-by-hand /
+# force-push / redeploy-from-memory.
+#
+# GitHub Pages binds ONE custom domain per repository, via the single CNAME
+# file, and publishes to ONE github-pages environment. There is no alias layer
+# to repoint, so a true domain flip is impossible here (see
+# docs/website-v2/BLOCKERS_AND_STACK_RECONCILIATION.md).
+#
+# What this DOES give, which is the property that actually matters:
+#   - one action, no source edits, no force-push, no manual file restoration
+#   - deterministic: builds from an immutable ref, not from memory
+#   - reversible: run it again with the other channel
+#   - auditable: every run stamps build/edith.json into the deployed site
+#
+# It is a redeploy, not a repoint. Recovery is minutes (a build), not seconds
+# (a DNS/alias flip). That difference is honest and documented; moving to a
+# host with alias support is what closes it.
+name: EDITH
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Which website to put live on nuapos.com.au"
+        required: true
+        type: choice
+        options:
+          - legacy
+          - live
+      confirm:
+        description: 'Type EDITH to confirm this deploys to production'
+        required: true
+        type: string
+      reason:
+        description: "Why (recorded in the run and in edith.json)"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Shares the "pages" group with the normal deploy so an EDITH recall and a
+# main-branch deploy can never publish over each other. cancel-in-progress is
+# deliberately false: cancelling a half-finished production deploy is worse
+# than queueing behind it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  LEGACY_REF: website/legacy-2026-09-04
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require explicit confirmation
+        if: ${{ inputs.confirm != 'EDITH' }}
+        run: |
+          echo "::error::Confirmation failed. Type EDITH exactly to deploy to production."
+          exit 1
+      - name: Announce
+        run: |
+          echo "### EDITH" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| | |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Channel | \`${{ inputs.channel }}\` |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Requested by | ${{ github.actor }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Reason | ${{ inputs.reason || '(none given)' }} |" >> "$GITHUB_STEP_SUMMARY"
+
+  build:
+    needs: guard
+    runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ steps.pick.outputs.ref }}
+      sha: ${{ steps.stamp.outputs.sha }}
+    steps:
+      - id: pick
+        run: |
+          if [ "${{ inputs.channel }}" = "legacy" ]; then
+            echo "ref=${LEGACY_REF}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pick.outputs.ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+          cache-dependency-path: frontend/yarn.lock
+
+      # The legacy ref predates nothing relevant here — it carries its own
+      # lockfile — so the same frozen install applies to both channels.
+      - name: Install dependencies
+        working-directory: frontend
+        run: yarn install --frozen-lockfile
+
+      - name: Install Chromium for prerendering
+        working-directory: frontend
+        run: npx --yes playwright install --with-deps chromium
+
+      - name: Build (includes sitemap + prerender)
+        working-directory: frontend
+        run: CI=true yarn build
+
+      # Same gate as the normal deploy: never publish an unindexable shell,
+      # whichever channel is being restored.
+      - name: Verify prerendered output
+        working-directory: frontend
+        run: node scripts/verify-prerender.js
+
+      # Stamps the deployed site so `yarn edith status` (and anyone with a
+      # browser) can tell which channel is actually live, rather than inferring
+      # it from workflow history.
+      - id: stamp
+        name: Write deployment marker
+        run: |
+          SHA="$(git rev-parse HEAD)"
+          echo "sha=${SHA}" >> "$GITHUB_OUTPUT"
+          cat > frontend/build/edith.json <<JSON
+          {
+            "channel": "${{ inputs.channel }}",
+            "ref": "${{ steps.pick.outputs.ref }}",
+            "sha": "${SHA}",
+            "deployedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "deployedBy": "${{ github.actor }}",
+            "runId": "${{ github.run_id }}",
+            "reason": ${{ toJSON(inputs.reason) }},
+            "via": "edith"
+          }
+          JSON
+          cat frontend/build/edith.json
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Record outcome
+        run: |
+          {
+            echo "### EDITH complete"
+            echo ""
+            echo "Channel **${{ inputs.channel }}** is now live at ${{ steps.deployment.outputs.page_url }}"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Built from | \`${{ needs.build.outputs.ref }}\` |"
+            echo "| Commit | \`${{ needs.build.outputs.sha }}\` |"
+            echo ""
+            if [ "${{ inputs.channel }}" = "legacy" ]; then
+              echo "**To go back:** run EDITH again with channel \`live\`."
+            else
+              echo "**To recall the old site:** run EDITH again with channel \`legacy\`."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

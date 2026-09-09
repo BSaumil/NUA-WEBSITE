@@ -67,7 +67,8 @@
     "prebuild": "node scripts/check-site-url-parity.js && node scripts/generate-sitemap.js",
     "build": "craco build",
     "postbuild": "node scripts/prerender.js",
-    "test": "craco test"
+    "test": "craco test",
+    "edith": "node scripts/edith.js"
   },
   "browserslist": {
     "production": [
