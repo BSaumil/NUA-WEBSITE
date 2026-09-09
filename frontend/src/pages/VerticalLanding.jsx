@@ -130,7 +130,7 @@ export default function VerticalLanding() {
         {/* How the workflow runs */}
         <div className="mt-12">
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            How a service runs on NUA
+            {data.runsHeading ?? "How a service runs on NUA"}
           </h2>
           <ol className="mt-5 space-y-3">
             {data.workflow.map((w, i) => (
@@ -165,7 +165,7 @@ export default function VerticalLanding() {
         {imagery && (
           <div className="mt-12">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              What that looks like in the room
+              {data.scenesHeading ?? "What that looks like in the room"}
             </h2>
             <div className="mt-5 grid sm:grid-cols-2 gap-4">
               {imagery.scenes.map((scene, i) => (

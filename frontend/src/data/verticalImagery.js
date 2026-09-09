@@ -120,6 +120,40 @@ const verticalImagery = {
     ],
   },
 
+  "retail-pos": {
+    hero: {
+      group: "retail",
+      id: "sell-beautifully-boutique-pos-experience",
+      alt: "A boutique counter mid-sale, with the terminal showing the item being rung up and stock behind.",
+    },
+    scenes: [
+      {
+        group: "retail",
+        id: "boutique-barcode-scanning-experience",
+        alt: "A barcode being scanned at the counter, the product's size and colour variant shown on screen.",
+        caption: "Size and colour are variants of one product, not a dozen items.",
+      },
+      {
+        group: "retail",
+        id: "from-online-order-to-pickup",
+        alt: "An online order being handed over at a collection point in store.",
+        caption: "Online and shop floor draw on the same stock number.",
+      },
+      {
+        group: "retail",
+        id: "effortless-returns-happier-customers",
+        alt: "A return being processed at the counter, the original sale shown on screen.",
+        caption: "Returns run through the original record, so stock and money reconcile.",
+      },
+      {
+        group: "retail",
+        id: "ai-powered-retail-reorder-insights",
+        alt: "A replenishment screen proposing reorder quantities against recent sell-through.",
+        caption: "Reorders proposed from what sold, for you to approve.",
+      },
+    ],
+  },
+
   "hospitality-pos": {
     hero: {
       group: "enterprise-multi-location",

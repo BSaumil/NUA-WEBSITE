@@ -350,6 +350,212 @@ const imageManifest = {
         1600
       ]
     }
+  ],
+  "retail": [
+    {
+      "colour": "#bfafa3",
+      "height": 941,
+      "id": "ai-powered-retail-reorder-insights",
+      "src": "/img/retail/ai-powered-retail-reorder-insights-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#bfa897",
+      "height": 941,
+      "id": "boutique-barcode-scanning-experience",
+      "src": "/img/retail/boutique-barcode-scanning-experience-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#a78f7c",
+      "height": 941,
+      "id": "boutique-checkout-with-smart-stock-insights",
+      "src": "/img/retail/boutique-checkout-with-smart-stock-insights-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#c0a189",
+      "height": 941,
+      "id": "click-collect-store-transfers",
+      "src": "/img/retail/click-collect-store-transfers-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#baa493",
+      "height": 941,
+      "id": "effortless-returns-happier-customers",
+      "src": "/img/retail/effortless-returns-happier-customers-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#9d9288",
+      "height": 941,
+      "id": "every-store-one-view",
+      "src": "/img/retail/every-store-one-view-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#bf9f88",
+      "height": 941,
+      "id": "from-online-order-to-pickup",
+      "src": "/img/retail/from-online-order-to-pickup-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#cfbdb8",
+      "height": 941,
+      "id": "market-smarter-in-a-brighter-boutique",
+      "src": "/img/retail/market-smarter-in-a-brighter-boutique-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#af9f91",
+      "height": 941,
+      "id": "move-stock-with-confidence",
+      "src": "/img/retail/move-stock-with-confidence-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#876e5f",
+      "height": 941,
+      "id": "never-run-out-of-best-sellers",
+      "src": "/img/retail/never-run-out-of-best-sellers-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#ba9d88",
+      "height": 941,
+      "id": "nua-s-brighter-retail-experience",
+      "src": "/img/retail/nua-s-brighter-retail-experience-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#b5a393",
+      "height": 941,
+      "id": "restock-smarter-with-nua",
+      "src": "/img/retail/restock-smarter-with-nua-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#c8b8ad",
+      "height": 941,
+      "id": "retail-clarity-dashboard-hero",
+      "src": "/img/retail/retail-clarity-dashboard-hero-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#b9a28f",
+      "height": 941,
+      "id": "retail-inventory-dashboard-in-a-warm-store-setting",
+      "src": "/img/retail/retail-inventory-dashboard-in-a-warm-store-setting-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#b8a28f",
+      "height": 941,
+      "id": "seamless-returns-and-exchanges-experience",
+      "src": "/img/retail/seamless-returns-and-exchanges-experience-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#b39f8d",
+      "height": 941,
+      "id": "sell-beautifully-boutique-pos-experience",
+      "src": "/img/retail/sell-beautifully-boutique-pos-experience-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#bca999",
+      "height": 941,
+      "id": "smart-retail-one-system",
+      "src": "/img/retail/smart-retail-one-system-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    }
   ]
 };
 
