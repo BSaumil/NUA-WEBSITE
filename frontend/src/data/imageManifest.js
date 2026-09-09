@@ -4,6 +4,66 @@
 // dominant colour, so <Figure> can emit a correct srcset and reserve
 // the right box before the image arrives.
 const imageManifest = {
+  "ash-intelligence": [
+    {
+      "colour": "#bfafa3",
+      "height": 941,
+      "id": "ai-powered-retail-reorder-insights",
+      "src": "/img/ash-intelligence/ai-powered-retail-reorder-insights-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#c0b2a7",
+      "height": 1254,
+      "id": "forecasting-tomorrow-in-hospitality",
+      "src": "/img/ash-intelligence/forecasting-tomorrow-in-hospitality-1024.webp",
+      "width": 1254,
+      "widths": [
+        640,
+        1024
+      ]
+    },
+    {
+      "colour": "#c1ae9d",
+      "height": 941,
+      "id": "nua-modern-business-operating-system",
+      "src": "/img/ash-intelligence/nua-modern-business-operating-system-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#897269",
+      "height": 1254,
+      "id": "protect-margins-automatically",
+      "src": "/img/ash-intelligence/protect-margins-automatically-1024.webp",
+      "width": 1254,
+      "widths": [
+        640,
+        1024
+      ]
+    },
+    {
+      "colour": "#918276",
+      "height": 941,
+      "id": "restaurant-pulse-dashboard-marketing-scene",
+      "src": "/img/ash-intelligence/restaurant-pulse-dashboard-marketing-scene-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    }
+  ],
   "enterprise-multi-location": [
     {
       "colour": "#9d9288",
@@ -51,6 +111,53 @@ const imageManifest = {
         640,
         1024,
         1600
+      ]
+    }
+  ],
+  "finance-compliance": [
+    {
+      "colour": "#ae9787",
+      "height": 1254,
+      "id": "bas-and-gst-cafe-dashboard",
+      "src": "/img/finance-compliance/bas-and-gst-cafe-dashboard-1024.webp",
+      "width": 1254,
+      "widths": [
+        640,
+        1024
+      ]
+    },
+    {
+      "colour": "#928178",
+      "height": 1254,
+      "id": "connected-accounting-for-every-sale",
+      "src": "/img/finance-compliance/connected-accounting-for-every-sale-1024.webp",
+      "width": 1254,
+      "widths": [
+        640,
+        1024
+      ]
+    },
+    {
+      "colour": "#978476",
+      "height": 941,
+      "id": "nua-hospitality-invoice-insights",
+      "src": "/img/finance-compliance/nua-hospitality-invoice-insights-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#7b665b",
+      "height": 1254,
+      "id": "payroll-built-for-australia",
+      "src": "/img/finance-compliance/payroll-built-for-australia-1024.webp",
+      "width": 1254,
+      "widths": [
+        640,
+        1024
       ]
     }
   ],
