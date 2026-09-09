@@ -570,7 +570,7 @@ export function DeliveryHubShowcase() {
   );
 }
 
-/* J: Booking & waitlist: auto-converting waitlist, zero double-bookings */
+/* J: Booking & waitlist: auto-converting waitlist, conflict-free by design */
 const waitlistPool = [
   "Waitlist #3 → Table 6 confirmed",
   "Waitlist #4 → Table 2 confirmed",

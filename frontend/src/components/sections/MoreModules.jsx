@@ -8,7 +8,7 @@ import {
 } from "@/components/graphics/ShowcaseGraphics";
 
 const items = [
-  { Component: POSShowcase, impact: "NUA: Checkout OS", color: "#f58c14", title: "Point of Sale", body: "Fast checkout that keeps working offline. Charges cards, splits bills, never goes down." },
+  { Component: POSShowcase, impact: "NUA: Checkout OS", color: "#f58c14", title: "Point of Sale", body: "Fast checkout that keeps working offline. Charges cards, splits bills, built to keep trading offline." },
   { Component: KDSShowcase, impact: "NUA: Kitchen OS", color: "#ec4899", title: "Kitchen Display", body: "Tickets route to the right station instantly, aging tracked to the second." },
   { Component: MarketingShowcase, impact: "NUA: Marketing OS", color: "#ec4899", title: "Marketing Automation", body: "Segments and win-back offers that trigger themselves: 24 hours a day." },
   { Component: TemperatureMonitoringShowcase, impact: "NUA: Compliance OS", color: "#f58c14", title: "Temperature Monitoring", body: "Fridges and freezers logged automatically: alerts sent the instant something drifts." },
