@@ -54,6 +54,24 @@ jobs:
         working-directory: frontend
         run: node scripts/verify-prerender.js
 
+      # Same marker EDITH writes, so "which website is live?" is always
+      # answerable from the deployed site itself rather than inferred from
+      # workflow history. See .github/workflows/edith.yml.
+      - name: Write deployment marker
+        run: |
+          cat > frontend/build/edith.json <<JSON
+          {
+            "channel": "live",
+            "ref": "${{ github.ref_name }}",
+            "sha": "${{ github.sha }}",
+            "deployedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "deployedBy": "${{ github.actor }}",
+            "runId": "${{ github.run_id }}",
+            "reason": "",
+            "via": "deploy-pages"
+          }
+          JSON
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
