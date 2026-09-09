@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "(dnf install -y nss nspr atk at-spi2-atk cups-libs libdrm libXcomposite libXdamage libXext libXfixes libXrandr mesa-libgbm alsa-lib pango libxkbcommon || yum install -y nss nspr atk at-spi2-atk cups-libs libdrm libXcomposite libXdamage libXext libXfixes libXrandr mesa-libgbm alsa-lib pango libxkbcommon || echo 'system deps unavailable, continuing') && yarn install --frozen-lockfile && npx --yes playwright install chromium",
+  "installCommand": "bash scripts/vercel-install.sh",
   "buildCommand": "yarn build && node scripts/verify-prerender.js",
   "outputDirectory": "build",
   "framework": null,
