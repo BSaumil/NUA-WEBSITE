@@ -22,6 +22,11 @@ const https = require("https");
 
 const LEGACY_REF = "website/legacy-2026-09-04";
 const LEGACY_TAG = "nua-web-legacy-2026-09-04";
+// The domain the legacy branch's CNAME is expected to bind. Named rather than
+// inlined because it is scheduled to change: once V2 moves to another host and
+// takes the apex, legacy is served from a subdomain and its CNAME changes with
+// it. A verify failure here should send you to that migration, not to a hunt.
+const LEGACY_DOMAIN = "nuapos.com.au";
 const REPO = "BSaumil/NUA-WEBSITE";
 const ACTIONS_URL = `https://github.com/${REPO}/actions/workflows/edith.yml`;
 
@@ -132,14 +137,66 @@ function verify() {
   const remote = sh(`git ls-remote --heads origin ${LEGACY_REF}`);
   checks.push([`legacy branch on remote`, !!remote, remote ? remote.split(/\s+/)[0].slice(0, 7) : "MISSING"]);
 
-  const lock = sh(`git cat-file -e origin/${LEGACY_REF}:frontend/yarn.lock && echo ok`);
+  // The content checks below read the legacy tree. That tree is NOT in the
+  // local object store of a shallow or single-branch clone — actions/checkout
+  // fetches only the ref under test — so reading `origin/<LEGACY_REF>` there
+  // fails for want of the ref, which is indistinguishable from the file being
+  // absent. That is how this check reported a perfectly intact legacy channel
+  // as "NOT safely recallable" on its first CI run: three false FAILs, from a
+  // clone that had simply never fetched the branch.
+  //
+  // Fetch the ref explicitly (depth 1, so it stays cheap in a shallow clone)
+  // and read from FETCH_HEAD. The result then describes the branch, not the
+  // clone it happens to be verified from.
+  //
+  // sh() returns null when a command fails and "" when it succeeds silently;
+  // `git fetch` writes only to stderr, so "" is the success case here.
+  // Only worth fetching if the branch is actually there. Keeping these two
+  // apart matters: a branch that is GONE is the loudest failure this tool
+  // exists to catch, and must never be softened into "could not check".
+  const fetched = remote ? sh(`git fetch --depth=1 --no-tags origin ${LEGACY_REF}`) !== null : false;
+
+  if (!fetched) {
+    const CONTENT_CHECKS = [
+      "legacy carries yarn.lock (--frozen-lockfile)",
+      "legacy carries the prerender verifier",
+      "legacy CNAME binds the production domain",
+    ];
+    console.log(
+      `  ${remote ? C.green("PASS") : C.red("FAIL")}  ${checks[0][0].padEnd(44)} ${C.dim(checks[0][2])}`
+    );
+    for (const label of CONTENT_CHECKS) {
+      console.log(
+        `  ${C.amber("????")}  ${label.padEnd(44)} ` +
+          C.dim(remote ? "could not fetch legacy ref" : "no branch to check")
+      );
+    }
+    console.log(
+      remote
+        ? // A safety check that says "broken" when it means "could not check"
+          // trains people to ignore it — and is then disbelieved on the day
+          // legacy really is broken. Report uncertainty as uncertainty, the
+          // way `status` already does.
+          C.amber(
+            `\n  Could NOT verify the legacy channel — 'git fetch origin ${LEGACY_REF}' failed.` +
+              `\n  This is not evidence that legacy is broken. Re-run with network access to origin.\n`
+          )
+        : C.red(
+            `\n  Legacy channel is NOT safely recallable — the branch ${LEGACY_REF} is gone from origin.` +
+              `\n  Recreate it: git branch ${LEGACY_REF} 2a5962f && git push origin ${LEGACY_REF}\n`
+          )
+    );
+    process.exit(1);
+  }
+
+  const lock = sh(`git cat-file -e FETCH_HEAD:frontend/yarn.lock && echo ok`);
   checks.push([`legacy carries yarn.lock (--frozen-lockfile)`, !!lock, lock ? "present" : "absent"]);
 
-  const verifier = sh(`git cat-file -e origin/${LEGACY_REF}:frontend/scripts/verify-prerender.js && echo ok`);
+  const verifier = sh(`git cat-file -e FETCH_HEAD:frontend/scripts/verify-prerender.js && echo ok`);
   checks.push([`legacy carries the prerender verifier`, !!verifier, verifier ? "present" : "absent"]);
 
-  const cname = sh(`git show origin/${LEGACY_REF}:frontend/public/CNAME`);
-  checks.push([`legacy CNAME binds the production domain`, cname === "nuapos.com.au", cname || "missing"]);
+  const cname = sh(`git show FETCH_HEAD:frontend/public/CNAME`);
+  checks.push([`legacy CNAME binds the production domain`, cname === LEGACY_DOMAIN, cname || "missing"]);
 
   let ok = true;
   for (const [label, pass, detail] of checks) {
