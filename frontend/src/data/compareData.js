@@ -1,3 +1,5 @@
+import docsData from "./docsData";
+
 // Comparison content is intentionally framed around general, commonly-known category
 // positioning rather than specific claims about a named competitor's current pricing or
 // policies (which change often and aren't something we track live). Each page carries its
@@ -11,7 +13,12 @@ const sharedRows = [
   { label: "Loyalty wallet pass (Apple/Google Wallet)", nua: "Included" },
   { label: "Multi-location dashboard", nua: "From Growth plan" },
   { label: "Pricing published online", nua: "Yes, always" },
-  { label: "Modules under one login", nua: "10" },
+  // Derived rather than written down. This said 10 while 18 modules were
+  // documented, which understated the product by eight on the one page where a
+  // buyer is comparing it against something else. Counting the documented
+  // modules means adding a module updates the claim, and nobody has to
+  // remember that this row exists.
+  { label: "Modules under one login", nua: String(docsData.length) },
 ];
 
 const compareData = [

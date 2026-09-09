@@ -51,7 +51,7 @@ export const webSiteSchema = {
 export const softwareApplicationSchema = {
   "@type": "SoftwareApplication",
   "@id": `${SITE_URL}/#software`,
-  name: "NUA Restaurant OS",
+  name: "NUA POS",
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Point of Sale Software",
   operatingSystem: "Web, iOS, Android",

@@ -5,8 +5,10 @@ import { ArrowRight, CheckCircle2, AlertTriangle, Mail, Clock } from "lucide-rea
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
+import Figure from "@/components/Figure";
 import { SUPPORT_EMAIL } from "@/config/siteConfig";
 import docsData from "@/data/docsData";
+import docsImagery from "@/data/docsImagery";
 
 export default function DocDetail() {
   const { slug } = useParams();
@@ -15,6 +17,9 @@ export default function DocDetail() {
   if (!data) return <Navigate to="/docs" replace />;
 
   const Icon = data.icon;
+  // Optional: modules with no scene that genuinely shows their work render
+  // exactly as before rather than carrying a loosely related photograph.
+  const imagery = docsImagery[data.slug];
   const related = docsData.filter((d) => data.related.includes(d.slug));
   const canonicalPath = `/docs/${data.slug}`;
   const howToJsonLd = {
@@ -44,6 +49,23 @@ export default function DocDetail() {
         accent={data.color}
         crumb={data.title}
       />
+
+      {/* The module at work. Eager: it is in the viewport on arrival, so
+          deferring it would only move the largest paint later. */}
+      {imagery && (
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-10 -mt-2 mb-12">
+          <div className="overflow-hidden rounded-3xl border border-white/5">
+            <Figure
+              group={imagery.group}
+              id={imagery.id}
+              alt={imagery.alt}
+              priority
+              rounded=""
+              sizes="(min-width: 896px) 896px, 100vw"
+            />
+          </div>
+        </div>
+      )}
 
       <div className="relative max-w-4xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
         {/* Header strip */}

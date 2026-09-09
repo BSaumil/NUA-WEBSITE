@@ -143,7 +143,7 @@ const docsData = [
     icon: BrainCircuit,
     color: "#8b5cf6",
     category: "AI",
-    title: "NUA AI Agent",
+    title: "NUA Agent",
     tagline: "Turn the agent from a monitor into an operator.",
     summary: "The autonomous layer that watches POS, kitchen, inventory and loyalty together and acts on what it sees.",
     setupTime: "10–15 min (after other modules)",
@@ -374,7 +374,7 @@ const docsData = [
     setupTime: "10 min (after Inventory)",
     prerequisites: [
       "Inventory & Pantry set up with recipe costing",
-      "NUA AI Agent enabled (Suggest or Autonomous mode)",
+      "NUA Agent enabled (Suggest or Autonomous mode)",
     ],
     steps: [
       { title: "Confirm recipe costing", body: "Check that menu items have accurate recipe costs under Menu → Recipes — this is what pricing suggestions are calculated from." },

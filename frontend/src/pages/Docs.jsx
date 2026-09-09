@@ -23,7 +23,7 @@ export default function Docs() {
       <PageHero
         eyebrow="Documentation"
         title="Setup guides for every module."
-        subtitle="Step-by-step instructions for getting POS, KDS, Bookings, Loyalty, the NUA AI Agent and every other module live at your venue."
+        subtitle="Step-by-step instructions for getting POS, KDS, Bookings, Loyalty, the NUA Agent and every other module live at your venue."
         accent="#8b5cf6"
         crumb="Documentation"
       />

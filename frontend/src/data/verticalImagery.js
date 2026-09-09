@@ -154,6 +154,40 @@ const verticalImagery = {
     ],
   },
 
+  "services-pos": {
+    hero: {
+      group: "professional-services",
+      id: "warm-spa-reception-with-smart-booking-ui",
+      alt: "A calm reception desk with the day's appointments shown on screen as a client arrives.",
+    },
+    scenes: [
+      {
+        group: "professional-services",
+        id: "appointments-under-control-at-nua",
+        alt: "A day's appointment calendar on screen, split across several practitioners.",
+        caption: "Bookings made against real availability, per practitioner.",
+      },
+      {
+        group: "professional-services",
+        id: "know-every-client-rebook-smarter",
+        alt: "A client record open at check-in, showing previous visits and preferences.",
+        caption: "History and preferences up before the appointment starts.",
+      },
+      {
+        group: "professional-services",
+        id: "spa-memberships-made-simple",
+        alt: "A membership balance shown against a client's account at the counter.",
+        caption: "Package and membership balances drawn down at checkout.",
+      },
+      {
+        group: "professional-services",
+        id: "from-arrival-to-payment-handled",
+        alt: "A client settling at reception, the service and a retail product on one screen.",
+        caption: "Service, products and redemptions settle on one record.",
+      },
+    ],
+  },
+
   "hospitality-pos": {
     hero: {
       group: "enterprise-multi-location",
