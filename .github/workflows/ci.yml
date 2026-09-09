@@ -1,0 +1,96 @@
+# Pre-merge validation.
+#
+# Until now the only workflow was deploy-pages.yml, which triggers on
+# `push: [main]`. Nothing ran on a pull request, so every check — build,
+# sitemap, prerender, verify — happened *after* merge, as part of deploying to
+# production. A broken change was caught by the live site, not by review
+# (recorded as risk R5 in docs/website-v2/CURRENT_SITE_AUDIT.md).
+#
+# This runs the same checks the deploy runs, on the PR, before merge. It
+# deliberately does NOT deploy: publishing stays the sole responsibility of
+# deploy-pages.yml (on main) and edith.yml (manual recall), so there is exactly
+# one path to production.
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  # Also on main so a direct push is validated even though the deploy would
+  # catch it — a green tick on the commit is cheaper to read than a deploy log.
+  push:
+    branches: [main]
+
+# A superseded PR revision does not need finishing.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build, prerender and verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+          cache-dependency-path: frontend/yarn.lock
+
+      # Same frozen install as the deploy: a PR that drifts yarn.lock from
+      # package.json fails here rather than on the way to production.
+      - name: Install dependencies
+        working-directory: frontend
+        run: yarn install --frozen-lockfile
+
+      - name: Install Chromium for prerendering
+        working-directory: frontend
+        run: npx --yes playwright install --with-deps chromium
+
+      # `yarn build` runs prebuild (canonical-origin parity check + sitemap)
+      # and postbuild (prerender). CI=true makes CRA treat warnings as errors.
+      - name: Build (parity check, sitemap, prerender)
+        working-directory: frontend
+        run: CI=true yarn build
+
+      - name: Verify prerendered output
+        working-directory: frontend
+        run: node scripts/verify-prerender.js
+
+      # Guards the recall path itself: if the legacy branch is deleted, loses
+      # its lockfile, or its CNAME changes, EDITH would fail at the moment it
+      # is actually needed. Cheap to check on every PR.
+      - name: Verify EDITH can still recall the legacy site
+        working-directory: frontend
+        run: node scripts/edith.js verify
+
+  claims:
+    name: Absolute-claim guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # §26 forbids absolute claims about outcomes NUA does not control. Six
+      # were live in production before being removed in #38, and one of them
+      # survived a source-level sweep because it was JSX text rather than a
+      # quoted string. A grep is the only thing that stops them coming back.
+      #
+      # Scoped to phrases that promise an outcome. Product-behaviour absolutes
+      # ("zero paper tickets", "zero clicks") are deliberately allowed — see
+      # docs/website-v2/CLAIMS_REGISTER.md for that distinction.
+      - name: No indefensible absolute claims in site copy
+        working-directory: frontend/src
+        run: |
+          PATTERN='zero downtime|zero fines|zero double-book|never goes down|zero manual logs|100% uptime|guaranteed uptime'
+          if grep -rniE "$PATTERN" . --include=*.jsx --include=*.js; then
+            echo ""
+            echo "::error::Absolute outcome claim found in site copy."
+            echo "These promise results NUA does not control (regulators, banks, networks)."
+            echo "See docs/website-v2/CLAIMS_REGISTER.md for approved wording."
+            exit 1
+          fi
+          echo "No indefensible absolute claims found."
