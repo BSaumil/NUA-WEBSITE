@@ -47,6 +47,16 @@ Absolute in form but describing the software's own design, not a promised outcom
 
 ## 3. 🟠 Needs owner verification before V2
 
+> **Owner decision, 2026-09-09: leave the wording in section 3 unchanged for now.**
+>
+> These five were put to the owner and deliberately deferred rather than
+> overlooked. They stay live in their current wording. The register keeps them
+> listed so the decision is a matter of record and they are re-examined before
+> V2 amplifies them, rather than quietly becoming permanent by default.
+>
+> Item 1 ("$0 markup") remains the highest-risk of the five and the one most
+> likely to be relied on by a buyer.
+
 Not changed, because they may well be true — but nothing in the repository evidences them, and §26 requires evidence rather than assumption.
 
 | # | Claim | Where | What must be confirmed | Owner |

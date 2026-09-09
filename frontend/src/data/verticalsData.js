@@ -1,4 +1,4 @@
-import { UtensilsCrossed, Coffee, Wine, Building2 } from "lucide-react";
+import { UtensilsCrossed, Coffee, Wine, Building2, ShoppingBag } from "lucide-react";
 
 /**
  * High-intent vertical landing pages.
@@ -164,6 +164,55 @@ const verticalsData = [
       { q: "How many locations does NUA support?", a: "Growth covers up to 10 locations; Enterprise supports unlimited locations and users with franchise dashboards and role-based access control." },
       { q: "Can we compare performance across our venues?", a: "Portfolio benchmarking compares your own locations against each other from day one. Anonymized comparison against similar venues elsewhere on the network is a separate, opt-in Enterprise feature." },
       { q: "How is compliance handled across sites?", a: "Compliance Automation tracks temperature logs, staff certifications and inspection checklists per venue, with group-level visibility of which sites are current and which are not." },
+    ],
+  },
+  {
+    slug: "retail-pos",
+    icon: ShoppingBag,
+    color: "#0ea5e9",
+    eyebrow: "Retail POS",
+    // Retail is the first non-hospitality vertical, so the shared page copy
+    // ("a service", "the room") is overridden here rather than reworded
+    // globally — the hospitality pages outrank on those terms and should keep
+    // their language.
+    runsHeading: "How a sale runs on NUA",
+    scenesHeading: "What that looks like in the store",
+    title: "Retail POS that knows what sold, what is left and what to reorder.",
+    metaTitle: "Retail POS System Australia: NUA",
+    metaDescription:
+      "An Australian retail POS running checkout, barcodes and variants, stock across stores, click and collect, returns and loyalty in one system, with replenishment suggested from what actually sold.",
+    intro:
+      "Most retail POS systems are a till with a stock list attached. The online store counts separately, transfers between stores are a phone call, and what to reorder is a judgement made from memory once the shelf already looks thin.",
+    forWho:
+      "Boutiques, multi-store retailers and stockists selling across a counter and online.",
+    replaces: [
+      "A till that only rings up sales",
+      "A separate spreadsheet for stock counts and transfers",
+      "A disconnected online store with its own inventory",
+      "Manual reorder decisions made from memory",
+      "A standalone loyalty or gift-card product",
+    ],
+    pains: [
+      "Stock on hand is accurate at the last stocktake and drifting ever since",
+      "A best-seller runs out because nothing flagged it before the shelf did",
+      "An online order sells an item the shop floor has already sold",
+      "Returns and exchanges are handled differently by whoever is on",
+    ],
+    workflow: [
+      { step: "Scanned and sold", body: "Barcode or variant lookup at the counter, with size and colour handled as variants of one product rather than separate items." },
+      { step: "Stock decremented", body: "On-hand drops as the sale completes, across every channel at once, so the shop floor and the online store read from the same number." },
+      { step: "Customer recognised", body: "Purchase history and loyalty status come up at the counter, so the conversation starts from what they have bought before." },
+      { step: "Replenishment suggested", body: "Reorder quantities are proposed from actual sell-through rather than a fixed reorder point, and surfaced before the shelf empties." },
+      { step: "Returned or collected", body: "Returns, exchanges and click-and-collect pickups run through the same record, so the item and the money reconcile without a manual adjustment." },
+    ],
+    features: ["pos", "inventory", "loyalty", "analytics", "staff", "loss-prevention"],
+    faqs: [
+      { q: "Does NUA handle size and colour variants?", a: "Yes. Variants belong to one product, so stock, reporting and reordering treat a run of sizes as a single line rather than a dozen unrelated items." },
+      { q: "Can it sell across a shop floor and an online store?", a: "Yes. Both draw on the same stock record, so a sale in either place moves the same number rather than two that reconcile later." },
+      { q: "How does it decide what to reorder?", a: "Replenishment is proposed from sell-through, current on-hand and lead time, and is presented as a suggestion for you to approve rather than an order placed automatically." },
+      { q: "Can we move stock between stores?", a: "Yes. Transfers are recorded against both locations, so on-hand at each store reflects the movement rather than needing a manual count afterwards." },
+      { q: "Does it work if the internet drops?", a: "The terminal is built to keep taking sales offline and reconcile when the connection returns. Card processing still depends on your payment provider and network." },
+      { q: "How many stores does NUA support?", a: "Growth covers up to 10 locations; Enterprise supports unlimited locations and users with role-based access control." },
     ],
   },
 ];
