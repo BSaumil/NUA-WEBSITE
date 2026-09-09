@@ -2,6 +2,7 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Sparkles, TrendingUp, Users, DollarSign, Clock, Zap, Mic } from "lucide-react";
 import LiveNumber from "@/components/graphics/LiveNumber";
+import RotatingTrade from "@/components/graphics/RotatingTrade";
 import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
 
@@ -42,7 +43,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#f58c14] animate-pulse-dot" />
-            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">Introducing NUA: Your AI Restaurant Manager</span>
+            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">One system for hospitality, retail and services</span>
           </div>
         </motion.div>
 
@@ -58,9 +59,7 @@ export default function Hero() {
           AI-Powered Operating
           <br />
           System for Modern{" "}
-          <span className="relative inline-block">
-            <span className="text-shimmer">Hospitality</span>
-          </span>
+          <RotatingTrade />
         </h1>
 
         {/* Subheadline */}
@@ -70,7 +69,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-7 max-w-2xl mx-auto text-center text-base sm:text-lg text-[#a1a1aa] leading-relaxed"
         >
-          POS, Reservations, Loyalty, Inventory, Staff, Marketing, and an autonomous AI agent: unified into one intelligent platform.
+          Point of sale, bookings, stock, staff, loyalty and marketing in one platform, with NUA Agent handling the admin between them.
         </motion.p>
 
         {/* CTAs */}
@@ -244,7 +243,7 @@ export default function Hero() {
 
         {/* Trust strip */}
         <div className="mt-16 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Trusted by next-generation hospitality operators*</p>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Illustrative of the businesses NUA is built for*</p>
           <div className="mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
             <motion.div
               className="flex items-center gap-14 w-max"
@@ -274,7 +273,7 @@ export default function Hero() {
               </div>
             </motion.div>
           </div>
-          <p className="mt-3 font-mono text-[10px] text-[#a1a1aa]">*Illustrative venue names for evaluation purposes.</p>
+          <p className="mt-3 font-mono text-[10px] text-[#a1a1aa]">*Illustrative business names for evaluation purposes, not customers.</p>
         </div>
       </div>
     </section>

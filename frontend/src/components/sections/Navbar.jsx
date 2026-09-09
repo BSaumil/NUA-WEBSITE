@@ -41,7 +41,7 @@ export default function Navbar() {
         <Link to="/" data-testid="navbar-logo" className="flex items-center gap-2 group">
           <BrandIcon size={32} className="drop-shadow-[0_4px_12px_rgba(139,92,246,0.3)]" />
           <span className="font-display text-xl font-bold text-white tracking-tight">NUA</span>
-          <span className="hidden sm:inline-block font-mono text-[10px] text-[#a1a1aa] uppercase tracking-widest border border-white/10 rounded-full px-2 py-0.5 ml-1">Restaurant OS</span>
+          <span className="hidden sm:inline-block font-mono text-[10px] text-[#a1a1aa] uppercase tracking-widest border border-white/10 rounded-full px-2 py-0.5 ml-1">Operating System</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

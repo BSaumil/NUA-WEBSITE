@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
+import BusinessModes from "@/components/sections/BusinessModes";
 import Modules from "@/components/sections/Modules";
 import NewFeatures from "@/components/sections/NewFeatures";
 import MeetNua from "@/components/sections/MeetNua";
@@ -24,13 +25,14 @@ export default function Landing() {
   return (
     <main data-testid="landing-page" className="min-h-screen bg-nua-bg text-[#eaeaea] font-body antialiased overflow-x-hidden">
       <SEO
-        title="NUA: Restaurant OS"
-        description="Point of sale built for independent hospitality venues. Payments, bookings, loyalty and forecasting in one system."
+        title="NUA: The Operating System for Modern Business"
+        description="One operating system for hospitality, retail and service businesses in Australia: point of sale, bookings, stock, staff, loyalty and forecasting, with NUA Agent handling the admin between them."
         path="/"
         includeSoftware
       />
       <Navbar />
       <Hero />
+      <BusinessModes />
       <Modules />
       <NewFeatures />
       <MeetNua />
