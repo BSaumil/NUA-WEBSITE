@@ -1,0 +1,118 @@
+# Deploy the built site to Vercel.
+#
+# Vercel cannot build this site itself. The build prerenders 108 routes with
+# Playwright, and Vercel's build image has neither the browser nor the system
+# libraries it needs (libnss3, libnspr4); `playwright install-deps` only
+# supports Debian and Ubuntu, and Vercel runs Amazon Linux. Two deployments
+# were tried and both failed there — first on the missing browser, then on the
+# missing libraries.
+#
+# So the build stays here, where it already works and is already verified on
+# every pull request, and Vercel receives finished output via --prebuilt. That
+# also keeps a single build definition and a single verification gate: the same
+# `yarn build` a contributor runs, followed by the same verify-prerender that
+# gates the Pages deploy. Nothing publishes unless the prerendered output is
+# sound.
+#
+# This runs ALONGSIDE deploy-pages.yml during the migration. GitHub Pages still
+# serves nuapos.com.au; this publishes the same commit to Vercel so it can be
+# compared on a .vercel.app URL before any DNS changes. See
+# docs/website-v2/VERCEL_MIGRATION_PLAN.md — the apex does not move until the
+# owner approves step 6.
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: vercel
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Build and deploy prebuilt output
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      # The secrets may not exist yet. Skipping is correct rather than failing:
+      # until the owner adds them, Pages is still the only host and a red X on
+      # every commit would be noise about a migration that has not started.
+      - name: Check for Vercel credentials
+        id: creds
+        run: |
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Vercel secrets not configured — skipping. Add VERCEL_TOKEN, VERCEL_ORG_ID and VERCEL_PROJECT_ID to enable."
+          else
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.creds.outputs.present == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.creds.outputs.present == 'true'
+        with:
+          node-version: 20
+          cache: yarn
+          cache-dependency-path: frontend/yarn.lock
+
+      - name: Install dependencies
+        if: steps.creds.outputs.present == 'true'
+        working-directory: frontend
+        run: yarn install --frozen-lockfile
+
+      - name: Install Chromium for prerendering
+        if: steps.creds.outputs.present == 'true'
+        working-directory: frontend
+        run: npx --yes playwright install --with-deps chromium
+
+      - name: Build (parity check, image provenance, sitemap, prerender)
+        if: steps.creds.outputs.present == 'true'
+        working-directory: frontend
+        run: CI=true yarn build
+
+      # The gate. A deployment that produced empty or duplicate pages is
+      # abandoned here, before anything reaches Vercel.
+      - name: Verify prerendered output
+        if: steps.creds.outputs.present == 'true'
+        working-directory: frontend
+        run: node scripts/verify-prerender.js
+
+      # `vercel build` would rebuild from source and hit the same Playwright
+      # wall, so the already-built output is staged into .vercel/output as a
+      # static build instead. This is Vercel's Build Output API v3: a plain
+      # directory of files served as-is, with config.json carrying the routing
+      # and header rules from vercel.json.
+      - name: Stage build output for Vercel
+        if: steps.creds.outputs.present == 'true'
+        working-directory: frontend
+        run: |
+          mkdir -p .vercel/output/static
+          cp -r build/. .vercel/output/static/
+          node -e '
+            const fs = require("fs");
+            const v = JSON.parse(fs.readFileSync("vercel.json", "utf8"));
+            fs.writeFileSync(".vercel/output/config.json", JSON.stringify({
+              version: 3,
+              cleanUrls: v.cleanUrls,
+              trailingSlash: v.trailingSlash,
+              headers: v.headers,
+            }, null, 2));
+          '
+          echo "Staged $(find .vercel/output/static -type f | wc -l) files."
+
+      - name: Deploy to Vercel
+        if: steps.creds.outputs.present == 'true'
+        working-directory: frontend
+        run: |
+          npx --yes vercel@latest deploy --prebuilt --prod \
+            --token "$VERCEL_TOKEN" --yes

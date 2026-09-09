@@ -1,9 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "yarn install --frozen-lockfile && npx --yes playwright install chromium",
-  "buildCommand": "yarn build && node scripts/verify-prerender.js",
-  "outputDirectory": "build",
-  "framework": null,
+  "git": {
+    "deploymentEnabled": false
+  },
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
