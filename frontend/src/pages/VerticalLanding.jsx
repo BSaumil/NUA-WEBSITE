@@ -6,9 +6,11 @@ import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import LeadCta from "@/components/LeadCta";
+import Figure from "@/components/Figure";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { TRIAL_DAYS } from "@/config/siteConfig";
 import verticalsData from "@/data/verticalsData";
+import verticalImagery from "@/data/verticalImagery";
 import docsData from "@/data/docsData";
 import { plans } from "@/data/plansData";
 
@@ -27,6 +29,9 @@ export default function VerticalLanding() {
     .map((id) => docsData.find((d) => d.slug === id))
     .filter(Boolean);
   const starter = plans[0];
+  // Optional on purpose: a vertical without photography still renders, so
+  // adding a fifth vertical does not require an asset batch first.
+  const imagery = verticalImagery[data.slug];
 
   const faqJsonLd = {
     "@type": "FAQPage",
@@ -57,6 +62,24 @@ export default function VerticalLanding() {
         accent={data.color}
         crumb={data.eyebrow}
       />
+
+      {/* The signature scene for this vertical. Eager and high priority: it
+          sits in the viewport on arrival, so deferring it would only move the
+          largest paint later. */}
+      {imagery && (
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-10 -mt-2 mb-14">
+          <div className="overflow-hidden rounded-3xl border border-white/5">
+            <Figure
+              group={imagery.hero.group}
+              id={imagery.hero.id}
+              alt={imagery.hero.alt}
+              priority
+              rounded=""
+              sizes="(min-width: 1024px) 1024px, 100vw"
+            />
+          </div>
+        </div>
+      )}
 
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
         {/* Who it's for + what it replaces */}
@@ -134,6 +157,42 @@ export default function VerticalLanding() {
             ))}
           </ol>
         </div>
+
+        {/* What that looks like in the room.
+            Placed after the workflow deliberately: the steps make the claim,
+            these show the environment it happens in. Every image is lazy — none
+            of this is above the fold. */}
+        {imagery && (
+          <div className="mt-12">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              What that looks like in the room
+            </h2>
+            <div className="mt-5 grid sm:grid-cols-2 gap-4">
+              {imagery.scenes.map((scene, i) => (
+                <motion.figure
+                  key={`${scene.group}-${scene.id}`}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  data-testid={`vertical-scene-${i}`}
+                  className="overflow-hidden rounded-2xl bg-[#15151d] border border-white/5"
+                >
+                  <Figure
+                    group={scene.group}
+                    id={scene.id}
+                    alt={scene.alt}
+                    rounded=""
+                    sizes="(min-width: 640px) 512px, 100vw"
+                  />
+                  <figcaption className="p-5 text-[13px] text-[#a1a1aa] leading-relaxed">
+                    {scene.caption}
+                  </figcaption>
+                </motion.figure>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Modules involved */}
         <div className="mt-12">

@@ -51,9 +51,10 @@ jobs:
         working-directory: frontend
         run: npx --yes playwright install --with-deps chromium
 
-      # `yarn build` runs prebuild (canonical-origin parity check + sitemap)
-      # and postbuild (prerender). CI=true makes CRA treat warnings as errors.
-      - name: Build (parity check, sitemap, prerender)
+      # `yarn build` runs prebuild (canonical-origin parity, image provenance,
+      # sitemap) and postbuild (prerender). CI=true makes CRA treat warnings as
+      # errors.
+      - name: Build (parity check, image provenance, sitemap, prerender)
         working-directory: frontend
         run: CI=true yarn build
 
