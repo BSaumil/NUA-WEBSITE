@@ -95,3 +95,24 @@ jobs:
             exit 1
           fi
           echo "No indefensible absolute claims found."
+
+      # A [Insert State/Territory] placeholder sat in the live governing-law
+      # clause of /terms for the life of the page. Nothing caught it because
+      # nothing was looking: it compiles, it renders, and it reads as text.
+      # Legal pages are exactly where an unfilled placeholder does most damage
+      # and is least likely to be noticed by someone reading the marketing site.
+      # Case-sensitive on purpose. A case-insensitive \[PLACEHOLDER matches
+      # data-[placeholder] in the shadcn select primitive, which is a real
+      # attribute and not a copy defect — a guard that cries wolf on vendor
+      # components gets deleted rather than fixed.
+      - name: No unfilled placeholders in site copy
+        working-directory: frontend/src
+        run: |
+          PATTERN='\[Insert |\[INSERT |\[TODO|\[TBD|\[PLACEHOLDER\]|Lorem ipsum|lorem ipsum|XXX_|FIXME_COPY'
+          if grep -rnE "$PATTERN" . --include=*.jsx --include=*.js; then
+            echo ""
+            echo "::error::Unfilled placeholder found in site copy."
+            echo "Fill it in, or remove the sentence until the real value is known."
+            exit 1
+          fi
+          echo "No unfilled placeholders found."

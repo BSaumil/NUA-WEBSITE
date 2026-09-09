@@ -216,8 +216,8 @@ export default function TermsConditions() {
 
         <LegalSection number={16} title="Governing law and dispute resolution">
           <p>
-            These Terms are governed by the laws of <span className="font-mono">[Insert State/Territory]</span>, Australia,
-            and each party submits to the non-exclusive jurisdiction of the courts of that State or Territory. Before
+            These Terms are governed by the laws of Victoria, Australia, and each party submits to the
+            non-exclusive jurisdiction of the courts of that State. Before
             commencing formal legal proceedings (other than for urgent injunctive relief), the parties agree to first
             attempt in good faith to resolve any dispute through direct negotiation between senior representatives.
           </p>
