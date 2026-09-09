@@ -40,7 +40,7 @@ export default function Platform() {
     <PageShell testId="platform-page">
       <SEO
         title="Platform Architecture: NUA"
-        description="One data graph and event bus that every module reads from and writes to, with the NUA AI Agent at the center."
+        description="One data graph and event bus that every module reads from and writes to, with the NUA Agent at the center."
         path="/platform"
         includeSoftware
       />

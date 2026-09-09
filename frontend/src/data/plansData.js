@@ -21,7 +21,7 @@ export const plans = [
       "Kitchen Display System",
       "Loyalty Engine (tiers + wallet pass)",
       "Voice POS",
-      "NUA AI Agent — Suggest mode",
+      "NUA Agent — Suggest mode",
       "Core Analytics dashboard",
       "Compliance checklists (manual logging)",
       "Smart Bill Split (AI-assisted)",
@@ -41,7 +41,7 @@ export const plans = [
     limits: "Up to 10 locations, up to 40 users",
     features: [
       "Everything in Starter",
-      "NUA AI Agent — full autonomous mode + guardrails",
+      "NUA Agent — full autonomous mode + guardrails",
       "Inventory & Pantry (recipe-level stock, invoice import)",
       "Staff & Rostering (AI-assisted, labour-cost forecasting)",
       "Marketing Automation (loyalty-triggered campaigns)",
