@@ -18,7 +18,7 @@ export default function Contact() {
       <SEO
         title="Contact: NUA"
         description="Questions about pricing, a specific module, or migrating from your current stack: reach out, and a real person answers."
-        canonical="https://nuapos.com.au/contact"
+        path="/contact"
       />
       <PageHero
         eyebrow="Contact"

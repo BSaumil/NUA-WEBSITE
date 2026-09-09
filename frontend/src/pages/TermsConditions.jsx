@@ -12,7 +12,7 @@ export default function TermsConditions() {
       <SEO
         title="Terms & Conditions: NUA"
         description="The terms governing use of the NUA platform, subscriptions, trials and billing."
-        canonical="https://nuapos.com.au/terms"
+        path="/terms"
       />
       <PageHero
         eyebrow="Legal"

@@ -63,7 +63,7 @@ export default function BlogPost() {
   if (!post) return <Navigate to="/blog" replace />;
 
   const related = posts.filter((p) => post.relatedSlugs.includes(p.slug));
-  const canonical = `https://nuapos.com.au/blog/${post.slug}`;
+  const canonicalPath = `/blog/${post.slug}`;
 
   const jsonLd = post.faqs?.length
     ? {
@@ -78,7 +78,7 @@ export default function BlogPost() {
 
   return (
     <PageShell testId="blog-post-page">
-      <SEO title={`${post.title}: NUA`} description={post.metaDescription} canonical={canonical} jsonLd={jsonLd}
+      <SEO title={`${post.title}: NUA`} description={post.metaDescription} path={canonicalPath} jsonLd={jsonLd}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }]}
       />
       <PageHero

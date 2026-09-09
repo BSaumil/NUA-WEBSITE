@@ -7,9 +7,10 @@
 const fs = require("fs");
 const path = require("path");
 
-const SITE_URL = "https://nuapos.com.au";
+const { SITE_URL } = require("./site-url");
 const SRC_DIR = path.join(__dirname, "..", "src");
 const OUT_FILE = path.join(__dirname, "..", "public", "sitemap.xml");
+const ROBOTS_FILE = path.join(__dirname, "..", "public", "robots.txt");
 
 // Static routes, mirrored from src/App.js. Keep in sync when routes change.
 const staticRoutes = [
@@ -54,4 +55,17 @@ ${urlEntries}
 `;
 
 fs.writeFileSync(OUT_FILE, xml);
-console.log(`sitemap.xml written with ${allRoutes.length} URLs (${staticRoutes.length} static + ${dynamicRoutes.length} dynamic).`);
+
+// robots.txt carries an absolute sitemap URL, so it has to be generated from
+// the same origin as the sitemap itself — otherwise moving the domain would
+// leave robots.txt pointing at the old host.
+const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+fs.writeFileSync(ROBOTS_FILE, robots);
+
+console.log(
+  `sitemap.xml written with ${allRoutes.length} URLs (${staticRoutes.length} static + ${dynamicRoutes.length} dynamic); robots.txt written. Origin: ${SITE_URL}`
+);

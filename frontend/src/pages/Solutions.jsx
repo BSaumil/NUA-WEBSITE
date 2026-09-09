@@ -17,7 +17,7 @@ export default function Solutions() {
       <SEO
         title="Solutions for Every Venue Type: NUA"
         description="From a single café to a global hospitality group: NUA adapts to how your business actually runs, without bolting on a different tool for every venue type."
-        canonical="https://nuapos.com.au/solutions"
+        path="/solutions"
       />
       <PageHero
         eyebrow="Solutions"

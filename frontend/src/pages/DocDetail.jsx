@@ -16,7 +16,7 @@ export default function DocDetail() {
 
   const Icon = data.icon;
   const related = docsData.filter((d) => data.related.includes(d.slug));
-  const canonical = `https://nuapos.com.au/docs/${data.slug}`;
+  const canonicalPath = `/docs/${data.slug}`;
   const howToJsonLd = {
     "@type": "HowTo",
     name: `${data.title} setup guide`,
@@ -33,7 +33,7 @@ export default function DocDetail() {
       <SEO
         title={`${data.title} Setup Guide: NUA`}
         description={data.summary}
-        canonical={canonical}
+        path={canonicalPath}
         jsonLd={howToJsonLd}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "Documentation", path: "/docs" }, { name: data.title, path: `/docs/${data.slug}` }]}
       />

@@ -12,7 +12,7 @@ export default function PricingPage() {
       <SEO
         title="Pricing: NUA"
         description="Starter, Growth and Enterprise plans, plus a one-time Lifetime option. AI Agent, Voice POS and Loyalty ship in every plan, no add-on pricing."
-        canonical="https://nuapos.com.au/pricing"
+        path="/pricing"
         includeSoftware
       />
       <PageHero

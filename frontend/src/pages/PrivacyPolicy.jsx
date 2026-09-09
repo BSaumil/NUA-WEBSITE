@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
       <SEO
         title="Privacy Policy: NUA"
         description="How NUA collects, uses, stores and protects guest, staff and business data."
-        canonical="https://nuapos.com.au/privacy"
+        path="/privacy"
       />
       <PageHero
         eyebrow="Legal"

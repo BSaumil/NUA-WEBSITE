@@ -46,7 +46,7 @@ export default function Security() {
       <SEO
         title="Security & Trust: NUA"
         description="A straight answer to what happens to your business and guest data, and why. Not a badge wall."
-        canonical="https://nuapos.com.au/security"
+        path="/security"
       />
       <PageHero
         eyebrow="Security &amp; Trust"

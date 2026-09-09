@@ -66,7 +66,7 @@ export default function Gallery() {
       <SEO
         title="Product Gallery: NUA"
         description="Live-animated renders of the real NUA interface: POS, AI copilot, loyalty wallet and more."
-        canonical="https://nuapos.com.au/gallery"
+        path="/gallery"
       />
       <PageHero
         eyebrow="Product Gallery"

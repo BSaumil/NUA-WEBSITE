@@ -16,14 +16,14 @@ export default function SolutionDetail() {
   if (!data) return <Navigate to="/solutions" replace />;
 
   const Icon = data.icon;
-  const canonical = `https://nuapos.com.au/solutions/${data.slug}`;
+  const canonicalPath = `/solutions/${data.slug}`;
 
   return (
     <PageShell testId="solution-detail-page">
       <SEO
         title={`${data.title} Solutions: NUA`}
         description={data.heroBody}
-        canonical={canonical}
+        path={canonicalPath}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "Solutions", path: "/solutions" }, { name: data.title, path: `/solutions/${data.slug}` }]}
       />
       <PageHero

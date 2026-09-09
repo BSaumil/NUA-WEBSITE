@@ -15,14 +15,14 @@ export default function CompareDetail() {
 
   if (!data) return <Navigate to="/compare" replace />;
 
-  const canonical = `https://nuapos.com.au/compare/${data.slug}`;
+  const canonicalPath = `/compare/${data.slug}`;
 
   return (
     <PageShell testId="compare-detail-page">
       <SEO
         title={`NUA vs ${data.name}`}
         description={data.summary}
-        canonical={canonical}
+        path={canonicalPath}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "Compare", path: "/compare" }, { name: `NUA vs ${data.name}`, path: `/compare/${data.slug}` }]}
       />
       <PageHero

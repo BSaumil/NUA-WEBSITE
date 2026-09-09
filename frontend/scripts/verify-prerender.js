@@ -13,7 +13,6 @@ const fs = require("fs");
 const path = require("path");
 
 const BUILD_DIR = path.join(__dirname, "..", "build");
-const SITE_URL = "https://nuapos.com.au";
 const MIN_TEXT_CHARS = 300;
 
 function textOf(html) {
@@ -27,7 +26,8 @@ function textOf(html) {
 
 const xml = fs.readFileSync(path.join(BUILD_DIR, "sitemap.xml"), "utf8");
 const routes = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
-  .map((m) => m[1].replace(SITE_URL, ""))
+  // Pathname, not a SITE_URL string-strip — see prerender.js.
+  .map((m) => new URL(m[1]).pathname)
   .map((r) => (r === "" ? "/" : r));
 
 const failures = [];

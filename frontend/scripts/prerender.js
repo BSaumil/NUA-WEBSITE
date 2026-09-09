@@ -21,7 +21,6 @@ const path = require("path");
 const http = require("http");
 
 const BUILD_DIR = path.join(__dirname, "..", "build");
-const SITE_URL = "https://nuapos.com.au";
 const PORT = 45678;
 
 function loadPlaywright() {
@@ -35,7 +34,11 @@ function loadPlaywright() {
 function routesFromSitemap() {
   const xml = fs.readFileSync(path.join(BUILD_DIR, "sitemap.xml"), "utf8");
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
-    .map((m) => m[1].replace(SITE_URL, ""))
+    // Take the pathname rather than string-stripping SITE_URL: if the sitemap
+    // was generated under a different origin (a stale file, or a build whose
+    // prebuild hook did not run), stripping would silently leave a full URL
+    // here and every route would fail to navigate.
+    .map((m) => new URL(m[1]).pathname)
     .map((r) => (r === "" ? "/" : r));
 }
 

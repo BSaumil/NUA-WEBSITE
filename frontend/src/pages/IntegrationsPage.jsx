@@ -19,7 +19,7 @@ export default function IntegrationsPage() {
       <SEO
         title="Integrations: NUA"
         description="NUA replaces the tangle of point tools, but still speaks fluently with the accounting, payroll, delivery and marketing tools you want to keep."
-        canonical="https://nuapos.com.au/integrations"
+        path="/integrations"
       />
       <PageHero
         eyebrow="Integrations"
