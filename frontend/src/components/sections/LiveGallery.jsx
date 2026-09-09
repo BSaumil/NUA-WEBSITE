@@ -12,10 +12,10 @@ const cards = [
   { Component: AICommandCenterShowcase, impact: "NUA: Autopilot OS", body: "Decisions made while you sleep." },
   { Component: MultiVenueLiveShowcase, impact: "NUA: Growth OS", body: "Every venue's revenue, live, on one screen." },
   { Component: LoyaltyWalletLiveShowcase, impact: "NUA: Loyalty OS", body: "$1 spent = 1 point, credited instantly." },
-  { Component: TemperatureMonitoringShowcase, impact: "NUA: Compliance OS", body: "Zero manual logs. Zero fines." },
+  { Component: TemperatureMonitoringShowcase, impact: "NUA: Compliance OS", body: "Temperature records and alerts, automated." },
   { Component: PaymentsShowcase, impact: "NUA: Payments OS", body: "$0 markup on top of bank rates." },
   { Component: DeliveryHubShowcase, impact: "NUA: Delivery OS", body: "Every platform's orders, one queue." },
-  { Component: BookingWaitlistShowcase, impact: "NUA: Booking OS", body: "Zero double-bookings, ever." },
+  { Component: BookingWaitlistShowcase, impact: "NUA: Booking OS", body: "Designed to prevent conflicting bookings." },
   { Component: ForecastingShowcase, impact: "NUA: Forecast OS", body: "Know tomorrow's rush, today." },
 ];
 

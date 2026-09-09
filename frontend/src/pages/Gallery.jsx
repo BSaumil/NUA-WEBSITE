@@ -17,10 +17,10 @@ const groups = [
     title: "Every guest touchpoint, live.",
     color: "#f58c14",
     items: [
-      { Component: POSShowcase, title: "Point of Sale", stat: "Zero downtime, ever", body: "Charges cards, splits bills and keeps ringing up sales even when the internet drops." },
+      { Component: POSShowcase, title: "Point of Sale", stat: "Built to keep trading offline", body: "Charges cards, splits bills and keeps ringing up sales even when the internet drops." },
       { Component: VoiceShowcase, title: "Voice POS", stat: "Zero clicks", body: "Apply discounts, fire reports, all without your hands leaving the pass." },
       { Component: KDSShowcase, title: "Kitchen Display", stat: "Zero paper tickets", body: "Orders route to the right station instantly, aging tracked to the second." },
-      { Component: BookingWaitlistShowcase, title: "Reservations & Waitlist", stat: "Zero double-bookings", body: "The waitlist converts to a table automatically the second one turns over." },
+      { Component: BookingWaitlistShowcase, title: "Reservations & Waitlist", stat: "Designed to prevent conflicting bookings", body: "The waitlist converts to a table automatically the second one turns over." },
     ],
   },
   {
@@ -29,7 +29,7 @@ const groups = [
     color: "#22c55e",
     items: [
       { Component: InventoryShowcase, title: "Inventory & Purchasing", stat: "Stockouts prevented", body: "Buy, wait, or reorder: decided for you before you ever run out." },
-      { Component: TemperatureMonitoringShowcase, title: "Temperature Monitoring", stat: "Zero manual logs, zero fines", body: "Fridges and freezers logged automatically: alerts sent the instant something drifts." },
+      { Component: TemperatureMonitoringShowcase, title: "Temperature Monitoring", stat: "Automated temperature records and alerts", body: "Fridges and freezers logged automatically: alerts sent the instant something drifts." },
       { Component: StaffShowcase, title: "Staff Management", stat: "Hours saved every week on rostering", body: "AI drafts the roster and balances labour cost, one tap to approve." },
       { Component: ForecastingShowcase, title: "Demand Forecasting", stat: "Know tomorrow's rush, today", body: "NUA predicts next week's demand and adjusts purchase orders before you even ask." },
     ],
