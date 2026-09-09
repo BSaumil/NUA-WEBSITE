@@ -1,4 +1,4 @@
-import { UtensilsCrossed, Coffee, Wine, Building2, ShoppingBag } from "lucide-react";
+import { UtensilsCrossed, Coffee, Wine, Building2, ShoppingBag, CalendarCheck } from "lucide-react";
 
 /**
  * High-intent vertical landing pages.
@@ -213,6 +213,51 @@ const verticalsData = [
       { q: "Can we move stock between stores?", a: "Yes. Transfers are recorded against both locations, so on-hand at each store reflects the movement rather than needing a manual count afterwards." },
       { q: "Does it work if the internet drops?", a: "The terminal is built to keep taking sales offline and reconcile when the connection returns. Card processing still depends on your payment provider and network." },
       { q: "How many stores does NUA support?", a: "Growth covers up to 10 locations; Enterprise supports unlimited locations and users with role-based access control." },
+    ],
+  },
+  {
+    slug: "services-pos",
+    icon: CalendarCheck,
+    color: "#14b8a6",
+    eyebrow: "Services POS",
+    runsHeading: "How an appointment runs on NUA",
+    scenesHeading: "What that looks like at reception",
+    title: "Booking and POS for appointment businesses, in one system.",
+    metaTitle: "Salon & Spa POS Booking Software Australia: NUA",
+    metaDescription:
+      "Australian booking and POS software for salons, spas and studios: appointments, client history, memberships, packages, gift cards, loyalty and retail add-ons in one system.",
+    intro:
+      "An appointment business runs on two things a till cannot see: who is booked, and who is coming back. When the calendar, the client record and the payment live in three places, rebooking becomes something staff remember to do rather than something the system prompts.",
+    forWho:
+      "Salons, spas, studios and treatment rooms booking time with named practitioners.",
+    replaces: [
+      "A separate online booking tool",
+      "A paper or spreadsheet client history",
+      "A till that cannot see the appointment",
+      "Memberships and packages tracked by hand",
+      "A disconnected loyalty or gift-card product",
+    ],
+    pains: [
+      "A no-show costs the whole slot, and nothing prompted a reminder",
+      "Client history lives with whoever last served them",
+      "Rebooking depends on staff remembering to ask at checkout",
+      "Package and membership balances are reconciled manually",
+    ],
+    workflow: [
+      { step: "Booked", body: "Clients book online against real practitioner availability, with service duration and any buffer time already accounted for." },
+      { step: "Confirmed", body: "Reminders go out ahead of the appointment, and the agent can place outbound confirmation calls where that is enabled." },
+      { step: "Arrived", body: "Check-in brings up the client's history, preferences and any package or membership balance before the appointment starts." },
+      { step: "Served and paid", body: "The service, any retail products and any package redemption settle together on one record rather than as separate transactions." },
+      { step: "Rebooked", body: "The next appointment is offered at checkout while the client is still there, and loyalty is applied without anyone looking it up." },
+    ],
+    features: ["reservations", "pos", "loyalty", "staff", "analytics", "nua"],
+    faqs: [
+      { q: "Can clients book online themselves?", a: "Yes. Online booking works against each practitioner's real availability, including service duration and buffer time, so the calendar it offers is the calendar you keep." },
+      { q: "Does it handle memberships and packages?", a: "Yes. Balances are held against the client record and drawn down at checkout, so a redemption is part of the same transaction as anything else they buy." },
+      { q: "Can we sell retail products alongside services?", a: "Yes. Retail stock is tracked the same way as in a shop, so a product sold at checkout decrements inventory and appears in the same reporting as service revenue." },
+      { q: "How does it help with no-shows?", a: "Automated reminders go out ahead of the appointment, and deposits can be required at booking. Neither prevents a no-show outright, but both reduce how often one arrives unannounced." },
+      { q: "Can each practitioner see only their own calendar?", a: "Yes. Role-based access controls what each staff member can see and do, including whether they can view other practitioners' bookings or client records." },
+      { q: "Does NUA handle clinical or medical records?", a: "No. NUA is booking, payment and client-relationship software for service businesses. It is not a clinical record system and should not be used as one." },
     ],
   },
 ];

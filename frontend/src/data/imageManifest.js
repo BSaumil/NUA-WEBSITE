@@ -314,6 +314,164 @@ const imageManifest = {
       ]
     }
   ],
+  "professional-services": [
+    {
+      "colour": "#b39a85",
+      "height": 941,
+      "id": "appointments-under-control-at-nua",
+      "src": "/img/professional-services/appointments-under-control-at-nua-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#b8a08e",
+      "height": 941,
+      "id": "from-arrival-to-payment-handled",
+      "src": "/img/professional-services/from-arrival-to-payment-handled-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#b19b8b",
+      "height": 941,
+      "id": "know-every-client-rebook-smarter",
+      "src": "/img/professional-services/know-every-client-rebook-smarter-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#c3ae9d",
+      "height": 941,
+      "id": "professional-services-personalised-loyalty",
+      "src": "/img/professional-services/professional-services-personalised-loyalty-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#c5af9b",
+      "height": 941,
+      "id": "reward-repeat-clients-beautifully",
+      "src": "/img/professional-services/reward-repeat-clients-beautifully-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#beab9d",
+      "height": 941,
+      "id": "salon-analytics-beautifully-simplified",
+      "src": "/img/professional-services/salon-analytics-beautifully-simplified-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#b19f90",
+      "height": 941,
+      "id": "smarter-scheduling-in-a-warm-workspace",
+      "src": "/img/professional-services/smarter-scheduling-in-a-warm-workspace-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#c8b5a6",
+      "height": 941,
+      "id": "spa-crm-hero-with-floating-dashboard-cards",
+      "src": "/img/professional-services/spa-crm-hero-with-floating-dashboard-cards-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#c4ac9c",
+      "height": 941,
+      "id": "spa-memberships-made-simple",
+      "src": "/img/professional-services/spa-memberships-made-simple-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#bda591",
+      "height": 941,
+      "id": "spa-packages-made-easy",
+      "src": "/img/professional-services/spa-packages-made-easy-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#ac9583",
+      "height": 941,
+      "id": "warm-salon-checkout-experience",
+      "src": "/img/professional-services/warm-salon-checkout-experience-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#b9a695",
+      "height": 941,
+      "id": "warm-spa-dashboard-experience",
+      "src": "/img/professional-services/warm-spa-dashboard-experience-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#c1ab97",
+      "height": 941,
+      "id": "warm-spa-reception-with-smart-booking-ui",
+      "src": "/img/professional-services/warm-spa-reception-with-smart-booking-ui-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    }
+  ],
   "reliability-offline-hardware": [
     {
       "colour": "#c2b2a3",

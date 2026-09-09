@@ -64,6 +64,7 @@ function App() {
                 <Route path="/bar-pos" element={<VerticalLanding />} />
                 <Route path="/hospitality-pos" element={<VerticalLanding />} />
                 <Route path="/retail-pos" element={<VerticalLanding />} />
+                <Route path="/services-pos" element={<VerticalLanding />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/integrations" element={<IntegrationsPage />} />
                 <Route path="/resources" element={<Resources />} />
