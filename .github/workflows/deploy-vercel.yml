@@ -88,19 +88,23 @@ jobs:
         run: node scripts/verify-prerender.js
 
       # `vercel build` would rebuild from source and hit the same Playwright
-      # wall, so the already-built output is staged into .vercel/output as a
-      # static build instead. This is Vercel's Build Output API v3: a plain
-      # directory of files served as-is, with config.json carrying the routing
-      # and header rules from vercel.json.
+      # wall, so the already-built output is staged as a static Build Output API
+      # v3 directory instead: plain files served as-is, with config.json
+      # carrying the routing and header rules from vercel.json.
+      #
+      # Staged at the REPOSITORY ROOT, not under frontend/. The CLI looks for
+      # .vercel/output relative to its own working directory and does not apply
+      # the project's root directory when doing so — staging it under frontend/
+      # produced "no prebuilt output found in .vercel/output".
       - name: Stage build output for Vercel
         if: steps.creds.outputs.present == 'true'
-        working-directory: frontend
         run: |
+          rm -rf .vercel/output
           mkdir -p .vercel/output/static
-          cp -r build/. .vercel/output/static/
+          cp -r frontend/build/. .vercel/output/static/
           node -e '
             const fs = require("fs");
-            const v = JSON.parse(fs.readFileSync("vercel.json", "utf8"));
+            const v = JSON.parse(fs.readFileSync("frontend/vercel.json", "utf8"));
             fs.writeFileSync(".vercel/output/config.json", JSON.stringify({
               version: 3,
               cleanUrls: v.cleanUrls,
@@ -110,11 +114,12 @@ jobs:
           '
           echo "Staged $(find .vercel/output/static -type f | wc -l) files."
 
-      # Run from the repository root, NOT from frontend/. The Vercel project's
-      # root directory is already set to "frontend", so the CLI appends it to
-      # its working directory. Running this in frontend/ made it look for
-      # frontend/frontend and fail. From the root it resolves to
-      # frontend/.vercel/output, which is exactly what the previous step staged.
+      # Run from the repository root, NOT from frontend/. The project's root
+      # directory is already "frontend", and the CLI appends that when locating
+      # the project — running here in frontend/ made it look for
+      # frontend/frontend. It does NOT apply that root directory when locating
+      # .vercel/output, which is why the staging step above writes to the
+      # repository root. Both errors were hit in that order getting here.
       - name: Deploy to Vercel
         if: steps.creds.outputs.present == 'true'
         run: |
