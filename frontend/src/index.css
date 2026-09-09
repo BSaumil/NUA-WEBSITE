@@ -175,6 +175,19 @@ main > section#hero {
     animation: shimmer 8s linear infinite;
 }
 
+/* The trade word in the hero headline as it cycles. Deliberately short and
+   small in travel: the headline is the largest text on the page, so anything
+   longer reads as the page still loading rather than as a deliberate change. */
+@keyframes trade-in {
+    from { opacity: 0; transform: translateY(0.14em); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.animate-trade-in { animation: trade-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-trade-in { animation: none; }
+}
+
 @keyframes wave {
     0%, 100% { transform: scaleY(0.3); }
     50% { transform: scaleY(1); }
