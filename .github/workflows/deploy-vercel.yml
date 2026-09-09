@@ -110,9 +110,13 @@ jobs:
           '
           echo "Staged $(find .vercel/output/static -type f | wc -l) files."
 
+      # Run from the repository root, NOT from frontend/. The Vercel project's
+      # root directory is already set to "frontend", so the CLI appends it to
+      # its working directory. Running this in frontend/ made it look for
+      # frontend/frontend and fail. From the root it resolves to
+      # frontend/.vercel/output, which is exactly what the previous step staged.
       - name: Deploy to Vercel
         if: steps.creds.outputs.present == 'true'
-        working-directory: frontend
         run: |
           npx --yes vercel@latest deploy --prebuilt --prod \
             --token "$VERCEL_TOKEN" --yes
