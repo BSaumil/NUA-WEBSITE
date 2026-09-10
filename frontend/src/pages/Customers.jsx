@@ -34,7 +34,7 @@ export default function Customers() {
               data-testid={`customer-card-${s.slug}`}
               className="rounded-2xl bg-nua-surface border border-nua-border p-6"
             >
-              <Quote className="w-5 h-5" style={{ color: s.color }} />
+              <Quote className="w-5 h-5" style={{ color: '#750D28' }} />
               <p className="mt-3 text-nua-ink leading-relaxed">&ldquo;{s.quote.text}&rdquo;</p>
               <div className="mt-4 flex items-center justify-between">
                 <div className="font-mono text-[11px] uppercase tracking-wider text-nua-ink2">
@@ -42,7 +42,7 @@ export default function Customers() {
                 </div>
                 <span
                   className="px-2 py-0.5 rounded-full font-mono text-[10px] uppercase tracking-wider"
-                  style={{ background: `${s.color}18`, color: s.color }}
+                  style={{ background: `${s.color}18`, color: '#750D28' }}
                 >
                   {s.title}
                 </span>

@@ -81,7 +81,7 @@ export default function Platform() {
                 className="absolute -translate-x-1/2 -translate-y-1/2 rounded-xl bg-nua-surface border border-nua-border px-3 py-2"
                 style={{ left: `${n.x}%`, top: `${n.y}%` }}
               >
-                <span className="font-mono text-[10px] whitespace-nowrap" style={{ color: n.color }}>{n.label}</span>
+                <span className="font-mono text-[10px] whitespace-nowrap" style={{ color: '#750D28' }}>{n.label}</span>
               </motion.div>
             ))}
           </div>

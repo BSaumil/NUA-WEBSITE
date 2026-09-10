@@ -27,7 +27,7 @@ function ContentBlock({ block }) {
       return (
         <ul className="mt-4 space-y-2.5">
           {block.items.map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-[15px] text-[#d4d4d8] leading-relaxed">
+            <li key={item} className="flex items-start gap-2.5 text-[15px] text-nua-ink leading-relaxed">
               <span className="mt-2.5 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-nua-burgundy" />
               {item}
             </li>
@@ -52,7 +52,7 @@ function ContentBlock({ block }) {
       );
     case "p":
     default:
-      return <p className="mt-4 text-[15px] text-[#d4d4d8] leading-relaxed">{block.text}</p>;
+      return <p className="mt-4 text-[15px] text-nua-ink leading-relaxed">{block.text}</p>;
   }
 }
 

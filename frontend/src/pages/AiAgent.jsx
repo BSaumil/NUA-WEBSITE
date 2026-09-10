@@ -117,10 +117,10 @@ export default function AiAgent() {
                 {outcomes.map((o) => (
                   <div key={o.label} className="rounded-xl bg-nua-bgAlt border border-nua-border p-3">
                     <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: `${o.color}20` }}>
-                      <o.icon className="w-3.5 h-3.5" style={{ color: o.color }} />
+                      <o.icon className="w-3.5 h-3.5" style={{ color: '#750D28' }} />
                     </div>
                     <div className="mt-2 text-[13px] font-semibold text-nua-ink">{o.label}</div>
-                    <div className="font-mono text-[9px] uppercase tracking-wider mt-0.5" style={{ color: o.color }}>{o.range}</div>
+                    <div className="font-mono text-[9px] uppercase tracking-wider mt-0.5" style={{ color: '#750D28' }}>{o.range}</div>
                     <div className="text-[11px] text-nua-ink2 mt-1.5 leading-relaxed">{o.body}</div>
                   </div>
                 ))}

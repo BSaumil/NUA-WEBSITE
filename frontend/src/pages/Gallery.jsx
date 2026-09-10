@@ -123,7 +123,7 @@ export default function Gallery() {
         {groups.map((group) => (
           <div key={group.label}>
             <div className="text-center max-w-xl mx-auto mb-10">
-              <span className="font-mono text-[11px] uppercase tracking-widest" style={{ color: group.color }}>{group.label}</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest" style={{ color: '#750D28' }}>{group.label}</span>
               <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">{group.title}</h2>
             </div>
             <div className="grid sm:grid-cols-2 gap-x-6 gap-y-14">
@@ -136,7 +136,7 @@ export default function Gallery() {
                     <h3 className="mt-5 font-display font-semibold text-nua-ink">{title}</h3>
                     <span
                       className="mt-1.5 inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-wider"
-                      style={{ background: `${group.color}18`, color: group.color }}
+                      style={{ background: `${group.color}18`, color: '#750D28' }}
                     >
                       {stat}
                     </span>
