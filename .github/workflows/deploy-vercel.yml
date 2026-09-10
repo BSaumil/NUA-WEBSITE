@@ -1,24 +1,31 @@
 # Deploy the built site to Vercel.
 #
-# Vercel cannot build this site itself. The build prerenders 108 routes with
-# Playwright, and Vercel's build image has neither the browser nor the system
-# libraries it needs (libnss3, libnspr4); `playwright install-deps` only
-# supports Debian and Ubuntu, and Vercel runs Amazon Linux. Two deployments
-# were tried and both failed there — first on the missing browser, then on the
-# missing libraries.
+# This is the ONLY path to production. Vercel's own git deployments are turned
+# off in frontend/vercel.json, so nothing publishes except this workflow.
 #
-# So the build stays here, where it already works and is already verified on
-# every pull request, and Vercel receives finished output via --prebuilt. That
-# also keeps a single build definition and a single verification gate: the same
-# `yarn build` a contributor runs, followed by the same verify-prerender that
-# gates the Pages deploy. Nothing publishes unless the prerendered output is
-# sound.
+# That is a choice, not a limitation. Vercel can build this site: prerendering
+# needs Chromium, and its build image lacks both the browser and the libraries
+# it links against, but installing the Amazon Linux equivalents works —
 #
-# This runs ALONGSIDE deploy-pages.yml during the migration. GitHub Pages still
-# serves nuapos.com.au; this publishes the same commit to Vercel so it can be
-# compared on a .vercel.app URL before any DNS changes. See
-# docs/website-v2/VERCEL_MIGRATION_PLAN.md — the apex does not move until the
-# owner approves step 6.
+#   dnf install -y nss nspr atk at-spi2-atk cups-libs libdrm libXcomposite \
+#     libXdamage libXext libXfixes libXrandr mesa-libgbm alsa-lib pango \
+#     libxkbcommon
+#
+# — and a git-sourced deployment did reach READY that way. It was disabled
+# because having both paths live meant two production deployments racing for
+# the same alias on every push, with the winner decided by whichever build
+# happened to finish last.
+#
+# Building here rather than there also means the deployed artifact is the same
+# one CI already verified on the pull request, produced by the same `yarn build`
+# a contributor runs — not a second build in a different image that happens to
+# agree. And it does not depend on those package names continuing to exist.
+#
+# The gate is verify-prerender, below: a build that produced empty or duplicate
+# pages is abandoned before anything reaches Vercel.
+#
+# GitHub Pages still deploys from deploy-pages.yml and remains a working
+# fallback. See docs/website-v2/VERCEL_MIGRATION_PLAN.md.
 name: Deploy to Vercel
 
 on:
