@@ -6,14 +6,14 @@ import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 
 const nodes = [
-  { label: "POS", color: "#f58c14" },
-  { label: "Reservations", color: "#8b5cf6" },
-  { label: "KDS", color: "#ec4899" },
-  { label: "Loyalty", color: "#ec4899" },
-  { label: "Inventory", color: "#8b5cf6" },
-  { label: "Staff", color: "#f58c14" },
-  { label: "Analytics", color: "#f58c14" },
-  { label: "Marketing", color: "#ec4899" },
+  { label: "POS", color: "#A45D0D" },
+  { label: "Reservations", color: "#7D52DD" },
+  { label: "KDS", color: "#BF3A7B" },
+  { label: "Loyalty", color: "#BF3A7B" },
+  { label: "Inventory", color: "#7D52DD" },
+  { label: "Staff", color: "#A45D0D" },
+  { label: "Analytics", color: "#A45D0D" },
+  { label: "Marketing", color: "#BF3A7B" },
 ];
 
 const positioned = nodes.map((n, i) => {
@@ -48,7 +48,7 @@ export default function Platform() {
         eyebrow="Platform architecture"
         title="One intelligence layer. Every module wired in."
         subtitle="NUA isn't ten disconnected apps duct-taped together. It's a single data graph and event bus that every module reads from and writes to, with NUA sitting at the center of it all."
-        accent="#8b5cf6"
+        accent="#7D52DD"
         crumb="Platform"
       />
 
@@ -67,8 +67,8 @@ export default function Platform() {
               className="absolute -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-gradient-to-br from-[#8b5cf6] to-[#7c3aed] shadow-lg shadow-[#8b5cf6]/40 px-4 py-3 flex flex-col items-center gap-1"
               style={{ left: "50%", top: "50%" }}
             >
-              <Sparkles className="w-4 h-4 text-white" />
-              <span className="font-display text-xs font-semibold text-white whitespace-nowrap">NUA · Core</span>
+              <Sparkles className="w-4 h-4 text-nua-ink" />
+              <span className="font-display text-xs font-semibold text-nua-ink whitespace-nowrap">NUA · Core</span>
             </div>
 
             {positioned.map((n, i) => (
@@ -78,7 +78,7 @@ export default function Platform() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="absolute -translate-x-1/2 -translate-y-1/2 rounded-xl bg-[#15151d] border border-white/10 px-3 py-2"
+                className="absolute -translate-x-1/2 -translate-y-1/2 rounded-xl bg-nua-surface border border-nua-border px-3 py-2"
                 style={{ left: `${n.x}%`, top: `${n.y}%` }}
               >
                 <span className="font-mono text-[10px] whitespace-nowrap" style={{ color: n.color }}>{n.label}</span>
@@ -88,23 +88,23 @@ export default function Platform() {
 
           {/* Explanation + graphical flow */}
           <div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">
               Every action is an event. Every event feeds the loop.
             </h2>
-            <p className="mt-4 text-[#a1a1aa] leading-relaxed">
+            <p className="mt-4 text-nua-ink2 leading-relaxed">
               When a table closes, a shift ends, or stock dips below par: that's an event on the bus. Modules subscribe to what they need, and NUA observes everything, building the context it uses to forecast, suggest, and act.
             </p>
-            <div className="mt-6 rounded-2xl bg-[#15151d] border border-white/5 p-5" data-testid="event-flow-graphic">
+            <div className="mt-6 rounded-2xl bg-nua-surface border border-nua-border p-5" data-testid="event-flow-graphic">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 {eventFlow.map((s, i) => (
-                  <div key={s.label} className="relative rounded-xl bg-white/[0.03] border border-white/5 p-3">
+                  <div key={s.label} className="relative rounded-xl bg-nua-bgAlt border border-nua-border p-3">
                     <div className="w-8 h-8 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center">
-                      <s.icon className="w-4 h-4 text-[#8b5cf6]" />
+                      <s.icon className="w-4 h-4 text-nua-burgundy" />
                     </div>
-                    <div className="mt-2 text-[12px] font-semibold text-white leading-tight">{s.label}</div>
-                    <div className="text-[10px] text-[#a1a1aa] mt-0.5">{s.body}</div>
+                    <div className="mt-2 text-[12px] font-semibold text-nua-ink leading-tight">{s.label}</div>
+                    <div className="text-[10px] text-nua-ink2 mt-0.5">{s.body}</div>
                     {i < eventFlow.length - 1 && (
-                      <span className="hidden sm:block absolute top-1/2 -right-[13px] -translate-y-1/2 text-[#a1a1aa] text-xs">→</span>
+                      <span className="hidden sm:block absolute top-1/2 -right-[13px] -translate-y-1/2 text-nua-ink2 text-xs">→</span>
                     )}
                   </div>
                 ))}
@@ -122,13 +122,13 @@ export default function Platform() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="rounded-2xl bg-[#15151d] border border-white/5 p-5"
+              className="rounded-2xl bg-nua-surface border border-nua-border p-5"
             >
-              <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
-                <p.icon className="w-4 h-4 text-[#8b5cf6]" />
+              <div className="w-9 h-9 rounded-lg bg-nua-bgAlt flex items-center justify-center">
+                <p.icon className="w-4 h-4 text-nua-burgundy" />
               </div>
-              <h3 className="mt-4 font-display font-semibold text-white">{p.title}</h3>
-              <p className="mt-1.5 text-sm text-[#a1a1aa] leading-relaxed">{p.body}</p>
+              <h3 className="mt-4 font-display font-semibold text-nua-ink">{p.title}</h3>
+              <p className="mt-1.5 text-sm text-nua-ink2 leading-relaxed">{p.body}</p>
             </motion.div>
           ))}
         </div>

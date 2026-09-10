@@ -30,7 +30,7 @@ export default function Careers() {
         eyebrow="Careers"
         title="Help operators run smarter."
         subtitle="We're a small team building the AI operating system for hospitality, and we're looking for people who'd rather fix the real problem than ship another dashboard."
-        accent="#f58c14"
+        accent="#A45D0D"
         crumb="Careers"
       />
 
@@ -43,20 +43,20 @@ export default function Careers() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
-              className="rounded-2xl bg-[#15151d] border border-white/5 p-5"
+              className="rounded-2xl bg-nua-surface border border-nua-border p-5"
             >
               <div className="w-9 h-9 rounded-lg bg-[#f58c14]/15 flex items-center justify-center">
-                <p.icon className="w-4 h-4 text-[#f58c14]" />
+                <p.icon className="w-4 h-4 text-nua-burgundy" />
               </div>
-              <h3 className="mt-4 font-display font-semibold text-white text-sm">{p.title}</h3>
-              <p className="mt-1.5 text-[13px] text-[#a1a1aa] leading-relaxed">{p.body}</p>
+              <h3 className="mt-4 font-display font-semibold text-nua-ink text-sm">{p.title}</h3>
+              <p className="mt-1.5 text-[13px] text-nua-ink2 leading-relaxed">{p.body}</p>
             </motion.div>
           ))}
         </div>
 
         <div className="mt-14">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">Open roles.</h2>
-          <div className="mt-6 rounded-2xl border border-white/10 bg-[#15151d] overflow-hidden">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">Open roles.</h2>
+          <div className="mt-6 rounded-2xl border border-nua-border bg-nua-surface overflow-hidden">
             {roles.map((r, i) => (
               <motion.a
                 key={r.title}
@@ -66,22 +66,22 @@ export default function Careers() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.05 }}
                 data-testid={`careers-role-${r.title.toLowerCase().replace(/\s+/g, "-")}`}
-                className="group flex items-center justify-between gap-4 px-5 py-4 border-b border-white/5 last:border-b-0 hover:bg-white/[0.02] transition-colors"
+                className="group flex items-center justify-between gap-4 px-5 py-4 border-b border-nua-border last:border-b-0 hover:bg-nua-bgAlt transition-colors"
               >
                 <div>
-                  <div className="font-display text-sm font-semibold text-white">{r.title}</div>
-                  <div className="mt-1 flex items-center gap-3 font-mono text-[11px] text-[#a1a1aa]">
+                  <div className="font-display text-sm font-semibold text-nua-ink">{r.title}</div>
+                  <div className="mt-1 flex items-center gap-3 font-mono text-[11px] text-nua-ink2">
                     <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{r.location}</span>
                     <span>{r.team}</span>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#a1a1aa] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                <ArrowRight className="w-4 h-4 text-nua-ink2 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
               </motion.a>
             ))}
           </div>
-          <p className="mt-4 text-sm text-[#a1a1aa]">
+          <p className="mt-4 text-sm text-nua-ink2">
             Don't see a role that fits? Email your resume to{" "}
-            <a href="mailto:info@nuapos.com.au" className="text-[#f58c14] hover:underline">info@nuapos.com.au</a> anyway:
+            <a href="mailto:info@nuapos.com.au" className="text-nua-burgundy hover:underline">info@nuapos.com.au</a> anyway:
             we'd rather hear from you than miss you.
           </p>
         </div>

@@ -25,7 +25,7 @@ export default function IntegrationsPage() {
         eyebrow="Integrations"
         title="Plays nicely with your existing stack."
         subtitle="NUA replaces the tangle of point tools, but it still speaks fluently with the ones you want to keep."
-        accent="#f58c14"
+        accent="#A45D0D"
         crumb="Integrations"
       />
 
@@ -38,13 +38,13 @@ export default function IntegrationsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="rounded-2xl bg-[#15151d] border border-white/5 p-5"
+              className="rounded-2xl bg-nua-surface border border-nua-border p-5"
             >
               <div className="w-9 h-9 rounded-lg bg-[#f58c14]/15 flex items-center justify-center">
-                <c.icon className="w-4 h-4 text-[#f58c14]" />
+                <c.icon className="w-4 h-4 text-nua-burgundy" />
               </div>
-              <h3 className="mt-4 font-display font-semibold text-white text-sm">{c.title}</h3>
-              <p className="mt-1.5 text-[13px] text-[#a1a1aa] leading-relaxed">{c.body}</p>
+              <h3 className="mt-4 font-display font-semibold text-nua-ink text-sm">{c.title}</h3>
+              <p className="mt-1.5 text-[13px] text-nua-ink2 leading-relaxed">{c.body}</p>
             </motion.div>
           ))}
         </div>

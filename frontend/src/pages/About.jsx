@@ -31,7 +31,7 @@ export default function About() {
         eyebrow="Company"
         title="Built by operators, for operators."
         subtitle="NUA exists because running a venue shouldn't mean logging into eight different systems before your first coffee."
-        accent="#8b5cf6"
+        accent="#7D52DD"
         crumb="About"
       />
 
@@ -41,7 +41,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-[15px] text-[#a1a1aa] leading-relaxed space-y-4"
+          className="text-[15px] text-nua-ink2 leading-relaxed space-y-4"
         >
           <p>
             NUA started with a simple observation: hospitality operators weren't short on software: they were
@@ -69,18 +69,18 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="rounded-2xl bg-[#15151d] border border-white/5 p-6 text-center"
+              className="rounded-2xl bg-nua-surface border border-nua-border p-6 text-center"
             >
-              <div className="font-display text-3xl sm:text-4xl font-bold text-white">
+              <div className="font-display text-3xl sm:text-4xl font-bold text-nua-ink">
                 <LiveNumber value={s.value} decimals={s.decimals} suffix={s.suffix} />
               </div>
-              <div className="mt-1.5 font-mono text-[11px] uppercase tracking-wider text-[#a1a1aa]">{s.label}</div>
+              <div className="mt-1.5 font-mono text-[11px] uppercase tracking-wider text-nua-ink2">{s.label}</div>
             </motion.div>
           ))}
         </div>
 
         <div className="mt-16">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">What we believe.</h2>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">What we believe.</h2>
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
             {values.map((v, i) => (
               <motion.div
@@ -89,14 +89,14 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="rounded-2xl bg-[#15151d] border border-white/5 p-5 flex items-start gap-4"
+                className="rounded-2xl bg-nua-surface border border-nua-border p-5 flex items-start gap-4"
               >
                 <div className="w-10 h-10 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center flex-shrink-0">
-                  <v.icon className="w-5 h-5 text-[#8b5cf6]" />
+                  <v.icon className="w-5 h-5 text-nua-burgundy" />
                 </div>
                 <div>
-                  <h3 className="font-display font-semibold text-white text-sm">{v.title}</h3>
-                  <p className="mt-1 text-[13px] text-[#a1a1aa] leading-relaxed">{v.body}</p>
+                  <h3 className="font-display font-semibold text-nua-ink text-sm">{v.title}</h3>
+                  <p className="mt-1 text-[13px] text-nua-ink2 leading-relaxed">{v.body}</p>
                 </div>
               </motion.div>
             ))}

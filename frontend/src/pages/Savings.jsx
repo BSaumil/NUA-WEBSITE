@@ -40,19 +40,19 @@ export default function Savings() {
         eyebrow="Total cost of ownership"
         title="What a 'stitched-together' POS stack really costs you."
         subtitle="Most venues aren't paying for one system. They're paying for eight or nine, quietly, across separate invoices. Here's the real monthly bill, itemised, next to a single NUA subscription."
-        accent="#f58c14"
+        accent="#A45D0D"
         crumb="Savings"
       />
 
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
         {/* Disclaimer */}
-        <div className="flex items-start gap-3 rounded-2xl bg-white/[0.03] border border-white/5 p-4" data-testid="savings-disclaimer">
-          <Info className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
-          <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
+        <div className="flex items-start gap-3 rounded-2xl bg-nua-bgAlt border border-nua-border p-4" data-testid="savings-disclaimer">
+          <Info className="w-4 h-4 text-nua-ink2 mt-0.5 flex-shrink-0" />
+          <p className="text-[13px] text-nua-ink2 leading-relaxed">
             Figures below are indicative monthly averages for a single, mid-size Australian venue, compiled from
             publicly listed pricing as at July 2026. Actual costs vary by provider, plan, region, transaction volume
             and negotiated rate{LEAD_CAPTURE_ENABLED ? (
-              <>, treat this as a guide, then <button type="button" onClick={() => openLead({ type: "demo" })} className="text-[#f58c14] hover:underline">book a demo</button> for a number based on your actual stack.</>
+              <>, treat this as a guide, then <button type="button" onClick={() => openLead({ type: "demo" })} className="text-nua-burgundy hover:underline">book a demo</button> for a number based on your actual stack.</>
             ) : (
               ", so treat this as a guide."
             )}
@@ -65,17 +65,17 @@ export default function Savings() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-10 rounded-2xl bg-[#15151d] border border-white/5 p-6"
+          className="mt-10 rounded-2xl bg-nua-surface border border-nua-border p-6"
           data-testid="savings-calculator"
         >
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Your numbers</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2">Your numbers</span>
             {isCustomized && (
               <button
                 type="button"
                 onClick={resetCalculator}
                 data-testid="savings-calculator-reset"
-                className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#a1a1aa] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-[11px] font-mono text-nua-ink2 hover:text-nua-ink transition-colors"
               >
                 <RotateCcw className="w-3 h-3" /> Reset
               </button>
@@ -83,13 +83,13 @@ export default function Savings() {
           </div>
           <div className="mt-4 grid sm:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="venues-input" className="text-[13px] text-[#a1a1aa]">Number of venues</label>
+              <label htmlFor="venues-input" className="text-[13px] text-nua-ink2">Number of venues</label>
               <div className="mt-2 flex items-center gap-3">
                 <button
                   type="button"
                   onClick={() => setVenues((v) => Math.max(1, v - 1))}
                   data-testid="savings-venues-minus"
-                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white hover:bg-white/5 transition-colors flex-shrink-0"
+                  className="w-9 h-9 rounded-lg border border-nua-border flex items-center justify-center text-nua-ink hover:bg-nua-bgAlt transition-colors flex-shrink-0"
                   aria-label="Decrease venues"
                 >
                   <Minus className="w-4 h-4" />
@@ -102,13 +102,13 @@ export default function Savings() {
                   max={200}
                   value={venues}
                   onChange={(e) => setVenues(Math.min(200, Math.max(1, Number(e.target.value) || 1)))}
-                  className="w-20 text-center bg-white/[0.04] border border-white/10 rounded-lg py-2 font-display text-lg font-bold text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-20 text-center bg-white/[0.04] border border-nua-border rounded-lg py-2 font-display text-lg font-bold text-nua-ink [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
                 <button
                   type="button"
                   onClick={() => setVenues((v) => Math.min(200, v + 1))}
                   data-testid="savings-venues-plus"
-                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white hover:bg-white/5 transition-colors flex-shrink-0"
+                  className="w-9 h-9 rounded-lg border border-nua-border flex items-center justify-center text-nua-ink hover:bg-nua-bgAlt transition-colors flex-shrink-0"
                   aria-label="Increase venues"
                 >
                   <Plus className="w-4 h-4" />
@@ -116,9 +116,9 @@ export default function Savings() {
               </div>
             </div>
             <div>
-              <label htmlFor="stack-spend-input" className="text-[13px] text-[#a1a1aa]">Current monthly spend, per venue</label>
+              <label htmlFor="stack-spend-input" className="text-[13px] text-nua-ink2">Current monthly spend, per venue</label>
               <div className="mt-2 relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#a1a1aa] font-display font-bold">$</span>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-nua-ink2 font-display font-bold">$</span>
                 <input
                   id="stack-spend-input"
                   data-testid="savings-stack-spend-input"
@@ -127,10 +127,10 @@ export default function Savings() {
                   step={10}
                   value={stackSpend}
                   onChange={(e) => setStackSpend(Math.max(0, Number(e.target.value) || 0))}
-                  className="w-full pl-7 pr-3 bg-white/[0.04] border border-white/10 rounded-lg py-2 font-display text-lg font-bold text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-full pl-7 pr-3 bg-white/[0.04] border border-nua-border rounded-lg py-2 font-display text-lg font-bold text-nua-ink [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
-              <div className="mt-1.5 font-mono text-[11px] text-[#a1a1aa]">Defaults to our {costRows.length}-tool estimate below: edit to use your own invoices.</div>
+              <div className="mt-1.5 font-mono text-[11px] text-nua-ink2">Defaults to our {costRows.length}-tool estimate below: edit to use your own invoices.</div>
             </div>
           </div>
         </motion.div>
@@ -142,17 +142,17 @@ export default function Savings() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-2xl bg-[#15151d] border border-white/5 p-6"
+            className="rounded-2xl bg-nua-surface border border-nua-border p-6"
             data-testid="savings-competitor-total"
           >
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Your current stack{venues > 1 ? `, ${venues} venues` : ""}</span>
-            <div className="mt-2 font-display text-4xl sm:text-5xl font-bold text-white">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2">Your current stack{venues > 1 ? `, ${venues} venues` : ""}</span>
+            <div className="mt-2 font-display text-4xl sm:text-5xl font-bold text-nua-ink">
               <LiveNumber value={competitorTotal} prefix="$" suffix="/mo" />
             </div>
-            <div className="mt-1 font-mono text-[11px] text-[#a1a1aa]">
+            <div className="mt-1 font-mono text-[11px] text-nua-ink2">
               {venues > 1 ? `$${stackSpend}/mo × ${venues} venues` : `across ${costRows.length} separate tools & invoices`}
             </div>
-            <div className="mt-4 h-2.5 rounded-full bg-white/5 overflow-hidden">
+            <div className="mt-4 h-2.5 rounded-full bg-nua-bgAlt overflow-hidden">
               <div className="h-full rounded-full bg-gradient-to-r from-[#f58c14] to-[#ec4899]" style={{ width: "100%" }} />
             </div>
           </motion.div>
@@ -162,17 +162,17 @@ export default function Savings() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="rounded-2xl bg-[#0b0b0f] border-2 border-[#22c55e]/30 p-6"
+            className="rounded-2xl bg-nua-bg border-2 border-[#22c55e]/30 p-6"
             data-testid="savings-nua-total"
           >
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">NUA Growth plan{venues > 1 ? `, ${venues} venues` : ""}</span>
-            <div className="mt-2 font-display text-4xl sm:text-5xl font-bold text-white">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2">NUA Growth plan{venues > 1 ? `, ${venues} venues` : ""}</span>
+            <div className="mt-2 font-display text-4xl sm:text-5xl font-bold text-nua-ink">
               <LiveNumber value={nuaTotal} prefix="$" suffix="/mo" />
             </div>
-            <div className="mt-1 font-mono text-[11px] text-[#a1a1aa]">
+            <div className="mt-1 font-mono text-[11px] text-nua-ink2">
               ${NUA_PLAN_COST}/mo platform + ${NUA_OPTIONAL_TERMINAL}/mo optional terminal, per venue
             </div>
-            <div className="mt-4 h-2.5 rounded-full bg-white/5 overflow-hidden">
+            <div className="mt-4 h-2.5 rounded-full bg-nua-bgAlt overflow-hidden">
               <div className="h-full rounded-full bg-emerald-500" style={{ width: `${nuaBarPct}%` }} />
             </div>
           </motion.div>
@@ -184,17 +184,17 @@ export default function Savings() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="mt-5 rounded-2xl bg-gradient-to-br from-emerald-500/15 to-[#15151d] border border-emerald-500/30 p-6 sm:p-8 text-center"
+          className="mt-5 rounded-2xl bg-nua-bgAlt border border-emerald-500/30 p-6 sm:p-8 text-center"
           data-testid="savings-banner"
         >
-          <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-400">You save</span>
-          <div className="mt-2 font-display text-4xl sm:text-6xl font-bold text-white">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">You save</span>
+          <div className="mt-2 font-display text-4xl sm:text-6xl font-bold text-nua-ink">
             <LiveNumber value={monthlySaving} prefix="$" suffix="/mo" />
           </div>
-          <div className="mt-2 font-mono text-sm text-emerald-400">
+          <div className="mt-2 font-mono text-sm text-nua-burgundy">
             <LiveNumber value={annualSaving} prefix="$" suffix="/year" duration={1.8} />
           </div>
-          <p className="mt-3 text-sm text-[#a1a1aa] max-w-lg mx-auto">
+          <p className="mt-3 text-sm text-nua-ink2 max-w-lg mx-auto">
             {venues > 1
               ? `Across all ${venues} venues, on your numbers above.`
               : "Per venue. Running five venues on the old stack? That's roughly"}
@@ -204,10 +204,10 @@ export default function Savings() {
 
         {/* Itemised breakdown */}
         <div className="mt-16">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">The itemised breakdown.</h2>
-          <p className="mt-2 text-[#a1a1aa]">Every line item most venues pay for separately, and what replaces it in NUA.</p>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">The itemised breakdown.</h2>
+          <p className="mt-2 text-nua-ink2">Every line item most venues pay for separately, and what replaces it in NUA.</p>
 
-          <div className="mt-6 rounded-2xl border border-white/10 bg-[#15151d] overflow-hidden">
+          <div className="mt-6 rounded-2xl border border-nua-border bg-nua-surface overflow-hidden">
             {costRows.map((r, i) => (
               <motion.div
                 key={r.id}
@@ -216,25 +216,25 @@ export default function Savings() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.03 }}
                 data-testid={`savings-row-${r.id}`}
-                className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto_auto] items-center gap-3 sm:gap-4 px-5 py-4 border-b border-white/5 last:border-b-0 hover:bg-white/[0.02] transition-colors"
+                className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto_auto] items-center gap-3 sm:gap-4 px-5 py-4 border-b border-nua-border last:border-b-0 hover:bg-nua-bgAlt transition-colors"
               >
                 <div className="w-9 h-9 rounded-lg bg-[#f58c14]/15 flex items-center justify-center flex-shrink-0">
-                  <r.icon className="w-4 h-4 text-[#f58c14]" />
+                  <r.icon className="w-4 h-4 text-nua-burgundy" />
                 </div>
                 <div className="min-w-0">
-                  <div className="font-display text-sm font-semibold text-white">{r.category}</div>
-                  <div className="text-[12px] text-[#a1a1aa] mt-0.5">{r.tool}</div>
+                  <div className="font-display text-sm font-semibold text-nua-ink">{r.category}</div>
+                  <div className="text-[12px] text-nua-ink2 mt-0.5">{r.tool}</div>
                 </div>
-                <span className="font-mono text-sm text-[#a1a1aa] whitespace-nowrap">${r.cost}/mo</span>
-                <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-mono text-[10px] uppercase whitespace-nowrap">
+                <span className="font-mono text-sm text-nua-ink2 whitespace-nowrap">${r.cost}/mo</span>
+                <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-nua-burgundy font-mono text-[10px] uppercase whitespace-nowrap">
                   <CheckCircle2 className="w-3 h-3" /> In every plan
                 </span>
               </motion.div>
             ))}
-            <div className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto_auto] items-center gap-3 sm:gap-4 px-5 py-4 bg-white/[0.03]">
+            <div className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto_auto] items-center gap-3 sm:gap-4 px-5 py-4 bg-nua-bgAlt">
               <div className="w-9 h-9" />
-              <span className="font-display text-sm font-bold text-white">Total, across separate tools</span>
-              <span className="font-mono text-sm font-bold text-white whitespace-nowrap">${COMPETITOR_TOTAL}/mo</span>
+              <span className="font-display text-sm font-bold text-nua-ink">Total, across separate tools</span>
+              <span className="font-mono text-sm font-bold text-nua-ink whitespace-nowrap">${COMPETITOR_TOTAL}/mo</span>
               <span className="hidden sm:block" />
             </div>
           </div>
@@ -242,8 +242,8 @@ export default function Savings() {
 
         {/* Bonus bundled items */}
         <div className="mt-16">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">And here's what else is bundled in.</h2>
-          <p className="mt-2 text-[#a1a1aa]">Features many stacks charge extra for, or don't offer at all, that ship standard with NUA.</p>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">And here's what else is bundled in.</h2>
+          <p className="mt-2 text-nua-ink2">Features many stacks charge extra for, or don't offer at all, that ship standard with NUA.</p>
 
           <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {bonusItems.map((b, i) => (
@@ -253,13 +253,13 @@ export default function Savings() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-2xl bg-[#15151d] border border-white/5 p-5"
+                className="rounded-2xl bg-nua-surface border border-nua-border p-5"
               >
                 <div className="w-9 h-9 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center">
-                  <b.icon className="w-4 h-4 text-[#8b5cf6]" />
+                  <b.icon className="w-4 h-4 text-nua-burgundy" />
                 </div>
-                <h3 className="mt-4 font-display font-semibold text-white text-sm">{b.title}</h3>
-                <p className="mt-1.5 text-[13px] text-[#a1a1aa] leading-relaxed">{b.body}</p>
+                <h3 className="mt-4 font-display font-semibold text-nua-ink text-sm">{b.title}</h3>
+                <p className="mt-1.5 text-[13px] text-nua-ink2 leading-relaxed">{b.body}</p>
               </motion.div>
             ))}
           </div>
@@ -267,11 +267,11 @@ export default function Savings() {
 
         {/* CTA */}
         {LEAD_CAPTURE_ENABLED && (
-          <div className="mt-16 rounded-2xl bg-gradient-to-br from-[#f58c14]/15 to-[#15151d] border border-[#f58c14]/30 p-8 sm:p-10 text-center">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <div className="mt-16 rounded-2xl bg-nua-burgundyWash border border-nua-burgundy/30 p-8 sm:p-10 text-center">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">
               Want your actual number, not an estimate?
             </h2>
-            <p className="mt-3 text-[#a1a1aa] max-w-lg mx-auto">
+            <p className="mt-3 text-nua-ink2 max-w-lg mx-auto">
               Bring us your current invoices: POS, EFTPOS, rostering, booking, delivery, whatever you're juggling, and
               we'll build a savings breakdown specific to your venue.
             </p>
@@ -280,7 +280,7 @@ export default function Savings() {
                 type="button"
                 onClick={() => openLead({ type: "demo" })}
                 data-testid="savings-book-demo-btn"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-nua-burgundy hover:bg-nua-burgundyDark text-white font-medium text-sm shadow-xl shadow-nua-burgundy/25 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Get my savings breakdown
                 <ArrowRight className="w-4 h-4" />
@@ -289,7 +289,7 @@ export default function Savings() {
                 type="button"
                 onClick={() => openLead({ type: "trial" })}
                 data-testid="savings-start-trial-btn"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium text-sm transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-nua-bgAlt hover:bg-nua-bgAlt border border-nua-border text-nua-ink font-medium text-sm transition-all duration-200"
               >
                 Start Free Trial
               </button>

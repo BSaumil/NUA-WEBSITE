@@ -31,7 +31,7 @@ export default function Status() {
         eyebrow="System Status"
         title="Current platform status."
         subtitle="Live state of every NUA module. Nothing to report right now means exactly that."
-        accent="#22c55e"
+        accent="#157E3C"
         crumb="Status"
       />
 
@@ -45,15 +45,15 @@ export default function Status() {
           data-testid="status-overall"
         >
           <div className="w-11 h-11 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-            <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+            <CheckCircle2 className="w-6 h-6 text-nua-burgundy" />
           </div>
           <div>
-            <div className="font-display text-lg font-bold text-white">All systems operational</div>
-            <div className="text-sm text-[#a1a1aa] mt-0.5">Last checked moments ago.</div>
+            <div className="font-display text-lg font-bold text-nua-ink">All systems operational</div>
+            <div className="text-sm text-nua-ink2 mt-0.5">Last checked moments ago.</div>
           </div>
         </motion.div>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-[#15151d] overflow-hidden">
+        <div className="mt-8 rounded-2xl border border-nua-border bg-nua-surface overflow-hidden">
           {components.map((c, i) => (
             <motion.div
               key={c.name}
@@ -62,10 +62,10 @@ export default function Status() {
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.03 }}
               data-testid={`status-row-${i}`}
-              className="flex items-center justify-between gap-4 px-5 py-4 border-b border-white/5 last:border-b-0"
+              className="flex items-center justify-between gap-4 px-5 py-4 border-b border-nua-border last:border-b-0"
             >
-              <span className="text-sm text-white">{c.name}</span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-mono text-[10px] uppercase whitespace-nowrap">
+              <span className="text-sm text-nua-ink">{c.name}</span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-nua-burgundy font-mono text-[10px] uppercase whitespace-nowrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 Operational
               </span>
@@ -73,9 +73,9 @@ export default function Status() {
           ))}
         </div>
 
-        <div className="mt-8 flex items-start gap-3 rounded-2xl bg-white/[0.03] border border-white/5 p-4" data-testid="status-disclaimer">
-          <Info className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
-          <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
+        <div className="mt-8 flex items-start gap-3 rounded-2xl bg-nua-bgAlt border border-nua-border p-4" data-testid="status-disclaimer">
+          <Info className="w-4 h-4 text-nua-ink2 mt-0.5 flex-shrink-0" />
+          <p className="text-[13px] text-nua-ink2 leading-relaxed">
             This page reflects current known status. For automated incident history, uptime history and subscribable
             alerts, this is designed to be backed by a dedicated status provider (e.g. Statuspage or Instatus): 
             connect one to replace this with live, independently-hosted monitoring.

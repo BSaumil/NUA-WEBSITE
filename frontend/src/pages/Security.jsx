@@ -52,14 +52,14 @@ export default function Security() {
         eyebrow="Security &amp; Trust"
         title="How NUA actually handles your data."
         subtitle="Not a badge wall: a straight answer to what happens to your business and guest data, and why."
-        accent="#22c55e"
+        accent="#157E3C"
         crumb="Security"
       />
 
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
-        <div className="flex items-start gap-3 rounded-2xl bg-white/[0.03] border border-white/5 p-4" data-testid="security-disclaimer">
-          <Info className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
-          <p className="text-[13px] text-[#a1a1aa] leading-relaxed">
+        <div className="flex items-start gap-3 rounded-2xl bg-nua-bgAlt border border-nua-border p-4" data-testid="security-disclaimer">
+          <Info className="w-4 h-4 text-nua-ink2 mt-0.5 flex-shrink-0" />
+          <p className="text-[13px] text-nua-ink2 leading-relaxed">
             This page describes NUA's architecture and data-handling practices in plain language. It is not a
             substitute for a signed data processing agreement or a specific compliance certificate. If your venue
             needs a formal certification reference (e.g. a specific PCI-DSS level or SOC 2 report) for procurement,{" "}
@@ -68,7 +68,7 @@ export default function Security() {
               label="ask us directly"
               fallback="email"
               fallbackLabel="email us"
-              className="text-[#22c55e] hover:underline"
+              className="text-nua-burgundy hover:underline"
             />{" "}
             and we'll provide current documentation.
           </p>
@@ -83,38 +83,38 @@ export default function Security() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
               data-testid={`security-pillar-${i}`}
-              className="rounded-2xl bg-[#15151d] border border-white/5 p-5"
+              className="rounded-2xl bg-nua-surface border border-nua-border p-5"
             >
               <div className="w-9 h-9 rounded-lg bg-emerald-500/15 flex items-center justify-center">
-                <p.icon className="w-4 h-4 text-emerald-400" />
+                <p.icon className="w-4 h-4 text-nua-burgundy" />
               </div>
-              <h3 className="mt-4 font-display font-semibold text-white text-sm">{p.title}</h3>
-              <p className="mt-1.5 text-[13px] text-[#a1a1aa] leading-relaxed">{p.body}</p>
+              <h3 className="mt-4 font-display font-semibold text-nua-ink text-sm">{p.title}</h3>
+              <p className="mt-1.5 text-[13px] text-nua-ink2 leading-relaxed">{p.body}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-8">
-          <h2 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">Reporting a concern</h2>
-          <p className="mt-3 text-sm text-[#a1a1aa] leading-relaxed max-w-2xl">
+        <div className="mt-16 rounded-2xl bg-nua-surface border border-nua-border p-6 sm:p-8">
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-nua-ink tracking-tight">Reporting a concern</h2>
+          <p className="mt-3 text-sm text-nua-ink2 leading-relaxed max-w-2xl">
             Found something that looks like a security issue? Email{" "}
-            <a href={`mailto:${SUPPORT_EMAIL}`} className="text-emerald-400 hover:underline">{SUPPORT_EMAIL}</a>{" "}
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="text-nua-burgundy hover:underline">{SUPPORT_EMAIL}</a>{" "}
             directly: a real person on the engineering team reads that inbox, and we'd rather hear it from you first.
           </p>
         </div>
 
         {LEAD_CAPTURE_ENABLED && (
-          <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/[0.02] p-6 sm:p-8">
+          <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-nua-border bg-nua-bgAlt p-6 sm:p-8">
             <div>
-              <div className="font-display text-lg font-semibold text-white">Questions before you switch?</div>
-              <div className="text-sm text-[#a1a1aa] mt-1">Talk it through with a real operator, not a script.</div>
+              <div className="font-display text-lg font-semibold text-nua-ink">Questions before you switch?</div>
+              <div className="text-sm text-nua-ink2 mt-1">Talk it through with a real operator, not a script.</div>
             </div>
             <LeadCta
               type="demo"
               label="Book a Demo"
               icon={ArrowRight}
               testId="security-book-demo-btn"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200 flex-shrink-0"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-nua-burgundy hover:bg-nua-burgundyDark text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
             />
           </div>
         )}

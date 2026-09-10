@@ -20,17 +20,17 @@ const locations = [
 ];
 
 const statusColor = {
-  live: "#22c55e",
-  vip: "#8b5cf6",
-  alert: "#f58c14",
+  live: "#157E3C",
+  vip: "#7D52DD",
+  alert: "#A45D0D",
 };
 
 export default function MultiLocation() {
   return (
-    <section id="multi-location" data-testid="multi-location-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
+    <section id="multi-location" data-testid="multi-location-section" className="relative py-24 lg:py-32 bg-nua-bgAlt text-nua-ink">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#6d28d9]">Multi-location control</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">Multi-location control</span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -40,15 +40,15 @@ export default function MultiLocation() {
           >
             From one venue to a global group.
           </motion.h2>
-          <p className="mt-5 text-[#444450]">
+          <p className="mt-5 text-nua-ink2">
             Franchise dashboards, central pricing, menu syncing, benchmarking: your entire estate, one source of truth.
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white border border-black/5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
+        <div className="rounded-2xl bg-white border border-nua-border shadow-[0_30px_60px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
           <div className="grid lg:grid-cols-[1fr_320px]">
             {/* Map */}
-            <div className="relative aspect-[16/9] bg-[#fafafb] border-r border-black/5 overflow-hidden">
+            <div className="relative aspect-[16/9] bg-[#fafafb] border-r border-nua-border overflow-hidden">
               {/* Dotted globe */}
               <svg className="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 100 56" preserveAspectRatio="none">
                 {Array.from({ length: 30 }).map((_, row) =>
@@ -82,7 +82,7 @@ export default function MultiLocation() {
                     >
                       <span className="absolute inset-0 -m-2 rounded-full animate-pulse-dot" style={{ background: c, opacity: 0.25 }} />
                       <span className="block w-2.5 h-2.5 rounded-full ring-2 ring-white shadow" style={{ background: c }} />
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] text-[#0f0f14] hidden md:inline-block">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] text-nua-ink hidden md:inline-block">
                         {l.city}
                       </span>
                     </motion.div>
@@ -94,32 +94,32 @@ export default function MultiLocation() {
             {/* Sidebar */}
             <div className="p-5 space-y-4">
               <div>
-                <div className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">Global today</div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-nua-muted">Global today</div>
                 <div className="font-display text-3xl font-bold mt-1"><LiveNumber value={1.42} prefix="$" decimals={2} suffix="M" /></div>
-                <div className="font-mono text-[11px] text-emerald-600">▲ 14.6% vs LW</div>
+                <div className="font-mono text-[11px] text-nua-burgundy">▲ 14.6% vs LW</div>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
-                <div className="rounded-xl bg-[#f6f7fb] border border-black/5 p-3">
-                  <Globe2 className="w-4 h-4 text-[#8b5cf6]" />
+                <div className="rounded-xl bg-nua-bgAlt border border-nua-border p-3">
+                  <Globe2 className="w-4 h-4 text-nua-burgundy" />
                   <div className="mt-2 font-display text-lg font-bold"><LiveNumber value={42} /></div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">Venues live</div>
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-nua-muted">Venues live</div>
                 </div>
-                <div className="rounded-xl bg-[#f6f7fb] border border-black/5 p-3">
-                  <TrendingUp className="w-4 h-4 text-[#f58c14]" />
+                <div className="rounded-xl bg-nua-bgAlt border border-nua-border p-3">
+                  <TrendingUp className="w-4 h-4 text-nua-burgundy" />
                   <div className="mt-2 font-display text-lg font-bold">+22%</div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">YoY growth</div>
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-nua-muted">YoY growth</div>
                 </div>
               </div>
 
               <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
                 {locations.slice(0, 8).map((l) => (
-                  <div key={l.city} className="flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-[#f6f7fb] transition-colors">
+                  <div key={l.city} className="flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-nua-bgAlt transition-colors">
                     <div className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full" style={{ background: statusColor[l.status] }} />
-                      <span className="text-sm text-[#0f0f14]">{l.city}</span>
+                      <span className="text-sm text-nua-ink">{l.city}</span>
                     </div>
-                    <span className="font-mono text-[11px] text-[#666670]">{l.revenue}</span>
+                    <span className="font-mono text-[11px] text-nua-muted">{l.revenue}</span>
                   </div>
                 ))}
               </div>
@@ -134,11 +134,11 @@ export default function MultiLocation() {
           transition={{ duration: 0.6 }}
           className="mt-20 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-nua-muted mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <MultiVenueLiveShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA: Growth OS. Every venue's revenue, live, on one screen.</p>
+          <p className="mt-4 text-sm text-nua-muted max-w-sm">NUA: Growth OS. Every venue's revenue, live, on one screen.</p>
         </motion.div>
       </div>
     </section>

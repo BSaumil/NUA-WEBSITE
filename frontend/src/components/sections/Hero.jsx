@@ -14,13 +14,13 @@ const trustedBy = [
 ];
 
 const StatPill = ({ icon: Icon, label, value, color }) => (
-  <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5">
+  <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-nua-bgAlt border border-nua-border">
     <div className={`w-7 h-7 rounded-md flex items-center justify-center ${color}`}>
-      <Icon className="w-3.5 h-3.5 text-white" />
+      <Icon className="w-3.5 h-3.5 text-nua-ink" />
     </div>
     <div>
-      <div className="font-mono text-[10px] text-[#a1a1aa] uppercase tracking-wider">{label}</div>
-      <div className="font-display font-semibold text-sm text-white">{value}</div>
+      <div className="font-mono text-[10px] text-nua-ink2 uppercase tracking-wider">{label}</div>
+      <div className="font-display font-semibold text-sm text-nua-ink">{value}</div>
     </div>
   </div>
 );
@@ -41,9 +41,9 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="flex justify-center"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#f58c14] animate-pulse-dot" />
-            <span className="font-mono text-[11px] text-[#a1a1aa] tracking-widest uppercase">One system for hospitality, retail and services</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-nua-border bg-nua-bgAlt backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-nua-burgundy animate-pulse-dot" />
+            <span className="font-mono text-[11px] text-nua-ink2 tracking-widest uppercase">One system for hospitality, retail and services</span>
           </div>
         </motion.div>
 
@@ -55,7 +55,7 @@ export default function Hero() {
           subheadline and CTA still animate in around it, so the hero keeps
           its choreography while the headline lands instantly.
         */}
-        <h1 className="font-display text-center mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[88px] leading-[0.95] font-bold text-white tracking-tight">
+        <h1 className="font-display text-center mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[88px] leading-[0.95] font-bold text-nua-ink tracking-tight">
           AI-Powered Operating
           <br />
           System for Modern{" "}
@@ -67,7 +67,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-7 max-w-2xl mx-auto text-center text-base sm:text-lg text-[#a1a1aa] leading-relaxed"
+          className="mt-7 max-w-2xl mx-auto text-center text-base sm:text-lg text-nua-ink2 leading-relaxed"
         >
           Point of sale, bookings, stock, staff, loyalty and marketing in one platform, with NUA Agent handling the admin between them.
         </motion.p>
@@ -86,7 +86,7 @@ export default function Hero() {
               icon={ArrowRight}
               iconClassName="w-4 h-4 transition-transform group-hover:translate-x-0.5"
               testId="hero-book-demo-btn"
-              className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] font-medium text-sm shadow-xl shadow-[#f58c14]/25 transition-all duration-200 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-nua-burgundy hover:bg-nua-burgundyDark text-white font-medium text-sm shadow-xl shadow-nua-burgundy/25 transition-all duration-200 hover:-translate-y-0.5"
             />
           </motion.div>
         )}
@@ -105,19 +105,19 @@ export default function Hero() {
             <div className="absolute bottom-0 left-1/2 w-64 h-64 rounded-full bg-[#ec4899]/15 blur-[120px]" />
           </div>
 
-          <div className="relative rounded-2xl border border-white/10 bg-[#0f0f17]/80 backdrop-blur-xl shadow-2xl overflow-hidden">
+          <div className="relative rounded-2xl border border-nua-border bg-[#0f0f17]/80 backdrop-blur-xl shadow-2xl overflow-hidden">
             {/* Top bar */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-white/5 bg-white/[0.02]">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-nua-bgAlt">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
                   <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
                   <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
                 </div>
-                <span className="ml-3 font-mono text-[11px] text-[#a1a1aa]">nua.app / command-center</span>
+                <span className="ml-3 font-mono text-[11px] text-nua-ink2">nua.app / command-center</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-mono text-[10px] text-[#a1a1aa] uppercase">live</span>
+                <span className="font-mono text-[10px] text-nua-ink2 uppercase">live</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-dot" />
               </div>
             </div>
@@ -130,7 +130,7 @@ export default function Hero() {
                   <div
                     key={m}
                     className={`px-3 py-2 rounded-md text-xs font-medium ${
-                      i === 6 ? "bg-[#8b5cf6]/15 text-[#c4b5fd] border border-[#8b5cf6]/30" : "text-[#a1a1aa] hover:bg-white/5"
+                      i === 6 ? "bg-[#8b5cf6]/15 text-nua-burgundy border border-[#8b5cf6]/30" : "text-nua-ink2 hover:bg-nua-bgAlt"
                     }`}
                   >
                     {m}
@@ -140,19 +140,19 @@ export default function Hero() {
 
               {/* Main */}
               <div className="col-span-12 md:col-span-10 grid grid-cols-1 sm:grid-cols-4 gap-3">
-                <StatPill icon={DollarSign} label="Revenue" value={<LiveNumber value={32418} prefix="$" />} color="bg-[#f58c14]" />
-                <StatPill icon={Users} label="Covers" value={<LiveNumber value={248} />} color="bg-[#8b5cf6]" />
-                <StatPill icon={TrendingUp} label="AOV" value={<LiveNumber value={48.2} prefix="$" decimals={2} />} color="bg-[#ec4899]" />
+                <StatPill icon={DollarSign} label="Revenue" value={<LiveNumber value={32418} prefix="$" />} color="bg-nua-burgundy" />
+                <StatPill icon={Users} label="Covers" value={<LiveNumber value={248} />} color="bg-nua-burgundy" />
+                <StatPill icon={TrendingUp} label="AOV" value={<LiveNumber value={48.2} prefix="$" decimals={2} />} color="bg-nua-burgundy" />
                 <StatPill icon={Clock} label="Avg. wait" value="6m 12s" color="bg-emerald-500/80" />
 
                 {/* Chart card */}
-                <div className="sm:col-span-3 rounded-xl bg-[#15151d] border border-white/5 p-4">
+                <div className="sm:col-span-3 rounded-xl bg-nua-surface border border-nua-border p-4">
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <div className="font-mono text-[10px] text-[#a1a1aa] uppercase tracking-wider">Today vs last week</div>
-                      <div className="font-display text-2xl font-semibold text-white"><LiveNumber value={18.4} suffix="%" decimals={1} prefix="+" /></div>
+                      <div className="font-mono text-[10px] text-nua-ink2 uppercase tracking-wider">Today vs last week</div>
+                      <div className="font-display text-2xl font-semibold text-nua-ink"><LiveNumber value={18.4} suffix="%" decimals={1} prefix="+" /></div>
                     </div>
-                    <div className="font-mono text-[11px] text-emerald-400">▲ trending</div>
+                    <div className="font-mono text-[11px] text-nua-burgundy">▲ trending</div>
                   </div>
                   <div className="flex items-end gap-1.5 h-24">
                     {barHeights.map((h, i) => (
@@ -174,33 +174,33 @@ export default function Hero() {
                 </div>
 
                 {/* NUA card */}
-                <div className="rounded-xl bg-gradient-to-br from-[#8b5cf6]/20 to-[#1c1c26] border border-[#8b5cf6]/30 p-4">
+                <div className="rounded-xl bg-nua-bgAlt border border-nua-border p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-md bg-[#8b5cf6] flex items-center justify-center">
-                      <Sparkles className="w-3 h-3 text-white" />
+                    <div className="w-6 h-6 rounded-md bg-nua-burgundy flex items-center justify-center">
+                      <Sparkles className="w-3 h-3 text-nua-ink" />
                     </div>
-                    <span className="font-display text-sm font-semibold text-white">NUA</span>
-                    <span className="ml-auto font-mono text-[9px] text-[#a1a1aa]">THINKING</span>
+                    <span className="font-display text-sm font-semibold text-nua-ink">NUA</span>
+                    <span className="ml-auto font-mono text-[9px] text-nua-ink2">THINKING</span>
                   </div>
-                  <p className="font-mono text-[11px] leading-relaxed text-[#c4b5fd]">
+                  <p className="font-mono text-[11px] leading-relaxed text-nua-burgundy">
                     Detected 3 VIPs arriving in 18m. Reassigning table 12 to bar lounge. Comp dessert ready.
                   </p>
                   <div className="mt-3 flex items-center gap-1.5">
-                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">Auto-executed</span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-nua-burgundy text-[10px] font-mono">Auto-executed</span>
                   </div>
                 </div>
 
                 {/* Voice card */}
-                <div className="sm:col-span-2 rounded-xl bg-[#15151d] border border-white/5 p-4">
+                <div className="sm:col-span-2 rounded-xl bg-nua-surface border border-nua-border p-4">
                   <div className="flex items-center gap-2 mb-3">
-                    <Mic className="w-3.5 h-3.5 text-[#f58c14]" />
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#a1a1aa]">Voice POS</span>
+                    <Mic className="w-3.5 h-3.5 text-nua-burgundy" />
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-nua-ink2">Voice POS</span>
                   </div>
                   <div className="flex items-end gap-1 h-10">
                     {Array.from({ length: 28 }).map((_, i) => (
                       <div
                         key={i}
-                        className="w-1 rounded-full bar-wave bg-gradient-to-t from-[#f58c14] to-[#ec4899]"
+                        className="w-1 rounded-full bar-wave bg-nua-burgundy/70"
                         style={{
                           height: `${20 + Math.abs(Math.sin(i * 0.6)) * 60 + ((i * 13) % 20)}%`,
                           animationDelay: `${i * 0.05}s`,
@@ -208,32 +208,32 @@ export default function Hero() {
                       />
                     ))}
                   </div>
-                  <p className="mt-2 font-mono text-[11px] text-[#eaeaea]">{'"Add two cappuccinos to table 7"'}</p>
+                  <p className="mt-2 font-mono text-[11px] text-nua-ink">{'"Add two cappuccinos to table 7"'}</p>
                 </div>
 
                 {/* Reservations */}
-                <div className="sm:col-span-2 rounded-xl bg-[#15151d] border border-white/5 p-4">
+                <div className="sm:col-span-2 rounded-xl bg-nua-surface border border-nua-border p-4">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#a1a1aa]">Reservations</span>
-                    <span className="font-mono text-[10px] text-emerald-400">36 / 42 tables</span>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-nua-ink2">Reservations</span>
+                    <span className="font-mono text-[10px] text-nua-burgundy">36 / 42 tables</span>
                   </div>
                   <div className="grid grid-cols-7 gap-1.5">
                     {Array.from({ length: 21 }).map((_, i) => {
-                      const tone = i % 5 === 0 ? "bg-[#ec4899]" : i % 3 === 0 ? "bg-[#8b5cf6]/70" : i % 7 === 0 ? "bg-white/10" : "bg-[#f58c14]/80";
+                      const tone = i % 5 === 0 ? "bg-nua-burgundy" : i % 3 === 0 ? "bg-[#8b5cf6]/70" : i % 7 === 0 ? "bg-nua-bgAlt" : "bg-[#f58c14]/80";
                       return <div key={i} className={`aspect-square rounded-md ${tone}`} />;
                     })}
                   </div>
                 </div>
 
                 {/* Loyalty */}
-                <div className="rounded-xl bg-gradient-to-br from-[#ec4899]/15 to-[#1c1c26] border border-[#ec4899]/25 p-4 flex flex-col justify-between">
+                <div className="rounded-xl bg-nua-bgAlt border border-nua-border p-4 flex flex-col justify-between">
                   <div className="flex items-center gap-2">
-                    <Zap className="w-3.5 h-3.5 text-[#ec4899]" />
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#fbcfe8]">Loyalty</span>
+                    <Zap className="w-3.5 h-3.5 text-nua-burgundy" />
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-nua-burgundy">Loyalty</span>
                   </div>
                   <div>
-                    <div className="font-display text-2xl font-bold text-white">8,412</div>
-                    <div className="font-mono text-[10px] text-[#a1a1aa]">Members · +124 today</div>
+                    <div className="font-display text-2xl font-bold text-nua-ink">8,412</div>
+                    <div className="font-mono text-[10px] text-nua-ink2">Members · +124 today</div>
                   </div>
                 </div>
               </div>
@@ -243,7 +243,7 @@ export default function Hero() {
 
         {/* Trust strip */}
         <div className="mt-16 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Illustrative of the businesses NUA is built for*</p>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-nua-ink2">Illustrative of the businesses NUA is built for*</p>
           <div className="mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
             <motion.div
               className="flex items-center gap-14 w-max"
@@ -255,7 +255,7 @@ export default function Hero() {
                   <span
                     key={b}
                     role="listitem"
-                    className="flex-shrink-0 font-display text-lg sm:text-xl font-semibold tracking-tight text-[#a1a1aa] opacity-60 hover:opacity-100 transition-opacity"
+                    className="flex-shrink-0 font-display text-lg sm:text-xl font-semibold tracking-tight text-nua-ink2 opacity-60 hover:opacity-100 transition-opacity"
                   >
                     {b}
                   </span>
@@ -265,7 +265,7 @@ export default function Hero() {
                 {trustedBy.map((b, i) => (
                   <span
                     key={`${b}-${i}`}
-                    className="flex-shrink-0 font-display text-lg sm:text-xl font-semibold tracking-tight text-[#a1a1aa] opacity-60 hover:opacity-100 transition-opacity"
+                    className="flex-shrink-0 font-display text-lg sm:text-xl font-semibold tracking-tight text-nua-ink2 opacity-60 hover:opacity-100 transition-opacity"
                   >
                     {b}
                   </span>
@@ -273,7 +273,7 @@ export default function Hero() {
               </div>
             </motion.div>
           </div>
-          <p className="mt-3 font-mono text-[10px] text-[#a1a1aa]">*Illustrative business names for evaluation purposes, not customers.</p>
+          <p className="mt-3 font-mono text-[10px] text-nua-ink2">*Illustrative business names for evaluation purposes, not customers.</p>
         </div>
       </div>
     </section>

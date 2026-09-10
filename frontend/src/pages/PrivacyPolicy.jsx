@@ -18,20 +18,20 @@ export default function PrivacyPolicy() {
         eyebrow="Legal"
         title="Privacy Policy"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        accent="#8b5cf6"
+        accent="#7D52DD"
         crumb="Privacy"
       />
 
       <div className="relative max-w-3xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
-        <p className="text-[15px] text-[#a1a1aa] leading-relaxed">
-          NUA AUS PTY LTD (ABN <span className="font-mono text-[#eaeaea]">54 299 131 653</span>) ("<strong>NUA</strong>", "<strong>we</strong>", "<strong>us</strong>" or "<strong>our</strong>")
+        <p className="text-[15px] text-nua-ink2 leading-relaxed">
+          NUA AUS PTY LTD (ABN <span className="font-mono text-nua-ink">54 299 131 653</span>) ("<strong>NUA</strong>", "<strong>we</strong>", "<strong>us</strong>" or "<strong>our</strong>")
           provides an AI-powered hospitality operating system, including point of sale ("<strong>POS</strong>"), reservations,
           kitchen display, loyalty and wallet, inventory and purchasing, staff management, analytics, marketing automation, voice
           ordering, and related AI agent features (together, the "<strong>Services</strong>" or the "<strong>Platform</strong>").
           This Privacy Policy explains how we collect, use, disclose and protect personal information in connection with the
           Services, and the choices available to you.
         </p>
-        <p className="mt-3 text-[15px] text-[#a1a1aa] leading-relaxed">
+        <p className="mt-3 text-[15px] text-nua-ink2 leading-relaxed">
           We are committed to handling personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the
           Australian Privacy Principles ("<strong>APPs</strong>"). By using the Platform, you acknowledge that you have read and
           understood this Privacy Policy.

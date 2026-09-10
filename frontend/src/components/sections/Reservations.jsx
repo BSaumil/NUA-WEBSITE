@@ -20,11 +20,11 @@ const tables = [
 ];
 
 const statusColors = {
-  vip: { bg: "bg-[#8b5cf6]", text: "VIP", ring: "ring-[#8b5cf6]/40" },
-  occupied: { bg: "bg-[#0f0f14]", text: "Seated", ring: "ring-black/10" },
-  overdue: { bg: "bg-[#f58c14]", text: "Overdue", ring: "ring-[#f58c14]/40" },
+  vip: { bg: "bg-nua-burgundy", text: "VIP", ring: "ring-[#8b5cf6]/40" },
+  occupied: { bg: "bg-nua-ink", text: "Seated", ring: "ring-black/10" },
+  overdue: { bg: "bg-nua-burgundy", text: "Overdue", ring: "ring-[#f58c14]/40" },
   available: { bg: "bg-white border border-black/10", text: "Open", ring: "ring-black/10" },
-  reserved: { bg: "bg-[#ec4899]", text: "Reserved", ring: "ring-[#ec4899]/40" },
+  reserved: { bg: "bg-nua-burgundy", text: "Reserved", ring: "ring-[#ec4899]/40" },
 };
 
 const features = [
@@ -38,11 +38,11 @@ const features = [
 
 export default function Reservations() {
   return (
-    <section id="reservations" data-testid="reservations-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
+    <section id="reservations" data-testid="reservations-section" className="relative py-24 lg:py-32 bg-nua-bgAlt text-nua-ink">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-28">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#6d28d9]">Reservations & guests</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">Reservations & guests</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -52,17 +52,17 @@ export default function Reservations() {
             >
               The floor,
               <br />
-              <span className="text-[#666670]">visible & alive.</span>
+              <span className="text-nua-muted">visible & alive.</span>
             </motion.h2>
-            <p className="mt-5 text-[#444450] leading-relaxed">
+            <p className="mt-5 text-nua-ink2 leading-relaxed">
               See every table, every guest, every signal. NUA flags VIPs, predicts turn-times, and steers bookings to maximise covers.
             </p>
 
             <ul className="mt-7 space-y-3">
               {features.map((f) => (
                 <li key={f.label} className="flex items-center gap-3 text-sm">
-                  <div className="w-8 h-8 rounded-lg bg-white border border-black/5 flex items-center justify-center shadow-sm">
-                    <f.icon className="w-4 h-4 text-[#8b5cf6]" />
+                  <div className="w-8 h-8 rounded-lg bg-white border border-nua-border flex items-center justify-center shadow-sm">
+                    <f.icon className="w-4 h-4 text-nua-burgundy" />
                   </div>
                   <span className="text-[#1a1a22]">{f.label}</span>
                 </li>
@@ -71,17 +71,17 @@ export default function Reservations() {
           </div>
 
           <div className="lg:col-span-8">
-            <div className="rounded-2xl bg-white border border-black/5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.1)] overflow-hidden">
-              <div className="flex items-center justify-between px-5 py-3 border-b border-black/5">
+            <div className="rounded-2xl bg-white border border-nua-border shadow-[0_30px_60px_-20px_rgba(0,0,0,0.1)] overflow-hidden">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border">
                 <div>
                   <div className="font-display font-semibold">Main dining · Friday 7:30pm</div>
-                  <div className="font-mono text-[11px] text-[#666670]">86% occupancy · est. turn 1h 42m</div>
+                  <div className="font-mono text-[11px] text-nua-muted">86% occupancy · est. turn 1h 42m</div>
                 </div>
                 <div className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-wider">
                   {Object.entries(statusColors).map(([k, v]) => (
                     <span key={k} className="flex items-center gap-1.5">
                       <span className={`w-2.5 h-2.5 rounded ${v.bg}`} />
-                      <span className="text-[#666670]">{v.text}</span>
+                      <span className="text-nua-muted">{v.text}</span>
                     </span>
                   ))}
                 </div>
@@ -97,7 +97,7 @@ export default function Reservations() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: t.id * 0.04 }}
-                      className={`absolute rounded-xl ${s.bg} ring-4 ${s.ring} text-white text-xs font-mono flex flex-col items-center justify-center shadow-md`}
+                      className={`absolute rounded-xl ${s.bg} ring-4 ${s.ring} text-nua-ink text-xs font-mono flex flex-col items-center justify-center shadow-md`}
                       style={{
                         left: `${t.x}%`,
                         top: `${t.y}%`,
@@ -113,17 +113,17 @@ export default function Reservations() {
                 })}
                 {/* Heatmap blobs */}
                 <div className="absolute inset-0 pointer-events-none opacity-30">
-                  <div className="absolute top-[20%] left-[35%] w-32 h-32 rounded-full bg-[#f58c14] blur-3xl" />
-                  <div className="absolute bottom-[20%] right-[20%] w-24 h-24 rounded-full bg-[#ec4899] blur-3xl" />
+                  <div className="absolute top-[20%] left-[35%] w-32 h-32 rounded-full bg-nua-burgundy blur-3xl" />
+                  <div className="absolute bottom-[20%] right-[20%] w-24 h-24 rounded-full bg-nua-burgundy blur-3xl" />
                 </div>
               </div>
 
-              <div className="px-5 py-3 border-t border-black/5 bg-[#fafafb] flex flex-wrap items-center justify-between gap-2">
+              <div className="px-5 py-3 border-t border-nua-border bg-[#fafafb] flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <Crown className="w-4 h-4 text-[#8b5cf6]" />
-                  <span className="text-sm">VIP Sam B. · party of 4 · arriving in <span className="font-mono text-[#6d28d9]">12m</span></span>
+                  <Crown className="w-4 h-4 text-nua-burgundy" />
+                  <span className="text-sm">VIP Sam B. · party of 4 · arriving in <span className="font-mono text-nua-burgundy">12m</span></span>
                 </div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">NUA recommends T7 (south corner)</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-nua-muted">NUA recommends T7 (south corner)</span>
               </div>
             </div>
           </div>
@@ -136,11 +136,11 @@ export default function Reservations() {
           transition={{ duration: 0.6 }}
           className="mt-20 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-nua-muted mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <BookingWaitlistShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA: Booking OS. Designed to prevent conflicting bookings.</p>
+          <p className="mt-4 text-sm text-nua-muted max-w-sm">NUA: Booking OS. Designed to prevent conflicting bookings.</p>
         </motion.div>
       </div>
     </section>

@@ -11,7 +11,7 @@ import {
   POSVisual, KDSVisual, ReservationsVisual, StaffVisual, InventoryVisual, MarketingVisual, VoiceVisual,
 } from "@/components/graphics/FeatureVisuals";
 
-function LiveDot({ color = "#22c55e" }) {
+function LiveDot({ color = "#157E3C" }) {
   return (
     <span className="inline-flex items-center gap-1 font-mono text-[8px] uppercase tracking-widest" style={{ color }}>
       <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ background: color }} />Live
@@ -27,10 +27,10 @@ const sparkPaths = [
 ];
 
 const kpis = [
-  { icon: DollarSign, label: "Total Sales", value: 214830, prefix: "$", delta: "+12.7%", color: "#f58c14", spark: sparkPaths[0] },
-  { icon: ShoppingBag, label: "Total Orders", value: 4218, delta: "+9.3%", color: "#8b5cf6", spark: sparkPaths[1] },
-  { icon: TrendingUp, label: "Avg. Order Value", value: 50.93, decimals: 2, prefix: "$", delta: "+3.1%", color: "#ec4899", spark: sparkPaths[2] },
-  { icon: Users, label: "Loyalty Members", value: 16240, delta: "+4.6%", color: "#22c55e", spark: sparkPaths[3] },
+  { icon: DollarSign, label: "Total Sales", value: 214830, prefix: "$", delta: "+12.7%", color: "#A45D0D", spark: sparkPaths[0] },
+  { icon: ShoppingBag, label: "Total Orders", value: 4218, delta: "+9.3%", color: "#7D52DD", spark: sparkPaths[1] },
+  { icon: TrendingUp, label: "Avg. Order Value", value: 50.93, decimals: 2, prefix: "$", delta: "+3.1%", color: "#BF3A7B", spark: sparkPaths[2] },
+  { icon: Users, label: "Loyalty Members", value: 16240, delta: "+4.6%", color: "#157E3C", spark: sparkPaths[3] },
 ];
 
 const venues = [
@@ -44,8 +44,8 @@ const venues = [
 /* Shared dashboard screen used by both flagship analytics graphics */
 export function AnalyticsDashboardScreen() {
   return (
-    <div className="bg-[#fafbfc] text-[#0f0f14]">
-      <div className="flex items-center justify-between px-5 py-3 border-b border-black/5 bg-white">
+    <div className="bg-[#fafbfc] text-nua-ink">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-white">
         <div>
           <div className="font-mono text-[9px] text-[#6b6b75] uppercase tracking-wider">Insights</div>
           <div className="font-display text-sm font-semibold">Sales, Loyalty &amp; Inventory Overview</div>
@@ -60,10 +60,10 @@ export function AnalyticsDashboardScreen() {
       <div className="p-5">
         <div className="grid grid-cols-4 gap-3">
           {kpis.map((k) => (
-            <div key={k.label} className="rounded-xl border border-black/5 p-3">
+            <div key={k.label} className="rounded-xl border border-nua-border p-3">
               <div className="flex items-center justify-between">
                 <k.icon className="w-3.5 h-3.5" style={{ color: k.color }} />
-                <span className="font-mono text-[9px] text-emerald-600">{k.delta}</span>
+                <span className="font-mono text-[9px] text-nua-burgundy">{k.delta}</span>
               </div>
               <div className="mt-2 font-display text-lg font-bold">
                 <LiveNumber value={k.value} prefix={k.prefix} decimals={k.decimals} />
@@ -77,27 +77,27 @@ export function AnalyticsDashboardScreen() {
         </div>
 
         <div className="mt-4 grid grid-cols-5 gap-3">
-          <div className="col-span-3 rounded-xl border border-black/5 p-4">
+          <div className="col-span-3 rounded-xl border border-nua-border p-4">
             <div className="font-display text-xs font-semibold mb-2">Sales Trend · last 7 days</div>
             <svg viewBox="0 0 300 90" className="w-full h-24">
               <defs>
                 <linearGradient id="showcaseGrad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#f58c14" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#f58c14" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#A45D0D" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#A45D0D" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path d="M0,70 C40,60 60,65 90,50 C120,40 140,52 170,38 C200,28 220,42 250,25 C270,18 285,28 300,12 L300,90 L0,90 Z" fill="url(#showcaseGrad)" />
-              <path d="M0,70 C40,60 60,65 90,50 C120,40 140,52 170,38 C200,28 220,42 250,25 C270,18 285,28 300,12" stroke="#f58c14" strokeWidth="2" fill="none" />
+              <path d="M0,70 C40,60 60,65 90,50 C120,40 140,52 170,38 C200,28 220,42 250,25 C270,18 285,28 300,12" stroke="#A45D0D" strokeWidth="2" fill="none" />
             </svg>
           </div>
-          <div className="col-span-2 rounded-xl border border-black/5 p-4">
+          <div className="col-span-2 rounded-xl border border-nua-border p-4">
             <div className="font-display text-xs font-semibold mb-2">Sales by Venue</div>
             <div className="space-y-1.5">
               {venues.map((v) => (
                 <div key={v.name} className="flex items-center gap-2">
                   <span className="w-14 font-mono text-[8px] text-[#5c5c66] truncate">{v.name}</span>
                   <div className="flex-1 h-2 rounded-full bg-[#f3f4f6] overflow-hidden">
-                    <div className="h-full rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#ec4899]" style={{ width: `${v.pct}%` }} />
+                    <div className="h-full rounded-full bg-nua-burgundy" style={{ width: `${v.pct}%` }} />
                   </div>
                 </div>
               ))}
@@ -159,25 +159,25 @@ export function ScanToPayShowcase() {
   return (
     <div className="relative inline-flex items-end gap-0" data-testid="showcase-scan-to-pay">
       <TabletStandFrame width={380} height={250}>
-        <div className="h-full flex flex-col bg-white text-[#0f0f14]">
-          <div className="px-4 py-2.5 border-b border-black/5 flex items-center justify-between">
+        <div className="h-full flex flex-col bg-white text-nua-ink">
+          <div className="px-4 py-2.5 border-b border-nua-border flex items-center justify-between">
             <span className="font-display text-xs font-semibold">Your Order · Table 4</span>
-            <CreditCard className="w-3.5 h-3.5 text-[#a1a1aa]" />
+            <CreditCard className="w-3.5 h-3.5 text-nua-ink2" />
           </div>
           <div className="flex-1 grid grid-cols-2">
-            <div className="p-3 space-y-1.5 border-r border-black/5">
+            <div className="p-3 space-y-1.5 border-r border-nua-border">
               {orderItems.map((it) => (
                 <div key={it.name} className="flex items-center justify-between text-[10px]">
-                  <span className="flex items-center gap-1.5 text-[#1a1a22]"><it.icon className="w-3 h-3 text-[#f58c14]" />{it.name}</span>
+                  <span className="flex items-center gap-1.5 text-[#1a1a22]"><it.icon className="w-3 h-3 text-nua-burgundy" />{it.name}</span>
                   <span className="font-mono text-[#5f5f6b]">{it.price}</span>
                 </div>
               ))}
-              <div className="pt-1.5 mt-1.5 border-t border-black/5 flex justify-between font-display font-bold text-xs">
+              <div className="pt-1.5 mt-1.5 border-t border-nua-border flex justify-between font-display font-bold text-xs">
                 <span>Total</span><span>$65.10</span>
               </div>
             </div>
             <div className="p-3 flex flex-col items-center justify-center gap-1.5">
-              <span className="font-mono text-[8px] uppercase tracking-widest text-[#6d28d9]">Scan to pay</span>
+              <span className="font-mono text-[8px] uppercase tracking-widest text-nua-burgundy">Scan to pay</span>
               <QRPattern size={72} />
             </div>
           </div>
@@ -185,10 +185,10 @@ export function ScanToPayShowcase() {
       </TabletStandFrame>
 
       <PhoneFrame width={128} height={260} className="-ml-6 mb-6 z-10 shadow-2xl">
-        <div className="h-full bg-[#0b0b0f] flex flex-col items-center justify-center gap-2 px-3">
-          <span className="font-mono text-[7px] uppercase tracking-widest text-[#a1a1aa]">NUA Wallet</span>
-          <QRPattern size={64} dark="#ffffff" light="#0b0b0f" />
-          <span className="font-mono text-[7px] text-[#8b5cf6]">Sam B. · Black tier</span>
+        <div className="h-full bg-nua-bg flex flex-col items-center justify-center gap-2 px-3">
+          <span className="font-mono text-[7px] uppercase tracking-widest text-nua-ink2">NUA Wallet</span>
+          <QRPattern size={64} dark="#29241E" light="#FFFDF9" />
+          <span className="font-mono text-[7px] text-nua-burgundy">Sam B. · Black tier</span>
         </div>
       </PhoneFrame>
 
@@ -199,11 +199,11 @@ export function ScanToPayShowcase() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="absolute z-20 -top-8 right-0 sm:-right-6 flex items-center gap-2.5 rounded-xl bg-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25)] px-3.5 py-2.5"
       >
-        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-[#ec4899] text-white font-mono text-[9px] font-semibold uppercase whitespace-nowrap">
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-nua-burgundy text-nua-ink font-mono text-[9px] font-semibold uppercase whitespace-nowrap">
           <Gift className="w-3 h-3" /> Rewards
         </span>
         <div className="text-[10px] leading-tight text-[#1a1a22]">
-          <div className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider text-emerald-600"><Link2 className="w-2.5 h-2.5" />Linked</div>
+          <div className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider text-nua-burgundy"><Link2 className="w-2.5 h-2.5" />Linked</div>
           <div className="font-medium">Loyalty rewards connected<br />to this sale</div>
         </div>
       </motion.div>
@@ -215,7 +215,7 @@ export function ScanToPayShowcase() {
 export function POSShowcase() {
   return (
     <div data-testid="showcase-pos">
-      <TabletStandFrame width={420} height={280} screenBg="#0b0b0f">
+      <TabletStandFrame width={420} height={280} screenBg="#FFFDF9">
         <div className="p-3.5 h-full flex items-center"><POSVisual /></div>
       </TabletStandFrame>
     </div>
@@ -225,7 +225,7 @@ export function POSShowcase() {
 export function KDSShowcase() {
   return (
     <div data-testid="showcase-kds">
-      <MonitorFrame width={480} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={480} screenBg="#FFFDF9" padded>
         <KDSVisual />
       </MonitorFrame>
     </div>
@@ -235,7 +235,7 @@ export function KDSShowcase() {
 export function ReservationsShowcase() {
   return (
     <div data-testid="showcase-reservations">
-      <MonitorFrame width={420} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={420} screenBg="#FFFDF9" padded>
         <ReservationsVisual />
       </MonitorFrame>
     </div>
@@ -245,7 +245,7 @@ export function ReservationsShowcase() {
 export function StaffShowcase() {
   return (
     <div data-testid="showcase-staff">
-      <MonitorFrame width={420} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={420} screenBg="#FFFDF9" padded>
         <StaffVisual />
       </MonitorFrame>
     </div>
@@ -255,7 +255,7 @@ export function StaffShowcase() {
 export function InventoryShowcase() {
   return (
     <div data-testid="showcase-inventory">
-      <MonitorFrame width={400} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={400} screenBg="#FFFDF9" padded>
         <InventoryVisual />
       </MonitorFrame>
     </div>
@@ -265,7 +265,7 @@ export function InventoryShowcase() {
 export function MarketingShowcase() {
   return (
     <div data-testid="showcase-marketing">
-      <MonitorFrame width={420} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={420} screenBg="#FFFDF9" padded>
         <MarketingVisual />
       </MonitorFrame>
     </div>
@@ -275,7 +275,7 @@ export function MarketingShowcase() {
 export function VoiceShowcase() {
   return (
     <div data-testid="showcase-voice">
-      <PhoneFrame width={200} height={340} screenBg="#0b0b0f">
+      <PhoneFrame width={200} height={340} screenBg="#FFFDF9">
         <div className="p-4 h-full flex items-center">
           <div className="w-full min-w-0"><VoiceVisual /></div>
         </div>
@@ -297,27 +297,27 @@ export function LoyaltyWalletLiveShowcase() {
   const pct = Math.min(100, (points / tierTarget) * 100);
   return (
     <div data-testid="showcase-loyalty-wallet">
-      <PhoneFrame width={210} height={380} screenBg="#0b0b0f">
+      <PhoneFrame width={210} height={380} screenBg="#FFFDF9">
         <div className="h-full flex flex-col items-center justify-center gap-3 px-4">
           <div className="flex items-center gap-1.5">
-            <Wallet className="w-3.5 h-3.5 text-[#fbcfe8]" />
-            <span className="font-mono text-[8px] uppercase tracking-widest text-[#fbcfe8]">NUA Wallet</span>
+            <Wallet className="w-3.5 h-3.5 text-nua-burgundy" />
+            <span className="font-mono text-[8px] uppercase tracking-widest text-nua-burgundy">NUA Wallet</span>
           </div>
-          <div className="font-display text-3xl font-bold text-white tabular-nums">
+          <div className="font-display text-3xl font-bold text-nua-ink tabular-nums">
             <LiveNumber value={points} />
           </div>
-          <div className="font-mono text-[8px] text-[#a1a1aa] -mt-2">points · Black tier</div>
+          <div className="font-mono text-[8px] text-nua-ink2 -mt-2">points · Black tier</div>
           <div className="w-full mt-1">
-            <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
+            <div className="h-1.5 w-full rounded-full bg-nua-bgAlt overflow-hidden">
               <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-[#ec4899] to-[#8b5cf6]"
+                className="h-full rounded-full bg-nua-burgundy"
                 animate={{ width: `${pct}%` }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               />
             </div>
-            <div className="mt-1 font-mono text-[7px] text-[#a1a1aa]">{Math.max(0, tierTarget - points).toLocaleString()} pts to next reward tier</div>
+            <div className="mt-1 font-mono text-[7px] text-nua-ink2">{Math.max(0, tierTarget - points).toLocaleString()} pts to next reward tier</div>
           </div>
-          <LiveDot color="#ec4899" />
+          <LiveDot color="#BF3A7B" />
         </div>
       </PhoneFrame>
     </div>
@@ -334,9 +334,9 @@ const aiActionPool = [
   { action: "Profit margin on Set Menu B dropped to 58%", outcome: "Repriced sides +$2. Margin restored to 65%.", status: "executed" },
 ];
 const aiStatusStyle = {
-  executed: { bg: "bg-emerald-500/15", text: "text-emerald-400", dot: "bg-emerald-500", label: "Executed" },
-  approved: { bg: "bg-[#8b5cf6]/15", text: "text-[#c4b5fd]", dot: "bg-[#8b5cf6]", label: "Approved" },
-  suggested: { bg: "bg-[#f58c14]/15", text: "text-[#fbbf6d]", dot: "bg-[#f58c14]", label: "Suggested" },
+  executed: { bg: "bg-emerald-500/15", text: "text-nua-burgundy", dot: "bg-emerald-500", label: "Executed" },
+  approved: { bg: "bg-[#8b5cf6]/15", text: "text-nua-burgundy", dot: "bg-nua-burgundy", label: "Approved" },
+  suggested: { bg: "bg-[#f58c14]/15", text: "text-[#A45D0D]", dot: "bg-nua-burgundy", label: "Suggested" },
 };
 function timeNowLabel() {
   const d = new Date();
@@ -359,13 +359,13 @@ export function AICommandCenterShowcase() {
   }, []);
   return (
     <div data-testid="showcase-ai-command-center">
-      <MonitorFrame width={480} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={480} screenBg="#FFFDF9" padded>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
-            <div className="w-5 h-5 rounded-md bg-[#8b5cf6] flex items-center justify-center"><Sparkles className="w-3 h-3 text-white" /></div>
-            <span className="font-display text-xs font-semibold text-white">Autonomous Actions</span>
+            <div className="w-5 h-5 rounded-md bg-nua-burgundy flex items-center justify-center"><Sparkles className="w-3 h-3 text-nua-ink" /></div>
+            <span className="font-display text-xs font-semibold text-nua-ink">Autonomous Actions</span>
           </div>
-          <LiveDot color="#8b5cf6" />
+          <LiveDot color="#7D52DD" />
         </div>
         <div className="space-y-2">
           <AnimatePresence initial={false}>
@@ -379,14 +379,14 @@ export function AICommandCenterShowcase() {
                   animate={{ opacity: 1, y: 0, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="rounded-lg bg-white/[0.03] border border-white/5 p-2.5"
+                  className="rounded-lg bg-nua-bgAlt border border-nua-border p-2.5"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono text-[8px] text-[#a1a1aa]">{f.time}</span>
+                    <span className="font-mono text-[8px] text-nua-ink2">{f.time}</span>
                     <span className={`px-1.5 py-0.5 rounded-full font-mono text-[7px] uppercase ${s.bg} ${s.text}`}>{s.label}</span>
                   </div>
-                  <div className="mt-1 text-[11px] text-white leading-tight">{f.action}</div>
-                  <div className="mt-0.5 text-[10px] text-[#8b5cf6] leading-tight">→ {f.outcome}</div>
+                  <div className="mt-1 text-[11px] text-nua-ink leading-tight">{f.action}</div>
+                  <div className="mt-0.5 text-[10px] text-nua-burgundy leading-tight">→ {f.outcome}</div>
                 </motion.div>
               );
             })}
@@ -414,18 +414,18 @@ export function MultiVenueLiveShowcase() {
   }, []);
   return (
     <div data-testid="showcase-multi-venue">
-      <MonitorFrame width={460} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={460} screenBg="#FFFDF9" padded>
         <div className="flex items-center justify-between mb-3">
-          <span className="font-display text-xs font-semibold text-white">5 Venues · One Login</span>
-          <LiveDot color="#22c55e" />
+          <span className="font-display text-xs font-semibold text-nua-ink">5 Venues · One Login</span>
+          <LiveDot color="#157E3C" />
         </div>
         <div className="grid grid-cols-2 gap-2.5">
           {venueData.map((v) => (
-            <div key={v.name} className="rounded-lg bg-white/[0.03] border border-white/5 p-2.5">
-              <div className="flex items-center gap-1 font-mono text-[8px] text-[#a1a1aa]">
-                <MapPin className="w-2.5 h-2.5 text-[#22c55e]" />{v.name}
+            <div key={v.name} className="rounded-lg bg-nua-bgAlt border border-nua-border p-2.5">
+              <div className="flex items-center gap-1 font-mono text-[8px] text-nua-ink2">
+                <MapPin className="w-2.5 h-2.5 text-nua-burgundy" />{v.name}
               </div>
-              <div className="mt-1 font-display text-sm font-bold text-white tabular-nums">
+              <div className="mt-1 font-display text-sm font-bold text-nua-ink tabular-nums">
                 <LiveNumber value={v.value} prefix="$" duration={0.8} />
               </div>
             </div>
@@ -453,26 +453,26 @@ export function TemperatureMonitoringShowcase() {
   ];
   return (
     <div data-testid="showcase-temperature">
-      <MonitorFrame width={400} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={400} screenBg="#FFFDF9" padded>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
-            <Thermometer className="w-3.5 h-3.5 text-[#f58c14]" />
-            <span className="font-display text-xs font-semibold text-white">Temperature Monitoring</span>
+            <Thermometer className="w-3.5 h-3.5 text-nua-burgundy" />
+            <span className="font-display text-xs font-semibold text-nua-ink">Temperature Monitoring</span>
           </div>
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 font-mono text-[8px] uppercase text-emerald-400">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 font-mono text-[8px] uppercase text-nua-burgundy">
             <ShieldCheck className="w-2.5 h-2.5" />Compliant
           </span>
         </div>
         <div className="grid grid-cols-2 gap-2.5">
           {readouts.map((r) => (
-            <div key={r.label} className="rounded-lg bg-white/[0.03] border border-white/5 p-2.5">
-              <div className="font-mono text-[8px] uppercase tracking-wider text-[#a1a1aa]">{r.label}</div>
-              <div className="mt-1 font-display text-lg font-bold text-white tabular-nums">{r.value.toFixed(1)}{r.suffix}</div>
-              <LiveDot color="#22c55e" />
+            <div key={r.label} className="rounded-lg bg-nua-bgAlt border border-nua-border p-2.5">
+              <div className="font-mono text-[8px] uppercase tracking-wider text-nua-ink2">{r.label}</div>
+              <div className="mt-1 font-display text-lg font-bold text-nua-ink tabular-nums">{r.value.toFixed(1)}{r.suffix}</div>
+              <LiveDot color="#157E3C" />
             </div>
           ))}
         </div>
-        <div className="mt-2.5 font-mono text-[9px] text-[#a1a1aa]">Auto-logged every 5 min · alerts sent instantly</div>
+        <div className="mt-2.5 font-mono text-[9px] text-nua-ink2">Auto-logged every 5 min · alerts sent instantly</div>
       </MonitorFrame>
     </div>
   );
@@ -482,7 +482,7 @@ export function TemperatureMonitoringShowcase() {
 export function PaymentsShowcase() {
   return (
     <div data-testid="showcase-payments">
-      <TabletStandFrame width={360} height={240} screenBg="#0b0b0f">
+      <TabletStandFrame width={360} height={240} screenBg="#FFFDF9">
         <div className="h-full flex flex-col items-center justify-center gap-3">
           <div className="relative w-14 h-14 flex items-center justify-center">
             {[0, 1, 2].map((i) => (
@@ -494,19 +494,19 @@ export function PaymentsShowcase() {
                 transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.6, ease: "easeOut" }}
               />
             ))}
-            <div className="w-9 h-9 rounded-full bg-[#8b5cf6] flex items-center justify-center relative z-10">
-              <Wifi className="w-4 h-4 text-white rotate-90" />
+            <div className="w-9 h-9 rounded-full bg-nua-burgundy flex items-center justify-center relative z-10">
+              <Wifi className="w-4 h-4 text-nua-ink rotate-90" />
             </div>
           </div>
-          <div className="font-display text-xl font-bold text-white">$42.50</div>
+          <div className="font-display text-xl font-bold text-nua-ink">$42.50</div>
           <div className="flex items-center gap-2">
             {[CreditCard, Smartphone, Banknote].map((Icon, i) => (
-              <div key={i} className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                <Icon className="w-3.5 h-3.5 text-[#a1a1aa]" />
+              <div key={i} className="w-7 h-7 rounded-lg bg-nua-bgAlt border border-nua-border flex items-center justify-center">
+                <Icon className="w-3.5 h-3.5 text-nua-ink2" />
               </div>
             ))}
           </div>
-          <div className="font-mono text-[8px] uppercase tracking-widest text-[#a1a1aa]">Any method · instant settlement</div>
+          <div className="font-mono text-[8px] uppercase tracking-widest text-nua-ink2">Any method · instant settlement</div>
         </div>
       </TabletStandFrame>
     </div>
@@ -515,9 +515,9 @@ export function PaymentsShowcase() {
 
 /* I: Delivery hub: every platform into one queue */
 const deliveryPartners = [
-  { tag: "Partner A", color: "#f58c14", item: "2× Pad Thai", eta: "18 min" },
-  { tag: "Partner B", color: "#8b5cf6", item: "1× Butter Chicken", eta: "24 min" },
-  { tag: "Partner C", color: "#ec4899", item: "3× Sushi Set", eta: "15 min" },
+  { tag: "Partner A", color: "#A45D0D", item: "2× Pad Thai", eta: "18 min" },
+  { tag: "Partner B", color: "#7D52DD", item: "1× Butter Chicken", eta: "24 min" },
+  { tag: "Partner C", color: "#BF3A7B", item: "3× Sushi Set", eta: "15 min" },
 ];
 export function DeliveryHubShowcase() {
   const [orders, setOrders] = useState(() => [
@@ -536,13 +536,13 @@ export function DeliveryHubShowcase() {
   }, []);
   return (
     <div data-testid="showcase-delivery-hub">
-      <MonitorFrame width={440} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={440} screenBg="#FFFDF9" padded>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
-            <Truck className="w-3.5 h-3.5 text-[#f58c14]" />
-            <span className="font-display text-xs font-semibold text-white">All Delivery Orders, One Queue</span>
+            <Truck className="w-3.5 h-3.5 text-nua-burgundy" />
+            <span className="font-display text-xs font-semibold text-nua-ink">All Delivery Orders, One Queue</span>
           </div>
-          <LiveDot color="#f58c14" />
+          <LiveDot color="#A45D0D" />
         </div>
         <div className="space-y-2">
           <AnimatePresence initial={false}>
@@ -554,13 +554,13 @@ export function DeliveryHubShowcase() {
                 animate={{ opacity: 1, x: 0, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.4 }}
-                className="flex items-center justify-between rounded-lg bg-white/[0.03] border border-white/5 p-2.5"
+                className="flex items-center justify-between rounded-lg bg-nua-bgAlt border border-nua-border p-2.5"
               >
                 <div className="flex items-center gap-2">
                   <span className="px-1.5 py-0.5 rounded-full font-mono text-[7px] uppercase" style={{ background: `${o.color}25`, color: o.color }}>{o.tag}</span>
-                  <span className="text-[11px] text-white">{o.item}</span>
+                  <span className="text-[11px] text-nua-ink">{o.item}</span>
                 </div>
-                <span className="font-mono text-[9px] text-[#a1a1aa]">{o.eta}</span>
+                <span className="font-mono text-[9px] text-nua-ink2">{o.eta}</span>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -587,22 +587,22 @@ export function BookingWaitlistShowcase() {
     { label: "T1", status: "vip" }, { label: "T2", status: "occupied" }, { label: "T3", status: "available" },
     { label: "T4", status: "reserved" }, { label: "T5", status: "available" }, { label: "T6", status: "occupied" },
   ];
-  const colors = { vip: "#8b5cf6", occupied: "#2a2a35", available: "transparent", reserved: "#ec4899" };
+  const colors = { vip: "#7D52DD", occupied: "#2a2a35", available: "transparent", reserved: "#BF3A7B" };
   return (
     <div data-testid="showcase-booking-waitlist">
-      <MonitorFrame width={420} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={420} screenBg="#FFFDF9" padded>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
-            <CalendarClock className="w-3.5 h-3.5 text-[#ec4899]" />
-            <span className="font-display text-xs font-semibold text-white">Reservations &amp; Waitlist</span>
+            <CalendarClock className="w-3.5 h-3.5 text-nua-burgundy" />
+            <span className="font-display text-xs font-semibold text-nua-ink">Reservations &amp; Waitlist</span>
           </div>
-          <LiveDot color="#ec4899" />
+          <LiveDot color="#BF3A7B" />
         </div>
         <div className="grid grid-cols-6 gap-1.5">
           {tables.map((t) => (
             <div
               key={t.label}
-              className="aspect-square rounded-md flex items-center justify-center text-[9px] font-mono text-white border border-white/10"
+              className="aspect-square rounded-md flex items-center justify-center text-[9px] font-mono text-nua-ink border border-nua-border"
               style={{ background: colors[t.status] }}
             >
               {t.label}
@@ -617,7 +617,7 @@ export function BookingWaitlistShowcase() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
-              className="absolute inset-0 font-mono text-[10px] text-emerald-400 flex items-center"
+              className="absolute inset-0 font-mono text-[10px] text-nua-burgundy flex items-center"
             >
               {waitlistPool[tick % waitlistPool.length]}
             </motion.div>
@@ -632,26 +632,26 @@ export function BookingWaitlistShowcase() {
 export function ForecastingShowcase() {
   return (
     <div data-testid="showcase-forecasting">
-      <MonitorFrame width={400} screenBg="#0b0b0f" padded>
+      <MonitorFrame width={400} screenBg="#FFFDF9" padded>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
-            <TrendingUp className="w-3.5 h-3.5 text-[#22c55e]" />
-            <span className="font-display text-xs font-semibold text-white">7-Day Demand Forecast</span>
+            <TrendingUp className="w-3.5 h-3.5 text-nua-burgundy" />
+            <span className="font-display text-xs font-semibold text-nua-ink">7-Day Demand Forecast</span>
           </div>
-          <span className="font-mono text-[8px] uppercase tracking-widest text-[#a1a1aa]">Sea bass</span>
+          <span className="font-mono text-[8px] uppercase tracking-widest text-nua-ink2">Sea bass</span>
         </div>
         <svg viewBox="0 0 300 100" className="w-full h-24">
           <defs>
             <linearGradient id="forecastGrad" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="#22c55e" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
+              <stop offset="0%" stopColor="#157E3C" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#157E3C" stopOpacity="0" />
             </linearGradient>
           </defs>
           <line x1="180" y1="10" x2="180" y2="90" stroke="#71717a" strokeWidth="1" strokeDasharray="3,3" />
           <text x="184" y="20" fill="#71717a" fontSize="8" fontFamily="monospace">today</text>
           <motion.path
             d="M0,75 C30,68 60,72 90,55 C120,45 150,58 180,42"
-            stroke="#22c55e"
+            stroke="#157E3C"
             strokeWidth="2"
             fill="none"
             initial={{ pathLength: 0 }}
@@ -661,7 +661,7 @@ export function ForecastingShowcase() {
           />
           <motion.path
             d="M180,42 C210,30 240,22 300,8"
-            stroke="#22c55e"
+            stroke="#157E3C"
             strokeWidth="2"
             strokeDasharray="4,4"
             fill="none"
@@ -672,7 +672,7 @@ export function ForecastingShowcase() {
           />
           <path d="M180,42 C210,30 240,22 300,8 L300,100 L180,100 Z" fill="url(#forecastGrad)" opacity="0.5" />
         </svg>
-        <div className="mt-2 font-mono text-[10px] text-[#22c55e]">+28% demand predicted Friday → order qty auto-adjusted</div>
+        <div className="mt-2 font-mono text-[10px] text-nua-burgundy">+28% demand predicted Friday → order qty auto-adjusted</div>
       </MonitorFrame>
     </div>
   );

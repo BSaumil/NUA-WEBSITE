@@ -39,20 +39,20 @@ export function POSVisual() {
     { name: "Flat White", qty: 2, price: 9.6 },
   ];
   return (
-    <div data-testid="visual-pos" className="rounded-2xl bg-[#15151d] border border-white/5 overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/[0.02]">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Order #348 · Table 7</span>
-        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 font-mono text-[10px] text-emerald-400">
+    <div data-testid="visual-pos" className="rounded-2xl bg-nua-surface border border-nua-border overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-nua-border bg-nua-bgAlt">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2">Order #348 · Table 7</span>
+        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 font-mono text-[10px] text-nua-burgundy">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />Synced
         </span>
       </div>
       <div className="grid grid-cols-5">
-        <div className="col-span-3 p-3 grid grid-cols-2 gap-2 border-r border-white/5">
+        <div className="col-span-3 p-3 grid grid-cols-2 gap-2 border-r border-nua-border">
           {items.map((it) => (
-            <div key={it.name} className="rounded-xl bg-white/[0.03] border border-white/5 p-2.5 hover:border-[#f58c14]/40 transition-colors">
-              <it.icon className="w-4 h-4 text-[#f58c14]" />
-              <div className="mt-2 text-[11px] text-white font-medium leading-tight">{it.name}</div>
-              <div className="font-mono text-[10px] text-[#a1a1aa]">{it.price}</div>
+            <div key={it.name} className="rounded-xl bg-nua-bgAlt border border-nua-border p-2.5 hover:border-nua-burgundy/40 transition-colors">
+              <it.icon className="w-4 h-4 text-nua-burgundy" />
+              <div className="mt-2 text-[11px] text-nua-ink font-medium leading-tight">{it.name}</div>
+              <div className="font-mono text-[10px] text-nua-ink2">{it.price}</div>
             </div>
           ))}
         </div>
@@ -60,17 +60,17 @@ export function POSVisual() {
           <div className="flex-1 space-y-1.5">
             {cart.map((c) => (
               <div key={c.name} className="flex items-center justify-between text-[11px]">
-                <span className="text-white">{c.qty}× {c.name}</span>
-                <span className="font-mono text-[#a1a1aa]">${c.price.toFixed(2)}</span>
+                <span className="text-nua-ink">{c.qty}× {c.name}</span>
+                <span className="font-mono text-nua-ink2">${c.price.toFixed(2)}</span>
               </div>
             ))}
           </div>
-          <div className="pt-2.5 mt-2.5 border-t border-white/5 space-y-1">
-            <div className="flex justify-between font-mono text-[10px] text-[#a1a1aa]"><span>Subtotal</span><span>$33.60</span></div>
-            <div className="flex justify-between font-mono text-[10px] text-[#a1a1aa]"><span>Tax</span><span>$3.36</span></div>
-            <div className="flex justify-between font-display font-bold text-white text-sm"><span>Total</span><span>$36.96</span></div>
+          <div className="pt-2.5 mt-2.5 border-t border-nua-border space-y-1">
+            <div className="flex justify-between font-mono text-[10px] text-nua-ink2"><span>Subtotal</span><span>$33.60</span></div>
+            <div className="flex justify-between font-mono text-[10px] text-nua-ink2"><span>Tax</span><span>$3.36</span></div>
+            <div className="flex justify-between font-display font-bold text-nua-ink text-sm"><span>Total</span><span>$36.96</span></div>
           </div>
-          <button className="mt-2.5 w-full py-2 rounded-full bg-[#f58c14] text-[#1a1005] text-[11px] font-medium flex items-center justify-center gap-1.5">
+          <button className="mt-2.5 w-full py-2 rounded-full bg-nua-burgundy text-white text-[11px] font-medium flex items-center justify-center gap-1.5">
             <CreditCard className="w-3.5 h-3.5" /> Charge card
           </button>
         </div>
@@ -82,15 +82,15 @@ export function POSVisual() {
 /* ---------- Kitchen Display System ---------- */
 function LiveTicket({ table, items, time, color }) {
   const seconds = useLiveSeconds(time);
-  const aging = seconds >= 600 ? "#ef4444" : seconds >= 300 ? "#f58c14" : color;
+  const aging = seconds >= 600 ? "#C02626" : seconds >= 300 ? "#A45D0D" : color;
   return (
-    <div className="rounded-lg bg-white/[0.03] border border-white/5 p-2.5">
+    <div className="rounded-lg bg-nua-bgAlt border border-nua-border p-2.5">
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-semibold text-white">{table}</span>
+        <span className="text-[11px] font-semibold text-nua-ink">{table}</span>
         <span className="font-mono text-[10px] tabular-nums" style={{ color: aging }}>{formatMinSec(seconds)}</span>
       </div>
       <div className="mt-1 space-y-0.5">
-        {items.map((it) => <div key={it} className="text-[10px] text-[#a1a1aa]">{it}</div>)}
+        {items.map((it) => <div key={it} className="text-[10px] text-nua-ink2">{it}</div>)}
       </div>
     </div>
   );
@@ -98,17 +98,17 @@ function LiveTicket({ table, items, time, color }) {
 
 export function KDSVisual() {
   const cols = [
-    { label: "New", color: "#8b5cf6", tickets: [{ table: "T4", items: ["2× Wagyu", "1× Sea bass"], time: "0:42" }] },
-    { label: "Preparing", color: "#f58c14", tickets: [{ table: "T7", items: ["1× Pasta"], time: "6:18" }] },
-    { label: "Ready", color: "#22c55e", tickets: [{ table: "T9", items: ["2× Tiramisu"], time: "11:32" }] },
+    { label: "New", color: "#7D52DD", tickets: [{ table: "T4", items: ["2× Wagyu", "1× Sea bass"], time: "0:42" }] },
+    { label: "Preparing", color: "#A45D0D", tickets: [{ table: "T7", items: ["1× Pasta"], time: "6:18" }] },
+    { label: "Ready", color: "#157E3C", tickets: [{ table: "T9", items: ["2× Tiramisu"], time: "11:32" }] },
   ];
   return (
-    <div data-testid="visual-kds" className="rounded-2xl bg-[#15151d] border border-white/5 p-4 grid grid-cols-3 gap-3">
+    <div data-testid="visual-kds" className="rounded-2xl bg-nua-surface border border-nua-border p-4 grid grid-cols-3 gap-3">
       {cols.map((col) => (
         <div key={col.label}>
           <div className="flex items-center gap-1.5 mb-2">
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: col.color }} />
-            <span className="font-mono text-[9px] uppercase tracking-widest text-[#a1a1aa]">{col.label}</span>
+            <span className="font-mono text-[9px] uppercase tracking-widest text-nua-ink2">{col.label}</span>
           </div>
           <div className="space-y-2">
             {col.tickets.map((t) => (
@@ -127,21 +127,21 @@ export function ReservationsVisual() {
     { label: "T1", status: "vip" }, { label: "T2", status: "occupied" }, { label: "T3", status: "available" },
     { label: "T4", status: "overdue" }, { label: "T5", status: "reserved" }, { label: "T6", status: "available" },
   ];
-  const colors = { vip: "#8b5cf6", occupied: "#2a2a35", available: "transparent", overdue: "#f58c14", reserved: "#ec4899" };
+  const colors = { vip: "#7D52DD", occupied: "#2a2a35", available: "transparent", overdue: "#A45D0D", reserved: "#BF3A7B" };
   return (
-    <div data-testid="visual-reservations" className="rounded-2xl bg-[#15151d] border border-white/5 p-4">
+    <div data-testid="visual-reservations" className="rounded-2xl bg-nua-surface border border-nua-border p-4">
       <div className="grid grid-cols-3 gap-2">
         {tables.map((t) => (
           <div
             key={t.label}
-            className="aspect-square rounded-lg flex items-center justify-center text-[10px] font-mono text-white border border-white/10"
+            className="aspect-square rounded-lg flex items-center justify-center text-[10px] font-mono text-nua-ink border border-nua-border"
             style={{ background: colors[t.status] }}
           >
             {t.label}
           </div>
         ))}
       </div>
-      <div className="mt-3 font-mono text-[10px] text-[#a1a1aa]">NUA recommends T5 · VIP arriving in 12m</div>
+      <div className="mt-3 font-mono text-[10px] text-nua-ink2">NUA recommends T5 · VIP arriving in 12m</div>
     </div>
   );
 }
@@ -149,25 +149,25 @@ export function ReservationsVisual() {
 /* ---------- Loyalty Engine ---------- */
 export function LoyaltyVisual() {
   return (
-    <div data-testid="visual-loyalty" className="rounded-2xl bg-gradient-to-br from-[#1c1c26] to-[#0b0b0f] border border-[#ec4899]/30 p-5">
+    <div data-testid="visual-loyalty" className="rounded-2xl bg-nua-surface border border-nua-border p-5">
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-1.5">
-          <Receipt className="w-4 h-4 text-[#a1a1aa]" />
-          <span className="font-display text-xl font-bold text-white">$19.00</span>
+          <Receipt className="w-4 h-4 text-nua-ink2" />
+          <span className="font-display text-xl font-bold text-nua-ink">$19.00</span>
         </div>
-        <ArrowRight className="w-4 h-4 text-[#a1a1aa] flex-shrink-0" />
+        <ArrowRight className="w-4 h-4 text-nua-ink2 flex-shrink-0" />
         <div className="flex items-center gap-1.5">
-          <Star className="w-4 h-4 text-[#ec4899]" />
-          <span className="font-display text-xl font-bold text-[#ec4899]">+19 pts</span>
+          <Star className="w-4 h-4 text-nua-burgundy" />
+          <span className="font-display text-xl font-bold text-nua-burgundy">+19 pts</span>
         </div>
       </div>
-      <div className="mt-2 font-mono text-[10px] text-[#a1a1aa]">$1 spent = 1 point, credited instantly</div>
-      <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
+      <div className="mt-2 font-mono text-[10px] text-nua-ink2">$1 spent = 1 point, credited instantly</div>
+      <div className="mt-4 pt-3 border-t border-nua-border flex items-center justify-between">
         <div className="flex items-center gap-1.5">
-          <Wallet className="w-3.5 h-3.5 text-[#fbcfe8]" />
-          <span className="font-mono text-[10px] text-[#fbcfe8] uppercase tracking-wider">NUA Wallet</span>
+          <Wallet className="w-3.5 h-3.5 text-nua-burgundy" />
+          <span className="font-mono text-[10px] text-nua-burgundy uppercase tracking-wider">NUA Wallet</span>
         </div>
-        <span className="font-mono text-[10px] text-white"><LiveNumber value={12840} duration={1.2} /> pts total</span>
+        <span className="font-mono text-[10px] text-nua-ink"><LiveNumber value={12840} duration={1.2} /> pts total</span>
       </div>
     </div>
   );
@@ -176,13 +176,13 @@ export function LoyaltyVisual() {
 /* ---------- Inventory & Purchasing ---------- */
 export function InventoryVisual() {
   return (
-    <div data-testid="visual-inventory" className="rounded-2xl bg-[#15151d] border border-white/5 p-5">
+    <div data-testid="visual-inventory" className="rounded-2xl bg-nua-surface border border-nua-border p-5">
       <div className="flex items-center justify-between">
-        <span className="px-2 py-0.5 rounded-full bg-[#22c55e]/15 text-[#22c55e] font-mono text-[10px] uppercase">Buy now</span>
-        <ShoppingCart className="w-4 h-4 text-[#22c55e]" />
+        <span className="px-2 py-0.5 rounded-full bg-[#22c55e]/15 text-nua-burgundy font-mono text-[10px] uppercase">Buy now</span>
+        <ShoppingCart className="w-4 h-4 text-nua-burgundy" />
       </div>
-      <div className="mt-3 text-sm text-white font-medium">Heirloom tomatoes: 8kg</div>
-      <div className="mt-1 text-[11px] text-[#a1a1aa] leading-relaxed">Demand forecast +24% next 7 days. Supplier A holding price.</div>
+      <div className="mt-3 text-sm text-nua-ink font-medium">Heirloom tomatoes: 8kg</div>
+      <div className="mt-1 text-[11px] text-nua-ink2 leading-relaxed">Demand forecast +24% next 7 days. Supplier A holding price.</div>
     </div>
   );
 }
@@ -193,19 +193,19 @@ export function StaffVisual() {
   const shifts = [1, 1, 0, 1, 1, 1, 0];
   const ai = [false, false, false, true, false, false, false];
   return (
-    <div data-testid="visual-staff" className="rounded-2xl bg-[#15151d] border border-white/5 p-5">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa] mb-3">Maya · FOH Lead</div>
+    <div data-testid="visual-staff" className="rounded-2xl bg-nua-surface border border-nua-border p-5">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2 mb-3">Maya · FOH Lead</div>
       <div className="grid grid-cols-7 gap-1.5">
         {days.map((d, i) => (
           <div key={i} className="text-center">
             <div
               className={`aspect-square rounded-md flex items-center justify-center text-[10px] font-mono ${
-                !shifts[i] ? "border border-dashed border-white/10" : ai[i] ? "bg-[#7c3aed] text-white" : "bg-white/5 text-[#a1a1aa]"
+                !shifts[i] ? "border border-dashed border-nua-border" : ai[i] ? "bg-[#7c3aed] text-white" : "bg-nua-bgAlt text-nua-ink2"
               }`}
             >
               {shifts[i] ? (ai[i] ? "✦" : "•") : ""}
             </div>
-            <div className="mt-1 font-mono text-[9px] text-[#a1a1aa]">{d}</div>
+            <div className="mt-1 font-mono text-[9px] text-nua-ink2">{d}</div>
           </div>
         ))}
       </div>
@@ -216,13 +216,13 @@ export function StaffVisual() {
 /* ---------- AI Command Center ---------- */
 export function NuaVisual() {
   return (
-    <div data-testid="visual-nua" className="rounded-2xl bg-[#15151d] border border-white/5 p-5">
-      <div className="flex items-center gap-2 font-mono text-[10px] text-[#a1a1aa]">
-        <Zap className="w-3.5 h-3.5 text-[#8b5cf6]" />09:38:55
+    <div data-testid="visual-nua" className="rounded-2xl bg-nua-surface border border-nua-border p-5">
+      <div className="flex items-center gap-2 font-mono text-[10px] text-nua-ink2">
+        <Zap className="w-3.5 h-3.5 text-nua-burgundy" />09:38:55
       </div>
-      <div className="mt-2 text-sm text-white leading-tight">Sea bass demand forecast +28% vs Friday baseline</div>
-      <div className="mt-1 text-[11px] text-[#8b5cf6]">→ Bumped purchase qty to 14kg with Supplier A</div>
-      <span className="inline-block mt-2 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 text-[#c4b5fd] font-mono text-[10px] uppercase">Approved</span>
+      <div className="mt-2 text-sm text-nua-ink leading-tight">Sea bass demand forecast +28% vs Friday baseline</div>
+      <div className="mt-1 text-[11px] text-nua-burgundy">→ Bumped purchase qty to 14kg with Supplier A</div>
+      <span className="inline-block mt-2 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 text-nua-burgundy font-mono text-[10px] uppercase">Approved</span>
     </div>
   );
 }
@@ -230,16 +230,16 @@ export function NuaVisual() {
 /* ---------- Analytics Dashboard ---------- */
 export function AnalyticsVisual() {
   return (
-    <div data-testid="visual-analytics" className="rounded-2xl bg-[#15151d] border border-white/5 p-5">
+    <div data-testid="visual-analytics" className="rounded-2xl bg-nua-surface border border-nua-border p-5">
       <div className="flex items-center justify-between">
-        <div className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">Revenue today</div>
-        <span className="font-mono text-[10px] text-emerald-400">+18.4%</span>
+        <div className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2">Revenue today</div>
+        <span className="font-mono text-[10px] text-nua-burgundy">+18.4%</span>
       </div>
-      <div className="font-display text-2xl font-bold text-white mt-1"><LiveNumber value={32418} prefix="$" /></div>
+      <div className="font-display text-2xl font-bold text-nua-ink mt-1"><LiveNumber value={32418} prefix="$" /></div>
       <svg viewBox="0 0 200 60" className="w-full h-14 mt-2">
         <motion.path
           d="M0,50 C30,40 50,45 70,30 C90,20 110,35 130,22 C150,12 170,25 200,10"
-          stroke="#f58c14"
+          stroke="#A45D0D"
           strokeWidth="2"
           fill="none"
           initial={{ pathLength: 0 }}
@@ -260,16 +260,16 @@ export function MarketingVisual() {
     { label: "Campaign", value: "15% winback offer", icon: Megaphone },
   ];
   return (
-    <div data-testid="visual-marketing" className="rounded-2xl bg-[#15151d] border border-white/5 p-4">
+    <div data-testid="visual-marketing" className="rounded-2xl bg-nua-surface border border-nua-border p-4">
       <div className="flex items-center gap-2">
         {steps.map((s, i) => (
           <React.Fragment key={s.label}>
-            <div className="flex-1 rounded-xl bg-white/[0.03] border border-white/5 p-2.5">
-              <s.icon className="w-4 h-4 text-[#ec4899]" />
-              <div className="mt-2 font-mono text-[9px] uppercase tracking-widest text-[#a1a1aa]">{s.label}</div>
-              <div className="text-[10px] text-white mt-0.5 leading-tight">{s.value}</div>
+            <div className="flex-1 rounded-xl bg-nua-bgAlt border border-nua-border p-2.5">
+              <s.icon className="w-4 h-4 text-nua-burgundy" />
+              <div className="mt-2 font-mono text-[9px] uppercase tracking-widest text-nua-ink2">{s.label}</div>
+              <div className="text-[10px] text-nua-ink mt-0.5 leading-tight">{s.value}</div>
             </div>
-            {i < steps.length - 1 && <ArrowRight className="w-3.5 h-3.5 text-[#a1a1aa] flex-shrink-0" />}
+            {i < steps.length - 1 && <ArrowRight className="w-3.5 h-3.5 text-nua-ink2 flex-shrink-0" />}
           </React.Fragment>
         ))}
       </div>
@@ -280,7 +280,7 @@ export function MarketingVisual() {
 /* ---------- Voice POS ---------- */
 export function VoiceVisual() {
   return (
-    <div data-testid="visual-voice" className="rounded-2xl bg-[#15151d] border border-white/5 p-5">
+    <div data-testid="visual-voice" className="rounded-2xl bg-nua-surface border border-nua-border p-5">
       <div className="flex items-center justify-center gap-1 h-12 mb-3">
         {Array.from({ length: 24 }).map((_, i) => (
           <div
@@ -290,11 +290,11 @@ export function VoiceVisual() {
           />
         ))}
       </div>
-      <div className="font-mono text-[11px] text-center text-white flex items-center justify-center gap-1.5">
-        <Mic className="w-3 h-3 flex-shrink-0 text-[#f58c14]" />
+      <div className="font-mono text-[11px] text-center text-nua-ink flex items-center justify-center gap-1.5">
+        <Mic className="w-3 h-3 flex-shrink-0 text-nua-burgundy" />
         <span className="min-w-0">"Apply 10% discount to table 7"</span>
       </div>
-      <div className="mt-2 text-center font-mono text-[10px] text-[#8b5cf6]">10% Discount applied</div>
+      <div className="mt-2 text-center font-mono text-[10px] text-nua-burgundy">10% Discount applied</div>
     </div>
   );
 }

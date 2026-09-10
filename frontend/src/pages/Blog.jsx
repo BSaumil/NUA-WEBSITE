@@ -39,7 +39,7 @@ export default function Blog() {
         eyebrow="Blog"
         title="Product notes & operator playbooks."
         subtitle="Field notes from building an AI operating system for hospitality, and from the venues running on it."
-        accent="#8b5cf6"
+        accent="#7D52DD"
         crumb="Blog"
       />
 
@@ -54,7 +54,7 @@ export default function Blog() {
               className={`px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-colors ${
                 activePillar === pillar
                   ? "bg-[#7c3aed] text-white"
-                  : "bg-white/5 text-[#a1a1aa] hover:bg-white/10 hover:text-white"
+                  : "bg-nua-bgAlt text-nua-ink2 hover:bg-nua-bgAlt hover:text-nua-ink"
               }`}
             >
               {pillar}
@@ -74,21 +74,21 @@ export default function Blog() {
               <Link
                 to={`/blog/${p.slug}`}
                 data-testid={`blog-post-${i}`}
-                className="block h-full rounded-2xl bg-[#15151d] border border-white/5 p-5 hover:-translate-y-1 hover:border-white/10 transition-all duration-300"
+                className="block h-full rounded-2xl bg-nua-surface border border-nua-border p-5 hover:-translate-y-1 hover:border-nua-border transition-all duration-300"
               >
                 <div className="flex items-center justify-between">
-                  <span className="px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 text-[#c4b5fd] font-mono text-[10px] uppercase tracking-wider">{p.pillar}</span>
-                  <span className="flex items-center gap-1 font-mono text-[10px] text-[#a1a1aa]"><Clock className="w-3 h-3" />{p.readTime}</span>
+                  <span className="px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 text-nua-burgundy font-mono text-[10px] uppercase tracking-wider">{p.pillar}</span>
+                  <span className="flex items-center gap-1 font-mono text-[10px] text-nua-ink2"><Clock className="w-3 h-3" />{p.readTime}</span>
                 </div>
-                <h3 className="mt-4 font-display font-semibold text-white text-base leading-snug">{p.title}</h3>
-                <p className="mt-2 text-[13px] text-[#a1a1aa] leading-relaxed">{p.excerpt}</p>
+                <h3 className="mt-4 font-display font-semibold text-nua-ink text-base leading-snug">{p.title}</h3>
+                <p className="mt-2 text-[13px] text-nua-ink2 leading-relaxed">{p.excerpt}</p>
               </Link>
             </motion.div>
           ))}
         </div>
 
         {filtered.length === 0 && (
-          <p className="mt-10 text-center text-sm text-[#a1a1aa]">No articles in this category yet.</p>
+          <p className="mt-10 text-center text-sm text-nua-ink2">No articles in this category yet.</p>
         )}
 
         {totalPages > 1 && (
@@ -98,7 +98,7 @@ export default function Blog() {
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
               data-testid="blog-page-prev"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/5 transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-nua-border text-nua-ink disabled:opacity-30 disabled:cursor-not-allowed hover:bg-nua-bgAlt transition-colors"
               aria-label="Previous page"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -110,7 +110,7 @@ export default function Blog() {
                 onClick={() => setPage(n)}
                 data-testid={`blog-page-${n}`}
                 className={`w-9 h-9 flex items-center justify-center rounded-full font-mono text-xs transition-colors ${
-                  n === page ? "bg-[#7c3aed] text-white" : "border border-white/10 text-[#a1a1aa] hover:bg-white/5 hover:text-white"
+                  n === page ? "bg-[#7c3aed] text-white" : "border border-nua-border text-nua-ink2 hover:bg-nua-bgAlt hover:text-nua-ink"
                 }`}
               >
                 {n}
@@ -121,7 +121,7 @@ export default function Blog() {
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
               data-testid="blog-page-next"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/5 transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-nua-border text-nua-ink disabled:opacity-30 disabled:cursor-not-allowed hover:bg-nua-bgAlt transition-colors"
               aria-label="Next page"
             >
               <ChevronRight className="w-4 h-4" />

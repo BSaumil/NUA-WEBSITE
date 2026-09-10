@@ -6,7 +6,7 @@ export function MonitorFrame({ children, width = 720, screenBg = "#ffffff", padd
   return (
     <div className={`relative inline-flex flex-col items-center ${className}`} data-testid="monitor-frame">
       <div
-        className="rounded-2xl border border-black/10 bg-[#0b0b0f] p-2.5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.35)]"
+        className="rounded-2xl border border-black/10 bg-nua-bg p-2.5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.35)]"
         style={{ width }}
       >
         <div className={`rounded-xl overflow-hidden ${padded ? "p-6" : ""}`} style={{ background: screenBg }}>{children}</div>
@@ -25,7 +25,7 @@ export function TabletStandFrame({ children, width = 380, height = 250, screenBg
   return (
     <div className={`relative inline-flex flex-col items-center ${className}`} data-testid="tablet-stand-frame">
       <div
-        className="relative rounded-[1.5rem] border-[7px] border-[#0f0f14] bg-[#0f0f14] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden"
+        className="relative rounded-[1.5rem] border-[7px] border-[#0f0f14] bg-nua-surface shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden"
         style={{ width, height }}
       >
         <div className="absolute left-1/2 -translate-x-1/2 top-0.5 w-2 h-2 rounded-full bg-black/50 z-10" />
@@ -44,11 +44,11 @@ export function TabletStandFrame({ children, width = 380, height = 250, screenBg
 export function PhoneFrame({ children, width = 190, height = 380, screenBg = "#ffffff", className = "" }) {
   return (
     <div
-      className={`relative rounded-[2rem] border-[7px] border-[#0f0f14] bg-[#0f0f14] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden ${className}`}
+      className={`relative rounded-[2rem] border-[7px] border-[#0f0f14] bg-nua-surface shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden ${className}`}
       style={{ width, height }}
       data-testid="phone-frame"
     >
-      <div className="absolute left-1/2 -translate-x-1/2 top-1.5 w-16 h-4 rounded-full bg-[#0f0f14] z-10" />
+      <div className="absolute left-1/2 -translate-x-1/2 top-1.5 w-16 h-4 rounded-full bg-nua-surface z-10" />
       <div className="w-full h-full overflow-hidden" style={{ background: screenBg }}>{children}</div>
     </div>
   );
@@ -58,14 +58,14 @@ export function PhoneFrame({ children, width = 190, height = 380, screenBg = "#f
 export function AICopilotPanel({ messages, className = "" }) {
   return (
     <div
-      className={`rounded-2xl bg-[#15151d] border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] p-4 ${className}`}
+      className={`rounded-2xl bg-nua-surface border border-nua-border shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] p-4 ${className}`}
       data-testid="ai-copilot-panel"
     >
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-6 h-6 rounded-md bg-[#8b5cf6] flex items-center justify-center">
-          <Sparkles className="w-3.5 h-3.5 text-white" />
+        <div className="w-6 h-6 rounded-md bg-nua-burgundy flex items-center justify-center">
+          <Sparkles className="w-3.5 h-3.5 text-nua-ink" />
         </div>
-        <span className="font-display text-sm font-semibold text-white">Ask NUA</span>
+        <span className="font-display text-sm font-semibold text-nua-ink">Ask NUA</span>
       </div>
       <div className="space-y-2.5">
         {messages.map((m, i) => (
@@ -74,7 +74,7 @@ export function AICopilotPanel({ messages, className = "" }) {
               className={`px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed max-w-[88%] ${
                 m.from === "user"
                   ? "bg-[#7c3aed] text-white rounded-br-sm"
-                  : "bg-white/[0.06] text-[#eaeaea] rounded-bl-sm"
+                  : "bg-white/[0.06] text-nua-ink rounded-bl-sm"
               }`}
             >
               {m.text}
@@ -82,10 +82,10 @@ export function AICopilotPanel({ messages, className = "" }) {
           </div>
         ))}
       </div>
-      <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-2 px-1">
-        <span className="flex-1 text-[12px] text-[#a1a1aa]">Ask anything about your venues…</span>
-        <div className="w-7 h-7 rounded-full bg-[#f58c14] flex items-center justify-center flex-shrink-0">
-          <ArrowUp className="w-3.5 h-3.5 text-white" />
+      <div className="mt-3 pt-3 border-t border-nua-border flex items-center gap-2 px-1">
+        <span className="flex-1 text-[12px] text-nua-ink2">Ask anything about your venues…</span>
+        <div className="w-7 h-7 rounded-full bg-nua-burgundy flex items-center justify-center flex-shrink-0">
+          <ArrowUp className="w-3.5 h-3.5 text-nua-ink" />
         </div>
       </div>
     </div>

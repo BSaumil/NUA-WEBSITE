@@ -6,7 +6,7 @@ import { InventoryShowcase } from "@/components/graphics/ShowcaseGraphics";
 const cards = [
   {
     icon: ShoppingCart,
-    accent: "#22c55e",
+    accent: "#157E3C",
     label: "Buy now",
     title: "Heirloom tomatoes: 8kg",
     body: "Demand forecast +24% next 7 days. Supplier A holding inventory; price stable.",
@@ -14,7 +14,7 @@ const cards = [
   },
   {
     icon: Clock,
-    accent: "#8b5cf6",
+    accent: "#7D52DD",
     label: "Wait 3 days",
     title: "Yellowfin tuna: 3kg",
     body: "Price drops 11% projected. Current stock covers Mon–Wed service. Hold for Thursday delivery.",
@@ -22,7 +22,7 @@ const cards = [
   },
   {
     icon: AlertTriangle,
-    accent: "#f58c14",
+    accent: "#A45D0D",
     label: "Price increasing",
     title: "Olive oil: 20L",
     body: "Bulk pricing rising 8% from supplier B next week. Lock 4-week stock today.",
@@ -30,7 +30,7 @@ const cards = [
   },
   {
     icon: TrendingDown,
-    accent: "#ec4899",
+    accent: "#BF3A7B",
     label: "Waste alert",
     title: "Burrata: 2.1kg",
     body: "Usage trending 31% under forecast. Suggest 86 from Friday menu or run staff special.",
@@ -46,7 +46,7 @@ const stats = [
 
 export default function Inventory() {
   return (
-    <section id="inventory" data-testid="inventory-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
+    <section id="inventory" data-testid="inventory-section" className="relative py-24 lg:py-32 bg-nua-bgAlt text-nua-ink">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
           <div className="max-w-2xl">
@@ -60,18 +60,18 @@ export default function Inventory() {
             >
               Smart Pantry that
               <br />
-              <span className="text-[#666670]">orders for you.</span>
+              <span className="text-nua-muted">orders for you.</span>
             </motion.h2>
-            <p className="mt-5 text-[#444450] max-w-lg leading-relaxed">
+            <p className="mt-5 text-nua-ink2 max-w-lg leading-relaxed">
               Recipe-level costing, supplier comparison, demand forecasting and waste tracking: NUA recommends the exact buy at the exact time.
             </p>
           </div>
 
           <div className="flex gap-3">
             {stats.map((s) => (
-              <div key={s.label} className="px-4 py-3 rounded-xl bg-white border border-black/5 shadow-sm">
+              <div key={s.label} className="px-4 py-3 rounded-xl bg-white border border-nua-border shadow-sm">
                 <div className="font-display text-2xl font-bold">{s.value}</div>
-                <div className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">{s.label}</div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-nua-muted">{s.label}</div>
               </div>
             ))}
           </div>
@@ -88,7 +88,7 @@ export default function Inventory() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
                 data-testid={`inventory-card-${i}`}
-                className="group relative rounded-2xl bg-white border border-black/5 p-5 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-2xl bg-white border border-nua-border p-5 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div
                   className="absolute top-0 left-5 right-5 h-px"
@@ -109,10 +109,10 @@ export default function Inventory() {
                   </span>
                 </div>
                 <h3 className="mt-4 font-display text-lg font-semibold">{c.title}</h3>
-                <p className="mt-1.5 text-sm text-[#444450] leading-relaxed">{c.body}</p>
-                <div className="mt-4 pt-4 border-t border-black/5 flex items-center gap-2">
-                  <Sparkles className="w-3 h-3 text-[#8b5cf6]" />
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#666670]">{c.meta}</span>
+                <p className="mt-1.5 text-sm text-nua-ink2 leading-relaxed">{c.body}</p>
+                <div className="mt-4 pt-4 border-t border-nua-border flex items-center gap-2">
+                  <Sparkles className="w-3 h-3 text-nua-burgundy" />
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-nua-muted">{c.meta}</span>
                 </div>
               </motion.div>
             );
@@ -126,11 +126,11 @@ export default function Inventory() {
           transition={{ duration: 0.6 }}
           className="mt-16 flex flex-col items-center text-center"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666670] mb-5">See it live</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-nua-muted mb-5">See it live</span>
           <div className="overflow-x-auto max-w-full py-1">
             <InventoryShowcase />
           </div>
-          <p className="mt-4 text-sm text-[#666670] max-w-sm">NUA: Inventory OS. Stockouts prevented before they happen.</p>
+          <p className="mt-4 text-sm text-nua-muted max-w-sm">NUA: Inventory OS. Stockouts prevented before they happen.</p>
         </motion.div>
       </div>
     </section>

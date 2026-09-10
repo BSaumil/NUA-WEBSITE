@@ -43,10 +43,10 @@ export default class ErrorBoundary extends React.Component {
         data-testid="error-boundary-fallback"
         className="min-h-[60vh] flex flex-col items-center justify-center px-6 text-center"
       >
-        <h1 className="font-display text-2xl font-bold text-white">
+        <h1 className="font-display text-2xl font-bold text-nua-ink">
           Something went wrong on this page.
         </h1>
-        <p className="mt-3 max-w-md text-sm text-[#a1a1aa] leading-relaxed">
+        <p className="mt-3 max-w-md text-sm text-nua-ink2 leading-relaxed">
           The rest of the site is fine. Try reloading, or head back to the
           homepage.
         </p>
@@ -54,7 +54,7 @@ export default class ErrorBoundary extends React.Component {
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="px-5 py-2.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] font-medium text-sm transition-colors"
+            className="px-5 py-2.5 rounded-full bg-nua-burgundy hover:bg-nua-burgundyDark text-white font-medium text-sm transition-colors"
           >
             Reload page
           </button>
@@ -62,7 +62,7 @@ export default class ErrorBoundary extends React.Component {
               that failed, and this remounts the app from scratch. */}
           <a
             href="/"
-            className="px-5 py-2.5 rounded-full border border-white/15 text-white font-medium text-sm hover:bg-white/5 transition-colors"
+            className="px-5 py-2.5 rounded-full border border-white/15 text-nua-ink font-medium text-sm hover:bg-nua-bgAlt transition-colors"
           >
             Go to homepage
           </a>
