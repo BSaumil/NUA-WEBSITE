@@ -53,7 +53,7 @@ const incomingPool = [
 const statusStyles = {
   executed: { label: "Executed", bg: "bg-emerald-500/10", text: "text-nua-burgundy", dot: "bg-emerald-500" },
   approved: { label: "Approved", bg: "bg-[#8b5cf6]/10", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
-  suggested: { label: "Suggested", bg: "bg-[#f58c14]/10", text: "text-[#c66a00]", dot: "bg-nua-burgundy" },
+  suggested: { label: "Suggested", bg: "bg-[#f58c14]/10", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
 };
 
 const capabilities = [

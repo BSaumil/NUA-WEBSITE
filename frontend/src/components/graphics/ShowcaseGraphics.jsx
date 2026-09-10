@@ -62,7 +62,7 @@ export function AnalyticsDashboardScreen() {
           {kpis.map((k) => (
             <div key={k.label} className="rounded-xl border border-nua-border p-3">
               <div className="flex items-center justify-between">
-                <k.icon className="w-3.5 h-3.5" style={{ color: k.color }} />
+                <k.icon className="w-3.5 h-3.5" style={{ color: '#750D28' }} />
                 <span className="font-mono text-[9px] text-nua-burgundy">{k.delta}</span>
               </div>
               <div className="mt-2 font-display text-lg font-bold">
@@ -199,7 +199,7 @@ export function ScanToPayShowcase() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="absolute z-20 -top-8 right-0 sm:-right-6 flex items-center gap-2.5 rounded-xl bg-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25)] px-3.5 py-2.5"
       >
-        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-nua-burgundy text-nua-ink font-mono text-[9px] font-semibold uppercase whitespace-nowrap">
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-nua-burgundy text-white font-mono text-[9px] font-semibold uppercase whitespace-nowrap">
           <Gift className="w-3 h-3" /> Rewards
         </span>
         <div className="text-[10px] leading-tight text-[#1a1a22]">
@@ -557,7 +557,7 @@ export function DeliveryHubShowcase() {
                 className="flex items-center justify-between rounded-lg bg-nua-bgAlt border border-nua-border p-2.5"
               >
                 <div className="flex items-center gap-2">
-                  <span className="px-1.5 py-0.5 rounded-full font-mono text-[7px] uppercase" style={{ background: `${o.color}25`, color: o.color }}>{o.tag}</span>
+                  <span className="px-1.5 py-0.5 rounded-full font-mono text-[7px] uppercase" style={{ background: `${o.color}25`, color: '#750D28' }}>{o.tag}</span>
                   <span className="text-[11px] text-nua-ink">{o.item}</span>
                 </div>
                 <span className="font-mono text-[9px] text-nua-ink2">{o.eta}</span>

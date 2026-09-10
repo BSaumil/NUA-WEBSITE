@@ -48,7 +48,7 @@ export default function Compare() {
               className="group block rounded-2xl bg-nua-surface border border-nua-border p-6 hover:-translate-y-1 hover:border-nua-border transition-all duration-300"
             >
               <div className="flex items-start justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest" style={{ color: c.color }}>{c.category}</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest" style={{ color: '#750D28' }}>{c.category}</span>
                 <ArrowUpRight className="w-4 h-4 text-nua-ink2 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <h3 className="mt-3 font-display text-xl font-bold text-nua-ink">NUA vs {c.name}*</h3>

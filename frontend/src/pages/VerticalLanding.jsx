@@ -302,7 +302,7 @@ export default function VerticalLanding() {
                 data-testid={`vertical-sibling-${v.slug}`}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-nua-surface border border-nua-border text-sm text-nua-ink hover:border-white/15 transition-colors"
               >
-                <v.icon className="w-3.5 h-3.5" style={{ color: v.color }} />
+                <v.icon className="w-3.5 h-3.5" style={{ color: '#750D28' }} />
                 {v.eyebrow}
               </Link>
             ))}

@@ -42,7 +42,7 @@ export default function Solutions() {
             >
               <div className="flex items-start justify-between">
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: `${v.color}20` }}>
-                  <v.icon className="w-4 h-4" style={{ color: v.color }} />
+                  <v.icon className="w-4 h-4" style={{ color: '#750D28' }} />
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-nua-ink2 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>

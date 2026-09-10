@@ -60,20 +60,20 @@ export default function Features() {
                         className="w-10 h-10 rounded-xl flex items-center justify-center border border-nua-border"
                         style={{ background: `linear-gradient(135deg, ${f.color}30, ${f.color}05)` }}
                       >
-                        <Icon className="w-5 h-5" style={{ color: f.color }} />
+                        <Icon className="w-5 h-5" style={{ color: '#750D28' }} />
                       </div>
                       <span className="font-mono text-[11px] text-nua-ink2">{String(i + 1).padStart(2, "0")} / {String(featuresData.length).padStart(2, "0")}</span>
                     </div>
                     <h2 className="font-display mt-4 text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight leading-[1.05]">
                       {f.title}
                     </h2>
-                    <p className="mt-1 text-sm font-medium" style={{ color: f.color }}>{f.tagline}</p>
+                    <p className="mt-1 text-sm font-medium" style={{ color: '#750D28' }}>{f.tagline}</p>
                     <p className="mt-4 text-sm text-nua-ink2 leading-relaxed">{f.description}</p>
 
                     <ul className="mt-5 space-y-2">
                       {f.capabilities.map((c) => (
                         <li key={c} className="flex items-start gap-2 text-[13px] text-nua-ink">
-                          <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: f.color }} />
+                          <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: '#750D28' }} />
                           {c}
                         </li>
                       ))}
@@ -95,7 +95,7 @@ export default function Features() {
                           <li key={step} className="flex items-start gap-3">
                             <span
                               className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-mono font-semibold flex-shrink-0"
-                              style={{ background: `${f.color}20`, color: f.color }}
+                              style={{ background: `${f.color}20`, color: '#750D28' }}
                             >
                               {idx + 1}
                             </span>
