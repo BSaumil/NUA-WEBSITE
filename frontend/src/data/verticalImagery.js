@@ -1,5 +1,5 @@
 /**
- * Photography for the four hospitality landing pages.
+ * Photography for the vertical landing pages.
  *
  * Kept separate from verticalsData so the image choices can be reviewed on
  * their own: which scene backs which claim is an editorial decision, and it
@@ -10,12 +10,11 @@
  * sighted reader takes from the photo, and search engines get a real
  * description rather than a slug.
  *
- * KNOWN GAP — bar-pos. The pack contains no bar, pub or beverage-service
- * scenes at all (checked across all eleven folders). The scenes used below are
- * genuinely generic hospitality moments — a tab being settled, stock being
- * counted, a roster — rather than restaurant-specific ones, so nothing on the
- * page shows a dining room and calls it a bar. It is still the weakest of the
- * four sets, and a bar batch is the single most useful addition to the pack.
+ * bar-pos originally borrowed generic hospitality scenes because the pack
+ * contained no bar, pub or beverage-service photography at all. A dedicated bar
+ * batch has since been supplied, so it now shows its own trade: a cocktail bar,
+ * a pub, a wine bar and a neighbourhood bar, rather than a dining room standing
+ * in for one.
  */
 const verticalImagery = {
   "restaurant-pos": {
@@ -88,102 +87,34 @@ const verticalImagery = {
 
   "bar-pos": {
     hero: {
-      group: "hospitality",
-      id: "payments-made-simple-at-nua",
-      alt: "A tab being settled at the counter on a card terminal at the end of the night.",
+      group: "bar",
+      id: "nua-cocktail-bar-service-hero",
+      alt: "A bartender finishing a cocktail at a busy bar, tickets and tabs running behind the counter.",
     },
     scenes: [
       {
-        group: "hospitality",
-        id: "orders-from-every-channel",
-        alt: "A single order queue on screen collecting orders arriving from several channels.",
-        caption: "Every order lands in one queue, wherever it came from.",
+        group: "bar",
+        id: "nua-modern-pub-service-hero",
+        alt: "A pub bar mid-service, beer poured to order while the floor keeps moving.",
+        caption: "Tabs opened and found fast, however loud the room gets.",
       },
       {
-        group: "hospitality",
-        id: "smart-pantry-inventory-dashboard",
-        alt: "A stockroom alongside a screen showing current stock levels by item.",
-        caption: "Pour-level stock tracked as it is sold.",
+        group: "bar",
+        id: "nua-wine-bar-service-hero",
+        alt: "A wine bar counter with bottles by the glass and a terminal at the pass.",
+        caption: "Pour-level stock tracked as it is sold, not counted after close.",
       },
       {
-        group: "hospitality",
-        id: "keep-every-shift-in-sync",
-        alt: "A roster on screen showing staffing across the night's trading hours.",
-        caption: "Staffed to the night, not to a fixed template.",
+        group: "bar",
+        id: "nua-neighbourhood-bar-hero",
+        alt: "A neighbourhood bar at service, staff working the counter and the floor together.",
+        caption: "Staffed to the night, not to a fixed weekly template.",
       },
       {
-        group: "reliability-offline-hardware",
-        id: "keep-selling-even-offline",
-        alt: "A terminal continuing to take orders while showing it is working without a connection.",
-        caption: "Trading continues when the connection does not.",
-      },
-    ],
-  },
-
-  "retail-pos": {
-    hero: {
-      group: "retail",
-      id: "sell-beautifully-boutique-pos-experience",
-      alt: "A boutique counter mid-sale, with the terminal showing the item being rung up and stock behind.",
-    },
-    scenes: [
-      {
-        group: "retail",
-        id: "boutique-barcode-scanning-experience",
-        alt: "A barcode being scanned at the counter, the product's size and colour variant shown on screen.",
-        caption: "Size and colour are variants of one product, not a dozen items.",
-      },
-      {
-        group: "retail",
-        id: "from-online-order-to-pickup",
-        alt: "An online order being handed over at a collection point in store.",
-        caption: "Online and shop floor draw on the same stock number.",
-      },
-      {
-        group: "retail",
-        id: "effortless-returns-happier-customers",
-        alt: "A return being processed at the counter, the original sale shown on screen.",
-        caption: "Returns run through the original record, so stock and money reconcile.",
-      },
-      {
-        group: "retail",
-        id: "ai-powered-retail-reorder-insights",
-        alt: "A replenishment screen proposing reorder quantities against recent sell-through.",
-        caption: "Reorders proposed from what sold, for you to approve.",
-      },
-    ],
-  },
-
-  "services-pos": {
-    hero: {
-      group: "professional-services",
-      id: "warm-spa-reception-with-smart-booking-ui",
-      alt: "A calm reception desk with the day's appointments shown on screen as a client arrives.",
-    },
-    scenes: [
-      {
-        group: "professional-services",
-        id: "appointments-under-control-at-nua",
-        alt: "A day's appointment calendar on screen, split across several practitioners.",
-        caption: "Bookings made against real availability, per practitioner.",
-      },
-      {
-        group: "professional-services",
-        id: "know-every-client-rebook-smarter",
-        alt: "A client record open at check-in, showing previous visits and preferences.",
-        caption: "History and preferences up before the appointment starts.",
-      },
-      {
-        group: "professional-services",
-        id: "spa-memberships-made-simple",
-        alt: "A membership balance shown against a client's account at the counter.",
-        caption: "Package and membership balances drawn down at checkout.",
-      },
-      {
-        group: "professional-services",
-        id: "from-arrival-to-payment-handled",
-        alt: "A client settling at reception, the service and a retail product on one screen.",
-        caption: "Service, products and redemptions settle on one record.",
+        group: "bar",
+        id: "nua-bar-service-square",
+        alt: "A tab being settled at the bar at the end of the night.",
+        caption: "Settled cleanly, with every transfer and void on the record.",
       },
     ],
   },

@@ -64,6 +64,79 @@ const imageManifest = {
       ]
     }
   ],
+  "bar": [
+    {
+      "colour": "#835f44",
+      "height": 1254,
+      "id": "nua-bar-service-square",
+      "src": "/img/bar/nua-bar-service-square-1024.webp",
+      "width": 1254,
+      "widths": [
+        640,
+        1024
+      ]
+    },
+    {
+      "colour": "#a99078",
+      "height": 941,
+      "id": "nua-cafe-bar-crossover-hero",
+      "src": "/img/bar/nua-cafe-bar-crossover-hero-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#927251",
+      "height": 941,
+      "id": "nua-cocktail-bar-service-hero",
+      "src": "/img/bar/nua-cocktail-bar-service-hero-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#6c4f35",
+      "height": 941,
+      "id": "nua-modern-pub-service-hero",
+      "src": "/img/bar/nua-modern-pub-service-hero-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#936b4a",
+      "height": 941,
+      "id": "nua-neighbourhood-bar-hero",
+      "src": "/img/bar/nua-neighbourhood-bar-hero-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    },
+    {
+      "colour": "#826a54",
+      "height": 941,
+      "id": "nua-wine-bar-service-hero",
+      "src": "/img/bar/nua-wine-bar-service-hero-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    }
+  ],
   "enterprise-multi-location": [
     {
       "colour": "#9d9288",
