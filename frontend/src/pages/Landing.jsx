@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import BusinessModes from "@/components/sections/BusinessModes";
+import OperatingWorlds from "@/components/sections/OperatingWorlds";
 import Modules from "@/components/sections/Modules";
 import NewFeatures from "@/components/sections/NewFeatures";
 import MeetNua from "@/components/sections/MeetNua";
@@ -33,6 +34,7 @@ export default function Landing() {
       <Navbar />
       <Hero />
       <BusinessModes />
+      <OperatingWorlds />
       <Modules />
       <NewFeatures />
       <MeetNua />
