@@ -9,16 +9,16 @@ import {
 const MotionLink = motion(Link);
 
 const modules = [
-  { id: "pos", icon: Calculator, title: "Point of Sale", desc: "Lightning-fast checkout that works offline. iOS, Android, kiosks.", color: "#f58c14", span: "md:col-span-2" },
-  { id: "reservations", icon: CalendarRange, title: "Reservations", desc: "Table management, waitlist & booking portal in one flow.", color: "#8b5cf6", span: "md:col-span-1" },
-  { id: "kds", icon: ChefHat, title: "Kitchen Display", desc: "Smart routing across stations with live ticket aging.", color: "#ec4899", span: "md:col-span-1" },
-  { id: "loyalty", icon: Gift, title: "Loyalty Engine", desc: "Points, tiers, multipliers, gift cards & referrals.", color: "#ec4899", span: "md:col-span-2" },
-  { id: "inventory", icon: Boxes, title: "Inventory & Purchasing", desc: "Smart Pantry AI, recipe costing, auto purchase orders.", color: "#8b5cf6", span: "md:col-span-2" },
-  { id: "staff", icon: Users, title: "Staff Management", desc: "AI rostering, shift swaps, payroll & tip distribution.", color: "#f58c14", span: "md:col-span-1" },
-  { id: "nua", icon: BrainCircuit, title: "AI Command Center", desc: "NUA runs ops autonomously, review, approve, automate.", color: "#8b5cf6", span: "md:col-span-1" },
-  { id: "analytics", icon: BarChart3, title: "Analytics Dashboard", desc: "Menu engineering, retention, profit & forecasting.", color: "#f58c14", span: "md:col-span-2" },
-  { id: "marketing", icon: Megaphone, title: "Marketing Automation", desc: "Segmented campaigns triggered by guest behaviour.", color: "#ec4899", span: "md:col-span-1" },
-  { id: "voice", icon: Mic, title: "Voice POS", desc: "Run your venue by voice, orders, discounts, reports.", color: "#f58c14", span: "md:col-span-1" },
+  { id: "pos", icon: Calculator, title: "Point of Sale", desc: "Lightning-fast checkout that works offline. iOS, Android, kiosks.", color: "#A45D0D", span: "md:col-span-2" },
+  { id: "reservations", icon: CalendarRange, title: "Reservations", desc: "Table management, waitlist & booking portal in one flow.", color: "#7D52DD", span: "md:col-span-1" },
+  { id: "kds", icon: ChefHat, title: "Kitchen Display", desc: "Smart routing across stations with live ticket aging.", color: "#BF3A7B", span: "md:col-span-1" },
+  { id: "loyalty", icon: Gift, title: "Loyalty Engine", desc: "Points, tiers, multipliers, gift cards & referrals.", color: "#BF3A7B", span: "md:col-span-2" },
+  { id: "inventory", icon: Boxes, title: "Inventory & Purchasing", desc: "Smart Pantry AI, recipe costing, auto purchase orders.", color: "#7D52DD", span: "md:col-span-2" },
+  { id: "staff", icon: Users, title: "Staff Management", desc: "AI rostering, shift swaps, payroll & tip distribution.", color: "#A45D0D", span: "md:col-span-1" },
+  { id: "nua", icon: BrainCircuit, title: "AI Command Center", desc: "NUA runs ops autonomously, review, approve, automate.", color: "#7D52DD", span: "md:col-span-1" },
+  { id: "analytics", icon: BarChart3, title: "Analytics Dashboard", desc: "Menu engineering, retention, profit & forecasting.", color: "#A45D0D", span: "md:col-span-2" },
+  { id: "marketing", icon: Megaphone, title: "Marketing Automation", desc: "Segmented campaigns triggered by guest behaviour.", color: "#BF3A7B", span: "md:col-span-1" },
+  { id: "voice", icon: Mic, title: "Voice POS", desc: "Run your venue by voice, orders, discounts, reports.", color: "#A45D0D", span: "md:col-span-1" },
 ];
 
 export default function Modules() {
@@ -33,13 +33,13 @@ export default function Modules() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">The Platform</span>
-          <h2 className="font-display mt-3 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">The Platform</span>
+          <h2 className="font-display mt-3 text-4xl sm:text-5xl lg:text-6xl font-bold text-nua-ink leading-[1.05] tracking-tight">
             All-in-one,
             <br />
-            <span className="text-[#a1a1aa]">not duct-taped together.</span>
+            <span className="text-nua-ink2">not duct-taped together.</span>
           </h2>
-          <p className="mt-5 text-[#a1a1aa] max-w-xl">
+          <p className="mt-5 text-nua-ink2 max-w-xl">
             Ten modules. One intelligence layer. NUA replaces a tangled stack of POS, CRM, and ops tools with a single coherent system.
           </p>
         </motion.div>
@@ -56,7 +56,7 @@ export default function Modules() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.04 }}
                 data-testid={`module-${m.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-card`}
-                className={`group relative block ${m.span} rounded-2xl bg-[#15151d] border border-white/5 p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/10`}
+                className={`group relative block ${m.span} rounded-2xl bg-nua-surface border border-nua-border p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-nua-border`}
                 style={{ boxShadow: "0 1px 0 0 rgba(255,255,255,0.02) inset" }}
               >
                 <div
@@ -66,16 +66,16 @@ export default function Modules() {
                 <div className="relative flex flex-col h-full">
                   <div className="flex items-start justify-between">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/10"
+                      className="w-10 h-10 rounded-xl flex items-center justify-center border border-nua-border"
                       style={{ background: `linear-gradient(135deg, ${m.color}30, ${m.color}05)` }}
                     >
-                      <Icon className="w-5 h-5" style={{ color: m.color }} />
+                      <Icon className="w-5 h-5" style={{ color: '#750D28' }} />
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-[#a1a1aa] opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="w-4 h-4 text-nua-ink2 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <div className="mt-auto">
-                    <h3 className="font-display text-xl font-semibold text-white tracking-tight">{m.title}</h3>
-                    <p className="mt-1.5 text-sm text-[#a1a1aa] leading-relaxed">{m.desc}</p>
+                    <h3 className="font-display text-xl font-semibold text-nua-ink tracking-tight">{m.title}</h3>
+                    <p className="mt-1.5 text-sm text-nua-ink2 leading-relaxed">{m.desc}</p>
                   </div>
                 </div>
               </MotionLink>
@@ -87,7 +87,7 @@ export default function Modules() {
           <Link
             to="/features"
             data-testid="modules-see-how-it-works-link"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-nua-border text-nua-ink text-sm font-medium hover:bg-nua-bgAlt transition-colors"
           >
             See how every feature works, graphically
             <ArrowRight className="w-4 h-4" />

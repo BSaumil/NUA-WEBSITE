@@ -24,23 +24,23 @@ export default function Contact() {
         eyebrow="Contact"
         title="Talk to a human, not a chatbot."
         subtitle="Questions about pricing, a specific module, or migrating from your current stack: reach out, and a real person answers."
-        accent="#ec4899"
+        accent="#BF3A7B"
         crumb="Contact"
       />
 
       <div className="relative max-w-3xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
         {LEAD_CAPTURE_ENABLED && (
-          <div className="rounded-2xl bg-gradient-to-br from-[#f58c14]/15 to-[#15151d] border border-[#f58c14]/30 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div className="rounded-2xl bg-nua-burgundyWash border border-nua-burgundy/30 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
             <div>
-              <div className="font-display text-lg font-semibold text-white">Prefer to just see it running?</div>
-              <div className="text-sm text-[#a1a1aa] mt-1">Book a 30-minute demo: no pressure, no scripted pitch.</div>
+              <div className="font-display text-lg font-semibold text-nua-ink">Prefer to just see it running?</div>
+              <div className="text-sm text-nua-ink2 mt-1">Book a 30-minute demo: no pressure, no scripted pitch.</div>
             </div>
             <LeadCta
               type="demo"
               label="Book a Demo"
               icon={ArrowRight}
               testId="contact-book-demo-btn"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-all duration-200 flex-shrink-0"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-nua-burgundy hover:bg-nua-burgundyDark text-white text-sm font-medium transition-all duration-200 flex-shrink-0"
             />
           </div>
         )}
@@ -51,23 +51,23 @@ export default function Contact() {
               key={c.label}
               href={c.href}
               data-testid={`contact-channel-${c.label.toLowerCase().replace(/\s+/g, "-")}`}
-              className="rounded-2xl bg-[#15151d] border border-white/5 p-5 hover:border-white/10 transition-colors"
+              className="rounded-2xl bg-nua-surface border border-nua-border p-5 hover:border-nua-border transition-colors"
             >
               <div className="w-9 h-9 rounded-lg bg-[#ec4899]/15 flex items-center justify-center">
-                <c.icon className="w-4 h-4 text-[#ec4899]" />
+                <c.icon className="w-4 h-4 text-nua-burgundy" />
               </div>
-              <div className="mt-3 font-mono text-[10px] uppercase tracking-wider text-[#a1a1aa]">{c.label}</div>
-              <div className="mt-1 text-sm text-white font-medium">{c.value}</div>
+              <div className="mt-3 font-mono text-[10px] uppercase tracking-wider text-nua-ink2">{c.label}</div>
+              <div className="mt-1 text-sm text-nua-ink font-medium">{c.value}</div>
             </a>
           ))}
         </div>
 
-        <div className="mt-6 rounded-2xl bg-[#15151d] border border-white/5 p-6 sm:p-7">
+        <div className="mt-6 rounded-2xl bg-nua-surface border border-nua-border p-6 sm:p-7">
           <div className="flex items-start gap-3">
-            <Building2 className="w-4 h-4 text-[#a1a1aa] mt-0.5 flex-shrink-0" />
+            <Building2 className="w-4 h-4 text-nua-ink2 mt-0.5 flex-shrink-0" />
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-wider text-[#a1a1aa]">Business details</div>
-              <div className="mt-1 text-sm text-white">
+              <div className="font-mono text-[10px] uppercase tracking-wider text-nua-ink2">Business details</div>
+              <div className="mt-1 text-sm text-nua-ink">
                 {LEGAL_NAME} · ABN {ABN}
               </div>
             </div>

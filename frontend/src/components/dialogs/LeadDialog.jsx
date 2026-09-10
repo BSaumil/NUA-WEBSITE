@@ -77,27 +77,27 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
         data-testid="lead-dialog"
-        className="sm:max-w-[560px] bg-[#0f0f17] border-white/10 text-white p-0 overflow-hidden"
+        className="sm:max-w-[560px] bg-[#0f0f17] border-nua-border text-nua-ink p-0 overflow-hidden"
       >
         {/* Gradient header */}
-        <div className="relative px-6 pt-6 pb-5 border-b border-white/5 bg-gradient-to-br from-[#8b5cf6]/15 via-transparent to-[#f58c14]/15">
+        <div className="relative px-6 pt-6 pb-5 border-b border-nua-border bg-nua-bgAlt">
           <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-[#8b5cf6]/30 blur-3xl pointer-events-none" />
           <div className="relative">
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-white/10 bg-white/5">
-              <Sparkles className="w-3 h-3 text-[#f58c14]" />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-nua-border bg-nua-bgAlt">
+              <Sparkles className="w-3 h-3 text-nua-burgundy" />
+              <span className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2">
                 {isDemo ? "Book a demo" : "Start free trial"}
               </span>
             </div>
             <DialogHeader className="mt-3 text-left">
-              <DialogTitle className="font-display text-2xl font-bold text-white">
+              <DialogTitle className="font-display text-2xl font-bold text-nua-ink">
                 {isDemo ? "Talk to a hospitality operator." : "Spin up NUA in minutes."}
               </DialogTitle>
-              <DialogDescription className="text-[#a1a1aa]">
+              <DialogDescription className="text-nua-ink2">
                 {isDemo
                   ? "30-min call, your tech stack reviewed live, custom rollout plan within 24 hours."
                   : `${TRIAL_DAYS}-day free trial · no card required · migrate from any POS.`}
-                {plan ? <span className="block mt-1 text-[#c4b5fd]">Selected plan: <span className="font-mono">{plan}</span></span> : null}
+                {plan ? <span className="block mt-1 text-nua-burgundy">Selected plan: <span className="font-mono">{plan}</span></span> : null}
               </DialogDescription>
             </DialogHeader>
           </div>
@@ -107,16 +107,16 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
         {success ? (
           <div className="p-8 text-center">
             <div className="mx-auto w-14 h-14 rounded-full bg-emerald-500/15 flex items-center justify-center mb-4">
-              <CheckCircle2 className="w-7 h-7 text-emerald-400" />
+              <CheckCircle2 className="w-7 h-7 text-nua-burgundy" />
             </div>
-            <h3 className="font-display text-xl font-bold text-white">You&apos;re on the list.</h3>
-            <p className="mt-2 text-sm text-[#a1a1aa] max-w-sm mx-auto">
+            <h3 className="font-display text-xl font-bold text-nua-ink">You&apos;re on the list.</h3>
+            <p className="mt-2 text-sm text-nua-ink2 max-w-sm mx-auto">
               A NUA operator will reach out within 24 hours. Meanwhile, keep an eye on your inbox, including spam.
             </p>
             <button
               data-testid="lead-success-close"
               onClick={() => handleOpenChange(false)}
-              className="mt-6 px-5 py-2.5 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium transition-colors"
+              className="mt-6 px-5 py-2.5 rounded-full bg-nua-burgundy hover:bg-nua-burgundyDark text-white text-sm font-medium transition-colors"
             >
               Done
             </button>
@@ -125,7 +125,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
             <div className="grid sm:grid-cols-2 gap-3">
               <div>
-                <Label htmlFor="lead-name" className="text-[11px] font-mono uppercase tracking-widest text-[#a1a1aa]">
+                <Label htmlFor="lead-name" className="text-[11px] font-mono uppercase tracking-widest text-nua-ink2">
                   Full name *
                 </Label>
                 <Input
@@ -135,11 +135,11 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   onChange={update("name")}
                   required
                   placeholder="Sam B."
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-[#52525b]"
+                  className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b]"
                 />
               </div>
               <div>
-                <Label htmlFor="lead-email" className="text-[11px] font-mono uppercase tracking-widest text-[#a1a1aa]">
+                <Label htmlFor="lead-email" className="text-[11px] font-mono uppercase tracking-widest text-nua-ink2">
                   Work email *
                 </Label>
                 <Input
@@ -150,14 +150,14 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   onChange={update("email")}
                   required
                   placeholder="you@venue.com"
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-[#52525b]"
+                  className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b]"
                 />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-3">
               <div>
-                <Label htmlFor="lead-business" className="text-[11px] font-mono uppercase tracking-widest text-[#a1a1aa]">
+                <Label htmlFor="lead-business" className="text-[11px] font-mono uppercase tracking-widest text-nua-ink2">
                   Business name
                 </Label>
                 <Input
@@ -166,11 +166,11 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   value={form.business}
                   onChange={update("business")}
                   placeholder="Lumière Group"
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-[#52525b]"
+                  className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b]"
                 />
               </div>
               <div>
-                <Label htmlFor="lead-phone" className="text-[11px] font-mono uppercase tracking-widest text-[#a1a1aa]">
+                <Label htmlFor="lead-phone" className="text-[11px] font-mono uppercase tracking-widest text-nua-ink2">
                   Phone
                 </Label>
                 <Input
@@ -179,13 +179,13 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   value={form.phone}
                   onChange={update("phone")}
                   placeholder="+61 4xx xxx xxx"
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-[#52525b]"
+                  className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b]"
                 />
               </div>
             </div>
 
             <div>
-              <Label className="text-[11px] font-mono uppercase tracking-widest text-[#a1a1aa]">
+              <Label className="text-[11px] font-mono uppercase tracking-widest text-nua-ink2">
                 Number of venues
               </Label>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
@@ -197,8 +197,8 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                     onClick={() => setForm((f) => ({ ...f, venues: v }))}
                     className={`px-3 py-1.5 rounded-full text-xs border transition-all ${
                       form.venues === v
-                        ? "border-[#8b5cf6] bg-[#8b5cf6]/15 text-[#c4b5fd]"
-                        : "border-white/10 text-[#a1a1aa] hover:border-white/20 hover:text-white"
+                        ? "border-[#8b5cf6] bg-[#8b5cf6]/15 text-nua-burgundy"
+                        : "border-nua-border text-nua-ink2 hover:border-nua-borderStrong hover:text-nua-ink"
                     }`}
                   >
                     {v}
@@ -208,7 +208,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
             </div>
 
             <div>
-              <Label htmlFor="lead-message" className="text-[11px] font-mono uppercase tracking-widest text-[#a1a1aa]">
+              <Label htmlFor="lead-message" className="text-[11px] font-mono uppercase tracking-widest text-nua-ink2">
                 Notes (optional)
               </Label>
               <Textarea
@@ -218,7 +218,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                 onChange={update("message")}
                 placeholder="Anything we should know before the call?"
                 rows={3}
-                className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-[#52525b] resize-none"
+                className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b] resize-none"
               />
             </div>
 
@@ -226,7 +226,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
               type="submit"
               data-testid="lead-submit-btn"
               disabled={submitting}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] text-sm font-medium shadow-lg shadow-[#f58c14]/25 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-nua-burgundy hover:bg-nua-burgundyDark text-white text-sm font-medium shadow-lg shadow-nua-burgundy/25 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {submitting ? (
                 <>
@@ -237,7 +237,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
               )}
             </button>
 
-            <p className="text-center text-[10px] font-mono uppercase tracking-widest text-[#666670]">
+            <p className="text-center text-[10px] font-mono uppercase tracking-widest text-nua-muted">
               By submitting, you agree to our privacy policy
             </p>
           </form>

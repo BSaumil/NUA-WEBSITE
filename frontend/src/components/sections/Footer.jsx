@@ -70,30 +70,30 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer data-testid="footer" className="relative border-t border-white/5 bg-nua-bg">
+    <footer data-testid="footer" className="relative border-t border-nua-border bg-nua-dark">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
         <div className="grid grid-cols-2 md:grid-cols-7 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-2">
             <div className="flex items-center gap-2">
               <BrandIcon size={32} />
-              <span className="font-display text-xl font-bold text-white tracking-tight">NUA</span>
+              <span className="font-display text-xl font-bold text-nua-darkText tracking-tight uppercase">NUA</span>
             </div>
-            <p className="mt-4 text-sm text-[#a1a1aa] max-w-xs">
+            <p className="mt-4 text-sm text-nua-darkBody max-w-xs">
               The AI operating system for hospitality. Built by operators, for operators who refuse to be ordinary.
             </p>
           </div>
 
           {cols.map((c) => (
             <div key={c.title}>
-              <div className="font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">{c.title}</div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-nua-darkBody">{c.title}</div>
               <ul className="mt-4 space-y-2.5">
                 {c.items.map((item) => (
                   <li key={item.label}>
                     <Link
                       to={item.to}
                       data-testid={`footer-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-sm text-[#eaeaea] hover:text-[#f58c14] transition-colors"
+                      className="text-sm text-nua-darkText hover:text-nua-darkAccent transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -104,11 +104,11 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="font-mono text-[11px] text-[#a1a1aa]">
+        <div className="mt-12 pt-6 border-t border-nua-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <p className="font-mono text-[11px] text-nua-darkBody">
             © {new Date().getFullYear()} NUA AUS PTY LTD. All rights reserved.
           </p>
-          <div className="flex items-center gap-5 font-mono text-[11px] text-[#a1a1aa]">
+          <div className="flex items-center gap-5 font-mono text-[11px] text-nua-darkBody">
             <a href={`mailto:${SUPPORT_EMAIL}`} data-testid="footer-email" className="hover:text-white transition-colors">{SUPPORT_EMAIL}</a>
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>

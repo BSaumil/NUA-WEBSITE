@@ -11,7 +11,7 @@ export default function Integrations() {
   // duplicate for seamless marquee
   const row = [...integrations, ...integrations];
   return (
-    <section id="integrations" data-testid="integrations-section" className="relative py-24 lg:py-28 bg-[#f6f7fb] text-[#0f0f14] overflow-hidden">
+    <section id="integrations" data-testid="integrations-section" className="relative py-24 lg:py-28 bg-nua-bgAlt text-nua-ink overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="font-mono text-[11px] uppercase tracking-widest text-[#8a4a00]">Ecosystem</span>
@@ -24,9 +24,9 @@ export default function Integrations() {
           >
             Plays nicely with everything.
           </motion.h2>
-          <p className="mt-5 text-[#444450]">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/5 font-mono text-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#f58c14] animate-pulse-dot" />
+          <p className="mt-5 text-nua-ink2">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-nua-border font-mono text-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-nua-burgundy animate-pulse-dot" />
               18+ integrations and expanding
             </span>
           </p>
@@ -35,17 +35,17 @@ export default function Integrations() {
 
       {/* Marquee */}
       <div className="relative">
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f6f7fb] to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f6f7fb] to-transparent z-10" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-nua-bg to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-nua-bg to-transparent z-10" />
 
         <div className="overflow-hidden">
           <div className="flex gap-4 animate-marquee whitespace-nowrap">
             {row.map((name, i) => (
               <div
                 key={`${name}-${i}`}
-                className="flex-shrink-0 px-6 py-4 rounded-xl bg-white border border-black/5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className="flex-shrink-0 px-6 py-4 rounded-xl bg-white border border-nua-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
-                <span className="font-display text-lg font-semibold text-[#0f0f14] opacity-70 hover:opacity-100 transition-opacity">
+                <span className="font-display text-lg font-semibold text-nua-ink opacity-70 hover:opacity-100 transition-opacity">
                   {name}
                 </span>
               </div>
@@ -63,8 +63,8 @@ export default function Integrations() {
             { label: "Messaging & comms", value: "5+" },
           ].map((s) => (
             <div key={s.label} className="text-center">
-              <div className="font-display text-3xl font-bold text-[#0f0f14]">{s.value}</div>
-              <div className="font-mono text-[10px] uppercase tracking-wider text-[#666670] mt-1">{s.label}</div>
+              <div className="font-display text-3xl font-bold text-nua-ink">{s.value}</div>
+              <div className="font-mono text-[10px] uppercase tracking-wider text-nua-muted mt-1">{s.label}</div>
             </div>
           ))}
         </div>

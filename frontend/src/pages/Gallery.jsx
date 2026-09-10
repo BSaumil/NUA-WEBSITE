@@ -15,7 +15,7 @@ const groups = [
   {
     label: "Front of House",
     title: "Every guest touchpoint, live.",
-    color: "#f58c14",
+    color: "#A45D0D",
     items: [
       { Component: POSShowcase, title: "Point of Sale", stat: "Built to keep trading offline", body: "Charges cards, splits bills and keeps ringing up sales even when the internet drops." },
       { Component: VoiceShowcase, title: "Voice POS", stat: "Zero clicks", body: "Apply discounts, fire reports, all without your hands leaving the pass." },
@@ -26,7 +26,7 @@ const groups = [
   {
     label: "Back of House Intelligence",
     title: "The work that runs itself.",
-    color: "#22c55e",
+    color: "#157E3C",
     items: [
       { Component: InventoryShowcase, title: "Inventory & Purchasing", stat: "Stockouts prevented", body: "Buy, wait, or reorder: decided for you before you ever run out." },
       { Component: TemperatureMonitoringShowcase, title: "Temperature Monitoring", stat: "Automated temperature records and alerts", body: "Fridges and freezers logged automatically: alerts sent the instant something drifts." },
@@ -37,7 +37,7 @@ const groups = [
   {
     label: "Growth, Loyalty & Payments",
     title: "Revenue that compounds.",
-    color: "#8b5cf6",
+    color: "#7D52DD",
     items: [
       { Component: LoyaltyWalletLiveShowcase, title: "Loyalty & Wallet", stat: "$1 spent = 1 point, instantly", body: "Every sale earns loyalty automatically: no separate terminal, no manual entry." },
       { Component: MarketingShowcase, title: "Marketing Automation", stat: "Campaigns that trigger themselves", body: "Segments and win-back offers fire on their own: 24 hours a day." },
@@ -72,7 +72,7 @@ export default function Gallery() {
         eyebrow="Product Gallery"
         title="See NUA, running."
         subtitle="Every screen below is a constructed, live-animated render of the real NUA interface, not a stock photo, not a competitor's screenshot. This is what your team actually sees, updating in real time."
-        accent="#8b5cf6"
+        accent="#7D52DD"
         crumb="Gallery"
       />
 
@@ -80,11 +80,11 @@ export default function Gallery() {
         {/* Flagship 1 */}
         <FadeIn>
           <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8b5cf6]">AI Command Center</span>
-            <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">AI Command Center</span>
+            <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">
               Ask NUA anything about your business.
             </h2>
-            <p className="mt-3 text-[#a1a1aa]">A real question, a real answer, a real dollar impact, right next to the dashboard it came from.</p>
+            <p className="mt-3 text-nua-ink2">A real question, a real answer, a real dollar impact, right next to the dashboard it came from.</p>
           </div>
           <div className="flex justify-center overflow-x-auto py-4">
             <InsightsCopilotShowcase />
@@ -94,11 +94,11 @@ export default function Gallery() {
         {/* Flagship 2 */}
         <FadeIn delay={0.05}>
           <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#f58c14]">Analytics Dashboard</span>
-            <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">Analytics Dashboard</span>
+            <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">
               Your entire venue, one screen.
             </h2>
-            <p className="mt-3 text-[#a1a1aa]">Sales, orders, AOV and venue performance: live, without stitching reports together yourself.</p>
+            <p className="mt-3 text-nua-ink2">Sales, orders, AOV and venue performance: live, without stitching reports together yourself.</p>
           </div>
           <div className="flex justify-center overflow-x-auto py-4">
             <AnalyticsMonitorShowcase />
@@ -108,11 +108,11 @@ export default function Gallery() {
         {/* Flagship 3 */}
         <FadeIn delay={0.1}>
           <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#ec4899]">Loyalty & Wallet</span>
-            <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">Loyalty & Wallet</span>
+            <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">
               Every sale earns loyalty, automatically.
             </h2>
-            <p className="mt-3 text-[#a1a1aa]">No separate loyalty terminal, no manual entry: the wallet pass links itself to the sale.</p>
+            <p className="mt-3 text-nua-ink2">No separate loyalty terminal, no manual entry: the wallet pass links itself to the sale.</p>
           </div>
           <div className="flex justify-center overflow-x-auto py-6 px-6">
             <ScanToPayShowcase />
@@ -124,7 +124,7 @@ export default function Gallery() {
           <div key={group.label}>
             <div className="text-center max-w-xl mx-auto mb-10">
               <span className="font-mono text-[11px] uppercase tracking-widest" style={{ color: group.color }}>{group.label}</span>
-              <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-white tracking-tight">{group.title}</h2>
+              <h2 className="font-display mt-3 text-2xl sm:text-3xl font-bold text-nua-ink tracking-tight">{group.title}</h2>
             </div>
             <div className="grid sm:grid-cols-2 gap-x-6 gap-y-14">
               {group.items.map(({ Component, title, stat, body }, i) => (
@@ -133,14 +133,14 @@ export default function Gallery() {
                     <div className="overflow-x-auto max-w-full py-2">
                       <Component />
                     </div>
-                    <h3 className="mt-5 font-display font-semibold text-white">{title}</h3>
+                    <h3 className="mt-5 font-display font-semibold text-nua-ink">{title}</h3>
                     <span
                       className="mt-1.5 inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-wider"
                       style={{ background: `${group.color}18`, color: group.color }}
                     >
                       {stat}
                     </span>
-                    <p className="mt-2.5 text-sm text-[#a1a1aa] max-w-xs">{body}</p>
+                    <p className="mt-2.5 text-sm text-nua-ink2 max-w-xs">{body}</p>
                   </div>
                 </FadeIn>
               ))}

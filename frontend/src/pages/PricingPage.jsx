@@ -19,7 +19,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="One platform. No à la carte tools."
         subtitle="The AI Agent, Voice POS, and Loyalty engine ship in every plan: no add-on pricing for the features that actually run your venue."
-        accent="#f58c14"
+        accent="#A45D0D"
         crumb="Pricing"
       />
       <Pricing />

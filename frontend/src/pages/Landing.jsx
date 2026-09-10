@@ -24,7 +24,7 @@ import SEO from "@/components/SEO";
 
 export default function Landing() {
   return (
-    <main data-testid="landing-page" className="min-h-screen bg-nua-bg text-[#eaeaea] font-body antialiased overflow-x-hidden">
+    <main data-testid="landing-page" className="min-h-screen bg-nua-bg text-nua-ink font-body antialiased overflow-x-hidden">
       <SEO
         title="NUA: The Operating System for Modern Business"
         description="One operating system for hospitality, retail and service businesses in Australia: point of sale, bookings, stock, staff, loyalty and forecasting, with NUA Agent handling the admin between them."

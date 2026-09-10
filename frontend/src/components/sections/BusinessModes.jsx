@@ -22,7 +22,7 @@ const modes = [
   {
     slug: "hospitality-pos",
     icon: UtensilsCrossed,
-    colour: "#f58c14",
+    colour: "#A45D0D",
     eyebrow: "Hospitality",
     title: "Restaurants, cafés and bars",
     body: "Floor, kitchen, bookings and stock on one system, so a service runs without anyone reconciling it afterwards.",
@@ -32,7 +32,7 @@ const modes = [
   {
     slug: "retail-pos",
     icon: ShoppingBag,
-    colour: "#0ea5e9",
+    colour: "#0A76A7",
     eyebrow: "Retail",
     title: "Boutiques and multi-store",
     body: "Counter and online drawing on the same stock number, with replenishment proposed from what actually sold.",
@@ -42,7 +42,7 @@ const modes = [
   {
     slug: "services-pos",
     icon: CalendarCheck,
-    colour: "#14b8a6",
+    colour: "#0D7B6F",
     eyebrow: "Services",
     title: "Salons, spas and studios",
     body: "Appointments, client history, memberships and payment on one record, so rebooking is prompted rather than remembered.",
@@ -62,15 +62,15 @@ export default function BusinessModes() {
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-10">
         <div className="max-w-2xl">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-nua-ink2">
             One system, three trades
           </span>
-          <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold text-white tracking-tight leading-[1.05]">
+          <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold text-nua-ink tracking-tight leading-[1.05]">
             Built for businesses that
             <br />
-            <span className="text-[#666670]">serve people in person.</span>
+            <span className="text-nua-muted">serve people in person.</span>
           </h2>
-          <p className="mt-4 text-[#a1a1aa] leading-relaxed">
+          <p className="mt-4 text-nua-ink2 leading-relaxed">
             The same modules underneath. What changes is the language, the workflow and
             what the screen puts in front of your staff.
           </p>
@@ -88,7 +88,7 @@ export default function BusinessModes() {
               <Link
                 to={`/${mode.slug}`}
                 data-testid={`business-mode-${mode.slug}`}
-                className="group block h-full rounded-2xl overflow-hidden bg-[#15151d] border border-white/5 hover:border-white/10 hover:-translate-y-1 transition-all duration-300"
+                className="group block h-full rounded-2xl overflow-hidden bg-nua-surface border border-nua-border hover:border-nua-border hover:-translate-y-1 transition-all duration-300"
               >
                 <Figure
                   group={mode.image.group}
@@ -100,23 +100,23 @@ export default function BusinessModes() {
                 <div className="p-6">
                   <div
                     className="w-9 h-9 rounded-lg flex items-center justify-center border"
-                    style={{ background: `${mode.colour}20`, borderColor: `${mode.colour}40` }}
+                    style={{ background: '#750D280D', borderColor: '#E8DED4' }}
                   >
-                    <mode.icon className="w-4 h-4" style={{ color: mode.colour }} />
+                    <mode.icon className="w-4 h-4 text-nua-burgundy"  />
                   </div>
                   <span
-                    className="mt-4 block font-mono text-[10px] uppercase tracking-widest"
-                    style={{ color: mode.colour }}
+                    className="mt-4 block font-mono text-[10px] uppercase tracking-widest text-nua-burgundy"
+                    
                   >
                     {mode.eyebrow}
                   </span>
-                  <h3 className="mt-1.5 font-display text-lg font-semibold text-white tracking-tight">
+                  <h3 className="mt-1.5 font-display text-lg font-semibold text-nua-ink tracking-tight">
                     {mode.title}
                   </h3>
-                  <p className="mt-2 text-[13px] text-[#a1a1aa] leading-relaxed">{mode.body}</p>
+                  <p className="mt-2 text-[13px] text-nua-ink2 leading-relaxed">{mode.body}</p>
                   <span
-                    className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors"
-                    style={{ color: mode.colour }}
+                    className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors text-nua-burgundy"
+                    
                   >
                     See how it works
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />

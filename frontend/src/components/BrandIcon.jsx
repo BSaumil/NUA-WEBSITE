@@ -8,7 +8,7 @@ export default function BrandIcon({ size = 32, variant = "full", className = "" 
   if (variant === "mono") {
     return (
       <svg width={size} height={size} viewBox="0 0 100 100" className={className}>
-        <rect x="4" y="4" width="92" height="92" rx="20" fill="#f58c14" />
+        <rect x="4" y="4" width="92" height="92" rx="20" fill="#A45D0D" />
         <polyline
           points="22,54 34,54 40,32 51,70 59,54 78,54"
           fill="none" stroke="#ffffff" strokeWidth="7.5"
@@ -19,9 +19,9 @@ export default function BrandIcon({ size = 32, variant = "full", className = "" 
   }
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" className={className}>
-      <rect x="6" y="6" width="40" height="40" rx="10" fill="#f58c14" />
-      <rect x="54" y="6" width="40" height="40" rx="10" fill="#8b5cf6" />
-      <rect x="6" y="54" width="40" height="40" rx="10" fill="#ec4899" />
+      <rect x="6" y="6" width="40" height="40" rx="10" fill="#A45D0D" />
+      <rect x="54" y="6" width="40" height="40" rx="10" fill="#7D52DD" />
+      <rect x="6" y="54" width="40" height="40" rx="10" fill="#BF3A7B" />
       <rect x="54" y="54" width="40" height="40" rx="10" fill="#1c1917" />
       <polyline
         points="60,27 65,27 68,17 72,39 75,27 88,27"

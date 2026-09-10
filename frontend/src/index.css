@@ -13,14 +13,14 @@
 
 html, body {
     margin: 0;
-    background-color: #0b0b0f;
-    color: #eaeaea;
+    background-color: #FAF8F3;
+    color: #29241E;
     font-family: 'Manrope', system-ui, sans-serif;
 }
 
 ::selection {
-    background-color: rgba(245, 140, 20, 0.35);
-    color: #fff;
+    background-color: rgba(117, 13, 40, 0.16);
+    color: #29241E;
 }
 
 /* Custom scrollbar */
@@ -29,37 +29,37 @@ html, body {
     height: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #0b0b0f;
+    background: #F8F4ED;
 }
 ::-webkit-scrollbar-thumb {
-    background: #2a2a35;
+    background: #D9CFC5;
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #3a3a45;
+    background: #B9AEA2;
 }
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 240 10% 4%;
-        --card: 0 0% 100%;
-        --card-foreground: 240 10% 4%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 240 10% 4%;
-        --primary: 24 91% 52%;
+        --background: 40 40% 97%;
+        --foreground: 33 17% 14%;
+        --card: 40 60% 99%;
+        --card-foreground: 33 17% 14%;
+        --popover: 40 60% 99%;
+        --popover-foreground: 33 17% 14%;
+        --primary: 344 80% 26%;
         --primary-foreground: 0 0% 100%;
-        --secondary: 240 5% 96%;
-        --secondary-foreground: 240 10% 4%;
-        --muted: 240 5% 96%;
-        --muted-foreground: 240 4% 46%;
-        --accent: 240 5% 96%;
-        --accent-foreground: 240 10% 4%;
+        --secondary: 37 39% 95%;
+        --secondary-foreground: 33 17% 14%;
+        --muted: 37 39% 95%;
+        --muted-foreground: 27 8% 45%;
+        --accent: 8 44% 94%;
+        --accent-foreground: 344 80% 26%;
         --destructive: 0 84% 60%;
         --destructive-foreground: 0 0% 98%;
-        --border: 240 6% 90%;
-        --input: 240 6% 90%;
-        --ring: 24 91% 52%;
+        --border: 30 32% 87%;
+        --input: 27 25% 81%;
+        --ring: 344 80% 26%;
         --radius: 0.75rem;
     }
     .dark {
@@ -69,7 +69,7 @@ html, body {
         --card-foreground: 0 0% 92%;
         --popover: 240 10% 8%;
         --popover-foreground: 0 0% 92%;
-        --primary: 24 91% 52%;
+        --primary: 344 80% 26%;
         --primary-foreground: 0 0% 100%;
         --secondary: 240 6% 12%;
         --secondary-foreground: 0 0% 92%;
@@ -110,19 +110,23 @@ main > section#hero {
 .font-body { font-family: 'Manrope', system-ui, sans-serif; }
 .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-/* Animated gradient backgrounds */
+/* Hero ground. The dark theme layered three saturated radial gradients here;
+   the brief asks for a quiet ivory canvas and no unnecessary gradients, so this
+   is now a single very soft warm lift out of the page colour — enough to give
+   the hero air without reading as a coloured block. */
 .bg-hero-radial {
     background:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(139, 92, 246, 0.22), transparent 60%),
-        radial-gradient(ellipse 70% 50% at 85% 20%, rgba(245, 140, 20, 0.18), transparent 60%),
-        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(236, 72, 153, 0.12), transparent 60%),
-        #0b0b0f;
+        radial-gradient(ellipse 90% 70% at 50% 0%, #FFFDF9 0%, transparent 70%),
+        #FAF8F3;
 }
 
+/* Kept under its original name so no call site has to change, but the rule now
+   draws a warm hairline grid for a light ground instead of a white one for a
+   dark ground. White lines on ivory are invisible. */
 .bg-grid-dark {
     background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(41,36,30,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(41,36,30,0.045) 1px, transparent 1px);
     background-size: 48px 48px;
 }
 
@@ -134,20 +138,30 @@ main > section#hero {
 }
 
 .bg-noise {
+    /* Neutralised: the texture existed to stop a flat black field banding.
+       On a warm ivory ground it reads as dirt on the screen. Left defined so
+       call sites do not need editing. */
+    background-image: none;
+}
+
+.bg-noise-legacy {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
     background-repeat: repeat;
 }
 
+/* The brief asks for minimal soft shadow and no glassmorphism everywhere, so
+   this is now a flat elevated panel rather than a blurred translucent one. */
 .glass-card-dark {
-    background: linear-gradient(180deg, rgba(28,28,38,0.85), rgba(21,21,29,0.85));
-    border: 1px solid rgba(255,255,255,0.06);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #FFFDF9;
+    border: 1px solid #E8DED4;
+    box-shadow: 0 10px 35px rgba(41,36,30,0.06);
 }
 
-.glow-orange { box-shadow: 0 0 60px -10px rgba(245,140,20,0.35); }
-.glow-purple { box-shadow: 0 0 60px -10px rgba(139,92,246,0.35); }
-.glow-pink { box-shadow: 0 0 60px -10px rgba(236,72,153,0.35); }
+/* The coloured glows were built to bloom against black. On ivory they read as
+   smudges, so they become the same restrained elevation as every other panel. */
+.glow-orange,
+.glow-purple,
+.glow-pink { box-shadow: 0 10px 35px rgba(41,36,30,0.06); }
 
 /* Animations */
 @keyframes float {

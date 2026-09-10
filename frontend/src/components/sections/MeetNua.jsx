@@ -51,9 +51,9 @@ const incomingPool = [
 ];
 
 const statusStyles = {
-  executed: { label: "Executed", bg: "bg-emerald-500/10", text: "text-emerald-700", dot: "bg-emerald-500" },
-  approved: { label: "Approved", bg: "bg-[#8b5cf6]/10", text: "text-[#7c3aed]", dot: "bg-[#8b5cf6]" },
-  suggested: { label: "Suggested", bg: "bg-[#f58c14]/10", text: "text-[#c66a00]", dot: "bg-[#f58c14]" },
+  executed: { label: "Executed", bg: "bg-emerald-500/10", text: "text-nua-burgundy", dot: "bg-emerald-500" },
+  approved: { label: "Approved", bg: "bg-[#8b5cf6]/10", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
+  suggested: { label: "Suggested", bg: "bg-[#f58c14]/10", text: "text-[#c66a00]", dot: "bg-nua-burgundy" },
 };
 
 const capabilities = [
@@ -89,17 +89,17 @@ export default function MeetNua() {
   }, []);
 
   return (
-    <section id="nua" data-testid="nua-section" className="relative py-24 lg:py-32 bg-[#f6f7fb] text-[#0f0f14]">
+    <section id="nua" data-testid="nua-section" className="relative py-24 lg:py-32 bg-nua-bgAlt text-nua-ink">
       <div className="absolute inset-0 bg-grid-light opacity-50 [mask-image:radial-gradient(ellipse_at_top,black_10%,transparent_60%)]" />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Left */}
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/10 bg-white">
-              <div className="w-6 h-6 rounded-md bg-[#8b5cf6] flex items-center justify-center">
-                <Sparkles className="w-3 h-3 text-white" />
+              <div className="w-6 h-6 rounded-md bg-nua-burgundy flex items-center justify-center">
+                <Sparkles className="w-3 h-3 text-nua-ink" />
               </div>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#666670]">Meet NUA · the AI agent</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-nua-muted">Meet NUA · the AI agent</span>
             </div>
 
             <motion.h2
@@ -111,17 +111,17 @@ export default function MeetNua() {
             >
               Your Autonomous
               <br />
-              <span className="text-[#8b5cf6]">Restaurant Manager.</span>
+              <span className="text-nua-burgundy">Restaurant Manager.</span>
             </motion.h2>
 
-            <p className="mt-5 text-[15px] text-[#444450] leading-relaxed max-w-md">
+            <p className="mt-5 text-[15px] text-nua-ink2 leading-relaxed max-w-md">
               NUA watches every signal (guests, stock, staff, margins) and acts. Suggests, approves, or auto-executes. Always with an audit trail.
             </p>
 
             <ul className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {capabilities.map((c) => (
                 <li key={c} className="flex items-center gap-2.5 text-sm text-[#1a1a22]">
-                  <CheckCircle2 className="w-4 h-4 text-[#8b5cf6] flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-nua-burgundy flex-shrink-0" />
                   {c}
                 </li>
               ))}
@@ -130,7 +130,7 @@ export default function MeetNua() {
             <a
               href="#voice"
               data-testid="nua-explore-btn"
-              className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#0b0b0f] text-white text-sm font-medium hover:bg-[#1c1c26] transition-colors"
+              className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-nua-bg text-nua-ink text-sm font-medium hover:bg-nua-surface transition-colors"
             >
               Explore AI Agent
               <ArrowRight className="w-4 h-4" />
@@ -139,13 +139,13 @@ export default function MeetNua() {
 
           {/* Right: decision feed */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-white border border-black/5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
-              <div className="flex items-center justify-between px-5 py-3 border-b border-black/5 bg-[#fafafb]">
+            <div className="rounded-2xl bg-white border border-nua-border shadow-[0_30px_60px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-[#fafafb]">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-3.5 h-3.5 text-[#8b5cf6]" />
+                  <Sparkles className="w-3.5 h-3.5 text-nua-burgundy" />
                   <span className="font-display text-sm font-semibold">NUA · live decision feed</span>
                 </div>
-                <div className="flex items-center gap-2 font-mono text-[10px] text-[#666670] uppercase">
+                <div className="flex items-center gap-2 font-mono text-[10px] text-nua-muted uppercase">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
                   <Clock className="w-3 h-3" />
                   Last 30 min
@@ -168,19 +168,19 @@ export default function MeetNua() {
                       >
                         <div className="flex items-start gap-3">
                           <div className="mt-1 w-8 h-8 rounded-lg bg-[#8b5cf6]/10 flex items-center justify-center flex-shrink-0">
-                            <Zap className="w-3.5 h-3.5 text-[#8b5cf6]" />
+                            <Zap className="w-3.5 h-3.5 text-nua-burgundy" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="font-mono text-[10px] text-[#666670]">{f.time}</span>
+                              <span className="font-mono text-[10px] text-nua-muted">{f.time}</span>
                               <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${s.bg} ${s.text} font-mono text-[10px] uppercase`}>
                                 <span className={`w-1 h-1 rounded-full ${s.dot}`} />
                                 {s.label}
                               </span>
                             </div>
-                            <p className="mt-1.5 text-sm font-medium text-[#0f0f14]">{f.action}</p>
-                            <p className="mt-1 text-[13px] text-[#666670] leading-relaxed">
-                              <span className="text-[#8b5cf6] font-mono">→</span> {f.outcome}
+                            <p className="mt-1.5 text-sm font-medium text-nua-ink">{f.action}</p>
+                            <p className="mt-1 text-[13px] text-nua-muted leading-relaxed">
+                              <span className="text-nua-burgundy font-mono">→</span> {f.outcome}
                             </p>
                           </div>
                         </div>
@@ -190,11 +190,11 @@ export default function MeetNua() {
                 </AnimatePresence>
               </ul>
 
-              <div className="px-5 py-3 border-t border-black/5 bg-[#fafafb] flex items-center justify-between">
-                <span className="font-mono text-[10px] text-[#666670] uppercase tracking-wider">
+              <div className="px-5 py-3 border-t border-nua-border bg-[#fafafb] flex items-center justify-between">
+                <span className="font-mono text-[10px] text-nua-muted uppercase tracking-wider">
                   <LiveNumber value={decisionCount} duration={0.6} /> decisions this week
                 </span>
-                <span className="font-mono text-[10px] text-[#8b5cf6]">94.2% auto-resolved</span>
+                <span className="font-mono text-[10px] text-nua-burgundy">94.2% auto-resolved</span>
               </div>
             </div>
           </div>

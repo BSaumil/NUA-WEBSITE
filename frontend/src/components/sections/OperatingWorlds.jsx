@@ -59,15 +59,15 @@ export default function OperatingWorlds() {
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-10">
         <div className="max-w-2xl">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-nua-ink2">
             One system, everything connected
           </span>
-          <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold text-white tracking-tight leading-[1.05]">
+          <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold text-nua-ink tracking-tight leading-[1.05]">
             Eighteen modules,
             <br />
-            <span className="text-[#666670]">five jobs to do.</span>
+            <span className="text-nua-muted">five jobs to do.</span>
           </h2>
-          <p className="mt-4 text-[#a1a1aa] leading-relaxed">
+          <p className="mt-4 text-nua-ink2 leading-relaxed">
             Nobody arrives wanting a rostering module. They arrive wanting the right
             people on tonight. Every module below is one login, one bill and one set of
             numbers.
@@ -88,12 +88,12 @@ export default function OperatingWorlds() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.06 }}
                 data-testid={`operating-world-${world.name.toLowerCase()}`}
-                className="rounded-2xl bg-[#15151d] border border-white/5 p-6 flex flex-col"
+                className="rounded-2xl bg-nua-surface border border-nua-border p-6 flex flex-col"
               >
-                <h3 className="font-display text-xl font-bold text-white tracking-tight">
+                <h3 className="font-display text-xl font-bold text-nua-ink tracking-tight">
                   {world.name}
                 </h3>
-                <p className="mt-1.5 text-[13px] text-[#a1a1aa] leading-relaxed">
+                <p className="mt-1.5 text-[13px] text-nua-ink2 leading-relaxed">
                   {world.line}
                 </p>
 
@@ -102,10 +102,10 @@ export default function OperatingWorlds() {
                     <li key={m.slug}>
                       <Link
                         to={`/docs/${m.slug}`}
-                        className="group inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[12px] text-[#eaeaea] transition-colors hover:text-white"
-                        style={{ borderColor: `${m.color}30`, background: `${m.color}12` }}
+                        className="group inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[12px] text-nua-ink transition-colors hover:text-nua-ink"
+                        style={{ borderColor: '#E8DED4', background: `${m.color}12` }}
                       >
-                        <m.icon className="w-3 h-3 flex-shrink-0" style={{ color: m.color }} />
+                        <m.icon className="w-3 h-3 flex-shrink-0" style={{ color: '#750D28' }} />
                         {m.title}
                       </Link>
                     </li>
@@ -123,13 +123,13 @@ export default function OperatingWorlds() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: worlds.length * 0.06 }}
-            className="rounded-2xl border border-[#f58c14]/25 bg-gradient-to-br from-[#f58c14]/[0.12] to-[#15151d] p-6 flex flex-col justify-between"
+            className="rounded-2xl border border-nua-burgundy/25 bg-nua-burgundyWash p-6 flex flex-col justify-between"
           >
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#f58c14]">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-nua-burgundy">
                 One platform
               </span>
-              <p className="mt-3 text-white leading-relaxed">
+              <p className="mt-3 text-nua-ink leading-relaxed">
                 Every module reads the same data. A sale moves stock, updates the
                 customer and lands in the accounts without anyone re-entering it.
               </p>
@@ -137,7 +137,7 @@ export default function OperatingWorlds() {
             <Link
               to="/platform"
               data-testid="operating-worlds-platform-link"
-              className="group mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-[#f58c14]"
+              className="group mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-nua-burgundy"
             >
               How the platform fits together
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />

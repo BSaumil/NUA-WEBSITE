@@ -18,19 +18,19 @@ export default function TermsConditions() {
         eyebrow="Legal"
         title="Terms & Conditions"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        accent="#f58c14"
+        accent="#A45D0D"
         crumb="Terms"
       />
 
       <div className="relative max-w-3xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
-        <p className="text-[15px] text-[#a1a1aa] leading-relaxed">
+        <p className="text-[15px] text-nua-ink2 leading-relaxed">
           These Terms and Conditions ("<strong>Terms</strong>") are entered into between NUA AUS PTY LTD
-          (ABN <span className="font-mono text-[#eaeaea]">54 299 131 653</span>) ("<strong>NUA</strong>", "<strong>we</strong>", "<strong>us</strong>" or "<strong>our</strong>")
+          (ABN <span className="font-mono text-nua-ink">54 299 131 653</span>) ("<strong>NUA</strong>", "<strong>we</strong>", "<strong>us</strong>" or "<strong>our</strong>")
           and the person or entity that registers for, accesses, or uses the Services ("<strong>you</strong>", "<strong>your</strong>" or
           "<strong>Merchant</strong>"). By creating an account, starting a free trial, or otherwise accessing or using the Services, you agree
           to be bound by these Terms. If you do not agree, you must not access or use the Services.
         </p>
-        <p className="mt-3 text-[15px] text-[#a1a1aa] leading-relaxed">
+        <p className="mt-3 text-[15px] text-nua-ink2 leading-relaxed">
           If you are entering into these Terms on behalf of a company or other legal entity, you represent that you have the
           authority to bind that entity, in which case "you" refers to that entity.
         </p>

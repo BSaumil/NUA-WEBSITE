@@ -32,16 +32,16 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[#0b0b0f]/70 border-b border-white/5"
+          ? "backdrop-blur-[12px] bg-[rgba(250,248,243,0.94)] border-b border-nua-border"
           : "bg-transparent"
       }`}
       data-testid="navbar"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
         <Link to="/" data-testid="navbar-logo" className="flex items-center gap-2 group">
-          <BrandIcon size={32} className="drop-shadow-[0_4px_12px_rgba(139,92,246,0.3)]" />
-          <span className="font-display text-xl font-bold text-white tracking-tight">NUA</span>
-          <span className="hidden sm:inline-block font-mono text-[10px] text-[#a1a1aa] uppercase tracking-widest border border-white/10 rounded-full px-2 py-0.5 ml-1">Operating System</span>
+          <BrandIcon size={32} />
+          <span className="font-display text-xl font-bold text-nua-burgundy tracking-tight uppercase">NUA</span>
+          <span className="hidden sm:inline-block font-mono text-[10px] text-nua-ink2 uppercase tracking-widest border border-nua-border rounded-full px-2 py-0.5 ml-1">Operating System</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -50,7 +50,7 @@ export default function Navbar() {
               key={item.label}
               to={item.to}
               data-testid={`nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-              className="px-3 py-2 text-sm text-[#a1a1aa] hover:text-white transition-colors duration-200 rounded-md hover:bg-white/5"
+              className="px-3 py-2 text-sm text-nua-ink hover:text-nua-burgundy transition-colors duration-200 rounded-md hover:bg-nua-burgundyWash"
             >
               {item.label}
             </Link>
@@ -62,20 +62,20 @@ export default function Navbar() {
             type="trial"
             label="Start Free Trial"
             testId="navbar-trial-btn"
-            className="text-sm px-4 py-2 rounded-full border border-[#8b5cf6]/60 text-[#c4b5fd] hover:bg-[#8b5cf6]/10 transition-all duration-200"
+            className="text-sm px-4 py-2 rounded-full border border-[#8b5cf6]/60 text-nua-burgundy hover:bg-[#8b5cf6]/10 transition-all duration-200"
           />
           <LeadCta
             type="demo"
             label="Book Demo"
             testId="navbar-demo-btn"
-            className="text-sm px-4 py-2 rounded-full bg-[#f58c14] text-[#1a1005] hover:bg-[#d87b10] transition-all duration-200 font-medium shadow-lg shadow-[#f58c14]/20"
+            className="text-sm px-4 py-2 rounded-full bg-nua-burgundy text-white hover:bg-nua-burgundyDark transition-all duration-200 font-medium shadow-lg shadow-nua-burgundy/20"
           />
         </div>
 
         <button
           onClick={() => setOpen((v) => !v)}
           data-testid="navbar-mobile-toggle"
-          className="lg:hidden text-white p-2 -mr-2"
+          className="lg:hidden text-nua-ink p-2 -mr-2"
           aria-label="Toggle menu"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -83,14 +83,14 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-white/5 bg-[#0b0b0f]/95 backdrop-blur-xl">
+        <div className="lg:hidden border-t border-nua-border bg-nua-bg/95 backdrop-blur-xl">
           <div className="px-6 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="text-sm text-[#a1a1aa] hover:text-white py-2"
+                className="text-sm text-nua-ink2 hover:text-nua-ink py-2"
               >
                 {item.label}
               </Link>
@@ -99,7 +99,7 @@ export default function Navbar() {
               type="demo"
               label="Book Demo"
               onClick={() => setOpen(false)}
-              className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-[#f58c14] text-[#1a1005] font-medium"
+              className="mt-2 text-center text-sm px-4 py-2.5 rounded-full bg-nua-burgundy text-white font-medium"
             />
           </div>
         </div>

@@ -18,9 +18,9 @@ export default function FinalCta() {
       <div className="absolute inset-0 bg-noise opacity-[0.04] mix-blend-overlay pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-sm">
-          <Sparkles className="w-3 h-3 text-[#f58c14]" />
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">The next chapter of hospitality</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-nua-border bg-white/[0.04] backdrop-blur-sm">
+          <Sparkles className="w-3 h-3 text-nua-burgundy" />
+          <span className="font-mono text-[11px] uppercase tracking-widest text-nua-ink2">The next chapter of hospitality</span>
         </div>
 
         <motion.h2
@@ -28,14 +28,14 @@ export default function FinalCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="font-display mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[88px] font-bold text-white leading-[0.95] tracking-tight"
+          className="font-display mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[88px] font-bold text-nua-ink leading-[0.95] tracking-tight"
         >
           Stop running systems.
           <br />
           <span className="text-shimmer">Start running intelligence.</span>
         </motion.h2>
 
-        <p className="mt-7 text-lg text-[#a1a1aa] max-w-xl mx-auto">
+        <p className="mt-7 text-lg text-nua-ink2 max-w-xl mx-auto">
           NUA is the AI operating system for hospitality. One platform. One brain. One source of truth.
         </p>
 
@@ -47,18 +47,18 @@ export default function FinalCta() {
               icon={ArrowRight}
               iconClassName="w-4 h-4 transition-transform group-hover:translate-x-1"
               testId="final-book-demo-btn"
-              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#f58c14] hover:bg-[#d87b10] text-[#1a1005] font-medium text-base shadow-2xl shadow-[#f58c14]/30 transition-all duration-200 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-nua-burgundy hover:bg-nua-burgundyDark text-white font-medium text-base shadow-2xl shadow-nua-burgundy/30 transition-all duration-200 hover:-translate-y-0.5"
             />
             <LeadCta
               type="trial"
               label="Start Free Trial"
               testId="final-start-trial-btn"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-[#8b5cf6]/50 text-[#c4b5fd] hover:bg-[#8b5cf6]/10 hover:text-white font-medium text-base transition-all duration-200"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-[#8b5cf6]/50 text-nua-burgundy hover:bg-[#8b5cf6]/10 hover:text-white font-medium text-base transition-all duration-200"
             />
           </div>
         )}
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-mono text-[10px] uppercase tracking-widest text-[#a1a1aa]">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-mono text-[10px] uppercase tracking-widest text-nua-ink2">
           <span>✓ {TRIAL_DAYS}-day free trial</span>
           <span>✓ No credit card required</span>
           <span>✓ Migration assistance included</span>

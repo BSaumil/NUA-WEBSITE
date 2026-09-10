@@ -31,14 +31,14 @@ export default function LiveGallery() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">
-            <Sparkles className="w-3.5 h-3.5 text-[#8b5cf6]" />
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#a1a1aa]">Live, right now</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-nua-border bg-nua-bgAlt">
+            <Sparkles className="w-3.5 h-3.5 text-nua-burgundy" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-nua-ink2">Live, right now</span>
           </div>
-          <h2 className="font-display mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.05]">
+          <h2 className="font-display mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold text-nua-ink tracking-tight leading-[1.05]">
             Every module. Live. All the time.
           </h2>
-          <p className="mt-4 text-[#a1a1aa] text-lg">
+          <p className="mt-4 text-nua-ink2 text-lg">
             Not mockups. Not screenshots. The exact screens your team sees, updating in real time, right now, on this page.
           </p>
         </motion.div>
@@ -51,15 +51,15 @@ export default function LiveGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
-              className="flex-shrink-0 snap-center rounded-3xl border border-white/5 bg-[#101018] p-6 flex flex-col items-center text-center"
+              className="flex-shrink-0 snap-center rounded-3xl border border-nua-border bg-nua-surface p-6 flex flex-col items-center text-center"
             >
               <div className="overflow-x-auto max-w-full py-1">
                 <Component />
               </div>
-              <div className="mt-5 font-display font-bold text-lg bg-gradient-to-r from-[#f58c14] via-[#ec4899] to-[#8b5cf6] bg-clip-text text-transparent">
+              <div className="mt-5 font-display font-bold text-lg text-nua-burgundy">
                 {impact}
               </div>
-              <p className="mt-1.5 text-sm text-[#a1a1aa] max-w-[220px]">{body}</p>
+              <p className="mt-1.5 text-sm text-nua-ink2 max-w-[220px]">{body}</p>
             </motion.div>
           ))}
         </div>
@@ -68,7 +68,7 @@ export default function LiveGallery() {
           <Link
             to="/gallery"
             data-testid="live-gallery-see-all-link"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#0f0f14] text-sm font-semibold hover:bg-white/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-nua-ink text-sm font-semibold hover:bg-white/90 transition-colors"
           >
             Explore the full Product Gallery
             <ArrowRight className="w-4 h-4" />

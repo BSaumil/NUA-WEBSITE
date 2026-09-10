@@ -18,7 +18,7 @@ export default function Customers() {
         eyebrow="Customers"
         title="Operators who run on NUA."
         subtitle="From single-site cafés to multi-venue groups: here's who trusts NUA to run the floor."
-        accent="#ec4899"
+        accent="#BF3A7B"
         crumb="Customers"
       />
 
@@ -32,12 +32,12 @@ export default function Customers() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
               data-testid={`customer-card-${s.slug}`}
-              className="rounded-2xl bg-[#15151d] border border-white/5 p-6"
+              className="rounded-2xl bg-nua-surface border border-nua-border p-6"
             >
               <Quote className="w-5 h-5" style={{ color: s.color }} />
-              <p className="mt-3 text-white leading-relaxed">&ldquo;{s.quote.text}&rdquo;</p>
+              <p className="mt-3 text-nua-ink leading-relaxed">&ldquo;{s.quote.text}&rdquo;</p>
               <div className="mt-4 flex items-center justify-between">
-                <div className="font-mono text-[11px] uppercase tracking-wider text-[#a1a1aa]">
+                <div className="font-mono text-[11px] uppercase tracking-wider text-nua-ink2">
                   {s.quote.author} · {s.quote.venue}
                 </div>
                 <span
