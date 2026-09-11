@@ -68,7 +68,7 @@ export default function BusinessModes() {
           <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold text-nua-ink tracking-tight leading-[1.05]">
             Built for businesses that
             <br />
-            <span className="text-nua-muted">serve people in person.</span>
+            <span className="text-nua-burgundy">serve people in person.</span>
           </h2>
           <p className="mt-4 text-nua-ink2 leading-relaxed">
             The same modules underneath. What changes is the language, the workflow and

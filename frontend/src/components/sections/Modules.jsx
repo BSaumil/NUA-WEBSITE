@@ -37,7 +37,7 @@ export default function Modules() {
           <h2 className="font-display mt-3 text-4xl sm:text-5xl lg:text-6xl font-bold text-nua-ink leading-[1.05] tracking-tight">
             All-in-one,
             <br />
-            <span className="text-nua-ink2">not duct-taped together.</span>
+            <span className="text-nua-burgundy">not duct-taped together.</span>
           </h2>
           <p className="mt-5 text-nua-ink2 max-w-xl">
             Ten modules. One intelligence layer. NUA replaces a tangled stack of POS, CRM, and ops tools with a single coherent system.

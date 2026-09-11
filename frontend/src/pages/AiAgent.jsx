@@ -139,7 +139,7 @@ export default function AiAgent() {
               <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05]">
                 Demand forecasting,
                 <br />
-                <span className="text-nua-muted">not guesswork.</span>
+                <span className="text-nua-burgundy">not guesswork.</span>
               </h2>
               <p className="mt-4 text-nua-ink2 leading-relaxed max-w-md">
                 NUA cross-references historical sales, bookings and day-of-week patterns to predict covers, stock

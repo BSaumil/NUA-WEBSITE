@@ -60,7 +60,7 @@ export default function Inventory() {
             >
               Smart Pantry that
               <br />
-              <span className="text-nua-muted">orders for you.</span>
+              <span className="text-nua-burgundy">orders for you.</span>
             </motion.h2>
             <p className="mt-5 text-nua-ink2 max-w-lg leading-relaxed">
               Recipe-level costing, supplier comparison, demand forecasting and waste tracking: NUA recommends the exact buy at the exact time.

@@ -52,7 +52,7 @@ export default function Reservations() {
             >
               The floor,
               <br />
-              <span className="text-nua-muted">visible & alive.</span>
+              <span className="text-nua-burgundy">visible & alive.</span>
             </motion.h2>
             <p className="mt-5 text-nua-ink2 leading-relaxed">
               See every table, every guest, every signal. NUA flags VIPs, predicts turn-times, and steers bookings to maximise covers.
