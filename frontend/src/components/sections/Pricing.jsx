@@ -15,7 +15,7 @@ export default function Pricing() {
     <section id="pricing" data-testid="pricing-section" className="relative py-24 lg:py-32 bg-nua-bgAlt text-nua-ink">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#8a4a00]">Pricing</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">Pricing</span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function Pricing() {
               data-testid={`pricing-${p.id}-card`}
               className={`relative rounded-2xl p-7 flex flex-col ${
                 p.featured
-                  ? "bg-nua-bg text-nua-ink border-2 border-[#8b5cf6] shadow-[0_30px_60px_-15px_rgba(139,92,246,0.4)] lg:-translate-y-3"
+                  ? "bg-nua-bg text-nua-ink border-2 border-nua-burgundy shadow-[0_30px_60px_-15px_rgba(117,13,40,0.25)] lg:-translate-y-3"
                   : "bg-white border border-nua-border shadow-sm"
               }`}
             >
@@ -71,13 +71,17 @@ export default function Pricing() {
               <ul className="mt-6 space-y-3 flex-1">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm">
+                    {/* The tick was the plan's own accent on a 25% wash of that
+                        same accent, which is a hue against itself: 2.27:1 for
+                        Starter and 2.14:1 for Lifetime. The plan's identity is
+                        already carried by the dot beside its name, so the tick
+                        can just be the one accent the rest of the site uses. */}
                     <div
-                      className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                      style={{ background: `${p.accent}25` }}
+                      className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-nua-burgundyWash"
                     >
-                      <Check className="w-2.5 h-2.5" style={{ color: p.accent }} />
+                      <Check className="w-2.5 h-2.5 text-nua-burgundy" />
                     </div>
-                    <span className={p.featured ? "text-nua-ink" : "text-[#1a1a22]"}>{f}</span>
+                    <span className="text-nua-ink">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -116,14 +120,14 @@ export default function Pricing() {
           <div className="absolute -inset-px rounded-3xl bg-nua-burgundy/10" />
           <div className="relative rounded-3xl bg-nua-surface border border-nua-border overflow-hidden">
             {/* ambient glows */}
-            <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#f58c14]/30 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-[#8b5cf6]/30 blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-nua-burgundy/[0.05] blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-nua-burgundy/[0.05] blur-3xl pointer-events-none" />
             <div className="absolute inset-0 bg-grid-dark opacity-10 pointer-events-none" />
 
             <div className="relative grid lg:grid-cols-[1.3fr_1fr] gap-8 p-8 sm:p-10">
               {/* Left */}
               <div className="text-nua-ink">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-nua-burgundy/40 bg-[#f58c14]/10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-nua-burgundy/40 bg-nua-burgundyWash">
                   <Zap className="w-3 h-3 text-nua-burgundy" />
                   <span className="font-mono text-[10px] uppercase tracking-widest text-nua-burgundy">
                     {lifetime.badge}
@@ -143,7 +147,7 @@ export default function Pricing() {
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
                   {lifetime.features.map((f) => (
                     <li key={f} className="flex items-center gap-2 text-nua-ink">
-                      <div className="w-4 h-4 rounded-full bg-[#f58c14]/20 flex items-center justify-center flex-shrink-0">
+                      <div className="w-4 h-4 rounded-full bg-nua-burgundyWash flex items-center justify-center flex-shrink-0">
                         <Check className="w-2.5 h-2.5 text-nua-burgundy" />
                       </div>
                       {f}
@@ -154,7 +158,7 @@ export default function Pricing() {
 
               {/* Right: price card */}
               <div className="flex flex-col justify-center">
-                <div className="rounded-2xl bg-white/[0.04] border border-nua-border p-6 backdrop-blur">
+                <div className="rounded-2xl bg-nua-surface border border-nua-border p-6 backdrop-blur">
                   <div className="flex items-center gap-2 mb-3">
                     <InfinityIcon className="w-4 h-4 text-nua-burgundy" />
                     <span className="font-mono text-[10px] uppercase tracking-widest text-nua-burgundy">
@@ -174,7 +178,7 @@ export default function Pricing() {
                   </div>
 
                   {equivalence && (
-                    <div className="mt-4 p-3 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20">
+                    <div className="mt-4 p-3 rounded-lg bg-nua-burgundyWash border border-nua-burgundy/20">
                       <div className="text-[11px] text-nua-burgundy leading-relaxed">
                         Equivalent to <span className="font-mono">~{equivalence.months} months</span> of {equivalence.includedPlanName}.
                         Break-even in under {equivalence.breakEvenYears} years: free forever after.

@@ -62,7 +62,7 @@ export default function Navbar() {
             type="trial"
             label="Start Free Trial"
             testId="navbar-trial-btn"
-            className="text-sm px-4 py-2 rounded-full border border-[#8b5cf6]/60 text-nua-burgundy hover:bg-[#8b5cf6]/10 transition-all duration-200"
+            className="text-sm px-4 py-2 rounded-full border border-nua-burgundy/45 text-nua-burgundy hover:bg-nua-burgundyWash hover:border-nua-burgundy transition-all duration-200"
           />
           <LeadCta
             type="demo"

@@ -16,7 +16,7 @@ const trustedBy = [
 const StatPill = ({ icon: Icon, label, value, color }) => (
   <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-nua-bgAlt border border-nua-border">
     <div className={`w-7 h-7 rounded-md flex items-center justify-center ${color}`}>
-      <Icon className="w-3.5 h-3.5 text-nua-ink" />
+      <Icon className="w-3.5 h-3.5 text-white" />
     </div>
     <div>
       <div className="font-mono text-[10px] text-nua-ink2 uppercase tracking-wider">{label}</div>
@@ -100,19 +100,23 @@ export default function Hero() {
         >
           {/* Ambient glow */}
           <div className="absolute -inset-x-10 -inset-y-10 -z-10">
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-[#8b5cf6]/30 blur-[120px]" />
-            <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-[#f58c14]/25 blur-[120px]" />
-            <div className="absolute bottom-0 left-1/2 w-64 h-64 rounded-full bg-[#ec4899]/15 blur-[120px]" />
+            <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-nua-burgundy/[0.05] blur-[120px]" />
+            <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-nua-burgundy/[0.05] blur-[120px]" />
+            <div className="absolute bottom-0 left-1/2 w-64 h-64 rounded-full bg-nua-burgundyWash blur-[120px]" />
           </div>
 
-          <div className="relative rounded-2xl border border-nua-border bg-[#0f0f17]/80 backdrop-blur-xl shadow-2xl overflow-hidden">
+          {/* The shell has to match its own contents. Everything inside this
+              panel is on the light system, so a near-black shell left the
+              sidebar column and every gutter as a dark strip running through
+              an otherwise ivory mockup. */}
+          <div className="relative rounded-2xl border border-nua-border bg-nua-surface shadow-[0_30px_80px_-20px_rgba(41,36,30,0.18)] overflow-hidden">
             {/* Top bar */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-nua-bgAlt">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-nua-borderStrong" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-nua-borderStrong" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-nua-borderStrong" />
                 </div>
                 <span className="ml-3 font-mono text-[11px] text-nua-ink2">nua.app / command-center</span>
               </div>
@@ -130,7 +134,7 @@ export default function Hero() {
                   <div
                     key={m}
                     className={`px-3 py-2 rounded-md text-xs font-medium ${
-                      i === 6 ? "bg-[#8b5cf6]/15 text-nua-burgundy border border-[#8b5cf6]/30" : "text-nua-ink2 hover:bg-nua-bgAlt"
+                      i === 6 ? "bg-nua-burgundyWash text-nua-burgundy border border-nua-burgundy/20" : "text-nua-ink2 hover:bg-nua-bgAlt"
                     }`}
                   >
                     {m}
@@ -143,7 +147,7 @@ export default function Hero() {
                 <StatPill icon={DollarSign} label="Revenue" value={<LiveNumber value={32418} prefix="$" />} color="bg-nua-burgundy" />
                 <StatPill icon={Users} label="Covers" value={<LiveNumber value={248} />} color="bg-nua-burgundy" />
                 <StatPill icon={TrendingUp} label="AOV" value={<LiveNumber value={48.2} prefix="$" decimals={2} />} color="bg-nua-burgundy" />
-                <StatPill icon={Clock} label="Avg. wait" value="6m 12s" color="bg-emerald-500/80" />
+                <StatPill icon={Clock} label="Avg. wait" value="6m 12s" color="bg-nua-burgundy" />
 
                 {/* Chart card */}
                 <div className="sm:col-span-3 rounded-xl bg-nua-surface border border-nua-border p-4">
@@ -160,7 +164,7 @@ export default function Hero() {
                         <motion.div
                           className="w-full rounded-sm"
                           style={{
-                            background: `linear-gradient(180deg, #f58c14 0%, #ec4899 100%)`,
+                            background: `linear-gradient(180deg, #8A1433 0%, #750D28 100%)`,
                             opacity: 0.85,
                             transformOrigin: "bottom",
                           }}
@@ -177,7 +181,7 @@ export default function Hero() {
                 <div className="rounded-xl bg-nua-bgAlt border border-nua-border p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-6 h-6 rounded-md bg-nua-burgundy flex items-center justify-center">
-                      <Sparkles className="w-3 h-3 text-nua-ink" />
+                      <Sparkles className="w-3 h-3 text-white" />
                     </div>
                     <span className="font-display text-sm font-semibold text-nua-ink">NUA</span>
                     <span className="ml-auto font-mono text-[9px] text-nua-ink2">THINKING</span>
@@ -219,7 +223,7 @@ export default function Hero() {
                   </div>
                   <div className="grid grid-cols-7 gap-1.5">
                     {Array.from({ length: 21 }).map((_, i) => {
-                      const tone = i % 5 === 0 ? "bg-nua-burgundy" : i % 3 === 0 ? "bg-[#8b5cf6]/70" : i % 7 === 0 ? "bg-nua-bgAlt" : "bg-[#f58c14]/80";
+                      const tone = i % 5 === 0 ? "bg-nua-burgundy" : i % 3 === 0 ? "bg-nua-burgundy/55" : i % 7 === 0 ? "bg-nua-border" : "bg-nua-burgundy/30";
                       return <div key={i} className={`aspect-square rounded-md ${tone}`} />;
                     })}
                   </div>

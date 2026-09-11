@@ -40,7 +40,7 @@ export default function IntegrationsPage() {
               transition={{ duration: 0.4, delay: i * 0.06 }}
               className="rounded-2xl bg-nua-surface border border-nua-border p-5"
             >
-              <div className="w-9 h-9 rounded-lg bg-[#f58c14]/15 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-nua-burgundyWash flex items-center justify-center">
                 <c.icon className="w-4 h-4 text-nua-burgundy" />
               </div>
               <h3 className="mt-4 font-display font-semibold text-nua-ink text-sm">{c.title}</h3>

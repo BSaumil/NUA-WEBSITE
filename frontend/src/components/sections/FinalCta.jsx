@@ -7,18 +7,16 @@ import { LEAD_CAPTURE_ENABLED, TRIAL_DAYS } from "@/config/siteConfig";
 export default function FinalCta() {
   return (
     <section id="final-cta" data-testid="final-cta-section" className="relative py-28 lg:py-40 bg-nua-bg overflow-hidden">
-      {/* Ambient glow */}
+      {/* A single warm lift off the page rather than two saturated orbs. At 25%
+          and 20% over ivory those read as a lilac and a peach cloud, which is
+          what they were never meant to be: they existed to glow against black. */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] rounded-full bg-[#8b5cf6]/25 blur-[160px]" />
-      </div>
-      <div className="absolute inset-0 flex items-center justify-end pointer-events-none">
-        <div className="w-[500px] h-[500px] rounded-full bg-[#f58c14]/20 blur-[160px]" />
+        <div className="w-[720px] h-[720px] max-w-full rounded-full bg-nua-burgundy/[0.05] blur-[160px]" />
       </div>
       <div className="absolute inset-0 bg-grid-dark opacity-20 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_60%)]" />
-      <div className="absolute inset-0 bg-noise opacity-[0.04] mix-blend-overlay pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-nua-border bg-white/[0.04] backdrop-blur-sm">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-nua-border bg-nua-surface">
           <Sparkles className="w-3 h-3 text-nua-burgundy" />
           <span className="font-mono text-[11px] uppercase tracking-widest text-nua-ink2">The next chapter of hospitality</span>
         </div>
@@ -53,7 +51,7 @@ export default function FinalCta() {
               type="trial"
               label="Start Free Trial"
               testId="final-start-trial-btn"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-[#8b5cf6]/50 text-nua-burgundy hover:bg-[#8b5cf6]/10 hover:text-white font-medium text-base transition-all duration-200"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-nua-burgundy/45 text-nua-burgundy hover:bg-nua-burgundyWash hover:border-nua-burgundy font-medium text-base transition-all duration-200"
             />
           </div>
         )}

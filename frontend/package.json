@@ -64,7 +64,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "prebuild": "node scripts/check-site-url-parity.js && node scripts/check-image-provenance.js && node scripts/check-module-coverage.js && node scripts/generate-sitemap.js",
+    "prebuild": "node scripts/check-site-url-parity.js && node scripts/check-image-provenance.js && node scripts/check-module-coverage.js && node scripts/check-brand-mark.js && node scripts/generate-sitemap.js",
     "build": "craco build",
     "postbuild": "node scripts/prerender.js",
     "test": "craco test",

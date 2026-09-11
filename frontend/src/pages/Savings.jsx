@@ -102,7 +102,7 @@ export default function Savings() {
                   max={200}
                   value={venues}
                   onChange={(e) => setVenues(Math.min(200, Math.max(1, Number(e.target.value) || 1)))}
-                  className="w-20 text-center bg-white/[0.04] border border-nua-border rounded-lg py-2 font-display text-lg font-bold text-nua-ink [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-20 text-center bg-nua-surface border border-nua-border rounded-lg py-2 font-display text-lg font-bold text-nua-ink [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
                 <button
                   type="button"
@@ -127,7 +127,7 @@ export default function Savings() {
                   step={10}
                   value={stackSpend}
                   onChange={(e) => setStackSpend(Math.max(0, Number(e.target.value) || 0))}
-                  className="w-full pl-7 pr-3 bg-white/[0.04] border border-nua-border rounded-lg py-2 font-display text-lg font-bold text-nua-ink [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-full pl-7 pr-3 bg-nua-surface border border-nua-border rounded-lg py-2 font-display text-lg font-bold text-nua-ink [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
               <div className="mt-1.5 font-mono text-[11px] text-nua-ink2">Defaults to our {costRows.length}-tool estimate below: edit to use your own invoices.</div>
@@ -153,7 +153,7 @@ export default function Savings() {
               {venues > 1 ? `$${stackSpend}/mo × ${venues} venues` : `across ${costRows.length} separate tools & invoices`}
             </div>
             <div className="mt-4 h-2.5 rounded-full bg-nua-bgAlt overflow-hidden">
-              <div className="h-full rounded-full bg-gradient-to-r from-[#f58c14] to-[#ec4899]" style={{ width: "100%" }} />
+              <div className="h-full rounded-full bg-gradient-to-r from-nua-burgundy to-nua-burgundyBright" style={{ width: "100%" }} />
             </div>
           </motion.div>
 
@@ -162,7 +162,7 @@ export default function Savings() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="rounded-2xl bg-nua-bg border-2 border-[#22c55e]/30 p-6"
+            className="rounded-2xl bg-nua-bg border-2 border-nua-burgundy/35 p-6"
             data-testid="savings-nua-total"
           >
             <span className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2">NUA Growth plan{venues > 1 ? `, ${venues} venues` : ""}</span>
@@ -218,7 +218,7 @@ export default function Savings() {
                 data-testid={`savings-row-${r.id}`}
                 className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto_auto] items-center gap-3 sm:gap-4 px-5 py-4 border-b border-nua-border last:border-b-0 hover:bg-nua-bgAlt transition-colors"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#f58c14]/15 flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-nua-burgundyWash flex items-center justify-center flex-shrink-0">
                   <r.icon className="w-4 h-4 text-nua-burgundy" />
                 </div>
                 <div className="min-w-0">
@@ -255,7 +255,7 @@ export default function Savings() {
                 transition={{ duration: 0.4, delay: i * 0.06 }}
                 className="rounded-2xl bg-nua-surface border border-nua-border p-5"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-nua-burgundyWash flex items-center justify-center">
                   <b.icon className="w-4 h-4 text-nua-burgundy" />
                 </div>
                 <h3 className="mt-4 font-display font-semibold text-nua-ink text-sm">{b.title}</h3>

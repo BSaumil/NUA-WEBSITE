@@ -47,7 +47,7 @@ export default function NewFeatures() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-nua-burgundy/40 bg-[#f58c14]/10">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-nua-burgundy/40 bg-nua-burgundyWash">
             <Sparkles className="w-3 h-3 text-nua-burgundy" />
             <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">And More</span>
           </div>

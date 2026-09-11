@@ -23,7 +23,7 @@ export default function Loyalty() {
   return (
     <section id="loyalty" data-testid="loyalty-section" className="relative py-24 lg:py-32 bg-nua-bg overflow-hidden">
       <div className="absolute inset-0 bg-grid-dark opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-[#ec4899]/15 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-nua-burgundyWash blur-[160px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -60,7 +60,7 @@ export default function Loyalty() {
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                   className="flex items-center gap-3 p-3 rounded-xl bg-nua-bgAlt border border-nua-border"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-[#ec4899]/15 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-lg bg-nua-burgundyWash flex items-center justify-center">
                     <f.icon className="w-4 h-4 text-nua-burgundy" />
                   </div>
                   <span className="text-sm text-nua-ink">{f.text}</span>
@@ -89,7 +89,7 @@ export default function Loyalty() {
             >
               {/* Premium card */}
               <div className="relative rounded-2xl overflow-hidden p-6 bg-nua-surface border border-nua-border">
-                <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-[#ec4899]/30 blur-3xl" />
+                <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-nua-burgundy/[0.05] blur-3xl" />
                 <div className="flex items-start justify-between relative">
                   <div>
                     <div className="font-mono text-[10px] uppercase tracking-widest text-nua-burgundy">NUA Loyalty · Black tier</div>
@@ -110,12 +110,12 @@ export default function Loyalty() {
                     <span>+2,160 to next reward</span>
                   </div>
                   <div className="h-1.5 rounded-full bg-nua-bgAlt overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: "86%", background: "linear-gradient(90deg, #f58c14, #ec4899, #8b5cf6)" }} />
+                    <div className="h-full rounded-full" style={{ width: "86%", background: "linear-gradient(90deg, #8A1433, #750D28)" }} />
                   </div>
                 </div>
 
                 {/* Recent reward */}
-                <div className="mt-5 p-3 rounded-xl bg-white/[0.04] border border-nua-border">
+                <div className="mt-5 p-3 rounded-xl bg-nua-surface border border-nua-border">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-nua-ink">Spend $100 → Earn 100 pts</span>
                     <span className="font-mono text-[10px] text-nua-burgundy">Active</span>
@@ -237,7 +237,7 @@ export default function Loyalty() {
               <div className="mt-4 space-y-3.5">
                 {reorderSteps.map((s) => (
                   <div key={s.label} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#ec4899]/15 flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-nua-burgundyWash flex items-center justify-center flex-shrink-0">
                       <s.icon className="w-4 h-4 text-nua-burgundy" />
                     </div>
                     <div>

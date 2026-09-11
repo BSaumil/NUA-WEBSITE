@@ -65,7 +65,7 @@ export default function OperatingWorlds() {
           <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold text-nua-ink tracking-tight leading-[1.05]">
             Eighteen modules,
             <br />
-            <span className="text-nua-muted">five jobs to do.</span>
+            <span className="text-nua-burgundy">five jobs to do.</span>
           </h2>
           <p className="mt-4 text-nua-ink2 leading-relaxed">
             Nobody arrives wanting a rostering module. They arrive wanting the right

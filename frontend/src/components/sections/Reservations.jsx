@@ -20,11 +20,11 @@ const tables = [
 ];
 
 const statusColors = {
-  vip: { bg: "bg-nua-burgundy", text: "VIP", ring: "ring-[#8b5cf6]/40" },
+  vip: { bg: "bg-nua-burgundy", text: "VIP", ring: "ring-nua-burgundy/30" },
   occupied: { bg: "bg-nua-ink", text: "Seated", ring: "ring-black/10" },
-  overdue: { bg: "bg-nua-burgundy", text: "Overdue", ring: "ring-[#f58c14]/40" },
+  overdue: { bg: "bg-nua-burgundy", text: "Overdue", ring: "ring-nua-burgundy/30" },
   available: { bg: "bg-white border border-black/10", text: "Open", ring: "ring-black/10" },
-  reserved: { bg: "bg-nua-burgundy", text: "Reserved", ring: "ring-[#ec4899]/40" },
+  reserved: { bg: "bg-nua-burgundy", text: "Reserved", ring: "ring-nua-burgundy/30" },
 };
 
 const features = [
@@ -52,7 +52,7 @@ export default function Reservations() {
             >
               The floor,
               <br />
-              <span className="text-nua-muted">visible & alive.</span>
+              <span className="text-nua-burgundy">visible & alive.</span>
             </motion.h2>
             <p className="mt-5 text-nua-ink2 leading-relaxed">
               See every table, every guest, every signal. NUA flags VIPs, predicts turn-times, and steers bookings to maximise covers.
@@ -64,7 +64,7 @@ export default function Reservations() {
                   <div className="w-8 h-8 rounded-lg bg-white border border-nua-border flex items-center justify-center shadow-sm">
                     <f.icon className="w-4 h-4 text-nua-burgundy" />
                   </div>
-                  <span className="text-[#1a1a22]">{f.label}</span>
+                  <span className="text-nua-ink">{f.label}</span>
                 </li>
               ))}
             </ul>
@@ -87,7 +87,7 @@ export default function Reservations() {
                 </div>
               </div>
 
-              <div className="relative aspect-[16/10] bg-[#fafafb] bg-grid-light">
+              <div className="relative aspect-[16/10] bg-nua-bgAlt bg-grid-light">
                 {tables.map((t) => {
                   const s = statusColors[t.status];
                   return (
@@ -118,7 +118,7 @@ export default function Reservations() {
                 </div>
               </div>
 
-              <div className="px-5 py-3 border-t border-nua-border bg-[#fafafb] flex flex-wrap items-center justify-between gap-2">
+              <div className="px-5 py-3 border-t border-nua-border bg-nua-bgAlt flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <Crown className="w-4 h-4 text-nua-burgundy" />
                   <span className="text-sm">VIP Sam B. · party of 4 · arriving in <span className="font-mono text-nua-burgundy">12m</span></span>

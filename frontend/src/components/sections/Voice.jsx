@@ -24,7 +24,7 @@ export default function Voice() {
   return (
     <section id="voice" data-testid="voice-section" className="relative py-28 lg:py-36 bg-nua-bg overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[800px] h-[800px] rounded-full bg-[#f58c14]/15 blur-[160px]" />
+        <div className="w-[800px] h-[800px] rounded-full bg-nua-burgundyWash blur-[160px]" />
       </div>
       <div className="absolute inset-0 bg-grid-dark opacity-20 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_60%)]" />
 
@@ -50,7 +50,7 @@ export default function Voice() {
           <div className="flex items-center justify-center gap-3 mb-7">
             <div className="relative">
               <div className="w-14 h-14 rounded-full bg-nua-burgundy flex items-center justify-center shadow-lg shadow-nua-burgundy/30">
-                <Mic className="w-6 h-6 text-nua-ink" />
+                <Mic className="w-6 h-6 text-white" />
               </div>
               <span className="absolute inset-0 rounded-full border border-nua-burgundy/40 animate-pulse-dot" />
             </div>
@@ -65,7 +65,7 @@ export default function Voice() {
                 className="w-[3px] sm:w-1 rounded-full bar-wave"
                 style={{
                   height: `${20 + Math.abs(Math.sin(i * 0.4)) * 70}%`,
-                  background: `linear-gradient(180deg, #f58c14, #ec4899)`,
+                  background: `linear-gradient(180deg, #8A1433, #750D28)`,
                   animationDelay: `${(i % 12) * 0.07}s`,
                   animationDuration: `${1 + (i % 5) * 0.1}s`,
                 }}
@@ -85,7 +85,7 @@ export default function Voice() {
             <span className="inline-block w-2 h-5 bg-nua-burgundy ml-1 animate-blink" />
           </motion.div>
 
-          <div className="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/30">
+          <div className="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-nua-burgundyWash border border-nua-burgundy/20">
             <span className="w-1.5 h-1.5 rounded-full bg-nua-burgundy" />
             <span className="font-mono text-[10px] uppercase tracking-widest text-nua-burgundy">Intent classified · executing</span>
           </div>
@@ -96,7 +96,7 @@ export default function Voice() {
             <span
               key={p}
               className={`px-3 py-1.5 rounded-full border font-mono text-[11px] transition-colors ${
-                i === idx ? "border-nua-burgundy/40 bg-[#f58c14]/10 text-nua-burgundy" : "border-nua-border text-nua-ink2"
+                i === idx ? "border-nua-burgundy/40 bg-nua-burgundyWash text-nua-burgundy" : "border-nua-border text-nua-ink2"
               }`}
             >
               {`"${p}"`}

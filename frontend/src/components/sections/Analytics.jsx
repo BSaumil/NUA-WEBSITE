@@ -48,7 +48,7 @@ export default function Analytics() {
           >
             See the venue
             <br />
-            <span className="text-nua-ink2">like never before.</span>
+            <span className="text-nua-burgundy">like never before.</span>
           </motion.h2>
           <p className="mt-5 text-nua-ink2 max-w-lg">
             Live revenue streams, menu engineering, retention heatmaps, profit analysis and forecasting: built into one executive dashboard.

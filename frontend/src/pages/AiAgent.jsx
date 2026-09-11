@@ -75,7 +75,7 @@ export default function AiAgent() {
             <div className="mt-6 space-y-4">
               {principles.map((p) => (
                 <div key={p.title} className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center flex-shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-nua-burgundyWash flex items-center justify-center flex-shrink-0">
                     <p.icon className="w-4 h-4 text-nua-burgundy" />
                   </div>
                   <div>
@@ -100,7 +100,7 @@ export default function AiAgent() {
               <div className="absolute left-[19px] top-5 bottom-5 w-px bg-nua-bgAlt" />
               {steps.map((s) => (
                 <div key={s.title} className="relative flex items-start gap-3 pb-6 last:pb-0">
-                  <div className="absolute -left-11 w-10 h-10 rounded-xl bg-[#8b5cf6]/15 border border-[#8b5cf6]/30 flex items-center justify-center">
+                  <div className="absolute -left-11 w-10 h-10 rounded-xl bg-nua-burgundyWash border border-nua-burgundy/20 flex items-center justify-center">
                     <s.icon className="w-4 h-4 text-nua-burgundy" />
                   </div>
                   <div>
@@ -139,7 +139,7 @@ export default function AiAgent() {
               <h2 className="font-display mt-3 text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05]">
                 Demand forecasting,
                 <br />
-                <span className="text-nua-muted">not guesswork.</span>
+                <span className="text-nua-burgundy">not guesswork.</span>
               </h2>
               <p className="mt-4 text-nua-ink2 leading-relaxed max-w-md">
                 NUA cross-references historical sales, bookings and day-of-week patterns to predict covers, stock
@@ -152,7 +152,7 @@ export default function AiAgent() {
                   "Feeds AI rostering in Staff Management",
                   "Shows its confidence, never overstates certainty",
                 ].map((f) => (
-                  <li key={f} className="flex items-center gap-2.5 text-sm text-[#1a1a22]">
+                  <li key={f} className="flex items-center gap-2.5 text-sm text-nua-ink">
                     <CheckCircle2 className="w-4 h-4 text-nua-burgundy flex-shrink-0" />
                     {f}
                   </li>
@@ -226,7 +226,7 @@ export default function AiAgent() {
                 className="rounded-2xl bg-nua-surface border border-nua-border p-5"
               >
                 <div className="flex items-start justify-between">
-                  <div className="w-9 h-9 rounded-lg bg-[#f58c14]/15 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-lg bg-nua-burgundyWash flex items-center justify-center">
                     <a.icon className="w-4 h-4 text-nua-burgundy" />
                   </div>
                   <Switch defaultChecked={a.on} aria-label={`${a.name} toggle`} />
@@ -258,7 +258,7 @@ export default function AiAgent() {
                   "Filter by module, staff member or confidence level",
                   "Immutable: entries can't be edited after the fact",
                 ].map((f) => (
-                  <li key={f} className="flex items-center gap-2.5 text-sm text-[#1a1a22]">
+                  <li key={f} className="flex items-center gap-2.5 text-sm text-nua-ink">
                     <ShieldCheck className="w-4 h-4 text-nua-burgundy flex-shrink-0" />
                     {f}
                   </li>
@@ -273,7 +273,7 @@ export default function AiAgent() {
               transition={{ duration: 0.5 }}
               className="lg:col-span-7 rounded-2xl bg-white border border-nua-border shadow-[0_30px_60px_-20px_rgba(0,0,0,0.08)] overflow-hidden"
             >
-              <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-[#fafafb]">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-nua-bgAlt">
                 <span className="font-display text-sm font-semibold">Audit log · today</span>
                 <button type="button" data-testid="audit-export-btn" className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-nua-muted hover:text-nua-ink transition-colors">
                   <Download className="w-3 h-3" /> Export CSV

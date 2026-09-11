@@ -6,7 +6,7 @@ export default function RouteLoader() {
       data-testid="route-loader"
       className="min-h-screen flex items-center justify-center bg-nua-bg"
     >
-      <div className="w-8 h-8 rounded-full border-2 border-nua-border border-t-[#f58c14] animate-spin" />
+      <div className="w-8 h-8 rounded-full border-2 border-nua-border border-t-nua-burgundy animate-spin" />
     </div>
   );
 }

@@ -180,8 +180,13 @@ main > section#hero {
     0% { background-position: -200% center; }
     100% { background-position: 200% center; }
 }
+/* A sheen moving through burgundy text, not a rainbow sweeping through pale
+   grey. The old gradient began and ended at #eaeaea, which is 1.13:1 on ivory:
+   for much of the cycle the headline it is applied to simply was not there.
+   Every stop below is at least 6:1, so the text stays readable at every frame
+   and the animation is decoration rather than a legibility gamble. */
 .text-shimmer {
-    background: linear-gradient(90deg, #eaeaea 0%, #8b5cf6 25%, #f58c14 50%, #ec4899 75%, #eaeaea 100%);
+    background: linear-gradient(90deg, #750D28 0%, #8A1433 30%, #A8324F 50%, #8A1433 70%, #750D28 100%);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -200,6 +205,9 @@ main > section#hero {
 
 @media (prefers-reduced-motion: reduce) {
     .animate-trade-in { animation: none; }
+    /* An infinitely sweeping headline is exactly what this preference is for.
+       Held still it keeps the gradient, so the text still reads as burgundy. */
+    .text-shimmer { animation: none; background-position: 50% center; }
 }
 
 @keyframes wave {

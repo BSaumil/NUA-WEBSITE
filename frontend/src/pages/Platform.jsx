@@ -64,11 +64,11 @@ export default function Platform() {
 
             {/* Center node */}
             <div
-              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-gradient-to-br from-[#8b5cf6] to-[#7c3aed] shadow-lg shadow-[#8b5cf6]/40 px-4 py-3 flex flex-col items-center gap-1"
+              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-gradient-to-br from-nua-burgundy to-nua-burgundyDark shadow-lg shadow-nua-burgundy/30 px-4 py-3 flex flex-col items-center gap-1"
               style={{ left: "50%", top: "50%" }}
             >
-              <Sparkles className="w-4 h-4 text-nua-ink" />
-              <span className="font-display text-xs font-semibold text-nua-ink whitespace-nowrap">NUA · Core</span>
+              <Sparkles className="w-4 h-4 text-white" />
+              <span className="font-display text-xs font-semibold text-white whitespace-nowrap">NUA · Core</span>
             </div>
 
             {positioned.map((n, i) => (
@@ -98,7 +98,7 @@ export default function Platform() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 {eventFlow.map((s, i) => (
                   <div key={s.label} className="relative rounded-xl bg-nua-bgAlt border border-nua-border p-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-nua-burgundyWash flex items-center justify-center">
                       <s.icon className="w-4 h-4 text-nua-burgundy" />
                     </div>
                     <div className="mt-2 text-[12px] font-semibold text-nua-ink leading-tight">{s.label}</div>

@@ -50,7 +50,7 @@ export default function Inventory() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
           <div className="max-w-2xl">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8a4a00]">Inventory & smart purchasing</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">Inventory & smart purchasing</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function Inventory() {
             >
               Smart Pantry that
               <br />
-              <span className="text-nua-muted">orders for you.</span>
+              <span className="text-nua-burgundy">orders for you.</span>
             </motion.h2>
             <p className="mt-5 text-nua-ink2 max-w-lg leading-relaxed">
               Recipe-level costing, supplier comparison, demand forecasting and waste tracking: NUA recommends the exact buy at the exact time.

@@ -63,7 +63,7 @@ export function AICopilotPanel({ messages, className = "" }) {
     >
       <div className="flex items-center gap-2 mb-3">
         <div className="w-6 h-6 rounded-md bg-nua-burgundy flex items-center justify-center">
-          <Sparkles className="w-3.5 h-3.5 text-nua-ink" />
+          <Sparkles className="w-3.5 h-3.5 text-white" />
         </div>
         <span className="font-display text-sm font-semibold text-nua-ink">Ask NUA</span>
       </div>
@@ -73,8 +73,8 @@ export function AICopilotPanel({ messages, className = "" }) {
             <div
               className={`px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed max-w-[88%] ${
                 m.from === "user"
-                  ? "bg-[#7c3aed] text-white rounded-br-sm"
-                  : "bg-white/[0.06] text-nua-ink rounded-bl-sm"
+                  ? "bg-nua-burgundy text-white rounded-br-sm"
+                  : "bg-nua-surface text-nua-ink rounded-bl-sm"
               }`}
             >
               {m.text}
@@ -85,7 +85,7 @@ export function AICopilotPanel({ messages, className = "" }) {
       <div className="mt-3 pt-3 border-t border-nua-border flex items-center gap-2 px-1">
         <span className="flex-1 text-[12px] text-nua-ink2">Ask anything about your venues…</span>
         <div className="w-7 h-7 rounded-full bg-nua-burgundy flex items-center justify-center flex-shrink-0">
-          <ArrowUp className="w-3.5 h-3.5 text-nua-ink" />
+          <ArrowUp className="w-3.5 h-3.5 text-white" />
         </div>
       </div>
     </div>
