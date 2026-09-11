@@ -177,18 +177,18 @@ export default function AiAgent() {
               <svg viewBox="0 0 400 140" className="w-full h-40">
                 <path
                   d="M200,50 C230,38 260,42 290,25 C320,15 350,18 400,5 L400,35 C350,50 320,45 290,55 C260,65 230,62 200,70 Z"
-                  fill="#7D52DD" opacity="0.12"
+                  fill="#750D28" opacity="0.12"
                 />
-                <path d="M0,100 C30,90 60,95 90,80 C120,70 150,75 200,60" stroke="#0f0f14" strokeWidth="2" fill="none" />
+                <path d="M0,100 C30,90 60,95 90,80 C120,70 150,75 200,60" stroke="#29241E" strokeWidth="2" fill="none" />
                 <motion.path
                   d="M200,60 C230,50 260,55 290,40 C320,30 350,35 400,20"
-                  stroke="#7D52DD" strokeWidth="2" strokeDasharray="5 4" fill="none"
+                  stroke="#750D28" strokeWidth="2" strokeDasharray="5 4" fill="none"
                   initial={{ pathLength: 0 }}
                   whileInView={{ pathLength: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.1, ease: "easeInOut" }}
                 />
-                <circle cx="200" cy="60" r="3.5" fill="#0f0f14" />
+                <circle cx="200" cy="60" r="3.5" fill="#29241E" />
                 <line x1="200" y1="0" x2="200" y2="140" stroke="#00000015" strokeDasharray="2 4" />
               </svg>
               <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-nua-muted">

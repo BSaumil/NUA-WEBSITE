@@ -239,7 +239,7 @@ export function AnalyticsVisual() {
       <svg viewBox="0 0 200 60" className="w-full h-14 mt-2">
         <motion.path
           d="M0,50 C30,40 50,45 70,30 C90,20 110,35 130,22 C150,12 170,25 200,10"
-          stroke="#A45D0D"
+          stroke="#750D28"
           strokeWidth="2"
           fill="none"
           initial={{ pathLength: 0 }}

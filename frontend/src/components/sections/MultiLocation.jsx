@@ -59,7 +59,7 @@ export default function MultiLocation() {
                     const ry = ((cy - 28) / 28);
                     const inGlobe = rx * rx + ry * ry < 0.85;
                     if (!inGlobe) return null;
-                    return <circle key={`${row}-${col}`} cx={cx} cy={cy} r="0.3" fill="#0f0f14" opacity="0.2" />;
+                    return <circle key={`${row}-${col}`} cx={cx} cy={cy} r="0.3" fill="#29241E" opacity="0.2" />;
                   })
                 )}
               </svg>
