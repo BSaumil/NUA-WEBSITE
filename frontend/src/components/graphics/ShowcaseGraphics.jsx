@@ -10,6 +10,7 @@ import LiveNumber from "@/components/graphics/LiveNumber";
 import {
   POSVisual, KDSVisual, ReservationsVisual, StaffVisual, InventoryVisual, MarketingVisual, VoiceVisual,
 } from "@/components/graphics/FeatureVisuals";
+import { MOCKUP, MOCKUP_LINE, MOCKUP_SOLID, MOCKUP_TIER } from "@/theme/mockupPalette";
 
 function LiveDot({ color = "#157E3C" }) {
   return (
@@ -27,10 +28,10 @@ const sparkPaths = [
 ];
 
 const kpis = [
-  { icon: DollarSign, label: "Total Sales", value: 214830, prefix: "$", delta: "+12.7%", color: "#A45D0D", spark: sparkPaths[0] },
-  { icon: ShoppingBag, label: "Total Orders", value: 4218, delta: "+9.3%", color: "#7D52DD", spark: sparkPaths[1] },
-  { icon: TrendingUp, label: "Avg. Order Value", value: 50.93, decimals: 2, prefix: "$", delta: "+3.1%", color: "#BF3A7B", spark: sparkPaths[2] },
-  { icon: Users, label: "Loyalty Members", value: 16240, delta: "+4.6%", color: "#157E3C", spark: sparkPaths[3] },
+  { icon: DollarSign, label: "Total Sales", value: 214830, prefix: "$", delta: "+12.7%", color: MOCKUP_LINE.orange, spark: sparkPaths[0] },
+  { icon: ShoppingBag, label: "Total Orders", value: 4218, delta: "+9.3%", color: MOCKUP_LINE.purple, spark: sparkPaths[1] },
+  { icon: TrendingUp, label: "Avg. Order Value", value: 50.93, decimals: 2, prefix: "$", delta: "+3.1%", color: MOCKUP_LINE.pink, spark: sparkPaths[2] },
+  { icon: Users, label: "Loyalty Members", value: 16240, delta: "+4.6%", color: MOCKUP_LINE.ink, spark: sparkPaths[3] },
 ];
 
 const venues = [
@@ -334,9 +335,9 @@ const aiActionPool = [
   { action: "Profit margin on Set Menu B dropped to 58%", outcome: "Repriced sides +$2. Margin restored to 65%.", status: "executed" },
 ];
 const aiStatusStyle = {
-  executed: { bg: "bg-emerald-500/15", text: "text-nua-burgundy", dot: "bg-emerald-500", label: "Executed" },
-  approved: { bg: "bg-nua-burgundyWash", text: "text-nua-burgundy", dot: "bg-nua-burgundy", label: "Approved" },
-  suggested: { bg: "bg-nua-burgundyWash", text: "text-nua-burgundy", dot: "bg-nua-burgundy", label: "Suggested" },
+  executed: MOCKUP_TIER.executed,
+  approved: MOCKUP_TIER.approved,
+  suggested: MOCKUP_TIER.suggested,
 };
 function timeNowLabel() {
   const d = new Date();
@@ -383,7 +384,7 @@ export function AICommandCenterShowcase() {
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-[8px] text-nua-ink2">{f.time}</span>
-                    <span className={`px-1.5 py-0.5 rounded-full font-mono text-[7px] uppercase ${s.bg} ${s.text}`}>{s.label}</span>
+                    <span className="px-1.5 py-0.5 rounded-full font-mono text-[7px] uppercase" style={{ background: s.wash, color: s.text }}>{s.label}</span>
                   </div>
                   <div className="mt-1 text-[11px] text-nua-ink leading-tight">{f.action}</div>
                   <div className="mt-0.5 text-[10px] text-nua-burgundy leading-tight">→ {f.outcome}</div>
@@ -515,9 +516,9 @@ export function PaymentsShowcase() {
 
 /* I: Delivery hub: every platform into one queue */
 const deliveryPartners = [
-  { tag: "Partner A", color: "#A45D0D", item: "2× Pad Thai", eta: "18 min" },
-  { tag: "Partner B", color: "#7D52DD", item: "1× Butter Chicken", eta: "24 min" },
-  { tag: "Partner C", color: "#BF3A7B", item: "3× Sushi Set", eta: "15 min" },
+  { tag: "Partner A", color: MOCKUP.orange, item: "2× Pad Thai", eta: "18 min" },
+  { tag: "Partner B", color: MOCKUP.purple, item: "1× Butter Chicken", eta: "24 min" },
+  { tag: "Partner C", color: MOCKUP.pink, item: "3× Sushi Set", eta: "15 min" },
 ];
 export function DeliveryHubShowcase() {
   const [orders, setOrders] = useState(() => [
@@ -587,7 +588,7 @@ export function BookingWaitlistShowcase() {
     { label: "T1", status: "vip" }, { label: "T2", status: "occupied" }, { label: "T3", status: "available" },
     { label: "T4", status: "reserved" }, { label: "T5", status: "available" }, { label: "T6", status: "occupied" },
   ];
-  const colors = { vip: "#7D52DD", occupied: "#2a2a35", available: "transparent", reserved: "#BF3A7B" };
+  const colors = { vip: MOCKUP_SOLID.pink.bg, occupied: MOCKUP.ink, available: "transparent", reserved: MOCKUP_SOLID.purple.bg };
   return (
     <div data-testid="showcase-booking-waitlist">
       <MonitorFrame width={420} screenBg="#FFFDF9" padded>

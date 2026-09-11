@@ -5,6 +5,7 @@ import LiveNumber from "@/components/graphics/LiveNumber";
 import RotatingTrade from "@/components/graphics/RotatingTrade";
 import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED } from "@/config/siteConfig";
+import { MOCKUP, MOCKUP_SOLID } from "@/theme/mockupPalette";
 
 const barHeights = [35, 48, 32, 58, 44, 70, 62, 80, 55, 88, 72, 95];
 
@@ -13,10 +14,11 @@ const trustedBy = [
   "Elfresco Cafe", "Cafe NUA", "Alphington Social",
 ];
 
-const StatPill = ({ icon: Icon, label, value, color }) => (
+const StatPill = ({ icon: Icon, label, value, tone }) => (
   <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-nua-bgAlt border border-nua-border">
-    <div className={`w-7 h-7 rounded-md flex items-center justify-center ${color}`}>
-      <Icon className="w-3.5 h-3.5 text-white" />
+    {/* The ink travels with the fill: orange needs dark ink, purple needs white. */}
+    <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: tone.bg }}>
+      <Icon className="w-3.5 h-3.5" style={{ color: tone.on }} />
     </div>
     <div>
       <div className="font-mono text-[10px] text-nua-ink2 uppercase tracking-wider">{label}</div>
@@ -144,10 +146,10 @@ export default function Hero() {
 
               {/* Main */}
               <div className="col-span-12 md:col-span-10 grid grid-cols-1 sm:grid-cols-4 gap-3">
-                <StatPill icon={DollarSign} label="Revenue" value={<LiveNumber value={32418} prefix="$" />} color="bg-nua-burgundy" />
-                <StatPill icon={Users} label="Covers" value={<LiveNumber value={248} />} color="bg-nua-burgundy" />
-                <StatPill icon={TrendingUp} label="AOV" value={<LiveNumber value={48.2} prefix="$" decimals={2} />} color="bg-nua-burgundy" />
-                <StatPill icon={Clock} label="Avg. wait" value="6m 12s" color="bg-nua-burgundy" />
+                <StatPill icon={DollarSign} label="Revenue" value={<LiveNumber value={32418} prefix="$" />} tone={MOCKUP_SOLID.orange} />
+                <StatPill icon={Users} label="Covers" value={<LiveNumber value={248} />} tone={MOCKUP_SOLID.purple} />
+                <StatPill icon={TrendingUp} label="AOV" value={<LiveNumber value={48.2} prefix="$" decimals={2} />} tone={MOCKUP_SOLID.pink} />
+                <StatPill icon={Clock} label="Avg. wait" value="6m 12s" tone={MOCKUP_SOLID.ink} />
 
                 {/* Chart card */}
                 <div className="sm:col-span-3 rounded-xl bg-nua-surface border border-nua-border p-4">
@@ -164,7 +166,7 @@ export default function Hero() {
                         <motion.div
                           className="w-full rounded-sm"
                           style={{
-                            background: `linear-gradient(180deg, #8A1433 0%, #750D28 100%)`,
+                            background: `linear-gradient(180deg, ${MOCKUP.orange} 0%, ${MOCKUP.pink} 100%)`,
                             opacity: 0.85,
                             transformOrigin: "bottom",
                           }}
@@ -180,8 +182,8 @@ export default function Hero() {
                 {/* NUA card */}
                 <div className="rounded-xl bg-nua-bgAlt border border-nua-border p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-md bg-nua-burgundy flex items-center justify-center">
-                      <Sparkles className="w-3 h-3 text-white" />
+                    <div className="w-6 h-6 rounded-md flex items-center justify-center" style={{ background: MOCKUP_SOLID.purple.bg }}>
+                      <Sparkles className="w-3 h-3" style={{ color: MOCKUP_SOLID.purple.on }} />
                     </div>
                     <span className="font-display text-sm font-semibold text-nua-ink">NUA</span>
                     <span className="ml-auto font-mono text-[9px] text-nua-ink2">THINKING</span>
@@ -204,8 +206,9 @@ export default function Hero() {
                     {Array.from({ length: 28 }).map((_, i) => (
                       <div
                         key={i}
-                        className="w-1 rounded-full bar-wave bg-nua-burgundy/70"
+                        className="w-1 rounded-full bar-wave"
                         style={{
+                          background: MOCKUP.purple,
                           height: `${20 + Math.abs(Math.sin(i * 0.6)) * 60 + ((i * 13) % 20)}%`,
                           animationDelay: `${i * 0.05}s`,
                         }}
@@ -223,8 +226,14 @@ export default function Hero() {
                   </div>
                   <div className="grid grid-cols-7 gap-1.5">
                     {Array.from({ length: 21 }).map((_, i) => {
-                      const tone = i % 5 === 0 ? "bg-nua-burgundy" : i % 3 === 0 ? "bg-nua-burgundy/55" : i % 7 === 0 ? "bg-nua-border" : "bg-nua-burgundy/30";
-                      return <div key={i} className={`aspect-square rounded-md ${tone}`} />;
+                      // Four occupancy states, told apart by hue the way a real floor
+                      // map would: seated, reserved, VIP, free.
+                      const tone =
+                        i % 5 === 0 ? MOCKUP.ink
+                        : i % 3 === 0 ? MOCKUP.purple
+                        : i % 7 === 0 ? MOCKUP.pink
+                        : "#E8DED4";
+                      return <div key={i} className="aspect-square rounded-md" style={{ background: tone }} />;
                     })}
                   </div>
                 </div>

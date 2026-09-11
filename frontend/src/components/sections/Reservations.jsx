@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { MOCKUP_SOLID } from "@/theme/mockupPalette";
 import { Crown, Calendar, Clock, Flame, Users, MapPin } from "lucide-react";
 import { BookingWaitlistShowcase } from "@/components/graphics/ShowcaseGraphics";
 
@@ -20,11 +21,16 @@ const tables = [
 ];
 
 const statusColors = {
-  vip: { bg: "bg-nua-burgundy", text: "VIP", ring: "ring-nua-burgundy/30" },
-  occupied: { bg: "bg-nua-ink", text: "Seated", ring: "ring-black/10" },
-  overdue: { bg: "bg-nua-burgundy", text: "Overdue", ring: "ring-nua-burgundy/30" },
-  available: { bg: "bg-white border border-black/10", text: "Open", ring: "ring-black/10" },
-  reserved: { bg: "bg-nua-burgundy", text: "Reserved", ring: "ring-nua-burgundy/30" },
+  // A floor plan is read at a glance, so each state needs its own colour. Four
+  // of these were burgundy, which meant VIP, Overdue and Reserved rendered
+  // identically and the picture stopped carrying the information it claims to.
+  // Every tile still shows its state in the legend and its label on the tile,
+  // so nothing depends on hue alone.
+  vip: { fill: MOCKUP_SOLID.pink, text: "VIP", ring: "ring-black/5" },
+  occupied: { fill: MOCKUP_SOLID.ink, text: "Seated", ring: "ring-black/10" },
+  overdue: { fill: MOCKUP_SOLID.orange, text: "Overdue", ring: "ring-black/5" },
+  available: { fill: { bg: "#FFFFFF", on: "#29241E" }, text: "Open", ring: "ring-black/10" },
+  reserved: { fill: MOCKUP_SOLID.purple, text: "Reserved", ring: "ring-black/5" },
 };
 
 const features = [
@@ -80,7 +86,10 @@ export default function Reservations() {
                 <div className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-wider">
                   {Object.entries(statusColors).map(([k, v]) => (
                     <span key={k} className="flex items-center gap-1.5">
-                      <span className={`w-2.5 h-2.5 rounded ${v.bg}`} />
+                      <span
+                        className="w-2.5 h-2.5 rounded border border-black/10"
+                        style={{ background: v.fill.bg }}
+                      />
                       <span className="text-nua-muted">{v.text}</span>
                     </span>
                   ))}
@@ -97,13 +106,15 @@ export default function Reservations() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: t.id * 0.04 }}
-                      className={`absolute rounded-xl ${s.bg} ring-4 ${s.ring} text-nua-ink text-xs font-mono flex flex-col items-center justify-center shadow-md`}
+                      className={`absolute rounded-xl ring-4 ${s.ring} text-xs font-mono flex flex-col items-center justify-center shadow-md`}
                       style={{
                         left: `${t.x}%`,
                         top: `${t.y}%`,
                         width: t.seats >= 6 ? "14%" : t.seats >= 4 ? "12%" : "9%",
                         height: t.seats >= 6 ? "22%" : "20%",
-                        color: t.status === "available" ? "#0f0f14" : "#fff",
+                        background: s.fill.bg,
+                        border: t.status === "available" ? "1px solid #D9CFC5" : undefined,
+                        color: s.fill.on,
                       }}
                     >
                       <span className="font-display font-semibold text-sm">{t.label}</span>
