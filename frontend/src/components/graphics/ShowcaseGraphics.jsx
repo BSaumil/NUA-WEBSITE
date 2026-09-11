@@ -82,12 +82,12 @@ export function AnalyticsDashboardScreen() {
             <svg viewBox="0 0 300 90" className="w-full h-24">
               <defs>
                 <linearGradient id="showcaseGrad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#A45D0D" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#A45D0D" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#750D28" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#750D28" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path d="M0,70 C40,60 60,65 90,50 C120,40 140,52 170,38 C200,28 220,42 250,25 C270,18 285,28 300,12 L300,90 L0,90 Z" fill="url(#showcaseGrad)" />
-              <path d="M0,70 C40,60 60,65 90,50 C120,40 140,52 170,38 C200,28 220,42 250,25 C270,18 285,28 300,12" stroke="#A45D0D" strokeWidth="2" fill="none" />
+              <path d="M0,70 C40,60 60,65 90,50 C120,40 140,52 170,38 C200,28 220,42 250,25 C270,18 285,28 300,12" stroke="#750D28" strokeWidth="2" fill="none" />
             </svg>
           </div>
           <div className="col-span-2 rounded-xl border border-nua-border p-4">
@@ -643,15 +643,15 @@ export function ForecastingShowcase() {
         <svg viewBox="0 0 300 100" className="w-full h-24">
           <defs>
             <linearGradient id="forecastGrad" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="#157E3C" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#157E3C" stopOpacity="0" />
+              <stop offset="0%" stopColor="#750D28" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#750D28" stopOpacity="0" />
             </linearGradient>
           </defs>
-          <line x1="180" y1="10" x2="180" y2="90" stroke="#71717a" strokeWidth="1" strokeDasharray="3,3" />
-          <text x="184" y="20" fill="#71717a" fontSize="8" fontFamily="monospace">today</text>
+          <line x1="180" y1="10" x2="180" y2="90" stroke="#655D53" strokeWidth="1" strokeDasharray="3,3" />
+          <text x="184" y="20" fill="#655D53" fontSize="8" fontFamily="monospace">today</text>
           <motion.path
             d="M0,75 C30,68 60,72 90,55 C120,45 150,58 180,42"
-            stroke="#157E3C"
+            stroke="#750D28"
             strokeWidth="2"
             fill="none"
             initial={{ pathLength: 0 }}
@@ -661,7 +661,7 @@ export function ForecastingShowcase() {
           />
           <motion.path
             d="M180,42 C210,30 240,22 300,8"
-            stroke="#157E3C"
+            stroke="#750D28"
             strokeWidth="2"
             strokeDasharray="4,4"
             fill="none"

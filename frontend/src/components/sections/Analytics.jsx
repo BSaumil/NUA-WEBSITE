@@ -95,17 +95,17 @@ export default function Analytics() {
             <svg viewBox="0 0 400 140" className="w-full h-40">
               <defs>
                 <linearGradient id="todayGrad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#A45D0D" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="#A45D0D" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#750D28" stopOpacity="0.5" />
+                  <stop offset="100%" stopColor="#750D28" stopOpacity="0" />
                 </linearGradient>
               </defs>
               {[0, 1, 2, 3].map((g) => (
-                <line key={g} x1="0" x2="400" y1={35 * (g + 1)} y2={35 * (g + 1)} stroke="#ffffff10" strokeDasharray="2 4" />
+                <line key={g} x1="0" x2="400" y1={35 * (g + 1)} y2={35 * (g + 1)} stroke="#29241E14" strokeDasharray="2 4" />
               ))}
               {/* Last week */}
               <path
                 d="M0,110 C40,95 60,100 90,80 C120,60 140,75 170,65 C200,55 220,70 250,50 C280,30 300,55 330,45 C360,40 380,55 400,40"
-                stroke="#7D52DD"
+                stroke="#9A928B"
                 strokeWidth="1.5"
                 fill="none"
                 opacity="0.6"
@@ -122,7 +122,7 @@ export default function Analytics() {
               />
               <motion.path
                 d={todayPath}
-                stroke="#A45D0D"
+                stroke="#750D28"
                 strokeWidth="2"
                 fill="none"
                 initial={{ pathLength: 0 }}
@@ -134,7 +134,7 @@ export default function Analytics() {
                 cx="400"
                 cy="18"
                 r="4"
-                fill="#A45D0D"
+                fill="#750D28"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: [0, 1, 0.4, 1] }}
                 viewport={{ once: true }}
