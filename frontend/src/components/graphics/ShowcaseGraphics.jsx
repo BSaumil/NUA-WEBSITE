@@ -44,15 +44,15 @@ const venues = [
 /* Shared dashboard screen used by both flagship analytics graphics */
 export function AnalyticsDashboardScreen() {
   return (
-    <div className="bg-[#fafbfc] text-nua-ink">
+    <div className="bg-nua-bgAlt text-nua-ink">
       <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-white">
         <div>
-          <div className="font-mono text-[9px] text-[#6b6b75] uppercase tracking-wider">Insights</div>
+          <div className="font-mono text-[9px] text-nua-ink2 uppercase tracking-wider">Insights</div>
           <div className="font-display text-sm font-semibold">Sales, Loyalty &amp; Inventory Overview</div>
         </div>
         <div className="hidden sm:flex items-center gap-1.5">
           {["All Venues", "Last 7 Days", "All Methods"].map((f) => (
-            <span key={f} className="px-2.5 py-1 rounded-md bg-[#f3f4f6] font-mono text-[9px] text-[#5c5c66]">{f}</span>
+            <span key={f} className="px-2.5 py-1 rounded-md bg-nua-border/60 font-mono text-[9px] text-nua-ink2">{f}</span>
           ))}
         </div>
       </div>
@@ -68,7 +68,7 @@ export function AnalyticsDashboardScreen() {
               <div className="mt-2 font-display text-lg font-bold">
                 <LiveNumber value={k.value} prefix={k.prefix} decimals={k.decimals} />
               </div>
-              <div className="font-mono text-[8px] uppercase tracking-wider text-[#6b6b75]">{k.label}</div>
+              <div className="font-mono text-[8px] uppercase tracking-wider text-nua-ink2">{k.label}</div>
               <svg viewBox="0 0 60 24" className="w-full h-4 mt-1">
                 <path d={k.spark} stroke={k.color} strokeWidth="1.5" fill="none" />
               </svg>
@@ -95,8 +95,8 @@ export function AnalyticsDashboardScreen() {
             <div className="space-y-1.5">
               {venues.map((v) => (
                 <div key={v.name} className="flex items-center gap-2">
-                  <span className="w-14 font-mono text-[8px] text-[#5c5c66] truncate">{v.name}</span>
-                  <div className="flex-1 h-2 rounded-full bg-[#f3f4f6] overflow-hidden">
+                  <span className="w-14 font-mono text-[8px] text-nua-ink2 truncate">{v.name}</span>
+                  <div className="flex-1 h-2 rounded-full bg-nua-border/60 overflow-hidden">
                     <div className="h-full rounded-full bg-nua-burgundy" style={{ width: `${v.pct}%` }} />
                   </div>
                 </div>
@@ -168,8 +168,8 @@ export function ScanToPayShowcase() {
             <div className="p-3 space-y-1.5 border-r border-nua-border">
               {orderItems.map((it) => (
                 <div key={it.name} className="flex items-center justify-between text-[10px]">
-                  <span className="flex items-center gap-1.5 text-[#1a1a22]"><it.icon className="w-3 h-3 text-nua-burgundy" />{it.name}</span>
-                  <span className="font-mono text-[#5f5f6b]">{it.price}</span>
+                  <span className="flex items-center gap-1.5 text-nua-ink"><it.icon className="w-3 h-3 text-nua-burgundy" />{it.name}</span>
+                  <span className="font-mono text-nua-ink2">{it.price}</span>
                 </div>
               ))}
               <div className="pt-1.5 mt-1.5 border-t border-nua-border flex justify-between font-display font-bold text-xs">
@@ -202,7 +202,7 @@ export function ScanToPayShowcase() {
         <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-nua-burgundy text-white font-mono text-[9px] font-semibold uppercase whitespace-nowrap">
           <Gift className="w-3 h-3" /> Rewards
         </span>
-        <div className="text-[10px] leading-tight text-[#1a1a22]">
+        <div className="text-[10px] leading-tight text-nua-ink">
           <div className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider text-nua-burgundy"><Link2 className="w-2.5 h-2.5" />Linked</div>
           <div className="font-medium">Loyalty rewards connected<br />to this sale</div>
         </div>
@@ -335,8 +335,8 @@ const aiActionPool = [
 ];
 const aiStatusStyle = {
   executed: { bg: "bg-emerald-500/15", text: "text-nua-burgundy", dot: "bg-emerald-500", label: "Executed" },
-  approved: { bg: "bg-[#8b5cf6]/15", text: "text-nua-burgundy", dot: "bg-nua-burgundy", label: "Approved" },
-  suggested: { bg: "bg-[#f58c14]/15", text: "text-[#A45D0D]", dot: "bg-nua-burgundy", label: "Suggested" },
+  approved: { bg: "bg-nua-burgundyWash", text: "text-nua-burgundy", dot: "bg-nua-burgundy", label: "Approved" },
+  suggested: { bg: "bg-nua-burgundyWash", text: "text-nua-burgundy", dot: "bg-nua-burgundy", label: "Suggested" },
 };
 function timeNowLabel() {
   const d = new Date();
@@ -362,7 +362,7 @@ export function AICommandCenterShowcase() {
       <MonitorFrame width={480} screenBg="#FFFDF9" padded>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1.5">
-            <div className="w-5 h-5 rounded-md bg-nua-burgundy flex items-center justify-center"><Sparkles className="w-3 h-3 text-nua-ink" /></div>
+            <div className="w-5 h-5 rounded-md bg-nua-burgundy flex items-center justify-center"><Sparkles className="w-3 h-3 text-white" /></div>
             <span className="font-display text-xs font-semibold text-nua-ink">Autonomous Actions</span>
           </div>
           <LiveDot color="#7D52DD" />
@@ -488,14 +488,14 @@ export function PaymentsShowcase() {
             {[0, 1, 2].map((i) => (
               <motion.span
                 key={i}
-                className="absolute inset-0 rounded-full border-2 border-[#8b5cf6]"
+                className="absolute inset-0 rounded-full border-2 border-nua-burgundy"
                 initial={{ opacity: 0.6, scale: 0.6 }}
                 animate={{ opacity: 0, scale: 1.8 }}
                 transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.6, ease: "easeOut" }}
               />
             ))}
             <div className="w-9 h-9 rounded-full bg-nua-burgundy flex items-center justify-center relative z-10">
-              <Wifi className="w-4 h-4 text-nua-ink rotate-90" />
+              <Wifi className="w-4 h-4 text-white rotate-90" />
             </div>
           </div>
           <div className="font-display text-xl font-bold text-nua-ink">$42.50</div>

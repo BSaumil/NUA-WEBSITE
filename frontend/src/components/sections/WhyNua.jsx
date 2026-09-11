@@ -18,7 +18,7 @@ const rows = [
 const Cell = ({ value, win }) => {
   if (value === true) {
     return (
-      <div className={`inline-flex items-center justify-center w-8 h-8 rounded-lg ${win ? "bg-[#f58c14]/15" : "bg-nua-bgAlt"}`}>
+      <div className={`inline-flex items-center justify-center w-8 h-8 rounded-lg ${win ? "bg-nua-burgundyWash" : "bg-nua-bgAlt"}`}>
         <Check className={`w-4 h-4 ${win ? "text-nua-burgundy" : "text-nua-ink2"}`} />
       </div>
     );

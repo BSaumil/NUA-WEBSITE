@@ -45,7 +45,7 @@ function ContentBlock({ block }) {
       );
     case "callout":
       return (
-        <div className="my-8 rounded-2xl border border-[#8b5cf6]/30 bg-[#8b5cf6]/[0.08] p-5 sm:p-6">
+        <div className="my-8 rounded-2xl border border-nua-burgundy/20 bg-nua-burgundyWash p-5 sm:p-6">
           <div className="font-mono text-[10px] uppercase tracking-widest text-nua-burgundy">{block.title}</div>
           <p className="mt-2 text-[15px] text-nua-ink leading-relaxed">{block.text}</p>
         </div>
@@ -163,7 +163,7 @@ export default function BlogPost() {
                   data-testid={`blog-post-related-${r.slug}`}
                   className="rounded-2xl bg-nua-surface border border-nua-border p-5 hover:-translate-y-1 hover:border-nua-border transition-all duration-300"
                 >
-                  <span className="px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 text-nua-burgundy font-mono text-[10px] uppercase tracking-wider">
+                  <span className="px-2 py-0.5 rounded-full bg-nua-burgundyWash text-nua-burgundy font-mono text-[10px] uppercase tracking-wider">
                     {r.pillar}
                   </span>
                   <h3 className="mt-3 font-display font-semibold text-nua-ink text-sm leading-snug">{r.title}</h3>

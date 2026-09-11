@@ -91,7 +91,7 @@ export default function About() {
                 transition={{ duration: 0.4, delay: i * 0.07 }}
                 className="rounded-2xl bg-nua-surface border border-nua-border p-5 flex items-start gap-4"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-nua-burgundyWash flex items-center justify-center flex-shrink-0">
                   <v.icon className="w-5 h-5 text-nua-burgundy" />
                 </div>
                 <div>

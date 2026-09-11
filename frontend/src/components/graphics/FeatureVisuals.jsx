@@ -178,7 +178,7 @@ export function InventoryVisual() {
   return (
     <div data-testid="visual-inventory" className="rounded-2xl bg-nua-surface border border-nua-border p-5">
       <div className="flex items-center justify-between">
-        <span className="px-2 py-0.5 rounded-full bg-[#22c55e]/15 text-nua-burgundy font-mono text-[10px] uppercase">Buy now</span>
+        <span className="px-2 py-0.5 rounded-full bg-nua-burgundyWash text-nua-burgundy font-mono text-[10px] uppercase">Buy now</span>
         <ShoppingCart className="w-4 h-4 text-nua-burgundy" />
       </div>
       <div className="mt-3 text-sm text-nua-ink font-medium">Heirloom tomatoes: 8kg</div>
@@ -200,7 +200,7 @@ export function StaffVisual() {
           <div key={i} className="text-center">
             <div
               className={`aspect-square rounded-md flex items-center justify-center text-[10px] font-mono ${
-                !shifts[i] ? "border border-dashed border-nua-border" : ai[i] ? "bg-[#7c3aed] text-white" : "bg-nua-bgAlt text-nua-ink2"
+                !shifts[i] ? "border border-dashed border-nua-border" : ai[i] ? "bg-nua-burgundy text-white" : "bg-nua-bgAlt text-nua-ink2"
               }`}
             >
               {shifts[i] ? (ai[i] ? "✦" : "•") : ""}
@@ -222,7 +222,7 @@ export function NuaVisual() {
       </div>
       <div className="mt-2 text-sm text-nua-ink leading-tight">Sea bass demand forecast +28% vs Friday baseline</div>
       <div className="mt-1 text-[11px] text-nua-burgundy">→ Bumped purchase qty to 14kg with Supplier A</div>
-      <span className="inline-block mt-2 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 text-nua-burgundy font-mono text-[10px] uppercase">Approved</span>
+      <span className="inline-block mt-2 px-2 py-0.5 rounded-full bg-nua-burgundyWash text-nua-burgundy font-mono text-[10px] uppercase">Approved</span>
     </div>
   );
 }
@@ -286,7 +286,7 @@ export function VoiceVisual() {
           <div
             key={i}
             className="w-1 rounded-full"
-            style={{ height: `${20 + Math.abs(Math.sin(i * 0.5)) * 70}%`, background: "linear-gradient(180deg,#f58c14,#ec4899)" }}
+            style={{ height: `${20 + Math.abs(Math.sin(i * 0.5)) * 70}%`, background: "linear-gradient(180deg,#8A1433,#750D28)" }}
           />
         ))}
       </div>

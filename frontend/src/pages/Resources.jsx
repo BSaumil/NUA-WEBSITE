@@ -62,7 +62,7 @@ export default function Resources() {
                 data-testid={`resource-card-${r.title.toLowerCase().replace(/\s+/g, "-")}`}
                 className="group block rounded-2xl bg-nua-surface border border-nua-border p-5 hover:-translate-y-1 hover:border-nua-border transition-all duration-300"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#8b5cf6]/15 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-nua-burgundyWash flex items-center justify-center">
                   <r.icon className="w-4 h-4 text-nua-burgundy" />
                 </div>
                 <h3 className="mt-4 font-display font-semibold text-nua-ink text-sm flex items-center gap-1.5">
@@ -79,7 +79,7 @@ export default function Resources() {
       {/* FAQ */}
       <section id="faq" data-testid="resources-faq-section" className="relative max-w-4xl mx-auto px-6 lg:px-10 pt-12 pb-20 scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8b5cf6]/30 bg-[#8b5cf6]/10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-nua-burgundy/20 bg-nua-burgundyWash">
             <HelpCircle className="w-3.5 h-3.5 text-nua-burgundy" />
             <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">FAQ</span>
           </div>

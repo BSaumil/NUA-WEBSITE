@@ -52,9 +52,13 @@ export default function MoreModules() {
                 <Component />
               </div>
               <h3 className="mt-5 font-display font-semibold text-nua-ink">{title}</h3>
+              {/* The module's hue as text on an 18% wash of that same hue is a
+                  colour against itself: every one of these measured 4.2-4.35:1.
+                  The tint drops to 8% and stays as the module's signature; the
+                  text takes the one accent, which reads at 9.7:1 on it. */}
               <span
-                className="mt-1.5 inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-wider"
-                style={{ background: `${color}18`, color }}
+                className="mt-1.5 inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-wider text-nua-burgundy"
+                style={{ background: `${color}14` }}
               >
                 {impact}
               </span>

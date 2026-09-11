@@ -77,11 +77,11 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
         data-testid="lead-dialog"
-        className="sm:max-w-[560px] bg-[#0f0f17] border-nua-border text-nua-ink p-0 overflow-hidden"
+        className="sm:max-w-[560px] bg-nua-surface border-nua-border text-nua-ink p-0 overflow-hidden"
       >
         {/* Gradient header */}
         <div className="relative px-6 pt-6 pb-5 border-b border-nua-border bg-nua-bgAlt">
-          <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-[#8b5cf6]/30 blur-3xl pointer-events-none" />
+          <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-nua-burgundy/[0.05] blur-3xl pointer-events-none" />
           <div className="relative">
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-nua-border bg-nua-bgAlt">
               <Sparkles className="w-3 h-3 text-nua-burgundy" />
@@ -135,7 +135,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   onChange={update("name")}
                   required
                   placeholder="Sam B."
-                  className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b]"
+                  className="mt-1.5 bg-nua-surface border-nua-border text-nua-ink placeholder:text-nua-muted"
                 />
               </div>
               <div>
@@ -150,7 +150,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   onChange={update("email")}
                   required
                   placeholder="you@venue.com"
-                  className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b]"
+                  className="mt-1.5 bg-nua-surface border-nua-border text-nua-ink placeholder:text-nua-muted"
                 />
               </div>
             </div>
@@ -166,7 +166,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   value={form.business}
                   onChange={update("business")}
                   placeholder="Lumière Group"
-                  className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b]"
+                  className="mt-1.5 bg-nua-surface border-nua-border text-nua-ink placeholder:text-nua-muted"
                 />
               </div>
               <div>
@@ -179,7 +179,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                   value={form.phone}
                   onChange={update("phone")}
                   placeholder="+61 4xx xxx xxx"
-                  className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b]"
+                  className="mt-1.5 bg-nua-surface border-nua-border text-nua-ink placeholder:text-nua-muted"
                 />
               </div>
             </div>
@@ -197,7 +197,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                     onClick={() => setForm((f) => ({ ...f, venues: v }))}
                     className={`px-3 py-1.5 rounded-full text-xs border transition-all ${
                       form.venues === v
-                        ? "border-[#8b5cf6] bg-[#8b5cf6]/15 text-nua-burgundy"
+                        ? "border-nua-burgundy bg-nua-burgundyWash text-nua-burgundy"
                         : "border-nua-border text-nua-ink2 hover:border-nua-borderStrong hover:text-nua-ink"
                     }`}
                   >
@@ -218,7 +218,7 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
                 onChange={update("message")}
                 placeholder="Anything we should know before the call?"
                 rows={3}
-                className="mt-1.5 bg-white/[0.04] border-nua-border text-nua-ink placeholder:text-[#52525b] resize-none"
+                className="mt-1.5 bg-nua-surface border-nua-border text-nua-ink placeholder:text-nua-muted resize-none"
               />
             </div>
 

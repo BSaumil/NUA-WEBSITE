@@ -14,7 +14,7 @@ export default function Integrations() {
     <section id="integrations" data-testid="integrations-section" className="relative py-24 lg:py-28 bg-nua-bgAlt text-nua-ink overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#8a4a00]">Ecosystem</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-nua-burgundy">Ecosystem</span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

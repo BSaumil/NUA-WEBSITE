@@ -53,7 +53,7 @@ export default function Contact() {
               data-testid={`contact-channel-${c.label.toLowerCase().replace(/\s+/g, "-")}`}
               className="rounded-2xl bg-nua-surface border border-nua-border p-5 hover:border-nua-border transition-colors"
             >
-              <div className="w-9 h-9 rounded-lg bg-[#ec4899]/15 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-nua-burgundyWash flex items-center justify-center">
                 <c.icon className="w-4 h-4 text-nua-burgundy" />
               </div>
               <div className="mt-3 font-mono text-[10px] uppercase tracking-wider text-nua-ink2">{c.label}</div>

@@ -58,7 +58,7 @@ export default function Staff() {
                   <div className="font-display font-semibold text-nua-ink">Week 47 · roster</div>
                   <div className="font-mono text-[11px] text-nua-ink2">5 staff · 24 shifts · AI-optimised</div>
                 </div>
-                <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/30">
+                <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-nua-burgundyWash border border-nua-burgundy/20">
                   <Sparkles className="w-3 h-3 text-nua-burgundy" />
                   <span className="font-mono text-[10px] uppercase tracking-wider text-nua-burgundy">3 AI suggestions</span>
                 </div>
@@ -106,13 +106,13 @@ export default function Staff() {
                 </table>
               </div>
 
-              <div className="mt-5 p-3 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/25">
+              <div className="mt-5 p-3 rounded-xl bg-nua-burgundyWash border border-nua-burgundy/20">
                 <div className="flex items-start gap-3">
                   <Sparkles className="w-4 h-4 text-nua-burgundy mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-sm text-nua-ink">NUA suggests adding Jules for Friday dinner: forecast +18% covers, save $284 vs split shift.</div>
                     <div className="mt-2 flex gap-2">
-                      <button data-testid="staff-approve-suggestion" className="px-3 py-1.5 rounded-full bg-[#7c3aed] text-white text-[11px] font-medium hover:bg-[#7c3aed] transition-colors">
+                      <button data-testid="staff-approve-suggestion" className="px-3 py-1.5 rounded-full bg-nua-burgundy text-white text-[11px] font-medium hover:bg-nua-burgundyDark transition-colors">
                         Approve
                       </button>
                       <button data-testid="staff-dismiss-suggestion" className="px-3 py-1.5 rounded-full bg-nua-bgAlt text-nua-ink text-[11px] hover:bg-nua-bgAlt transition-colors">

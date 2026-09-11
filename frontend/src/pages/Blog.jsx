@@ -53,7 +53,7 @@ export default function Blog() {
               data-testid={`blog-pillar-${pillar.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
               className={`px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-colors ${
                 activePillar === pillar
-                  ? "bg-[#7c3aed] text-white"
+                  ? "bg-nua-burgundy text-white"
                   : "bg-nua-bgAlt text-nua-ink2 hover:bg-nua-bgAlt hover:text-nua-ink"
               }`}
             >
@@ -77,7 +77,7 @@ export default function Blog() {
                 className="block h-full rounded-2xl bg-nua-surface border border-nua-border p-5 hover:-translate-y-1 hover:border-nua-border transition-all duration-300"
               >
                 <div className="flex items-center justify-between">
-                  <span className="px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 text-nua-burgundy font-mono text-[10px] uppercase tracking-wider">{p.pillar}</span>
+                  <span className="px-2 py-0.5 rounded-full bg-nua-burgundyWash text-nua-burgundy font-mono text-[10px] uppercase tracking-wider">{p.pillar}</span>
                   <span className="flex items-center gap-1 font-mono text-[10px] text-nua-ink2"><Clock className="w-3 h-3" />{p.readTime}</span>
                 </div>
                 <h3 className="mt-4 font-display font-semibold text-nua-ink text-base leading-snug">{p.title}</h3>
@@ -110,7 +110,7 @@ export default function Blog() {
                 onClick={() => setPage(n)}
                 data-testid={`blog-page-${n}`}
                 className={`w-9 h-9 flex items-center justify-center rounded-full font-mono text-xs transition-colors ${
-                  n === page ? "bg-[#7c3aed] text-white" : "border border-nua-border text-nua-ink2 hover:bg-nua-bgAlt hover:text-nua-ink"
+                  n === page ? "bg-nua-burgundy text-white" : "border border-nua-border text-nua-ink2 hover:bg-nua-bgAlt hover:text-nua-ink"
                 }`}
               >
                 {n}

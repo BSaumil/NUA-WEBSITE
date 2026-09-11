@@ -52,8 +52,8 @@ const incomingPool = [
 
 const statusStyles = {
   executed: { label: "Executed", bg: "bg-emerald-500/10", text: "text-nua-burgundy", dot: "bg-emerald-500" },
-  approved: { label: "Approved", bg: "bg-[#8b5cf6]/10", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
-  suggested: { label: "Suggested", bg: "bg-[#f58c14]/10", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
+  approved: { label: "Approved", bg: "bg-nua-burgundyWash", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
+  suggested: { label: "Suggested", bg: "bg-nua-burgundyWash", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
 };
 
 const capabilities = [
@@ -97,7 +97,7 @@ export default function MeetNua() {
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/10 bg-white">
               <div className="w-6 h-6 rounded-md bg-nua-burgundy flex items-center justify-center">
-                <Sparkles className="w-3 h-3 text-nua-ink" />
+                <Sparkles className="w-3 h-3 text-white" />
               </div>
               <span className="font-mono text-[11px] uppercase tracking-widest text-nua-muted">Meet NUA · the AI agent</span>
             </div>
@@ -120,7 +120,7 @@ export default function MeetNua() {
 
             <ul className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {capabilities.map((c) => (
-                <li key={c} className="flex items-center gap-2.5 text-sm text-[#1a1a22]">
+                <li key={c} className="flex items-center gap-2.5 text-sm text-nua-ink">
                   <CheckCircle2 className="w-4 h-4 text-nua-burgundy flex-shrink-0" />
                   {c}
                 </li>
@@ -140,7 +140,7 @@ export default function MeetNua() {
           {/* Right: decision feed */}
           <div className="lg:col-span-7">
             <div className="rounded-2xl bg-white border border-nua-border shadow-[0_30px_60px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
-              <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-[#fafafb]">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-nua-border bg-nua-bgAlt">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-nua-burgundy" />
                   <span className="font-display text-sm font-semibold">NUA · live decision feed</span>
@@ -164,10 +164,10 @@ export default function MeetNua() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.45, delay: i === 0 ? 0 : 0 }}
-                        className="px-5 py-4 hover:bg-[#fafafb] transition-colors overflow-hidden"
+                        className="px-5 py-4 hover:bg-nua-bgAlt transition-colors overflow-hidden"
                       >
                         <div className="flex items-start gap-3">
-                          <div className="mt-1 w-8 h-8 rounded-lg bg-[#8b5cf6]/10 flex items-center justify-center flex-shrink-0">
+                          <div className="mt-1 w-8 h-8 rounded-lg bg-nua-burgundyWash flex items-center justify-center flex-shrink-0">
                             <Zap className="w-3.5 h-3.5 text-nua-burgundy" />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -190,7 +190,7 @@ export default function MeetNua() {
                 </AnimatePresence>
               </ul>
 
-              <div className="px-5 py-3 border-t border-nua-border bg-[#fafafb] flex items-center justify-between">
+              <div className="px-5 py-3 border-t border-nua-border bg-nua-bgAlt flex items-center justify-between">
                 <span className="font-mono text-[10px] text-nua-muted uppercase tracking-wider">
                   <LiveNumber value={decisionCount} duration={0.6} /> decisions this week
                 </span>

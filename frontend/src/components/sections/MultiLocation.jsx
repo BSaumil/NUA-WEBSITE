@@ -48,7 +48,7 @@ export default function MultiLocation() {
         <div className="rounded-2xl bg-white border border-nua-border shadow-[0_30px_60px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
           <div className="grid lg:grid-cols-[1fr_320px]">
             {/* Map */}
-            <div className="relative aspect-[16/9] bg-[#fafafb] border-r border-nua-border overflow-hidden">
+            <div className="relative aspect-[16/9] bg-nua-bgAlt border-r border-nua-border overflow-hidden">
               {/* Dotted globe */}
               <svg className="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 100 56" preserveAspectRatio="none">
                 {Array.from({ length: 30 }).map((_, row) =>
