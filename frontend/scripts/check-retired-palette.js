@@ -31,6 +31,13 @@
  * Allowed to keep these values even in ink position:
  *   components/BrandIcon.jsx  the brand mark is not part of the site palette;
  *                             check-brand-mark.js asserts it separately
+ *   src/theme/mockupPalette   the sanctioned home for the icon hues used inside
+ *                             product mockups, where colour is information
+ *                             (which table is seated, which shift the agent
+ *                             assigned). Not scanned, because it is the one
+ *                             place these values are meant to be declared —
+ *                             which is exactly why call sites should import
+ *                             from it rather than retyping a hex.
  */
 const fs = require("fs");
 const path = require("path");

@@ -5,6 +5,7 @@ import {
   Zap, Users, Megaphone, ArrowRight, Mic, Receipt, Star, Wallet,
 } from "lucide-react";
 import LiveNumber from "@/components/graphics/LiveNumber";
+import { MOCKUP, MOCKUP_LINE, MOCKUP_SOLID } from "@/theme/mockupPalette";
 
 function parseMinSec(label) {
   const [m, s] = label.split(":").map(Number);
@@ -82,7 +83,7 @@ export function POSVisual() {
 /* ---------- Kitchen Display System ---------- */
 function LiveTicket({ table, items, time, color }) {
   const seconds = useLiveSeconds(time);
-  const aging = seconds >= 600 ? "#C02626" : seconds >= 300 ? "#A45D0D" : color;
+  const aging = seconds >= 600 ? "#B01B1B" : seconds >= 300 ? MOCKUP_LINE.orange : color;
   return (
     <div className="rounded-lg bg-nua-bgAlt border border-nua-border p-2.5">
       <div className="flex items-center justify-between">
@@ -98,9 +99,9 @@ function LiveTicket({ table, items, time, color }) {
 
 export function KDSVisual() {
   const cols = [
-    { label: "New", color: "#7D52DD", tickets: [{ table: "T4", items: ["2× Wagyu", "1× Sea bass"], time: "0:42" }] },
-    { label: "Preparing", color: "#A45D0D", tickets: [{ table: "T7", items: ["1× Pasta"], time: "6:18" }] },
-    { label: "Ready", color: "#157E3C", tickets: [{ table: "T9", items: ["2× Tiramisu"], time: "11:32" }] },
+    { label: "New", color: MOCKUP_LINE.purple, tickets: [{ table: "T4", items: ["2× Wagyu", "1× Sea bass"], time: "0:42" }] },
+    { label: "Preparing", color: MOCKUP_LINE.orange, tickets: [{ table: "T7", items: ["1× Pasta"], time: "6:18" }] },
+    { label: "Ready", color: "#059669", tickets: [{ table: "T9", items: ["2× Tiramisu"], time: "11:32" }] },
   ];
   return (
     <div data-testid="visual-kds" className="rounded-2xl bg-nua-surface border border-nua-border p-4 grid grid-cols-3 gap-3">
@@ -127,7 +128,7 @@ export function ReservationsVisual() {
     { label: "T1", status: "vip" }, { label: "T2", status: "occupied" }, { label: "T3", status: "available" },
     { label: "T4", status: "overdue" }, { label: "T5", status: "reserved" }, { label: "T6", status: "available" },
   ];
-  const colors = { vip: "#7D52DD", occupied: "#2a2a35", available: "transparent", overdue: "#A45D0D", reserved: "#BF3A7B" };
+  const colors = { vip: MOCKUP_SOLID.pink.bg, occupied: MOCKUP.ink, available: "transparent", overdue: MOCKUP.orange, reserved: MOCKUP_SOLID.purple.bg };
   return (
     <div data-testid="visual-reservations" className="rounded-2xl bg-nua-surface border border-nua-border p-4">
       <div className="grid grid-cols-3 gap-2">

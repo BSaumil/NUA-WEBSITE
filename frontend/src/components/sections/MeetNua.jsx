@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, CheckCircle2, Clock, Zap, ArrowRight } from "lucide-react";
 import LiveNumber from "@/components/graphics/LiveNumber";
+import { MOCKUP_TIER } from "@/theme/mockupPalette";
 
 const initialFeed = [
   {
@@ -51,9 +52,9 @@ const incomingPool = [
 ];
 
 const statusStyles = {
-  executed: { label: "Executed", bg: "bg-emerald-500/10", text: "text-nua-burgundy", dot: "bg-emerald-500" },
-  approved: { label: "Approved", bg: "bg-nua-burgundyWash", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
-  suggested: { label: "Suggested", bg: "bg-nua-burgundyWash", text: "text-nua-burgundy", dot: "bg-nua-burgundy" },
+  executed: MOCKUP_TIER.executed,
+  approved: MOCKUP_TIER.approved,
+  suggested: MOCKUP_TIER.suggested,
 };
 
 const capabilities = [
@@ -173,8 +174,8 @@ export default function MeetNua() {
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="font-mono text-[10px] text-nua-muted">{f.time}</span>
-                              <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${s.bg} ${s.text} font-mono text-[10px] uppercase`}>
-                                <span className={`w-1 h-1 rounded-full ${s.dot}`} />
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-mono text-[10px] uppercase" style={{ background: s.wash, color: s.text }}>
+                                <span className="w-1 h-1 rounded-full" style={{ background: s.dot }} />
                                 {s.label}
                               </span>
                             </div>

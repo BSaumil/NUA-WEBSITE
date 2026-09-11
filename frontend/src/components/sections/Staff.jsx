@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { MOCKUP_SOLID } from "@/theme/mockupPalette";
 import { Sparkles, DollarSign, TrendingUp, Users } from "lucide-react";
 import { StaffShowcase } from "@/components/graphics/ShowcaseGraphics";
 
@@ -88,12 +89,16 @@ export default function Staff() {
                           if (!sh) return <td key={i} className="py-2 px-1"><div className="aspect-square rounded-md border border-dashed border-nua-border" /></td>;
                           return (
                             <td key={i} className="py-2 px-1">
+                              {/* Purple is NUA Agent across every mockup: the
+                                  hero's agent chip, the audit trail and these
+                                  AI-assigned shifts. The sparkle icon carries
+                                  the same meaning, so the colour is a second
+                                  signal rather than the only one. */}
                               <div
                                 className={`aspect-square rounded-md flex items-center justify-center text-[10px] font-mono ${
-                                  ai
-                                    ? "bg-nua-burgundy text-white shadow-md shadow-nua-burgundy/25"
-                                    : "bg-nua-bgAlt text-nua-ink2"
+                                  ai ? "shadow-md" : "bg-nua-bgAlt text-nua-ink2"
                                 }`}
+                                style={ai ? { background: MOCKUP_SOLID.purple.bg, color: MOCKUP_SOLID.purple.on } : undefined}
                               >
                                 {ai ? <Sparkles className="w-3 h-3" /> : <span>•</span>}
                               </div>
