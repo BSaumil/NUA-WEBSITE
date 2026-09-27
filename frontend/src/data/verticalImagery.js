@@ -18,12 +18,23 @@
  */
 const verticalImagery = {
   "restaurant-pos": {
+    // The hero shows the room, not the screen. Every other image on this page
+    // is a terminal or a display, so leading with one more of those told a
+    // visitor nothing they could not already see — and the question a venue
+    // operator arrives with is whether this software belongs in a room like
+    // theirs.
     hero: {
-      group: "hospitality",
-      id: "live-restaurant-floor-map-dashboard",
-      alt: "A live floor plan on a restaurant terminal, each table showing its current course and how long it has been seated.",
+      group: "venue-hero",
+      id: "sunlit-dining-room-mid-service",
+      alt: "A server carrying two plates to a table in a sunlit dining room, with the open kitchen working behind her.",
     },
     scenes: [
+      {
+        group: "hospitality",
+        id: "live-restaurant-floor-map-dashboard",
+        alt: "A live floor plan on a restaurant terminal, each table showing its current course and how long it has been seated.",
+        caption: "The same room on the terminal: every table, course and turn-time.",
+      },
       {
         group: "hospitality",
         id: "nua-table-ordering-experience",

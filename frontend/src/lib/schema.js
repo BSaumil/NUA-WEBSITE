@@ -1,5 +1,5 @@
 import {
-  SITE_URL, LEGAL_NAME, BRAND_NAME, ABN, COUNTRY, SUPPORT_EMAIL,
+  SITE_URL, LEGAL_NAME, BRAND_NAME, ABN, COUNTRY, SUPPORT_EMAIL, ADDRESS,
 } from "@/config/siteConfig";
 import { plans } from "@/data/plansData";
 
@@ -28,7 +28,14 @@ export const organizationSchema = {
     height: 512,
   },
   identifier: { "@type": "PropertyValue", name: "ABN", value: ABN },
-  address: { "@type": "PostalAddress", addressCountry: COUNTRY },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: ADDRESS.street,
+    addressLocality: ADDRESS.locality,
+    addressRegion: ADDRESS.region,
+    postalCode: ADDRESS.postcode,
+    addressCountry: ADDRESS.country,
+  },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
