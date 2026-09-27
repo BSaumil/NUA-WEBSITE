@@ -3,6 +3,7 @@ import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import LegalSection from "@/components/LegalSection";
+import { ADDRESS } from "@/config/siteConfig";
 
 const LAST_UPDATED = "25 July 2026";
 
@@ -241,6 +242,7 @@ export default function TermsConditions() {
           <p>
             NUA AUS PTY LTD<br />
             ABN: <span className="font-mono">54 299 131 653</span><br />
+            {ADDRESS.street}, {ADDRESS.locality} {ADDRESS.region} {ADDRESS.postcode}<br />
             Email: <a href="mailto:info@nuapos.com.au">info@nuapos.com.au</a>
           </p>
         </LegalSection>

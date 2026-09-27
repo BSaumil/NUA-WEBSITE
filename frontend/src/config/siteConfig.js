@@ -41,3 +41,27 @@ export const LEGAL_NAME = "NUA AUS PTY LTD";
 export const BRAND_NAME = "NUA";
 export const ABN = "54 299 131 653";
 export const COUNTRY = "AU";
+
+/**
+ * Registered business address.
+ *
+ * Kept as parts rather than one string because the Organization structured
+ * data needs them separately, and the legal pages need them rendered as a
+ * block — deriving both from one source is what stops the schema and the
+ * visible copy disagreeing, which is the failure mode that matters here: a
+ * Privacy Policy naming one address while the markup claims another reads as
+ * carelessness at best.
+ *
+ * Alphington is in Victoria, which matches the governing law named in the
+ * Terms.
+ */
+export const ADDRESS = {
+  street: "7 Rowe Street",
+  locality: "Alphington",
+  region: "VIC",
+  postcode: "3078",
+  country: COUNTRY,
+};
+
+/** Single-line form, for running copy. */
+export const ADDRESS_LINE = `${ADDRESS.street}, ${ADDRESS.locality} ${ADDRESS.region} ${ADDRESS.postcode}`;

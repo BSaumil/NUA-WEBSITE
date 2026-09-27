@@ -4,7 +4,7 @@ import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import LeadCta from "@/components/LeadCta";
-import { LEAD_CAPTURE_ENABLED, LEGAL_NAME, ABN } from "@/config/siteConfig";
+import { LEAD_CAPTURE_ENABLED, LEGAL_NAME, ABN, ADDRESS_LINE } from "@/config/siteConfig";
 
 const channels = [
   { icon: Mail, label: "General enquiries", value: "info@nuapos.com.au", href: "mailto:info@nuapos.com.au" },
@@ -70,6 +70,7 @@ export default function Contact() {
               <div className="mt-1 text-sm text-nua-ink">
                 {LEGAL_NAME} · ABN {ABN}
               </div>
+              <div className="mt-1 text-sm text-nua-ink2">{ADDRESS_LINE}</div>
             </div>
           </div>
         </div>
