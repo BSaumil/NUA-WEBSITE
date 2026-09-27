@@ -894,6 +894,20 @@ const imageManifest = {
         1600
       ]
     }
+  ],
+  "venue-hero": [
+    {
+      "colour": "#9b8369",
+      "height": 941,
+      "id": "sunlit-dining-room-mid-service",
+      "src": "/img/venue-hero/sunlit-dining-room-mid-service-1600.webp",
+      "width": 1672,
+      "widths": [
+        640,
+        1024,
+        1600
+      ]
+    }
   ]
 };
 
