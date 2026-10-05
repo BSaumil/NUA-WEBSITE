@@ -52,7 +52,7 @@ export default function Savings() {
             Figures below are indicative monthly averages for a single, mid-size Australian venue, compiled from
             publicly listed pricing as at July 2026. Actual costs vary by provider, plan, region, transaction volume
             and negotiated rate{LEAD_CAPTURE_ENABLED ? (
-              <>, treat this as a guide, then <button type="button" onClick={() => openLead({ type: "demo" })} className="text-nua-burgundy hover:underline">book a demo</button> for a number based on your actual stack.</>
+              <>, treat this as a guide, then <button type="button" onClick={() => openLead({ type: "demo" })} className="text-nua-burgundy underline underline-offset-2 decoration-nua-burgundy/40 hover:decoration-nua-burgundy">book a demo</button> for a number based on your actual stack.</>
             ) : (
               ", so treat this as a guide."
             )}

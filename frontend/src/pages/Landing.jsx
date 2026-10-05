@@ -24,14 +24,27 @@ import SEO from "@/components/SEO";
 
 export default function Landing() {
   return (
-    <main data-testid="landing-page" className="min-h-screen bg-nua-bg text-nua-ink font-body antialiased overflow-x-hidden">
+    // Same landmark structure as PageShell. The homepage composes its sections
+    // directly rather than going through the shell, which is why the shell's
+    // skip link and landmark fix did not reach the one page most people see.
+    <div className="min-h-screen bg-nua-bg text-nua-ink font-body antialiased overflow-x-hidden">
       <SEO
         title="NUA: The Operating System for Modern Business"
         description="One operating system for hospitality, retail and service businesses in Australia: point of sale, bookings, stock, staff, loyalty and forecasting, with NUA Agent handling the admin between them."
         path="/"
         includeSoftware
       />
+      <a
+        href="#main-content"
+        data-testid="skip-to-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2.5 focus:rounded-full focus:bg-nua-burgundy focus:text-white focus:text-sm focus:font-medium focus:shadow-lg"
+      >
+        Skip to content
+      </a>
+
       <Navbar />
+
+      <main id="main-content" data-testid="landing-page" tabIndex={-1}>
       <Hero />
       <BusinessModes />
       <OperatingWorlds />
@@ -51,7 +64,9 @@ export default function Landing() {
       <WhyNua />
       <Pricing />
       <FinalCta />
+      </main>
+
       <Footer />
-    </main>
+    </div>
   );
 }

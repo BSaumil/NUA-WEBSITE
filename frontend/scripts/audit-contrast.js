@@ -42,8 +42,11 @@ const { chromium } = require("playwright");
 
 const BUILD = path.join(__dirname, "..", "build");
 const PORT = 5611;
-const CHROME =
-  process.env.CHROMIUM_PATH || "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
+// Let Playwright resolve its own browser by default. An absolute path here
+// only works on the machine it was written for: CI installs Chromium to
+// Playwright's own cache, so a hardcoded sandbox path would fail every run.
+// CHROMIUM_PATH overrides it where a specific build has to be used.
+const CHROME = process.env.CHROMIUM_PATH || undefined;
 
 const TYPES = {
   ".html": "text/html", ".css": "text/css", ".js": "application/javascript",

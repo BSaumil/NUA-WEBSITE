@@ -507,7 +507,7 @@ export function PaymentsShowcase() {
               </div>
             ))}
           </div>
-          <div className="font-mono text-[8px] uppercase tracking-widest text-nua-ink2">Any method · instant settlement</div>
+          <div className="font-mono text-[8px] uppercase tracking-widest text-nua-ink2">Any method · one reconciliation</div>
         </div>
       </TabletStandFrame>
     </div>

@@ -81,7 +81,7 @@ export default function Careers() {
           </div>
           <p className="mt-4 text-sm text-nua-ink2">
             Don't see a role that fits? Email your resume to{" "}
-            <a href="mailto:info@nuapos.com.au" className="text-nua-burgundy hover:underline">info@nuapos.com.au</a> anyway:
+            <a href="mailto:info@nuapos.com.au" className="text-nua-burgundy underline underline-offset-2 decoration-nua-burgundy/40 hover:decoration-nua-burgundy">info@nuapos.com.au</a> anyway:
             we'd rather hear from you than miss you.
           </p>
         </div>

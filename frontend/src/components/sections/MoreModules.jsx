@@ -12,7 +12,7 @@ const items = [
   { Component: KDSShowcase, impact: "NUA: Kitchen OS", color: "#BF3A7B", title: "Kitchen Display", body: "Tickets route to the right station instantly, aging tracked to the second." },
   { Component: MarketingShowcase, impact: "NUA: Marketing OS", color: "#BF3A7B", title: "Marketing Automation", body: "Segments and win-back offers that trigger themselves: 24 hours a day." },
   { Component: TemperatureMonitoringShowcase, impact: "NUA: Compliance OS", color: "#A45D0D", title: "Temperature Monitoring", body: "Fridges and freezers logged automatically: alerts sent the instant something drifts." },
-  { Component: PaymentsShowcase, impact: "NUA: Payments OS", color: "#7D52DD", title: "Payments & EFTPOS", body: "Tap, insert or scan: any method, settled instantly, no bundled markup." },
+  { Component: PaymentsShowcase, impact: "NUA: Payments OS", color: "#7D52DD", title: "Payments & EFTPOS", body: "Tap, insert or scan: every method on one terminal, reconciled against one set of numbers." },
   { Component: DeliveryHubShowcase, impact: "NUA: Delivery OS", color: "#A45D0D", title: "Delivery Hub", body: "Every delivery partner's orders land in one queue: no tablet farm at the pass." },
   { Component: ForecastingShowcase, impact: "NUA: Forecast OS", color: "#157E3C", title: "Demand Forecasting", body: "NUA predicts next week's rush and adjusts purchase orders before you even ask." },
 ];
@@ -48,7 +48,7 @@ export default function MoreModules() {
               transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="overflow-x-auto max-w-full py-2">
+              <div className="overflow-x-auto max-w-full py-2" tabIndex={0}>
                 <Component />
               </div>
               <h3 className="mt-5 font-display font-semibold text-nua-ink">{title}</h3>

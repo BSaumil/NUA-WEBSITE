@@ -112,7 +112,7 @@ export default function Voice() {
           className="mt-16 flex flex-col items-center"
         >
           <span className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2 mb-5">See it live</span>
-          <div className="overflow-x-auto max-w-full py-1">
+          <div className="overflow-x-auto max-w-full py-1" tabIndex={0}>
             <VoiceShowcase />
           </div>
           <p className="mt-4 text-sm text-nua-ink2 max-w-sm">NUA: Voice OS. Zero clicks: hands stay on the pass.</p>

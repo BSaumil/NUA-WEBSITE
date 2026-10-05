@@ -13,7 +13,7 @@ const cards = [
   { Component: MultiVenueLiveShowcase, impact: "NUA: Growth OS", body: "Every venue's revenue, live, on one screen." },
   { Component: LoyaltyWalletLiveShowcase, impact: "NUA: Loyalty OS", body: "$1 spent = 1 point, credited instantly." },
   { Component: TemperatureMonitoringShowcase, impact: "NUA: Compliance OS", body: "Temperature records and alerts, automated." },
-  { Component: PaymentsShowcase, impact: "NUA: Payments OS", body: "$0 markup on top of bank rates." },
+  { Component: PaymentsShowcase, impact: "NUA: Payments OS", body: "Every payment method on one terminal." },
   { Component: DeliveryHubShowcase, impact: "NUA: Delivery OS", body: "Every platform's orders, one queue." },
   { Component: BookingWaitlistShowcase, impact: "NUA: Booking OS", body: "Designed to prevent conflicting bookings." },
   { Component: ForecastingShowcase, impact: "NUA: Forecast OS", body: "Know tomorrow's rush, today." },
@@ -43,7 +43,7 @@ export default function LiveGallery() {
           </p>
         </motion.div>
 
-        <div className="flex gap-6 overflow-x-auto pb-6 px-1 snap-x snap-mandatory [scrollbar-width:thin]">
+        <div className="flex gap-6 overflow-x-auto pb-6 px-1 snap-x snap-mandatory [scrollbar-width:thin]" tabIndex={0}>
           {cards.map(({ Component, impact, body }, i) => (
             <motion.div
               key={impact}
@@ -53,7 +53,7 @@ export default function LiveGallery() {
               transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
               className="flex-shrink-0 snap-center rounded-3xl border border-nua-border bg-nua-surface p-6 flex flex-col items-center text-center"
             >
-              <div className="overflow-x-auto max-w-full py-1">
+              <div className="overflow-x-auto max-w-full py-1" tabIndex={0}>
                 <Component />
               </div>
               <div className="mt-5 font-display font-bold text-lg text-nua-burgundy">

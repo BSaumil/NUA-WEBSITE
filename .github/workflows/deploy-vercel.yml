@@ -48,6 +48,13 @@ jobs:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      # Where the contact form and lead dialog POST. CRA inlines REACT_APP_*
+      # at build time and the production bundle is built here, so setting this
+      # only in the Vercel dashboard would have no effect — it has to be
+      # present for THIS build. Unset is supported: the form falls back to a
+      # prefilled mail draft rather than failing, so a missing secret degrades
+      # instead of breaking. The value is a public form id, not a credential.
+      REACT_APP_FORM_ENDPOINT: ${{ secrets.REACT_APP_FORM_ENDPOINT }}
     steps:
       # The secrets may not exist yet. Skipping is correct rather than failing:
       # until the owner adds them, Pages is still the only host and a red X on

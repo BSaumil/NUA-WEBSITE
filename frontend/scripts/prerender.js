@@ -31,6 +31,15 @@ function loadPlaywright() {
   }
 }
 
+function routesToRender() {
+  const listFile = path.join(BUILD_DIR, "prerender-routes.json");
+  if (fs.existsSync(listFile)) {
+    return JSON.parse(fs.readFileSync(listFile, "utf8"));
+  }
+  // Older builds, or a build whose prebuild hook did not run.
+  return routesFromSitemap();
+}
+
 function routesFromSitemap() {
   const xml = fs.readFileSync(path.join(BUILD_DIR, "sitemap.xml"), "utf8");
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
@@ -109,9 +118,13 @@ function outputPathFor(route) {
 
 (async () => {
   const chromium = loadPlaywright();
-  const routes = routesFromSitemap();
-  // /404 isn't in the sitemap (correctly — it shouldn't be indexed), but it
-  // still needs rendering so unknown URLs get real content with a 404 status.
+  // prerender-routes.json carries every route, including the noindex ones that
+  // are deliberately absent from the sitemap. Reading the sitemap alone used to
+  // be enough, until a page became noindex and silently stopped being rendered
+  // — with no SPA fallback that is a 404 on a page the footer links to.
+  const routes = routesToRender();
+  // /404 isn't in either list (correctly — it shouldn't be indexed or linked),
+  // but it still needs rendering so unknown URLs get real content.
   const allRoutes = [...routes, "/404"];
 
   const shellHtml = fs.readFileSync(path.join(BUILD_DIR, "index.html"), "utf8");

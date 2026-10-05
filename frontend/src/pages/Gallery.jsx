@@ -41,7 +41,7 @@ const groups = [
     items: [
       { Component: LoyaltyWalletLiveShowcase, title: "Loyalty & Wallet", stat: "$1 spent = 1 point, instantly", body: "Every sale earns loyalty automatically: no separate terminal, no manual entry." },
       { Component: MarketingShowcase, title: "Marketing Automation", stat: "Campaigns that trigger themselves", body: "Segments and win-back offers fire on their own: 24 hours a day." },
-      { Component: PaymentsShowcase, title: "Payments & EFTPOS", stat: "$0 markup on bank rates", body: "Tap, insert or scan: any method, settled instantly, no bundled markup." },
+      { Component: PaymentsShowcase, title: "Payments & EFTPOS", stat: "One terminal, every method", body: "Tap, insert or scan: every method on one terminal, reconciled against one set of numbers." },
       { Component: DeliveryHubShowcase, title: "Delivery Hub", stat: "Every platform, one queue", body: "Orders from every delivery partner land in a single ticket queue: no tablet farm." },
       { Component: MultiVenueLiveShowcase, title: "Multi-Venue Command", stat: "5 venues, 1 login", body: "Every location's revenue, live, on one screen: no consolidating spreadsheets." },
       { Component: AICommandCenterShowcase, title: "AI Autonomous Actions", stat: "Decisions made while you sleep", body: "NUA watches every venue and acts (forecasts, reorders, roster fixes) with no manual required." },

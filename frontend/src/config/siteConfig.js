@@ -1,10 +1,35 @@
-// Set back to true once the email backend (Formspree) is wired up, and every
-// "Book a Demo" / "Start Free Trial" button will reappear automatically.
-export const LEAD_CAPTURE_ENABLED = false;
+// Every "Book a Demo" / "Start Free Trial" button, and the contact form, are
+// gated on this. It was false because there was no working submission path:
+// the lead dialog posted to a backend that does not exist on a static deploy,
+// so the only way to reach NUA was to compose an email by hand.
+//
+// There is a path now — see FORM_ENDPOINT below and src/lib/submitLead.js —
+// and it degrades to a prefilled mail draft rather than failing when no
+// endpoint is configured, so this does not need to wait on that setup.
+export const LEAD_CAPTURE_ENABLED = true;
 
 export const TRIAL_DAYS = 7;
 
 export const SUPPORT_EMAIL = "info@nuapos.com.au";
+
+/**
+ * Where the contact form and the lead dialog POST.
+ *
+ * The site is static, so this is a third-party form backend (Formspree or an
+ * equivalent). The destination inbox is configured in that service, not here —
+ * which is deliberate: the endpoint id is a public token and safe in the
+ * bundle, while the inbox it forwards to is not something the frontend should
+ * be asserting.
+ *
+ * Unset is a supported state. src/lib/submitLead.js falls back to a prefilled
+ * mail draft to SUPPORT_EMAIL rather than dropping the message, so the form
+ * works before this is configured and works better after.
+ *
+ * Set REACT_APP_FORM_ENDPOINT in the Vercel project and as a GitHub Actions
+ * secret, since CRA inlines REACT_APP_* at build time and the deploy builds in
+ * CI.
+ */
+export const FORM_ENDPOINT = (process.env.REACT_APP_FORM_ENDPOINT || "").trim();
 
 /**
  * Canonical origin for this deployment — the single source of truth for every

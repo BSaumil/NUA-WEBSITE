@@ -20,6 +20,11 @@ const staticRoutes = [
   "/gallery", "/security", "/status", "/compare",
 ];
 
+// Listed above so they are still prerendered and served, filtered out below so
+// they are not advertised to crawlers. See scripts/noindex-routes.js for why
+// those are two separate questions.
+const noIndexRoutes = require("./noindex-routes");
+
 function extractSlugs(fileName) {
   const filePath = path.join(SRC_DIR, "data", fileName);
   const content = fs.readFileSync(filePath, "utf8");
@@ -37,9 +42,21 @@ const dynamicRoutes = [
 ];
 
 const allRoutes = [...staticRoutes, ...dynamicRoutes];
+
+// What goes in the XML: everything that is actually indexable.
+const indexedRoutes = allRoutes.filter((r) => !noIndexRoutes.includes(r));
+
+// The full list is written beside the sitemap so prerender.js renders every
+// route, including the noindex ones. Reading the sitemap alone would skip
+// them, and with no SPA fallback that means a 404 on a page the footer links
+// to.
+fs.writeFileSync(
+  path.join(__dirname, "..", "public", "prerender-routes.json"),
+  JSON.stringify(allRoutes, null, 2)
+);
 const today = new Date().toISOString().slice(0, 10);
 
-const urlEntries = allRoutes
+const urlEntries = indexedRoutes
   .map(
     (route) => `  <url>
     <loc>${SITE_URL}${route}</loc>
@@ -67,5 +84,5 @@ Sitemap: ${SITE_URL}/sitemap.xml
 fs.writeFileSync(ROBOTS_FILE, robots);
 
 console.log(
-  `sitemap.xml written with ${allRoutes.length} URLs (${staticRoutes.length} static + ${dynamicRoutes.length} dynamic); robots.txt written. Origin: ${SITE_URL}`
+  `sitemap.xml written with ${indexedRoutes.length} URLs (${allRoutes.length} routes, ${noIndexRoutes.length} noindex); robots.txt written. Origin: ${SITE_URL}`
 );

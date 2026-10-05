@@ -127,7 +127,7 @@ export default function Inventory() {
           className="mt-16 flex flex-col items-center text-center"
         >
           <span className="font-mono text-[10px] uppercase tracking-widest text-nua-muted mb-5">See it live</span>
-          <div className="overflow-x-auto max-w-full py-1">
+          <div className="overflow-x-auto max-w-full py-1" tabIndex={0}>
             <InventoryShowcase />
           </div>
           <p className="mt-4 text-sm text-nua-muted max-w-sm">NUA: Inventory OS. Stockouts prevented before they happen.</p>
