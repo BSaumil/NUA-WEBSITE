@@ -3,6 +3,7 @@ import { Mail, Building2, ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
+import ContactForm from "@/components/ContactForm";
 import LeadCta from "@/components/LeadCta";
 import { LEAD_CAPTURE_ENABLED, LEGAL_NAME, ABN, ADDRESS_LINE } from "@/config/siteConfig";
 
@@ -44,6 +45,10 @@ export default function Contact() {
             />
           </div>
         )}
+
+        <div className="mt-6">
+          <ContactForm />
+        </div>
 
         <div className="mt-6 grid sm:grid-cols-3 gap-4">
           {channels.map((c) => (

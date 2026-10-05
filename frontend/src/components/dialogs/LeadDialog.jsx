@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { toast } from "sonner";
 import {
   Dialog,
@@ -13,8 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Sparkles, Loader2, CheckCircle2 } from "lucide-react";
 import { TRIAL_DAYS } from "@/config/siteConfig";
-
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+import { submitLead } from "@/lib/submitLead";
 
 const venueOptions = ["1 venue", "2–10 venues", "11–49 venues", "50+ venues"];
 
@@ -47,30 +45,28 @@ export default function LeadDialog({ open, onOpenChange, type = "demo", plan = n
       return;
     }
     setSubmitting(true);
-    try {
-      await axios.post(`${API}/leads`, {
-        ...form,
-        type,
-        plan: plan || undefined,
-        source: "landing",
-      });
+    // Same submission path as the contact form: a configured form endpoint, or
+    // a prefilled mail draft when there is none. This used to POST to
+    // `${REACT_APP_BACKEND_URL}/api/leads`, a backend that does not exist on a
+    // static deploy — which is why every button that opens this dialog was
+    // hidden behind a feature flag rather than fixed.
+    const result = await submitLead(
+      { ...form, type: isDemo ? "Demo request" : "Free trial", plan: plan || undefined },
+      { subject: isDemo ? "Demo request" : "Free trial request" }
+    );
+
+    if (result.ok) {
       setSuccess(true);
-      toast.success(isDemo ? "Demo request received 🎉" : "Trial request received 🎉", {
-        description: "We'll be in touch within 24 hours.",
-      });
-      setForm({ name: "", email: "", business: "", phone: "", venues: "", message: "" });
-    } catch (err) {
-      const detail = err?.response?.data?.detail;
-      let msg = "Something went wrong. Please try again.";
-      if (Array.isArray(detail)) {
-        msg = detail.map((d) => d?.msg || d?.message || "Invalid input").join("; ");
-      } else if (typeof detail === "string") {
-        msg = detail;
+      if (result.mode === "endpoint") {
+        toast.success(isDemo ? "Demo request received 🎉" : "Trial request received 🎉", {
+          description: "We'll be in touch within 24 hours.",
+        });
       }
-      toast.error(msg);
-    } finally {
-      setSubmitting(false);
+      setForm({ name: "", email: "", business: "", phone: "", venues: "", message: "" });
+    } else {
+      toast.error(result.error || "Something went wrong. Please try again.");
     }
+    setSubmitting(false);
   };
 
   return (
