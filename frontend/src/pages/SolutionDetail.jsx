@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
@@ -98,22 +98,7 @@ export default function SolutionDetail() {
           </div>
         </div>
 
-        {/* Quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-16 rounded-2xl bg-nua-surface border border-nua-border p-8 sm:p-10"
-        >
-          <Quote className="w-6 h-6" style={{ color: '#750D28' }} />
-          <p className="mt-4 font-display text-xl sm:text-2xl text-nua-ink leading-snug max-w-2xl">
-            &ldquo;{data.quote.text}&rdquo;
-          </p>
-          <div className="mt-4 font-mono text-[11px] uppercase tracking-wider text-nua-ink2">
-            {data.quote.author} · {data.quote.venue}
-          </div>
-        </motion.div>
+
 
         {/* CTA */}
         <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-nua-border bg-nua-bgAlt p-6 sm:p-8">
