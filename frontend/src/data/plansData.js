@@ -74,7 +74,7 @@ export const plans = [
       "Franchise White-Label Mode",
       "Custom integrations & API access",
       "Unlimited locations & users",
-      "Dedicated CSM + 24/7 support",
+      "Dedicated CSM + priority support",
       "Custom onboarding & migration assistance",
     ],
   },

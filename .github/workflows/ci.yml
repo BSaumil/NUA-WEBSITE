@@ -62,6 +62,7 @@ jobs:
         working-directory: frontend
         run: node scripts/verify-prerender.js
 
+
       # Guards the recall path itself: if the legacy branch is deleted, loses
       # its lockfile, or its CNAME changes, EDITH would fail at the moment it
       # is actually needed. Cheap to check on every PR.
@@ -83,10 +84,20 @@ jobs:
       # Scoped to phrases that promise an outcome. Product-behaviour absolutes
       # ("zero paper tickets", "zero clicks") are deliberately allowed — see
       # docs/website-v2/CLAIMS_REGISTER.md for that distinction.
+      #
+      # The second group are commercial representations rather than outcome
+      # absolutes: a price ("$0 markup"), a service level ("24/7 support") and
+      # a settlement time ("settled instantly"). Under Australian Consumer Law
+      # these are representations the business would have to substantiate, and
+      # the first two are the ones a regulator or a customer would actually
+      # test — one is a pricing claim about rates NUA does not set, the other
+      # commits to staffing that has to exist. Removed from copy in this
+      # change; listed here so they cannot drift back in a paraphrase.
       - name: No indefensible absolute claims in site copy
         working-directory: frontend/src
         run: |
           PATTERN='zero downtime|zero fines|zero double-book|never goes down|zero manual logs|100% uptime|guaranteed uptime'
+          PATTERN="$PATTERN"'|\$0 markup|zero markup|no bundled markup|24/7 support|24-7 support|around-the-clock support|settled instantly|settles instantly|instant settlement'
           if grep -rniE "$PATTERN" . --include=*.jsx --include=*.js; then
             echo ""
             echo "::error::Absolute outcome claim found in site copy."

@@ -60,7 +60,7 @@ export default function FinalCta() {
           <span>✓ {TRIAL_DAYS}-day free trial</span>
           <span>✓ No credit card required</span>
           <span>✓ Migration assistance included</span>
-          <span>✓ 24/7 support</span>
+          <span>✓ Support from a real person</span>
         </div>
       </div>
     </section>
