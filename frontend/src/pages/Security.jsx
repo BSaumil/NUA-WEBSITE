@@ -68,7 +68,7 @@ export default function Security() {
               label="ask us directly"
               fallback="email"
               fallbackLabel="email us"
-              className="text-nua-burgundy hover:underline"
+              className="text-nua-burgundy underline underline-offset-2 decoration-nua-burgundy/40 hover:decoration-nua-burgundy"
             />{" "}
             and we'll provide current documentation.
           </p>
@@ -98,7 +98,7 @@ export default function Security() {
           <h2 className="font-display text-xl sm:text-2xl font-bold text-nua-ink tracking-tight">Reporting a concern</h2>
           <p className="mt-3 text-sm text-nua-ink2 leading-relaxed max-w-2xl">
             Found something that looks like a security issue? Email{" "}
-            <a href={`mailto:${SUPPORT_EMAIL}`} className="text-nua-burgundy hover:underline">{SUPPORT_EMAIL}</a>{" "}
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="text-nua-burgundy underline underline-offset-2 decoration-nua-burgundy/40 hover:decoration-nua-burgundy">{SUPPORT_EMAIL}</a>{" "}
             directly: a real person on the engineering team reads that inbox, and we'd rather hear it from you first.
           </p>
         </div>

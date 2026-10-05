@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -18,12 +18,27 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Escape closes the menu and returns focus to the control that opened it.
+  // Without the second half, dismissing the menu drops focus to the top of the
+  // document and a keyboard user has to tab back through the whole header.
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKeyDown = (e) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      toggleRef.current?.focus();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <motion.header
@@ -73,17 +88,20 @@ export default function Navbar() {
         </div>
 
         <button
+          ref={toggleRef}
           onClick={() => setOpen((v) => !v)}
           data-testid="navbar-mobile-toggle"
           className="lg:hidden text-nua-ink p-2 -mr-2"
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-nua-border bg-nua-bg/95 backdrop-blur-xl">
+        <div id="mobile-menu" className="lg:hidden border-t border-nua-border bg-nua-bg/95 backdrop-blur-xl">
           <div className="px-6 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <Link

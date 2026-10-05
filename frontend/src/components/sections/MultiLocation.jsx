@@ -112,7 +112,7 @@ export default function MultiLocation() {
                 </div>
               </div>
 
-              <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
+              <div className="space-y-1 max-h-56 overflow-y-auto pr-1" tabIndex={0}>
                 {locations.slice(0, 8).map((l) => (
                   <div key={l.city} className="flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-nua-bgAlt transition-colors">
                     <div className="flex items-center gap-2">
@@ -135,7 +135,7 @@ export default function MultiLocation() {
           className="mt-20 flex flex-col items-center text-center"
         >
           <span className="font-mono text-[10px] uppercase tracking-widest text-nua-muted mb-5">See it live</span>
-          <div className="overflow-x-auto max-w-full py-1">
+          <div className="overflow-x-auto max-w-full py-1" tabIndex={0}>
             <MultiVenueLiveShowcase />
           </div>
           <p className="mt-4 text-sm text-nua-muted max-w-sm">NUA: Growth OS. Every venue's revenue, live, on one screen.</p>

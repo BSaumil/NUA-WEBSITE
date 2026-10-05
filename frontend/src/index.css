@@ -203,11 +203,68 @@ main > section#hero {
 }
 .animate-trade-in { animation: trade-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
+/* ---------------------------------------------------------------------------
+   Focus visibility — WCAG 2.4.7, Level AA.
+
+   There was no visible focus state anywhere in hand-written app code: zero
+   `focus:` or `focus-visible:` utilities outside the shadcn primitives, which
+   are used almost entirely by a dialog that does not currently render. A
+   keyboard user tabbing the navigation, the module grid or the pricing cards
+   saw nothing move at all.
+
+   This is deliberately one global rule rather than a utility sprinkled per
+   component, because the per-component approach is exactly what produced a
+   site with none: every new link is covered by default and cannot be
+   forgotten. :focus-visible rather than :focus so a mouse click does not
+   leave a ring behind.
+
+   The ring is burgundy with a 2px offset in the page colour, which reads on
+   ivory, on cards and on the burgundyWash selected states. The dark footer
+   needs the inverse or the ring disappears into it.
+--------------------------------------------------------------------------- */
+:focus-visible {
+    outline: 3px solid #750D28;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.bg-nua-dark :focus-visible,
+footer :focus-visible {
+    outline-color: #FAF8F3;
+}
+
+/* A fill that already carries the accent needs the ring to sit outside it in
+   the page colour, otherwise burgundy-on-burgundy is invisible. */
+.bg-nua-burgundy:focus-visible,
+.bg-nua-burgundyDark:focus-visible {
+    outline-color: #29241E;
+}
+
+/* main takes tabIndex={-1} so the skip link can move focus into it. That makes
+   it focusable, and a 3px ring around the entire page is not useful feedback. */
+main:focus,
+main:focus-visible {
+    outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .animate-trade-in { animation: none; }
     /* An infinitely sweeping headline is exactly what this preference is for.
        Held still it keeps the gradient, so the text still reads as burgundy. */
     .text-shimmer { animation: none; background-position: 50% center; }
+
+    /* Everything else that moves. The page carries scroll-reveal transitions,
+       a pulsing status dot, a floating card and a waveform; honouring the
+       preference for two of them and not the rest is the same as not
+       honouring it. Kept to animation and transition so layout is untouched. */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 @keyframes wave {

@@ -193,7 +193,7 @@ export default function Analytics() {
           className="mt-20 flex flex-col items-center text-center"
         >
           <span className="font-mono text-[10px] uppercase tracking-widest text-nua-ink2 mb-5">See it live</span>
-          <div className="overflow-x-auto max-w-full py-4">
+          <div className="overflow-x-auto max-w-full py-4" tabIndex={0}>
             <InsightsCopilotShowcase />
           </div>
           <p className="mt-4 text-sm text-nua-ink2 max-w-sm">NUA: Insights OS. Ask a real question, get a real answer, in dollars.</p>
