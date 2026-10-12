@@ -95,7 +95,7 @@ So the generator knows what space to leave, and so nobody re-adds these to the r
 | Headline and subheading | Live HTML, from page content |
 | NUA logo | `01_BRAND/nua-icon-authoritative-1024.png`, composited as a controlled overlay |
 | Product UI | Real NUA screenshots and components |
-| Prices | `plansData.js` — currently Starter $79, Growth $149, Enterprise $199 per month, Lifetime $3,499 one-time, all AUD |
+| Prices | `plansData.js` — currently Starter $99, Growth $199, Enterprise $299 per month, Lifetime $4,500 one-time ($3,999 promotional until 31 Dec 2026), all AUD plus GST |
 | Legal entity | `siteConfig.js` — `NUA AUS PTY LTD`, ABN 54 299 131 653 |
 | Any customer proof | Only when real and authorised. Until then, §38 requires case studies or "built with operators" content instead — never invented logos or scores. |
 
