@@ -81,7 +81,31 @@ export const plans = [
 ];
 
 export const lifetime = {
-  priceOneTime: 3499,
+  /**
+   * Standard one-time price. `promo` below supersedes it while the promotion
+   * is running, so this is what the price returns to afterwards rather than
+   * what is necessarily on screen today.
+   */
+  priceOneTime: 4500,
+
+  /**
+   * Limited-time offer on the Lifetime plan.
+   *
+   * `endsAt` is the last instant the promotional price applies, written with
+   * an explicit +11:00 offset (Melbourne, AEDT) rather than as a bare date.
+   * A bare "2026-12-31" parses as UTC midnight, which would end the offer at
+   * 11am on the 31st for a customer in Victoria — an hour of the day when
+   * someone reading "until 31 December" is most likely to act on it.
+   *
+   * Set this to null to end the promotion; everything downstream falls back
+   * to priceOneTime with no other edit.
+   */
+  promo: {
+    priceOneTime: 3999,
+    endsAt: "2026-12-31T23:59:59.999+11:00",
+    label: "Until 31 December",
+  },
+
   includesPlanId: "growth",
   badge: "Founding members · limited",
   headlineTop: "One payment. Infinite swipes.",
@@ -103,6 +127,44 @@ export function getIncludedPlan() {
 }
 
 /**
+ * The Lifetime price as it stands right now, plus enough context to show the
+ * saving honestly.
+ *
+ * `now` is a parameter rather than a closed-over `new Date()` so this is
+ * testable and so a caller can ask what the price will be on a given date.
+ *
+ * Evaluated per render, which matters because the site is prerendered: the
+ * static HTML carries whatever was true at build time, and the browser
+ * corrects it on hydration. That makes the live page self-healing for real
+ * visitors the moment the deadline passes, but it does NOT update the static
+ * file a crawler or a link preview reads. A deploy after the promotion ends
+ * is what makes those agree — see PROMO_EXPIRY in the pricing section.
+ *
+ * An unparseable or malformed `endsAt` deliberately resolves to "not on
+ * promotion" rather than throwing or running the offer forever: the standard
+ * price is the safe thing to show when the configuration cannot be trusted.
+ */
+export function getLifetimePricing(now = new Date()) {
+  const standard = lifetime.priceOneTime;
+  const promo = lifetime.promo;
+
+  if (!promo || !(promo.priceOneTime > 0) || !promo.endsAt) {
+    return { price: standard, standard, isPromo: false, endsAt: null, label: null };
+  }
+
+  const endsAt = new Date(promo.endsAt);
+  const active = !Number.isNaN(endsAt.getTime()) && now.getTime() <= endsAt.getTime();
+
+  return {
+    price: active ? promo.priceOneTime : standard,
+    standard,
+    isPromo: active,
+    endsAt: Number.isNaN(endsAt.getTime()) ? null : endsAt,
+    label: active ? promo.label : null,
+  };
+}
+
+/**
  * Derived, not hardcoded: recomputes whenever priceOneTime or the included
  * plan's priceMonthly changes.
  *
@@ -112,13 +174,16 @@ export function getIncludedPlan() {
  * mounted on both `/pricing` and the homepage, so a throw here would blank the
  * site's two highest-traffic pages. Callers must handle null.
  */
-export function getLifetimeEquivalence() {
+export function getLifetimeEquivalence(now = new Date()) {
   const includedPlan = getIncludedPlan();
   // Guards a missing plan and a zero/negative/non-numeric price, either of
   // which would otherwise yield Infinity or NaN in user-facing copy.
   if (!includedPlan || !(includedPlan.priceMonthly > 0)) return null;
 
-  const months = Math.round(lifetime.priceOneTime / includedPlan.priceMonthly);
+  // The price actually on offer, not the standard one. Quoting the break-even
+  // of a price the visitor is not being asked to pay would understate the
+  // promotion while it runs.
+  const months = Math.round(getLifetimePricing(now).price / includedPlan.priceMonthly);
   return {
     months,
     breakEvenYears: Math.ceil(months / 12),

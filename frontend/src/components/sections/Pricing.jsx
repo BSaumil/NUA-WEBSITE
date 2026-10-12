@@ -3,13 +3,20 @@ import { motion } from "framer-motion";
 import { Check, Sparkles, ArrowRight, Infinity as InfinityIcon, Zap } from "lucide-react";
 import LeadCta from "@/components/LeadCta";
 import { TRIAL_DAYS } from "@/config/siteConfig";
-import { plans, lifetime, getLifetimeEquivalence } from "@/data/plansData";
+import { plans, lifetime, getLifetimeEquivalence, getLifetimePricing } from "@/data/plansData";
 
 export default function Pricing() {
   // null when lifetime.includesPlanId no longer matches a plan — the block that
   // uses it is skipped rather than crashing this section, which also renders on
   // the homepage.
   const equivalence = getLifetimeEquivalence();
+
+  // PROMO_EXPIRY: resolved per render from the current date, so the moment the
+  // deadline passes a live visitor sees the standard price without a deploy.
+  // The prerendered HTML is a snapshot of build time, so a crawler or a link
+  // preview keeps showing the promotional price until the site is next built.
+  // Deploy once after the deadline to bring those back into line.
+  const lifetimePrice = getLifetimePricing();
 
   return (
     <section id="pricing" data-testid="pricing-section" className="relative py-24 lg:py-32 bg-nua-bgAlt text-nua-ink">
@@ -166,16 +173,43 @@ export default function Pricing() {
                     </span>
                   </div>
 
-                  <div className="flex items-baseline gap-2">
+                  <div className="flex items-baseline gap-2 flex-wrap">
                     <span className="font-mono text-sm text-nua-ink2">AUD</span>
                     <span className="font-display text-6xl font-bold text-nua-ink tracking-tight">
-                      ${lifetime.priceOneTime.toLocaleString()}
+                      ${lifetimePrice.price.toLocaleString()}
                     </span>
                     <span className="font-display text-2xl font-bold text-nua-ink2">*</span>
+                    {lifetimePrice.isPromo && (
+                      <span className="font-display text-2xl font-bold text-nua-ink2">
+                        {/*
+                          The standard price, struck through. `line-through`
+                          alone would leave a screen reader announcing two
+                          prices with nothing to separate them, so the <s> is
+                          labelled and the visible text is hidden from the
+                          accessibility tree.
+                        */}
+                        <s aria-hidden="true">${lifetimePrice.standard.toLocaleString()}</s>
+                        <span className="sr-only">
+                          Reduced from ${lifetimePrice.standard.toLocaleString()} AUD plus GST
+                        </span>
+                      </span>
+                    )}
                   </div>
                   <div className="mt-1 font-mono text-[11px] text-nua-ink2 uppercase tracking-wider">
                     + GST · paid once
                   </div>
+                  {lifetimePrice.isPromo && (
+                    <div
+                      data-testid="pricing-lifetime-promo"
+                      className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-nua-burgundyWash border border-nua-burgundy/30"
+                    >
+                      <Zap className="w-3 h-3 text-nua-burgundy" aria-hidden="true" />
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-nua-burgundy">
+                        {lifetimePrice.label} · save $
+                        {(lifetimePrice.standard - lifetimePrice.price).toLocaleString()} + GST
+                      </span>
+                    </div>
+                  )}
 
                   {equivalence && (
                     <div className="mt-4 p-3 rounded-lg bg-nua-burgundyWash border border-nua-burgundy/20">
@@ -188,7 +222,11 @@ export default function Pricing() {
 
                   <LeadCta
                     type="demo"
-                    plan={`Lifetime ($${lifetime.priceOneTime.toLocaleString()} + GST)`}
+                    plan={
+                      lifetimePrice.isPromo
+                        ? `Lifetime ($${lifetimePrice.price.toLocaleString()} + GST, ${lifetimePrice.label.toLowerCase()}; standard $${lifetimePrice.standard.toLocaleString()} + GST)`
+                        : `Lifetime ($${lifetimePrice.price.toLocaleString()} + GST)`
+                    }
                     label="Claim lifetime access"
                     icon={ArrowRight}
                     testId="pricing-lifetime-cta"
