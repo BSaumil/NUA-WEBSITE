@@ -85,7 +85,7 @@ const verticalsData = [
       { q: "Does the loyalty program need customers to download an app?", a: "No. NUA issues an Apple or Google Wallet pass that guests add with one tap, so there is no app install standing between a regular and their second visit." },
       { q: "Can NUA handle takeaway and QR ordering alongside counter service?", a: "Yes. Takeaway and QR orders route into the same order flow and kitchen stations as counter orders, so staff work one queue rather than watching several screens." },
       { q: "How does it help with waste?", a: "Recipe-level stock tracking shows what is actually being consumed versus sold, and Auto Specials can draft a promotion for items approaching expiry before they become a write-off." },
-      { q: "Is it affordable for a single cafe?", a: "The Starter plan is $79 AUD per venue per month plus GST and includes POS, bookings, KDS, loyalty, Voice POS and the AI agent in Suggest mode. Pricing shown is indicative; confirm a formal quote for your venue." },
+      { q: "Is it affordable for a single cafe?", a: "The Starter plan is $99 AUD per venue per month plus GST and includes POS, bookings, KDS, loyalty, Voice POS and the AI agent in Suggest mode. Pricing shown is indicative; confirm a formal quote for your venue." },
     ],
   },
   {

@@ -8,7 +8,7 @@ export const plans = [
   {
     id: "starter",
     name: "Starter",
-    priceMonthly: 79,
+    priceMonthly: 99,
     period: "per venue / mo",
     desc: "For single-venue operators ready to switch on intelligence.",
     accent: "#a1a1aa",
@@ -32,7 +32,7 @@ export const plans = [
   {
     id: "growth",
     name: "Growth",
-    priceMonthly: 149,
+    priceMonthly: 199,
     period: "per venue / mo",
     desc: "Multi-venue brands scaling with autonomous ops.",
     accent: "#8b5cf6",
@@ -58,7 +58,7 @@ export const plans = [
   {
     id: "enterprise",
     name: "Enterprise",
-    priceMonthly: 199,
+    priceMonthly: 299,
     period: "per venue / mo",
     desc: "Hospitality groups, franchises and chains.",
     accent: "#f58c14",
